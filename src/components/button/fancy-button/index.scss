@@ -1,0 +1,55 @@
+.fancy-button {
+    &::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: transparent linear-gradient(104deg, #f556b8 0%, #14c5f0 100%) 0% 0% border-box;
+        border: 1.6px solid transparent; /*2*/
+        border-radius: 11px;
+        -webkit-mask: /*4*/ linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+        -webkit-mask-composite: xor; /*5'*/
+        mask-composite: exclude; /*5*/
+    }
+
+    &:hover {
+        box-shadow: 0px 0px 2px 1px rgba(0, 47, 255, 0.35), 0px 0px 3px 1px rgba(255, 0, 255, 0.35);
+    }
+
+    &:active {
+        box-shadow: 0px 0px 0px 0px rgba(0, 47, 255, 0.35), 0px 0px 3px 1px rgba(255, 0, 255, 0.35);
+    }
+
+    margin: 1em;
+
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+
+    height: 2.5em;
+    transition-duration: 0.07s;
+
+    border-radius: 12px;
+    background-color: rgba(255, 255, 255, 0.7);
+    color: var(--secondary);
+    padding: 1em;
+    cursor: pointer;
+
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.fancy-button.loading {
+    .loading {
+        width: 1em;
+        height: 1em;
+        border-width: 0.1em;
+        color: var(--secondary) !important;
+    }
+
+    gap: 0.4em;
+}

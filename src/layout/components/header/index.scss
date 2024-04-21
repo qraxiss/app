@@ -1,0 +1,8 @@
+header.header {
+    height: var(--header-height);
+    position: sticky;
+    top: 0;
+    width: var(--content-widht);
+    --header-top-height: 80%;
+    --header-bottom-height: calc(100% - var(--header-top-height));
+}
