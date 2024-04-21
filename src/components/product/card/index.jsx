@@ -1,5 +1,4 @@
 import FancyButton from '../../button/fancy-button'
-import { Link } from 'react'
 import './index.scss'
 
 export default function ProductCard({ product: { name, slug, price, image } }) {
@@ -7,7 +6,7 @@ export default function ProductCard({ product: { name, slug, price, image } }) {
         //to={`/product-details/${slug}`}
         <div className="product-card" key={slug}>
             <div className="name">{name}</div>
-            <img src={image} />
+            <img src={image} alt="product" />
             <div className="price">{price}</div>
             <FancyButton>BUY</FancyButton>
         </div>
