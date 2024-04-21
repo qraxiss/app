@@ -8,8 +8,8 @@ import Layout from './layout'
 function App() {
     return (
         <Layout>
-            <Products></Products>
             <ConnectWallet></ConnectWallet>
+            <Products></Products>
         </Layout>
     )
 }

@@ -20,7 +20,7 @@ export function ConnectWallet() {
             }}
             state={status}
         >
-            {jwt}
+            {jwt ? jwt : 'Connect'}
         </FancyButton>
     )
 }
