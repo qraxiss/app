@@ -18,6 +18,6 @@ export default function Products() {
             </div>
         )
     } else {
-        return <div className="test">sa</div>
+        return <div className="loading">loading</div>
     }
 }
