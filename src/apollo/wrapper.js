@@ -1,5 +1,3 @@
-import { useMutation as useMutationApollo, useLazyQuery as useLazyQueryApollo, useQuery as useQueryApollo } from '@apollo/client'
-
 import { client } from './provider'
 
 function handle(fn) {
