@@ -1,7 +1,7 @@
 import * as queries from './graphql/queries'
 import { query } from '../../apollo/wrapper'
 
-export default {
+const reducers = {
     products(state) {
         query({ name: 'products', query: queries.products }).then((data) => {
             console.log(data)
@@ -9,3 +9,5 @@ export default {
         })
     }
 }
+
+export default reducers
