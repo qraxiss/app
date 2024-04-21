@@ -4,20 +4,18 @@ import { useQuery } from '../../utils/wrapper'
 
 import './index.scss'
 
-export default function Products() {
-    const { data, status } = useQuery({
+// import { Suspense } from 'react'
+
+export function Products() {
+    const { data } = useQuery({
         query: queries.products
     })
 
-    if (status === 'success') {
-        return (
-            <div className="products">
-                {data.map((product) => (
-                    <ProductCard product={product} />
-                ))}
-            </div>
-        )
-    } else {
-        return <div className="loading">loading</div>
-    }
+    return (
+        <div className="products">
+            {data?.map((product) => (
+                <ProductCard product={product} key={product.slug} />
+            ))}
+        </div>
+    )
 }

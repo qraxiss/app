@@ -11,9 +11,11 @@ import { ApolloProvider } from './apollo/utils/provider'
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
-    <Provider store={store}>
-        <ApolloProvider>
-            <App />
-        </ApolloProvider>
-    </Provider>
+    <React.StrictMode>
+        <Provider store={store}>
+            <ApolloProvider>
+                <App />
+            </ApolloProvider>
+        </Provider>
+    </React.StrictMode>
 )

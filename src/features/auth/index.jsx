@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 
 import { connectWalletAsync, selectJwt, selectStatus } from './slice'
@@ -8,10 +8,6 @@ export function ConnectWallet() {
     const jwt = useSelector(selectJwt)
     const status = useSelector(selectStatus)
     const dispatch = useDispatch()
-
-    useEffect(() => {
-        console.log(status)
-    }, [status])
 
     return (
         <FancyButton

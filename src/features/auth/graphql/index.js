@@ -12,6 +12,5 @@ export function connectWallet({ address }) {
         }
     })
 
-    promise.catch(console.log)
     return promise
 }

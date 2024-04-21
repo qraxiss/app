@@ -30,13 +30,11 @@ export const authSlice = createSlice({
     extraReducers: (builder) => {
         builder
             .addCase(connectWalletAsync.pending, (state) => {
-                console.log('sa')
                 state.status = 'loading'
             })
             .addCase(connectWalletAsync.fulfilled, (state, action) => {
                 state.status = 'logged'
                 state.jwt = action.payload
-                console.log('as')
             })
     }
 })

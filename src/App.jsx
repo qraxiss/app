@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { ConnectWallet } from './features/auth'
-import Products from './apollo/components/product'
+import { Products } from './apollo/components/product'
 
 import Layout from './layout'
 
