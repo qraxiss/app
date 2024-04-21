@@ -1,7 +1,15 @@
-import { Card } from 'react-bootstrap'
-
+import FancyButton from '../../button/fancy-button'
+import { Link } from 'react'
 import './index.scss'
 
-export default function ProductCard({ children: { name, slug, price, image } }) {
-    return <Card className="product-card">{name}</Card>
+export default function ProductCard({ product: { name, slug, price, image } }) {
+    return (
+        //to={`/product-details/${slug}`}
+        <div className="product-card" key={slug}>
+            <div className="name">{name}</div>
+            <img src={image} />
+            <div className="price">{price}</div>
+            <FancyButton>BUY</FancyButton>
+        </div>
+    )
 }

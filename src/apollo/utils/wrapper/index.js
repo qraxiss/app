@@ -140,8 +140,7 @@ export function useMutation({ mutation, options, notFound }) {
 export function useQuery({ query, options, notFound }) {
     const jwt = localStorage.getItem('jwt')
 
-    const { data, error, loading, refetch, called } = apolloQuery({
-        query,
+    const { data, error, loading, refetch, called } = apolloQuery(query, {
         ...options,
         context: {
             headers: jwt
