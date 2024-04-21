@@ -1,13 +1,14 @@
 import React from 'react'
-import { Counter } from './features/counter/Counter'
 import './App.scss'
+
+import { ConnectWallet } from './features/auth'
 
 import Layout from './layout'
 
 function App() {
     return (
         <Layout>
-            <Counter />
+            <ConnectWallet></ConnectWallet>
         </Layout>
     )
 }

@@ -41,10 +41,15 @@
     display: inline-flex;
     justify-content: center;
     align-items: center;
+
+    .loading {
+        display: none;
+    }
 }
 
 .fancy-button.loading {
     .loading {
+        display: unset;
         width: 1em;
         height: 1em;
         border-width: 0.1em;

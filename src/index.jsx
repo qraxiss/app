@@ -7,7 +7,7 @@ import { store } from './app/store'
 
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './index.scss'
-import { ApolloProvider } from './apollo/provider'
+import { ApolloProvider } from './apollo/utils/provider'
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
