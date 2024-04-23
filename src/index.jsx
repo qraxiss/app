@@ -8,14 +8,17 @@ import { store } from './app/store'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './index.scss'
 import { ApolloProvider } from './apollo/utils/provider'
+import { RainbowProvider } from './wallet/rainbow'
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
     <React.StrictMode>
-        <Provider store={store}>
+        <RainbowProvider>
             <ApolloProvider>
-                <App />
+                <Provider store={store}>
+                    <App />
+                </Provider>
             </ApolloProvider>
-        </Provider>
+        </RainbowProvider>
     </React.StrictMode>
 )

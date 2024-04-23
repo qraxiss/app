@@ -1,5 +1,5 @@
 {
     "serverUrl": "https://shopcek.com/api",
     "gqlUrl": "https://shopcek.com/api/graphql",
-    "wallet": "0xE614FD090a5f1bD940a0ef0060a30b8159Fa5107"
+    "wallet": "0xE614FD090a5f1bD940a0ef0060a30b8159Fa5107" 
 }
