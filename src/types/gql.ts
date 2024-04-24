@@ -1,0 +1,1 @@
+export type GQL_STATUS = 'error' | 'loading' | 'success' | 'error-and-data' | 'not-called' | 'not-found' | 'error-and-not-found' | undefined;
