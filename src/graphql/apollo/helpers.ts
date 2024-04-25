@@ -97,7 +97,6 @@ export const query = async <DType>(
         }
     }
     //@ts-ignore
-    console.log(response)
     const data = (response.data ? simplifyResponse(response.data) : response.data) as DType | undefined
     let status: GQL_STATUS
     if (data) {

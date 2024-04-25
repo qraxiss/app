@@ -13,7 +13,7 @@ import chains from './chains'
 
 export const wagmiConfig = getDefaultConfig({
     appName: 'ShopcekApp',
-    projectId: process.env.REACT_WEB3MODAL_PROJECT_ID ?? '',
+    projectId: 'e2d0ce35fa2c99ac5578cba14294027b',
     chains
 })
 
