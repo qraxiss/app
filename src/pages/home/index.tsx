@@ -1,14 +1,5 @@
 import React from 'react';
-import Collection from './Collection';
-import Service from './CollectionService';
-import LastestCollection from './Slider/LatestCollection';
-import Shopping from './ShopingService';
-import TopProducts from './TopProduct';
-import CollectionSlider from './Slider/CollectionSlider';
-import Shoping from './Shopping';
-import FollowUs from './FollowUs';
-import Banner from 'components/home/banner';
-import Premium from 'components/home/premium';
+import { Banner, DealofDay, Instagram, NewArrival, Premium, TopPicks, WhyChoose } from 'components/home';
 
 const Home = () => {
     document.title = "Shopcek";
@@ -17,13 +8,11 @@ const Home = () => {
         <React.Fragment>
             <Banner />
             <Premium />
-            <Service />
-            <TopProducts />
-            <Shopping />
-            <LastestCollection />
-            <CollectionSlider />
-            <Shoping />
-            <FollowUs />
+            <TopPicks />
+            <DealofDay />
+            <NewArrival />
+            <WhyChoose />
+            <Instagram />
         </React.Fragment>
     );
 }

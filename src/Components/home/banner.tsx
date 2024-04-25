@@ -4,7 +4,7 @@ import { Button, Card, Col, Row } from 'react-bootstrap'
 import img3 from 'assets/images/home/1.png'
 import img5 from 'assets/images/home/2.png'
 
-const Banner = () => {
+export const Banner = () => {
     return (
         <React.Fragment>
             <section className="trend-fashion-home">
@@ -48,5 +48,3 @@ const Banner = () => {
         </React.Fragment>
     )
 }
-
-export default Banner

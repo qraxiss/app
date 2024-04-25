@@ -12,9 +12,9 @@ import instagram1 from 'assets/images/ecommerce/instagram/img-1.jpg';
 import instagram2 from 'assets/images/ecommerce/instagram/img-2.jpg';
 import instagram5 from "assets/images/ecommerce/instagram/img-5.jpg";
 //component
-import { CommonProduct, DefauilOffer } from "components/ProductSilde";
+import { CommonProduct, DefauilOffer } from "components/product-silde";
 import { catagoriesData, ellipsCategories, sliderCategories } from "common/data";
-import { CommonService } from "components/CommonService";
+import { CommonService } from "components/common-service";
 
 export const TopCategoies = ({ title }: any) => {
     return (

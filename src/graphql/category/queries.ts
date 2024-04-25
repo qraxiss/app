@@ -6,6 +6,31 @@ export const GET_CATEGORIES = gql`
     data {
       attributes {
         slug
+        name
+        sub_categories {
+          data {
+            attributes {
+              slug
+              name
+            }
+          }
+        
+        }
+        icon {
+          data {
+            attributes {
+              url
+            }
+          }
+        }
+        
+        banner {
+          data {
+            attributes {
+              url
+            }
+          }
+        }
       }
     }
   }

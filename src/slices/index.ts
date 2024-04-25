@@ -1,10 +1,11 @@
 import { combineReducers } from "@reduxjs/toolkit";
 
-//front
 import LayoutReducer from "./layouts/reducer";
+import categoryReducer from "./category/slice";
 
-const rootreducer = combineReducers({
-    Layout: LayoutReducer
+const rootReducer = combineReducers({
+    Layout: LayoutReducer,
+    categories: categoryReducer,
 })
 
-export default rootreducer;
+export default rootReducer;

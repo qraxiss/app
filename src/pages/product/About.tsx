@@ -8,8 +8,8 @@ import ecommerce3 from "assets/images/ecommerce/img-3.jpg";
 import ecommerce4 from "assets/images/ecommerce/img-4.jpg";
 import ecommerce5 from 'assets/images/ecommerce/img-5.jpg';
 import { aboutCard, aboutManagement } from "common/data";
-import { DefauilOffer } from "components/ProductSilde";
-import { CommonService } from "components/CommonService";
+import { DefauilOffer } from "components/product-silde";
+import { CommonService } from "components/common-service";
 
 const About = () => {
     return (

@@ -1,9 +1,9 @@
 import React from "react"
 import { Alert, Card, Col, Container, Row, Table,Image } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { CommonService } from "components/CommonService";
-import { PublishedProduct } from "components/ProductSilde";
-import EmailClothe from "pages/catalog/EmailClothe";
+import { CommonService } from "components/common-service";
+import { PublishedProduct } from "components/product-silde";
+import EmailClothe from "pages/catalog/email-clothe";
 import { invioceRecod } from "common/data";
 
 //img

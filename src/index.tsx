@@ -1,23 +1,19 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import reportWebVitals from './reportWebVitals'
-import { Provider as ReduxProvider } from 'react-redux'
-import { configureStore } from '@reduxjs/toolkit'
-import App from './App'
-import rootreducer from 'slices'
-import { ShopcekApolloProvider } from './graphql/apollo/provider'
+import ReactDOM from "react-dom/client";
+import reportWebVitals from "./reportWebVitals";
+import { Provider as ReduxProvider } from "react-redux";
+import App from "./App";
+import { ShopcekApolloProvider } from "./graphql/apollo/provider";
+import { store } from "store";
 
-const store = configureStore({ reducer: rootreducer, devTools: true })
-
-const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
+const root = ReactDOM.createRoot(
+  document.getElementById("root") as HTMLElement
+);
 root.render(
-    <ReduxProvider store={store}>
-        <React.Fragment>
-            <ShopcekApolloProvider>
-                <App />
-            </ShopcekApolloProvider>
-        </React.Fragment>
-    </ReduxProvider>
-)
+  <ReduxProvider store={store}>
+    <ShopcekApolloProvider>
+      <App />
+    </ShopcekApolloProvider>
+  </ReduxProvider>
+);
 
-reportWebVitals()
+reportWebVitals();

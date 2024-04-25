@@ -8,18 +8,22 @@ import logodark from "assets/images/logo-dark.png";
 import logolight from "assets/images/logo-light.png";
 import avtar1 from "assets/images/users/avatar-1.jpg";
 
-import { CardModal, SearchModal } from "components/MainModal";
+import { CardModal, SearchModal } from "components/main-modal";
 import { withTranslation } from "react-i18next";
-import withRouter from "components/withRouter";
+import withRouter from "components/with-router";
 import { GET_CATEGORIES } from "graphql/category/queries";
 import { useShopcekQuery } from "graphql/apollo/query-wrapper";
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchCategories } from "slices/category/thunk";
+import { AppDispatch } from "store";
 
 const Header = (props: any) => {
     //search modal
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
-    const { data } = useShopcekQuery<string[]>(GET_CATEGORIES);
+    const categories = useSelector((state: any) => state.categories.categories);
+    const dispatch: AppDispatch = useDispatch();
 
     //card modal
     const [card, setCard] = useState(false);
@@ -32,6 +36,11 @@ const Header = (props: any) => {
     const [showPageSubMenu, setShowPageSubMenu] = useState<any>("")
 
     const path = props.router.location.pathname;
+
+    useEffect(() => {
+        dispatch(fetchCategories());
+      }, [dispatch]);
+
     useEffect(() => {
         const initMenu = () => {
             const pathName = process.env.PUBLIC_URL + path;
@@ -146,11 +155,13 @@ const Header = (props: any) => {
                                 <Link to="/#" className="d-block p-3 h-auto text-center"><Image src={logolight} alt="" height="25" className="card-logo-light mx-auto" /></Link>
                             </li>
 
-                            {data?.map((item: any, index: number) => (<li className="nav-item" key={`category-${index+1}`}>
-                                <Link className="nav-link" to={`/${item.slug}`} data-key="t-slug">{ item.slug.toUpperCase() }</Link>
-                            </li>))}
-
-                            
+                            {categories?.map((item: any, index: number) => (
+                                <li className="nav-item" key={`category-${index+1}`}>
+                                    <Link className="nav-link" to={`/${item.slug}`} data-key="t-slug">
+                                        <img src={`${process.env.REACT_APP_API_URL}/${item.icon.url}`} alt={item.name} width={20} height={20} /> { item.name }
+                                    </Link>
+                                </li>
+                            ))}
                         </Nav>
                     </Navbar.Collapse>
 

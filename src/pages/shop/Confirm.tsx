@@ -2,10 +2,10 @@ import React from "react";
 import { Card, Col, Container, Image, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
-import { Shoptopbar } from "components/ShopTopBar";
+import { Shoptopbar } from "components/shop-top-bar";
 import success from "assets/images/success-img.png";
-import EmailClothe from "pages/catalog/EmailClothe";
-import { CommonService } from "components/CommonService";
+import EmailClothe from "pages/catalog/email-clothe";
+import { CommonService } from "components/common-service";
 
 const Confirm = () => {
     document.title = "Order Completed | Toner - React FrontEnd";

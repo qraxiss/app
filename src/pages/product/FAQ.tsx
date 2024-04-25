@@ -1,5 +1,5 @@
 import { faqquetion } from "common/data";
-import { ContactHelp } from "components/CommonService";
+import { ContactHelp } from "components/common-service";
 import React from "react";
 import { Card, Col, Container, Row, Button,  Breadcrumb, Accordion } from "react-bootstrap";
 import { Link } from "react-router-dom";

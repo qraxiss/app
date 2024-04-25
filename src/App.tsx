@@ -1,13 +1,12 @@
 import React from 'react';
 
 import "./assets/scss/themes.scss";
-
-import Route from './routes';
+import { AppRouter } from 'routes';
 
 function App() {
   return (
     <React.Fragment>
-      <Route />
+      <AppRouter />
     </React.Fragment>
   );
 }

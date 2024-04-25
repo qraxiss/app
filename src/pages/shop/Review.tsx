@@ -1,8 +1,8 @@
 import React from "react";
 import { Card, Col, Container, Image, Row } from "react-bootstrap";
 //component
-import { ContactHelp } from "components/CommonService";
-import { Shoptopbar } from "components/ShopTopBar";
+import { ContactHelp } from "components/common-service";
+import { Shoptopbar } from "components/shop-top-bar";
 import { shopReviews } from "common/data";
 
 const Review = () => {

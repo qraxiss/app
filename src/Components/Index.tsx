@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import CatalogCollection from "pages/catalog/CatalogCollection";
-import Filters from "pages/catalog/Filters";
+import CatalogCollection from "pages/catalog/catalog-collection";
+import Filters from "pages/catalog/filters";
 import { filterProduct } from "common/data";
 
 const Index = ({ name, cxxl, clg, cmd,cxl }: any) => {

@@ -2,11 +2,11 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Button } from "react-bootstrap";
 import { useLocation } from 'react-router-dom';
-import { changeLayoutMood, changeThemeMood } from 'slices/thunk';
-import Footer from './Footer';
-import Header from "./Header";
-import { MainModal } from 'components/MainModal';
+import Footer from './footer';
+import Header from "./header";
+import { MainModal } from 'components/main-modal';
 import { createSelector } from 'reselect';
+import { changeLayoutMood, changeThemeMood } from 'slices/thunk';
 
 const Layout = (props: any) => {
 
