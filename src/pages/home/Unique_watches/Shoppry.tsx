@@ -1,4 +1,4 @@
-import { servicedata, shoprry } from 'Common/data/AboutusData'
+import { servicedata, shoprry } from 'common/data/AboutusData'
 import React from 'react'
 import { Button, Col, Container, OverlayTrigger, Popover, Row } from 'react-bootstrap'
 const Shoppry = () => {

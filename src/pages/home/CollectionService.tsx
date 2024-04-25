@@ -1,12 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Container, Row, Col, Image } from "react-bootstrap";
-import { CommonService } from "Components/CommonService";
+import { CommonService } from "components/CommonService";
 
 //img
 import featuresimg3 from 'assets/images/ecommerce/features/img-3.jpg';
 import featuresimg1 from 'assets/images/ecommerce/features/img-1.jpg';
-import { CommonTitle } from "Components/Homepage";
+import { CommonTitle } from "components/Homepage";
 
 const Service = () => {
     return (

@@ -1,6 +1,6 @@
 import React from 'react'
 import { Col, Row ,Card} from 'react-bootstrap';
-import {cardData} from "Common/data/ModernFashion";
+import {cardData} from "common/data/ModernFashion";
 const CardData = () => {
   return (
     <React.Fragment>

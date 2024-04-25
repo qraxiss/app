@@ -1,8 +1,8 @@
 import React from "react";
-import { Shoptopbar } from "Components/ShopTopBar";
+import { Shoptopbar } from "components/ShopTopBar";
 import EmailClothe from "pages/catalog/EmailClothe";
 import Selectaddress from "./Selectaddress";
-import { CommonService } from "Components/CommonService";
+import { CommonService } from "components/CommonService";
 
 const Shopindex = () => {
     document.title = "Address | Toner - React FrontEnd";

@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 import React, { useState, useMemo, useEffect } from "react";
 import { Form, Row, Col, Card, Button, Image } from 'react-bootstrap';
-import { filterProduct } from "Common/data";
-import Pagination from "Components/Pagination";
+import { filterProduct } from "common/data";
+import Pagination from "components/Pagination";
 
 const CatalogCollection = ({ cxxl, cxl, clg, cmd, cheight, filterList }: any) => {
     //select

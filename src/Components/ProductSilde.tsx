@@ -2,7 +2,7 @@ import React, { useState, useMemo, useEffect } from "react";
 import { Col, Container, Row, Card, Button, Form, Breadcrumb, Image } from 'react-bootstrap';
 import { Link } from "react-router-dom";
 import Nouislider from "nouislider-react";
-import { product } from "Common/data";
+import { product } from "common/data";
 
 //img
 import features1 from "assets/images/ecommerce/features/img-1.jpg";

@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { Container } from "react-bootstrap";
-import { CommonService } from "Components/CommonService";
-import HotDeals from "Components/HotDeals";
+import { CommonService } from "components/CommonService";
+import HotDeals from "components/HotDeals";
 import EmailClothe from "pages/catalog/EmailClothe";
-import { ProductGrid, ProductSelector } from 'Components/ProductSilde';
-import ListProductData from "Components/ListProductData";
-import { filterProduct } from "Common/data";
+import { ProductGrid, ProductSelector } from 'components/ProductSilde';
+import ListProductData from "components/ListProductData";
+import { filterProduct } from "common/data";
 
 const Listnoslider = () => {
 

@@ -1,10 +1,10 @@
 import React from "react"
 import { Container } from "react-bootstrap";
-import { CommonService } from "Components/CommonService";
-import { ProductGrid } from "Components/ProductSilde";
-import { BrandedProduct } from "Components/ShopTopBar";
+import { CommonService } from "components/CommonService";
+import { ProductGrid } from "components/ProductSilde";
+import { BrandedProduct } from "components/ShopTopBar";
 import EmailClothe from "pages/catalog/EmailClothe";
-import Index from "Components/Index";
+import Index from "components/Index";
 
 const LeftSideBar = () => {
     return (

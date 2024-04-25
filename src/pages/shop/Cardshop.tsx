@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Card, Col, Row, Button, Form, Image } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { productData } from "Common/data";
-import { Shoporder } from "Components/ShopTopBar";
-import DeleteModal from "Components/DeleteModal";
+import { productData } from "common/data";
+import { Shoporder } from "components/ShopTopBar";
+import DeleteModal from "components/DeleteModal";
 
 const Cardshop = () => {
     const [productcount, setProductcount] = useState(productData);

@@ -5,8 +5,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
-import { slider } from "Common/data";
-import { CommonTitle } from "Components/Homepage";
+import { slider } from "common/data";
+import { CommonTitle } from "components/Homepage";
 
 //img
 import paypal from "assets/images/clients/paypal.svg";

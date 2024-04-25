@@ -1,9 +1,9 @@
 import React from "react"
 import { Card, Col, Container, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { PublishedProduct } from "Components/ProductSilde";
+import { PublishedProduct } from "components/ProductSilde";
 import EmailClothe from "pages/catalog/EmailClothe";
-import { CommonService } from "Components/CommonService";
+import { CommonService } from "components/CommonService";
 
 const Termsconditions = () => {
     return (

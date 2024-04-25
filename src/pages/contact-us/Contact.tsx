@@ -2,7 +2,7 @@ import React from "react";
 import * as Yup from 'yup';
 import { useFormik } from "formik";
 import { Button, Card, Col, Container, Form, Row } from "react-bootstrap";
-import { contactdetails } from "Common/data";
+import { contactdetails } from "common/data";
 
 const ContactUs = () => {
     const formik = useFormik({

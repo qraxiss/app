@@ -1,8 +1,8 @@
 import React from "react";
 import EmailClothe from "pages/catalog/EmailClothe";
 import Payment from "./Payment";
-import { BrandedProduct, Shoptopbar } from "Components/ShopTopBar";
-import { CommonService } from "Components/CommonService";
+import { BrandedProduct, Shoptopbar } from "components/ShopTopBar";
+import { CommonService } from "components/CommonService";
 
 
 const PaymentIndex = () => {

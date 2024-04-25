@@ -3,7 +3,7 @@ import Nouislider from "nouislider-react";
 import "nouislider/distribute/nouislider.css";
 import { Collapse, Button, Card, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { product } from 'Common/data';
+import { product } from 'common/data';
 
 const Productfilter = ({ name, setSelect }: any) => {
 

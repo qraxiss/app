@@ -2,8 +2,8 @@ import React from "react"
 import { Container, Row, Col, Card, Image } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
-import { shopingsCollection } from "Common/data";
-import { CommonTitle } from "Components/Homepage";
+import { shopingsCollection } from "common/data";
+import { CommonTitle } from "components/Homepage";
 
 const Shoping = () => {
     return (

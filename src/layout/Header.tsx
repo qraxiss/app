@@ -8,9 +8,9 @@ import logodark from "assets/images/logo-dark.png";
 import logolight from "assets/images/logo-light.png";
 import avtar1 from "assets/images/users/avatar-1.jpg";
 
-import { CardModal, SearchModal } from "Components/MainModal";
+import { CardModal, SearchModal } from "components/MainModal";
 import { withTranslation } from "react-i18next";
-import withRouter from "Components/withRouter";
+import withRouter from "components/withRouter";
 import { GET_CATEGORIES } from "graphql/category/queries";
 import { useShopcekQuery } from "graphql/apollo/query-wrapper";
 

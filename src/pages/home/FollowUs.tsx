@@ -9,7 +9,7 @@ import Img3 from 'assets/images/ecommerce/instagram/img-3.jpg';
 import Img4 from 'assets/images/ecommerce/instagram/img-4.jpg';
 import Img5 from 'assets/images/ecommerce/instagram/img-5.jpg';
 import Img6 from 'assets/images/ecommerce/instagram/img-6.jpg';
-import { CommonTitle } from "Components/Homepage";
+import { CommonTitle } from "components/Homepage";
 
 export const folloImg = [
     { id: 1, img: Img1 },

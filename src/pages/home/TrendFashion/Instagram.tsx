@@ -1,7 +1,7 @@
 import React from 'react'
 import { Button, Col, Image, OverlayTrigger, Popover, Row } from 'react-bootstrap'
 
-import { instadata } from 'Common/data/topPicksData'
+import { instadata } from 'common/data/topPicksData'
 
 const Instagram = () => {
 

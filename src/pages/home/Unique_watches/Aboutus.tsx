@@ -1,7 +1,7 @@
 import React from 'react'
 import { Card, Col, Container, Row } from 'react-bootstrap'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { aboutus } from 'Common/data/AboutusData'
+import { aboutus } from 'common/data/AboutusData'
 import { Autoplay, Navigation } from 'swiper/modules'
 import "swiper/css";
 import "swiper/css/pagination";

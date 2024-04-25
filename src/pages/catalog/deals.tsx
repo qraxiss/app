@@ -2,7 +2,7 @@ import React from "react";
 import { Card, Col, Container, Image, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Countdown from "react-countdown";
-import { catlogDeals } from "Common/data";
+import { catlogDeals } from "common/data";
 
 interface dealse {
     days: number;

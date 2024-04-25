@@ -2,10 +2,10 @@ import React, { useState } from "react"
 import { Col, Container, Row, Table, Button, Image } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import EmailClothe from "pages/catalog/EmailClothe";
-import { orderHistorys } from "Common/data";
-import { Shoptopbar } from "Components/ShopTopBar";
-import { CommonService } from "Components/CommonService";
-import { InvoiceModal } from "Components/MainModal";
+import { orderHistorys } from "common/data";
+import { Shoptopbar } from "components/ShopTopBar";
+import { CommonService } from "components/CommonService";
+import { InvoiceModal } from "components/MainModal";
 
 const Orderhistory = () => {
     document.title = "Order History | Toner - React FrontEnd";

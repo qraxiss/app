@@ -7,9 +7,9 @@ import ecommerce1 from "assets/images/ecommerce/img-1.jpg";
 import ecommerce3 from "assets/images/ecommerce/img-3.jpg";
 import ecommerce4 from "assets/images/ecommerce/img-4.jpg";
 import ecommerce5 from 'assets/images/ecommerce/img-5.jpg';
-import { aboutCard, aboutManagement } from "Common/data";
-import { DefauilOffer } from "Components/ProductSilde";
-import { CommonService } from "Components/CommonService";
+import { aboutCard, aboutManagement } from "common/data";
+import { DefauilOffer } from "components/ProductSilde";
+import { CommonService } from "components/CommonService";
 
 const About = () => {
     return (

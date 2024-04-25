@@ -1,7 +1,7 @@
 import React from 'react'
 import { Button, Card, Col, Container, Row } from 'react-bootstrap'
 import vimg from "assets/images/watch/video-img.jpg";
-import { qualityproduct } from 'Common/data/AboutusData';
+import { qualityproduct } from 'common/data/AboutusData';
 import { Link } from 'react-router-dom';
 
 const Productvideo = () => {

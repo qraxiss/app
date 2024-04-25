@@ -1,11 +1,11 @@
 import React from "react"
-import { Location, storeLocation } from "Common/data";
+import { Location, storeLocation } from "common/data";
 import { Card, Col, Container, Row, Table } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import SimpleBar from "simplebar-react";
 
 import { StoreMap } from "./MapStoreLocation";
-import { CommonService, ContactHelp } from "Components/CommonService";
+import { CommonService, ContactHelp } from "components/CommonService";
 
 const Storelocator = () => {
     return (

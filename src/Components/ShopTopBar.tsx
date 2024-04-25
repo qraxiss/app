@@ -1,7 +1,7 @@
 import React from "react";
 import { Col, Container, Row, Breadcrumb, Card, Form, Table, Button, Image } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { recentlyOrder } from "Common/data";
+import { recentlyOrder } from "common/data";
 
 export const Shoptopbar = ({ title, page }: any) => {
     return (

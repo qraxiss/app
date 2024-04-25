@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { Container } from "react-bootstrap";
 
-import { CommonProduct, DefauilOffer, Selectores } from "Components/ProductSilde";
+import { CommonProduct, DefauilOffer, Selectores } from "components/ProductSilde";
 import Productfilter from "../Grid/ProductFilter";
 import MyComponent from "./ReactTable";
 import Deals from "pages/catalog/deals";
-import { CommonService } from "Components/CommonService";
-import { productData } from "Common/data/ProductData";
+import { CommonService } from "components/CommonService";
+import { productData } from "common/data/ProductData";
 
 const ListDefault = () => {
     const [select, setSelect] = useState<any>(productData);
