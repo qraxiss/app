@@ -11,11 +11,9 @@ import React from 'react'
 
 import chains from './chains'
 
-
-
 export const wagmiConfig = getDefaultConfig({
     appName: 'ShopcekApp',
-    projectId: 'shopcek',
+    projectId: process.env.REACT_WEB3MODAL_PROJECT_ID ?? '',
     chains
 })
 
