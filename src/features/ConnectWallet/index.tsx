@@ -1,10 +1,7 @@
-import { mutate } from 'graphql/apollo/helpers'
-import { VERIFY } from 'graphql/wallet/mutations'
-
 import { useConnectModal } from '@rainbow-me/rainbowkit'
 import { useAccount } from 'wagmi'
 import { BrowserProvider } from 'ethers'
-import { getNonce } from './helpers'
+import { getNonce, verify } from './helpers'
 import { SiweMessage } from 'siwe'
 
 import { useEffect } from 'react'
@@ -26,10 +23,12 @@ export default function ConnectButton() {
             version: '1',
             chainId,
             nonce
-        })
+        }).toMessage()
 
         const signer = await provider.getSigner()
-        console.log(message, await signer.signMessage(message.toMessage()))
+        const signature = await signer.signMessage(message)
+
+        verify(message, signature).then(console.log)
     }
 
     useEffect(() => {
