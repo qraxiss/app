@@ -78,20 +78,6 @@ export const query = async <DType>(
 
     let response: FetchResult<DType>
     try {
-        console.log(
-            await client.query({
-                query,
-                ...options,
-                context: {
-                    headers: jwt
-                        ? {
-                              Authorization: `Bearer ${jwt}`
-                          }
-                        : {}
-                }
-            })
-        )
-
         response = await client.query({
             query,
             ...options,
@@ -103,7 +89,6 @@ export const query = async <DType>(
                     : {}
             }
         })
-        console.log(response)
     } catch (e: any) {
         return {
             status: 'error',
