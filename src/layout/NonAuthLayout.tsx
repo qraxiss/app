@@ -1,4 +1,4 @@
-import withRouter from "Components/withRouter";
+import withRouter from "components/withRouter";
 
 const NonAuthLayout = ({ children }: any) => {
     return (

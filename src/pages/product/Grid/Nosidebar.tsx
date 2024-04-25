@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
-import { CommonService } from 'Components/CommonService';
-import { ProductGrid, ProductSelector, ProductSide, Selectores } from 'Components/ProductSilde';
+import { CommonService } from 'components/CommonService';
+import { ProductGrid, ProductSelector, ProductSide, Selectores } from 'components/ProductSilde';
 import Deals from 'pages/catalog/deals';
 import EmailClothe from 'pages/catalog/EmailClothe';
-import { product } from 'Common/data';
+import { product } from 'common/data';
 
 const Nosider = () => {
     const [select, setSelect] = useState(product);

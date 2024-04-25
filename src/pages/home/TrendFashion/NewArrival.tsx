@@ -1,4 +1,4 @@
-import { newarrivaldata, subarrivaldata } from 'Common/data/topPicksData'
+import { newarrivaldata, subarrivaldata } from 'common/data/topPicksData'
 import React, { useState } from 'react'
 import { Button, Card, Col, Image, Row } from 'react-bootstrap'
 import { Link } from 'react-router-dom'

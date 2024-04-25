@@ -1,6 +1,6 @@
 import { useState, useEffect, useMemo } from 'react';
-import Pagination from 'Components/Pagination';
-import TableColumns from 'Components/Tablecolumns';
+import Pagination from 'components/Pagination';
+import TableColumns from 'components/Tablecolumns';
 
 const MyComponent = ({ select }: any) => {
 

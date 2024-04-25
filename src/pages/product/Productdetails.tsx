@@ -10,9 +10,9 @@ import "swiper/css/thumbs";
 import "swiper/css/navigation";
 
 //components
-import { descriptionData, productInterestedCard, productprogress, sliderProduct } from "Common/data";
-import { BrandedProduct } from 'Components/ShopTopBar';
-import { CommonService } from "Components/CommonService";
+import { descriptionData, productInterestedCard, productprogress, sliderProduct } from "common/data";
+import { BrandedProduct } from 'components/ShopTopBar';
+import { CommonService } from "components/CommonService";
 import EmailClothe from "pages/catalog/EmailClothe";
 
 //img

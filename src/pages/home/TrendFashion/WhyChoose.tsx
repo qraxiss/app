@@ -1,7 +1,7 @@
 import React from 'react'
 import { Button, Card, Col, Container, Form, Row } from 'react-bootstrap'
 import cta from "assets/images/fashion/cta.png"
-import { choosedata } from 'Common/data/topPicksData'
+import { choosedata } from 'common/data/topPicksData'
 
 const WhyChoose = () => {
     return (

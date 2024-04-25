@@ -3,7 +3,7 @@ import Nouislider from "nouislider-react";
 import "nouislider/distribute/nouislider.css";
 import { Collapse, Button, Card, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { filterProduct } from "Common/data";
+import { filterProduct } from "common/data";
 
 const Filters = ({ name, setFilterlist }: any) => {
     let newList: any = [];

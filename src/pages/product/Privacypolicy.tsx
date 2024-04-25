@@ -2,8 +2,8 @@ import React from "react"
 import { Card, Col, Container, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import EmailClothe from "pages/catalog/EmailClothe";
-import { PublishedProduct } from "Components/ProductSilde";
-import { CommonService } from "Components/CommonService";
+import { PublishedProduct } from "components/ProductSilde";
+import { CommonService } from "components/CommonService";
 
 const Privacypolicy = () => {
     return (

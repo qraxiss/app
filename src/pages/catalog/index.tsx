@@ -2,7 +2,7 @@ import React from 'react';
 import Clothing from './Clothing';
 import Deals from './deals';
 import EmailClothe from './EmailClothe';
-import { CommonService } from 'Components/CommonService';
+import { CommonService } from 'components/CommonService';
 
 const Catalog = () => {
     document.title = "Product Sidebar with Banner | Toner - React FrontEnd";

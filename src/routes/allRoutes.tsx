@@ -1,8 +1,5 @@
 import { Navigate } from "react-router-dom";
 
-//dashbord
-import Uniquewatch from "pages/home/Unique_watches/Index";
-import ModernFashion from "pages/home/Modernfashion/Index";
 import TrendFashion from "pages/home/TrendFashion/index";
 
 //Catalog
@@ -79,13 +76,10 @@ import Invoice from "pages/product/Invoice";
 
 //contact
 import ContactUs from "pages/contact-us/Contact";
+import Home from "pages/home";
 
 const authProtectedRoutes = [
-    // { path: "/dashboard", component: <Home /> },
-    { path: "/dashboard", component: <TrendFashion /> },
-    {path: "/watch-main-layout", component: <Uniquewatch/>},
-    { path:"/modern-fashion", component: <ModernFashion />},
-    { path: "/trend-fashion", component: <TrendFashion /> },
+    { path: "/", component: <Home /> },
 
     //catalog
     { path: "/catalog/clothing", component: <Catalog /> },
@@ -143,14 +137,7 @@ const authProtectedRoutes = [
     //contact us
     { path: "/contact", component: <ContactUs /> },
 
-    // this route should be at the end of all other routes
-    // eslint-disable-next-line react/display-name
-    {
-        path: "/",
-        exact: true,
-        component: <Navigate to="/dashboard" />,
-    },
-    { path: "*", component: <Navigate to="/dashboard" /> },
+    { path: "*", component: <Navigate to="/" /> },
 ]
 
 const publicRoutes = [

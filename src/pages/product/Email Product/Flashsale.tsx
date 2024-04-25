@@ -2,7 +2,7 @@ import React from "react";
 
 //img 
 import ecommerce2 from "assets/images/ecommerce/img-2.jpg";
-import { BlackFalshSymbol, BlueFlashSymbol } from "Components/FlashSymbol";
+import { BlackFalshSymbol, BlueFlashSymbol } from "components/FlashSymbol";
 import { Button } from "react-bootstrap";
 
 const Flashsale = () => {

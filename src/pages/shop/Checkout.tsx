@@ -1,11 +1,11 @@
 import React from "react"
 import { Col, Container, Row, Alert, Card, Button,Table,Image } from "react-bootstrap";
-import { Shoporder, Shoptopbar } from "Components/ShopTopBar";
+import { Shoporder, Shoptopbar } from "components/ShopTopBar";
 import { Link } from "react-router-dom";
-import { shopProducDetails } from "Common/data";
+import { shopProducDetails } from "common/data";
 import { ShopingAddress } from "./ShoppingAddress";
 import EmailClothe from "pages/catalog/EmailClothe";
-import { CommonService } from "Components/CommonService";
+import { CommonService } from "components/CommonService";
 
 const Checkout = () => {
     document.title = "Checkout | Toner - React FrontEnd";

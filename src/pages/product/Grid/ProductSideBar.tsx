@@ -4,9 +4,9 @@ import { Col, Container, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Adevertise from "pages/catalog/adevertise";
 import EmailClothe from "pages/catalog/EmailClothe";
-import { CommonService } from "Components/CommonService";
+import { CommonService } from "components/CommonService";
 import Deals from "pages/catalog/deals";
-import Index from "Components/Index";
+import Index from "components/Index";
 
 const ProductSidebar = () => {
     return (

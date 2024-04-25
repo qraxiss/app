@@ -7,13 +7,16 @@ import TopProducts from './TopProduct';
 import CollectionSlider from './Slider/CollectionSlider';
 import Shoping from './Shopping';
 import FollowUs from './FollowUs';
+import Banner from 'components/home/banner';
+import Premium from 'components/home/premium';
 
 const Home = () => {
-    document.title = "Index | Toner - React FrontEnd";
+    document.title = "Shopcek";
 
     return (
         <React.Fragment>
-            <Collection />
+            <Banner />
+            <Premium />
             <Service />
             <TopProducts />
             <Shopping />

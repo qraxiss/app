@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 
-import { product } from "Common/data";
-import { CommonService } from "Components/CommonService";
-import { ProductGrid } from "Components/ProductSilde";
+import { product } from "common/data";
+import { CommonService } from "components/CommonService";
+import { ProductGrid } from "components/ProductSilde";
 import EmailClothe from "pages/catalog/EmailClothe";
 import { Container, Form } from "react-bootstrap";
 import ProductFilter from "../Grid/ProductFilter";
-import ListProductData from "Components/ListProductData";
+import ListProductData from "components/ListProductData";
 
 const Leftrightsidebar = () => {
     const [select, setSelect] = useState(product);

@@ -5,7 +5,7 @@ import { useLocation } from 'react-router-dom';
 import { changeLayoutMood, changeThemeMood } from 'slices/thunk';
 import Footer from './Footer';
 import Header from "./Header";
-import { MainModal } from 'Components/MainModal';
+import { MainModal } from 'components/MainModal';
 import { createSelector } from 'reselect';
 
 const Layout = (props: any) => {

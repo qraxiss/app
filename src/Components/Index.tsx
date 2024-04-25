@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import CatalogCollection from "pages/catalog/CatalogCollection";
 import Filters from "pages/catalog/Filters";
-import { filterProduct } from "Common/data";
+import { filterProduct } from "common/data";
 
 const Index = ({ name, cxxl, clg, cmd,cxl }: any) => {
     const [filterList, setFilterlist] = useState<any>(filterProduct);

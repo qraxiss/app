@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { Container, Form } from 'react-bootstrap';
 import EmailClothe from 'pages/catalog/EmailClothe';
-import { CommonService } from 'Components/CommonService';
-import { ProductGrid, ProductSide } from 'Components/ProductSilde';
+import { CommonService } from 'components/CommonService';
+import { ProductGrid, ProductSide } from 'components/ProductSilde';
 import ProductFilter from './ProductFilter';
-import { product } from 'Common/data';
+import { product } from 'common/data';
 
 const RightSidebar = () => {
     const [select, setSelect] = useState(product);

@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 //img 
 import profileBg from 'assets/images/profile-bg.jpg';
 
-import { service } from "Common/data";
+import { service } from "common/data";
 
 const CommonService = () => {
     return (

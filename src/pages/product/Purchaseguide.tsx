@@ -1,7 +1,7 @@
 import React from "react"
 import { Card, Col, Container, Row } from "react-bootstrap";
-import { CommonService } from "Components/CommonService";
-import { PublishedProduct } from "Components/ProductSilde";
+import { CommonService } from "components/CommonService";
+import { PublishedProduct } from "components/ProductSilde";
 import EmailClothe from "pages/catalog/EmailClothe";
 
 const Purchaseguide = () => {

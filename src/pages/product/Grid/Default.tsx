@@ -6,8 +6,8 @@ import Features5 from 'assets/images/ecommerce/features/img-5.jpg';
 import Features4 from 'assets/images/ecommerce/features/img-4.jpg';
 import Features1 from 'assets/images/ecommerce/features/img-1.jpg';
 import EmailClothe from "pages/catalog/EmailClothe";
-import { CommonService } from "Components/CommonService";
-import Index from "Components/Index";
+import { CommonService } from "components/CommonService";
+import Index from "components/Index";
 
 const Defaultgrid = () => {
     return (

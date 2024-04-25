@@ -5,7 +5,7 @@ import { Button, Table, Image } from "react-bootstrap";
 //img
 import products5 from "assets/images/products/img-5.png";
 import products14 from "assets/images/products/img-14.png";
-import { BlackFridaysymbol, BlueFridaySymbol } from "Components/FridaySymbol";
+import { BlackFridaysymbol, BlueFridaySymbol } from "components/FridaySymbol";
 
 const Blackfriday = () => {
     document.title="Black Friday Email Template || Toner eCommerce + Admin HTML Template"

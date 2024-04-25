@@ -2,9 +2,9 @@ import React from "react";
 import { Row, Col, Alert, Container } from "react-bootstrap";
 import Cardshop from "./Cardshop";
 
-import { BrandedProduct, Shoptopbar } from "Components/ShopTopBar";
+import { BrandedProduct, Shoptopbar } from "components/ShopTopBar";
 import EmailClothe from "pages/catalog/EmailClothe";
-import { CommonService } from "Components/CommonService";
+import { CommonService } from "components/CommonService";
 
 const Shopingcard = () => {
     document.title = "Shop Cart | Toner - React Frontend";

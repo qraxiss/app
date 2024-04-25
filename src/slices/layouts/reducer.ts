@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { footerModeTypes, layoutThemeModes } from "Components/constants/layout";
+import { footerModeTypes, layoutThemeModes } from "components/constants/layout";
 
 export const initialState = {
     footerModeType: footerModeTypes.DARKMODE,

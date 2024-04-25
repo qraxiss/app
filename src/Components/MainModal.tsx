@@ -10,8 +10,8 @@ import avatar1 from "assets/images/users/avatar-1.jpg";
 import avatar7 from "assets/images/users/avatar-7.jpg";
 
 //component
-import { productData } from "Common/data";
-import DeleteModal from "Components/DeleteModal";
+import { productData } from "common/data";
+import DeleteModal from "components/DeleteModal";
 
 //go to one page to another page opne modal
 export const MainModal = ({ location }: any) => {

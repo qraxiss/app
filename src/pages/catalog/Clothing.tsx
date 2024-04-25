@@ -2,7 +2,7 @@ import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Adevertise from "./adevertise";
-import Index from "Components/Index";
+import Index from "components/Index";
 
 //img
 import bannerimg from 'assets/images/ecommerce/banner.jpg';

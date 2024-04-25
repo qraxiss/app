@@ -1,10 +1,10 @@
 import React from "react"
 import { Alert, Card, Col, Container, Row, Table,Image } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { CommonService } from "Components/CommonService";
-import { PublishedProduct } from "Components/ProductSilde";
+import { CommonService } from "components/CommonService";
+import { PublishedProduct } from "components/ProductSilde";
 import EmailClothe from "pages/catalog/EmailClothe";
-import { invioceRecod } from "Common/data";
+import { invioceRecod } from "common/data";
 
 //img
 import logodark from "assets/images/logo-dark.png";

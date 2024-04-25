@@ -1,7 +1,7 @@
 import React from 'react'
 import { Card, Col, Row,Tooltip,OverlayTrigger } from 'react-bootstrap'
 import { Link } from 'react-router-dom';
-import {trendingProducts} from "Common/data/ModernFashion";
+import {trendingProducts} from "common/data/ModernFashion";
 
 
 const TrendingProducts = () => {

@@ -3,7 +3,7 @@ import { Card, Col, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay } from "swiper/modules";
-import {trendingOutfit} from "Common/data/ModernFashion"
+import {trendingOutfit} from "common/data/ModernFashion"
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";

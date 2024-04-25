@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { Col, Container, Row, Button, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { Shoporder } from "Components/ShopTopBar"
-import DeleteModal, { ModalAdd } from "Components/DeleteModal";
-import { selectAddressData } from "Common/data";
+import { Shoporder } from "components/ShopTopBar"
+import DeleteModal, { ModalAdd } from "components/DeleteModal";
+import { selectAddressData } from "common/data";
 
 const Selectaddress = () => {
     document.title = "Shop | Select address | Toner - React FrontEnd";

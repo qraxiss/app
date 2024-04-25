@@ -6,9 +6,9 @@ import { Link } from "react-router-dom";
 import usersavatar1 from "assets/images/users/avatar-1.jpg";
 
 import profilebg from "assets/images/profile-bg.jpg";
-import { orderHistorys, wishlishProduct } from "Common/data";
+import { orderHistorys, wishlishProduct } from "common/data";
 import EmailClothe from "pages/catalog/EmailClothe";
-import { CommonService } from "Components/CommonService";
+import { CommonService } from "components/CommonService";
 
 const MyAccount = () => {
     return (

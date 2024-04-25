@@ -1,11 +1,11 @@
 import React from "react";
 import { Container, Row, Col, Table,Image } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { Shoptopbar } from "Components/ShopTopBar";
-import { wishlishProduct } from "Common/data";
+import { Shoptopbar } from "components/ShopTopBar";
+import { wishlishProduct } from "common/data";
 import EmailClothe from "pages/catalog/EmailClothe";
-import { CommonService } from "Components/CommonService";
-import HotDeals from "Components/HotDeals";
+import { CommonService } from "components/CommonService";
+import HotDeals from "components/HotDeals";
 
 const WishList = () => {
     document.title = "Wishlist | Toner - React Frontend";

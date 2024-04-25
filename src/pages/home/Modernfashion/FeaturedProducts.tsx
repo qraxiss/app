@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card, Col, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import {featuredProducts} from "Common/data/ModernFashion";
+import {featuredProducts} from "common/data/ModernFashion";
 
 const FeaturedProducts = () => {
   return (

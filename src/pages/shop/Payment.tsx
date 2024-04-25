@@ -1,6 +1,6 @@
 import React from "react";
 import { Card, Col, Container, Row, Tab, Alert, Nav } from "react-bootstrap";
-import { Shoporder } from "Components/ShopTopBar";
+import { Shoporder } from "components/ShopTopBar";
 
 const Payment = () => {
     document.title = "payment | Toner - React FrontEnd";

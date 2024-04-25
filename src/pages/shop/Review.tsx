@@ -1,9 +1,9 @@
 import React from "react";
 import { Card, Col, Container, Image, Row } from "react-bootstrap";
 //component
-import { ContactHelp } from "Components/CommonService";
-import { Shoptopbar } from "Components/ShopTopBar";
-import { shopReviews } from "Common/data";
+import { ContactHelp } from "components/CommonService";
+import { Shoptopbar } from "components/ShopTopBar";
+import { shopReviews } from "common/data";
 
 const Review = () => {
     document.title = "Customer Review | Toner - React FrontEnd";

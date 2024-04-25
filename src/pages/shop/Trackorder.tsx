@@ -1,10 +1,10 @@
 import React from "react";
 import { Button, Card, Col, Container, Row, Table ,Image} from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { Shoptopbar } from "Components/ShopTopBar";
-import { shopProducDetails } from "Common/data";
+import { Shoptopbar } from "components/ShopTopBar";
+import { shopProducDetails } from "common/data";
 import EmailClothe from "pages/catalog/EmailClothe";
-import { CommonService } from "Components/CommonService";
+import { CommonService } from "components/CommonService";
 
 const Trackorder = () => {
     document.title = "Track Order | Toner - React FrontEnd";

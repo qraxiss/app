@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Col, Container, Row } from 'react-bootstrap';
-import { product } from "Common/data";
-import { ProductSide } from "Components/ProductSilde";
+import { product } from "common/data";
+import { ProductSide } from "components/ProductSilde";
 
 const TopProducts = () => {
 
