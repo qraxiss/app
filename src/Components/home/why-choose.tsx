@@ -1,7 +1,7 @@
-import React from 'react'
-import { Button, Card, Col, Container, Form, Row } from 'react-bootstrap'
-import cta from "assets/images/fashion/cta.png"
-import { choosedata } from 'common/data/top-picks-data'
+import React from 'react';
+import { Button, Card, Col, Container, Form, Row } from 'react-bootstrap';
+import cta from "assets/images/fashion/cta.png";
+import { choosedata } from 'common/data/top-picks-data';
 
 export const WhyChoose = () => {
     return (
@@ -68,5 +68,5 @@ export const WhyChoose = () => {
                 </Container>
             </section>
         </React.Fragment>
-    )
-}
+    );
+};

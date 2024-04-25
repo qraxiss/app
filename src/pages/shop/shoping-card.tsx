@@ -29,7 +29,7 @@ const Shopingcard = () => {
             <EmailClothe />
            < CommonService />
         </React.Fragment>
-    )
-}
+    );
+};
 
 export default Shopingcard;

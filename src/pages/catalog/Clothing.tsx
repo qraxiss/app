@@ -35,7 +35,7 @@ const Clothing = () => {
                 </Container>
             </section>
         </React.Fragment>
-    )
-}
+    );
+};
 
 export default Clothing;

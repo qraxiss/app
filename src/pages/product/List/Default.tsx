@@ -12,18 +12,18 @@ const ListDefault = () => {
     const [select, setSelect] = useState<any>(productData);
 
     const handleSlector = (event: any) => {
-        setSelect(productData?.filter((select: any) => select.sortBy === event.value || event.value === "all"))
-    }
+        setSelect(productData?.filter((select: any) => select.sortBy === event.value || event.value === "all"));
+    };
 
     const searchProducts = (ele: any) => {
-        let search = ele.target.value
+        let search = ele.target.value;
         if (search) {
             search = search.toLowerCase();
-            setSelect(productData?.filter((data: any) => data.productTitle.toLowerCase().includes(search)))
+            setSelect(productData?.filter((data: any) => data.productTitle.toLowerCase().includes(search)));
         } else {
             setSelect(productData);
         }
-    }
+    };
     document.title = "Product List | Toner - React FrontEnd";
     return (
         <React.Fragment>
@@ -45,7 +45,7 @@ const ListDefault = () => {
             <DefauilOffer />
             <CommonService />
         </React.Fragment>
-    )
-}
+    );
+};
 
 export default ListDefault;

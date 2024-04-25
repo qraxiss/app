@@ -20,14 +20,16 @@ const CommondDropdown = () => {
                     Delete</Dropdown.Item>
             </Dropdown.Menu>
         </Dropdown>
-    )
-}
+    );
+};
 
 const OnlineChat = () => {
     //chat state
     const [chat, setChate] = useState(false);
     //online chat 
-    const chatBot = () => { setChate(!chat) }
+    const chatBot = () => {
+ setChate(!chat); 
+};
     return (
         <React.Fragment>
             <Button
@@ -166,7 +168,7 @@ const OnlineChat = () => {
                 </div>
             </Collapse>
         </React.Fragment>
-    )
-}
+    );
+};
 
 export default OnlineChat;

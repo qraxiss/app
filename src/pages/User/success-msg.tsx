@@ -1,4 +1,4 @@
-import React from "react"
+import React from "react";
 import { Card, Col, Container, Row ,Image} from "react-bootstrap";
 import { Link } from "react-router-dom";
 
@@ -88,7 +88,7 @@ const Successmsg = () => {
                 </div>
             </section>
         </React.Fragment>
-    )
-}
+    );
+};
 
 export default Successmsg;

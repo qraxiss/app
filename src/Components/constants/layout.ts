@@ -1,11 +1,11 @@
 const footerModeTypes = {
     LIGHTMODE: "light",
     DARKMODE: "dark",
-}
+};
 
 const layoutThemeModes = {
     LIGHTTHEME: "light",
-    DARKTHEME: "dark"
-}
+    DARKTHEME: "dark",
+};
 
 export { footerModeTypes, layoutThemeModes };

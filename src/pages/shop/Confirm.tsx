@@ -39,7 +39,7 @@ const Confirm = () => {
             <EmailClothe />
             <CommonService />
         </React.Fragment>
-    )
-}
+    );
+};
 
 export default Confirm;

@@ -12,30 +12,30 @@ import translationAr from "./locales/ar.json";
 
 const resources = {
     en: {
-        translation: translationEn
+        translation: translationEn,
     },
     sp: {
-        translation: translationSp
+        translation: translationSp,
     },
     gr: {
-        translation: translationGr
+        translation: translationGr,
     },
     it: {
-        translation: translationIt
+        translation: translationIt,
     },
     ru: {
-        translation: translationRu
+        translation: translationRu,
     },
     ch: {
-        translation: translationCh
+        translation: translationCh,
     },
     fr: {
-        translation: translationFr
+        translation: translationFr,
     },
     ar: {
-        translation: translationAr
+        translation: translationAr,
     },
-}
+};
 
 
 const language = localStorage.getItem('I18NLANGUAGE');
@@ -53,6 +53,6 @@ i18n.use(detector).use(initReactI18next).init({
     interpolation: {
         escapeValue: false, // react already safes from xss
     },
-})
+});
 
 export default i18n;

@@ -11,8 +11,8 @@ export const CommonTitle = ({ title, dicription }: any) => {
                 </div>
             </Col>
         </Row>
-    )
-}
+    );
+};
 
 export const ProductNoui = () => {
     return (
@@ -50,5 +50,5 @@ export const ProductNoui = () => {
                 <div className="noUi-value noUi-value-horizontal noUi-value-large" data-value="2000" style={{ left: "100%" }}>2000</div>
             </div>
         </React.Fragment>
-    )
-}
+    );
+};

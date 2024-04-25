@@ -42,6 +42,6 @@ const Pagination = ({ pagination, currentpages, pageNumbers, currentPage, handle
             </Row>}
         </React.Fragment>
     );
-}
+};
 
 export default Pagination;

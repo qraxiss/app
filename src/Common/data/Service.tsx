@@ -37,25 +37,25 @@ const service = [
         id: 1,
         img: delivery,
         title: "Fast & Secure Delivery",
-        text: "Tell about your service."
+        text: "Tell about your service.",
     },
     {
         id: 2,
         img: returns,
         title: "2 Days Return Policy",
-        text: "No question ask."
+        text: "No question ask.",
     },
     {
         id: 3,
         img: certificate,
         title: "Money Back Guarantee",
-        text: "Within 5 business days"
+        text: "Within 5 business days",
     },
     {
         id: 4,
         img: hourssupport,
         title: "24 X 7 Service",
-        text: "Online service for customer"
+        text: "Online service for customer",
     },
 ];
 
@@ -171,7 +171,7 @@ const product = [
         color: ["danger"],
         products: 'Fashion',
     },
-]
+];
 
 const latestProduct = [
     {
@@ -181,7 +181,7 @@ const latestProduct = [
         price: '$125.00',
         deletePrice: '$200.00',
         ratting: '3.2',
-        bg: 'dark'
+        bg: 'dark',
     },
     {
         id: 2,
@@ -190,7 +190,7 @@ const latestProduct = [
         price: '$150.00',
         deletePrice: '$300.00',
         ratting: '4.3 ',
-        bg: 'warning'
+        bg: 'warning',
     },
     {
         id: 3,
@@ -199,7 +199,7 @@ const latestProduct = [
         price: '$135.00',
         deletePrice: '$523.00',
         ratting: '2.3',
-        bg: 'primary'
+        bg: 'primary',
     },
     {
         id: 4,
@@ -208,7 +208,7 @@ const latestProduct = [
         price: '$99.00',
         deletePrice: '$129.00',
         ratting: '3.5',
-        bg: 'danger'
+        bg: 'danger',
     },
     {
         id: 5,
@@ -217,9 +217,9 @@ const latestProduct = [
         price: '$632.00',
         deletePrice: '$721.00',
         ratting: '2.3 ',
-        bg: 'secondary'
+        bg: 'secondary',
     },
-]
+];
 
 const slider = [
     {
@@ -228,7 +228,7 @@ const slider = [
         img: avatar2,
         title: 'George Obrien',
         name: 'Velzon User',
-        top: 0
+        top: 0,
     },
     {
         id: 2,
@@ -236,7 +236,7 @@ const slider = [
         img: avatar7,
         title: 'Chadwick A. Scott',
         name: 'Velzon User',
-        top: 5
+        top: 5,
     },
     {
         id: 3,
@@ -244,7 +244,7 @@ const slider = [
         img: avatar8,
         title: 'Tommy Moreno',
         name: 'Skote User',
-        top: 0
+        top: 0,
     },
     {
         id: 4,
@@ -252,9 +252,9 @@ const slider = [
         img: avatar10,
         title: 'Mary Atkinson',
         name: 'Velzon User',
-        top: 5
-    }
-]
+        top: 5,
+    },
+];
 
 const shopingsCollection = [
     {
@@ -264,7 +264,7 @@ const shopingsCollection = [
         comment: '10',
         data: '15',
         title: 'Society Pass Turns to Stripe to Simplify Checkout',
-        discription: 'Southeast Asian eCommerce ecosystem Society Pass (SoPa) says it has integrated Stripe’s financial infrastructure solutions onto its platform.'
+        discription: 'Southeast Asian eCommerce ecosystem Society Pass (SoPa) says it has integrated Stripe’s financial infrastructure solutions onto its platform.',
     },
     {
         id: 2,
@@ -273,7 +273,7 @@ const shopingsCollection = [
         comment: '32',
         data: '23',
         title: 'Integrating Crypto Payment to Ecommerce',
-        discription: 'To start accepting Bitcoin on your eCommerce site, simply integrate a BTC payment processor into your store. Many major eCommerce providers.'
+        discription: 'To start accepting Bitcoin on your eCommerce site, simply integrate a BTC payment processor into your store. Many major eCommerce providers.',
     },
     {
         id: 3,
@@ -282,9 +282,9 @@ const shopingsCollection = [
         comment: '15',
         data: '31',
         title: 'Etsy Is a High-Flier Among E-Commerce Stocks',
-        discription: 'E-commerce stocks soared to record-high valuations during the pandemic. However, now that economies have reopened during the pandemic.'
+        discription: 'E-commerce stocks soared to record-high valuations during the pandemic. However, now that economies have reopened during the pandemic.',
     },
 
-]
+];
 
 export { service, product, latestProduct, slider, shopingsCollection };

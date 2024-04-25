@@ -38,6 +38,6 @@ const Adevertise = () => {
                 </div>
             </div>
         </React.Fragment>
-    )
-}
+    );
+};
 export default Adevertise;

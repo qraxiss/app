@@ -215,7 +215,7 @@ const MyAccount = () => {
                                                                                             </ul>
                                                                                         </td>
                                                                                     </tr>
-                                                                                )
+                                                                                );
                                                                             })
                                                                         }
                                                                     </tbody>
@@ -270,7 +270,7 @@ const MyAccount = () => {
                                                                                     <Link to='/invoice' data-bs-toggle="modal" className="btn btn-secondary btn-sm">Invoice</Link>
                                                                                 </td>
                                                                             </tr>
-                                                                        )
+                                                                        );
                                                                     })
                                                                 }
                                                             </tbody>
@@ -485,7 +485,7 @@ const MyAccount = () => {
             <EmailClothe />
             <CommonService />
         </React.Fragment >
-    )
-}
+    );
+};
 
 export default MyAccount;

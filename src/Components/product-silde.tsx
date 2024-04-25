@@ -8,15 +8,14 @@ import { product } from "common/data";
 import features1 from "assets/images/ecommerce/features/img-1.jpg";
 import features2 from "assets/images/ecommerce/features/img-2.jpg";
 import features3 from "assets/images/ecommerce/features/img-3.jpg";
-import profilebg from 'assets/images/profile-bg.jpg';
-import profileBg from "assets/images/profile-bg.jpg";
+import profileBg from 'assets/images/profile-bg.jpg';
 import Pagination from "./pagination";
 import { ProductNoui } from "./home-page";
 
 export const ProductSide = ({ cid, position, height, fileter, cxxl, isnone }: any) => {
     const isdisplay = isnone;
     //pagination
-    const pagination: boolean = true;
+    const pagination = true;
     const [currentPage, setCurrentPage] = useState<any>(1);
     const [currentpages, setCurrentpages] = useState<any>([]);
     const perPageData = 9;
@@ -26,45 +25,45 @@ export const ProductSide = ({ cid, position, height, fileter, cxxl, isnone }: an
     };
     const indexOfLast = currentPage * perPageData;
     const indexOfFirst = indexOfLast - perPageData;
-    const currentdata = useMemo(() => product.slice(indexOfFirst, indexOfLast), [indexOfFirst, indexOfLast])
+    const currentdata = useMemo(() => product.slice(indexOfFirst, indexOfLast), [indexOfFirst, indexOfLast]);
     useEffect(() => {
-        setCurrentpages(currentdata)
-    }, [currentPage, currentdata])
+        setCurrentpages(currentdata);
+    }, [currentPage, currentdata]);
     const pageNumbers: any = [];
 
     for (let i = 1; i <= Math.ceil(product.length / perPageData); i++) {
         pageNumbers.push(i);
     }
     const handleprevPage = () => {
-        let prevPage = currentPage - 1;
+        const prevPage = currentPage - 1;
         setCurrentPage(prevPage);
     };
     const handlenextPage = () => {
-        let nextPage = currentPage + 1;
+        const nextPage = currentPage + 1;
         setCurrentPage(nextPage);
     };
     useEffect(() => {
         if (pageNumbers.length && pageNumbers.length < currentPage) {
-            setCurrentPage(pageNumbers.length)
+            setCurrentPage(pageNumbers.length);
         }
     }, [currentPage, pageNumbers.length]);
 
     //product like function
     const Tooglelike = (event: any) => {
         if (event?.closest("button").classList.contains("active")) {
-            event.closest("button").classList.remove("active")
+            event.closest("button").classList.remove("active");
         } else {
             event.closest("button").classList.add("active");
         }
-    }
+    };
     //product view function
     const Toogleview = (event: any) => {
         if (event?.closest("button").classList.contains("active")) {
-            event.closest("button").classList.remove("active")
+            event.closest("button").classList.remove("active");
         } else {
             event.closest("button").classList.add("active");
         }
-    }
+    };
 
     return (
         <React.Fragment>
@@ -112,7 +111,7 @@ export const ProductSide = ({ cid, position, height, fileter, cxxl, isnone }: an
                                         </Card.Body>
                                     </Card>
                                 </Col>
-                            )
+                            );
                         })
                         : (<Row id="search-result-elem">
                             <Col lg={12}>
@@ -144,13 +143,13 @@ export const ProductSide = ({ cid, position, height, fileter, cxxl, isnone }: an
             }
 
         </React.Fragment>
-    )
-}
+    );
+};
 
 export const ProductGrid = ({ title }: any) => {
     return (
         <React.Fragment>
-            <section className="ecommerce-about" style={{ backgroundImage: `url(${profilebg})`, backgroundSize: "cover", backgroundPosition: "center" }}>
+            <section className="ecommerce-about" style={{ backgroundImage: `url(${profileBg})`, backgroundSize: "cover", backgroundPosition: "center" }}>
                 <div className="bg-overlay bg-primary" style={{ opacity: "0.85" }}></div>
                 <Container>
                     <Row className="justify-content-center">
@@ -168,8 +167,8 @@ export const ProductGrid = ({ title }: any) => {
                 </Container>
             </section>
         </React.Fragment>
-    )
-}
+    );
+};
 
 export const ProductSelector = ({ handleratting, handledicount, handlecategory }: any) => {
     return (
@@ -251,8 +250,8 @@ export const ProductSelector = ({ handleratting, handledicount, handlecategory }
                 </Col>
             </Row>
         </React.Fragment >
-    )
-}
+    );
+};
 
 export const Selectores = ({ setSelect, searchProducts }: any) => {
     return (
@@ -278,8 +277,8 @@ export const Selectores = ({ setSelect, searchProducts }: any) => {
                 </div>
             </Col>
         </Row>
-    )
-}
+    );
+};
 
 export const CommonProduct = ({ cxxl, clg, cmd }: any) => {
     return (
@@ -325,8 +324,8 @@ export const CommonProduct = ({ cxxl, clg, cmd }: any) => {
                 </Col>
             </Row>
         </Container>
-    )
-}
+    );
+};
 
 export const DefauilOffer = () => {
     return (
@@ -349,8 +348,8 @@ export const DefauilOffer = () => {
                 </Row>
             </Container>
         </section>
-    )
-}
+    );
+};
 
 export const PublishedProduct = ({ title, dicription }: any) => {
     return (
@@ -383,5 +382,5 @@ export const PublishedProduct = ({ title, dicription }: any) => {
                 </div>
             </div>
         </>
-    )
-}
+    );
+};

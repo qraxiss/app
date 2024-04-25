@@ -57,7 +57,7 @@ const WishList = () => {
                                                             </ul>
                                                         </td>
                                                     </tr>
-                                                )
+                                                );
                                             })
                                         }
                                     </tbody>
@@ -75,6 +75,6 @@ const WishList = () => {
             <EmailClothe />
             <CommonService />
         </React.Fragment>
-    )
-}
+    );
+};
 export default WishList;

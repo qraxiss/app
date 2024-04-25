@@ -21,24 +21,24 @@ export const catagoriesData = [
     {
         id: 1,
         img: products5,
-        title: 'Footwear'
+        title: 'Footwear',
     },
     {
         id: 2,
         img: products16,
-        title: 'Electronics'
+        title: 'Electronics',
     },
     {
         id: 3,
         img: products8,
-        title: "Men's"
+        title: "Men's",
     },
     {
         id: 4,
         img: products11,
-        title: "Women's"
+        title: "Women's",
     },
-]
+];
 
 export const ellipsCategories = [
     {
@@ -46,81 +46,81 @@ export const ellipsCategories = [
         img: products6,
         title: "Clothes",
         product: "96",
-        bg: "warning"
+        bg: "warning",
     },
     {
         id: 2,
         img: products20,
         title: "Electronics",
         product: "25",
-        bg: "dark"
+        bg: "dark",
     },
     {
         id: 3,
         img: products18,
         title: "Cosmetic",
         product: "10",
-        bg: "warning"
+        bg: "warning",
     },
     {
         id: 4,
         img: products1,
         title: "Bags",
         product: "58",
-        bg: "danger"
+        bg: "danger",
     },
     {
         id: 5,
         img: products15,
         title: "Handbags & Clutches",
         product: "64",
-        bg: "info"
+        bg: "info",
     },
     {
         id: 6,
         img: products5,
         title: "Footwear",
         product: "342",
-        bg: "danger"
+        bg: "danger",
     },
-]
+];
 
 export const sliderCategories = [
     {
         id: 1,
         img: products15,
         title: "Handbags & Clutches",
-        bg: "dark"
+        bg: "dark",
     },
     {
         id: 2,
         img: products17,
         title: "Electronics",
-        bg: "dark"
+        bg: "dark",
     },
     {
         id: 3,
         img: products4,
         title: "Footwear",
-        bg: "success"
+        bg: "success",
     },
     {
         id: 4,
         img: products12,
         title: "Furniture & Decor",
-        bg: "danger"
+        bg: "danger",
     },
     {
         id: 5,
         img: products18,
         title: "Beauty, Health, Grocery",
-        bg: "warning"
+        bg: "warning",
     },
     {
         id: 6,
         img: products9,
         title: "Men's Accessories",
-        bg: "dark"
+        bg: "dark",
     },
 
-]
+];

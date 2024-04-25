@@ -10,16 +10,16 @@ import { changeLayoutMood, changeThemeMood } from 'slices/thunk';
 
 const Layout = (props: any) => {
 
-    let location = useLocation();
+    const location = useLocation();
     const dispatch: any = useDispatch();
 
     const selectProperties = createSelector(
         (state: any) => state.Layout,
         (layout) => ({
             footerModeType: layout.footerModeType,
-            layoutThemeMode: layout.layoutThemeMode
-        })
-    )
+            layoutThemeMode: layout.layoutThemeMode,
+        }),
+    );
 
     const { footerModeType, layoutThemeMode } = useSelector(selectProperties);
 
@@ -29,11 +29,8 @@ const Layout = (props: any) => {
     //change them mode
     const handleThemeMood = (value: any) => {
         if (changeThemeMood) {
-            dispatch(changeThemeMood(value))
+            dispatch(changeThemeMood(value));
         }
-    }
-    window.onscroll = function () {
-        scrollFunction();
     };
 
     const scrollFunction = () => {
@@ -46,11 +43,15 @@ const Layout = (props: any) => {
             }
         }
     };
+
+    window.onscroll = function () {
+        scrollFunction();
+    };
     //top arrow icone function
     const ScrollbarTop = () => {
         document.body.scrollTop = 0;
         document.documentElement.scrollTop = 0;
-    }
+    };
 
 
     useEffect(() => {
@@ -83,6 +84,6 @@ const Layout = (props: any) => {
 
         </React.Fragment>
     );
-}
+};
 
 export default Layout;

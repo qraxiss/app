@@ -64,7 +64,7 @@ const Defaultgrid = () => {
             <EmailClothe />
             <CommonService />
         </React.Fragment >
-    )
-}
+    );
+};
 
 export default Defaultgrid;

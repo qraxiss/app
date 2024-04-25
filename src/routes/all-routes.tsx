@@ -136,7 +136,7 @@ const authProtectedRoutes = [
     { path: "/contact", component: <ContactUs /> },
 
     { path: "*", component: <Navigate to="/" /> },
-]
+];
 
 const publicRoutes = [
     //user
@@ -170,6 +170,6 @@ const publicRoutes = [
     { path: "/email-order-success", component: <Ordersuccess /> },
     //Ordersuccess2
     { path: "/email-order-success-2", component: <Ordersuccess2 /> },
-]
+];
 
 export { authProtectedRoutes, publicRoutes };

@@ -13,8 +13,8 @@ const Shopindex = () => {
             <EmailClothe />
             <CommonService />
         </React.Fragment>
-    )
+    );
 
-}
+};
 
 export default Shopindex;

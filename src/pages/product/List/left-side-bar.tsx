@@ -1,4 +1,4 @@
-import React from "react"
+import React from "react";
 import { Container } from "react-bootstrap";
 import { CommonService } from "components/common-service";
 import { ProductGrid } from "components/product-silde";
@@ -21,7 +21,7 @@ const LeftSideBar = () => {
             <EmailClothe />
             <CommonService />
         </React.Fragment>
-    )
-}
+    );
+};
 
 export default LeftSideBar;

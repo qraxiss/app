@@ -20,6 +20,6 @@ const Index = ({ name, cxxl, clg, cmd,cxl }: any) => {
             />
         </React.Fragment>
     );
-}
+};
 
 export default Index;

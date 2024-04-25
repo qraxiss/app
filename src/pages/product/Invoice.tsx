@@ -1,4 +1,4 @@
-import React from "react"
+import React from "react";
 import { Alert, Card, Col, Container, Row, Table,Image } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { CommonService } from "components/common-service";
@@ -12,8 +12,8 @@ import Logolight from "assets/images/logo-light.png";
 
 const Invoice = () => {
     const handlePrint = () => {
-        window.print()
-    }
+        window.print();
+    };
     return (
         <React.Fragment>
             <PublishedProduct title="Invoice Download" dicription="Last Updated 24 Nov, 2022" />
@@ -116,7 +116,7 @@ const Invoice = () => {
                                                                         <td>{item.quantity}</td>
                                                                         <td className="text-end">${item.amount}</td>
                                                                     </tr>
-                                                                )
+                                                                );
                                                             })
                                                         }
                                                     </tbody>
@@ -181,7 +181,7 @@ const Invoice = () => {
             <EmailClothe />
             <CommonService />
         </React.Fragment>
-    )
-}
+    );
+};
 
 export default Invoice;

@@ -15,6 +15,6 @@ const Catalog = () => {
             <CommonService />
         </React.Fragment>
     );
-}
+};
 
 export default Catalog;

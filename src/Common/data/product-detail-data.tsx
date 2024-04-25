@@ -13,7 +13,7 @@ export const sliderProduct = [
     { id: 3, img: products32 },
     { id: 4, img: products34 },
     { id: 5, img: products34 },
-]
+];
 
 
 export const descriptionData = [
@@ -30,14 +30,14 @@ export const descriptionData = [
     { id: 11, thead: "Suitable For", tdata: "Western Wear" },
     { id: 12, thead: "Fabric Care", tdata: "Do not bleach" },
     { id: 13, thead: "Seller", tdata: "Zibra Fashion" },
-]
+];
 
 
 export const productInterestedCard = [
     { id: 1, img: ecommerce5, title: "Women's T-shirts", dic: "Min. 50% off", bg: "secondary", class: "16" },
     { id: 2, img: ecommerce2, title: "Men's Fashion", dic: "Min. 20% off", bg: "primary", class: "16" },
-    { id: 3, img: ecommerce3, title: "Women Footwear", dic: "Up to 40-50% off", bg: "info", class: "card-title" }
-]
+    { id: 3, img: ecommerce3, title: "Women Footwear", dic: "Up to 40-50% off", bg: "info", class: "card-title" },
+];
 
 export const productprogress = [
     { id: 1, value: '50.16', color: 'primary', num: '5', progressnum: '2758' },
@@ -45,4 +45,4 @@ export const productprogress = [
     { id: 3, value: '18.12', color: 'info', num: '3', progressnum: '997' },
     { id: 4, value: '4.98', color: 'secondary', num: '2', progressnum: '227' },
     { id: 5, value: '7.42', color: 'danger', num: '2', progressnum: '408' },
-]
+];

@@ -12,41 +12,41 @@ export const languages = {
     en: {
         icon: usFlag,
         lable: "English",
-        title: "English"
+        title: "English",
     },
     sp: {
         icon: spainFlag,
         lable: "Española",
-        title: "Spanish"
+        title: "Spanish",
     },
     gr: {
         icon: germanyFlag,
         lable: "Deutsche",
-        title: "German"
+        title: "German",
     },
     it: {
         icon: italyFlag,
         lable: "Italiana",
-        title: "Italian"
+        title: "Italian",
     },
     ru: {
         icon: russiaFlag,
         lable: "русский",
-        title: "Russian"
+        title: "Russian",
     },
     ch: {
         icon: chinaFlag,
         lable: "中国人",
-        title: "Chinese"
+        title: "Chinese",
     },
     fr: {
         icon: frenchFlag,
         lable: "français",
-        title: "French"
+        title: "French",
     },
     ar: {
         icon: aeFlag,
         lable: "عربى",
-        title: "Arabic"
+        title: "Arabic",
     },
-}
+};

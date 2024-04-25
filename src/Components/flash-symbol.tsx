@@ -149,7 +149,7 @@ export const BlueFlashSymbol = () => {
             </symbol>
         </React.Fragment>
     );
-}
+};
 
 export const BlackFalshSymbol = () => {
     return (
@@ -299,5 +299,5 @@ export const BlackFalshSymbol = () => {
                 <use xlinkHref="#SvgjsPath1142" x="690" y="570" stroke="rgba(255, 255, 255, 0.4)" strokeWidth="3"></use>
             </symbol>
         </React.Fragment>
-    )
-}
+    );
+};

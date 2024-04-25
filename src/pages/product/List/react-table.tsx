@@ -4,7 +4,7 @@ import TableColumns from 'components/table-columns';
 
 const MyComponent = ({ select }: any) => {
 
-    const pagination: boolean = true;
+    const pagination = true;
     const [currentPage, setCurrentPage] = useState<any>(1);
     const [currentpages, setCurrentpages] = useState<any>([]);
     const perPageData = 9;
@@ -16,24 +16,24 @@ const MyComponent = ({ select }: any) => {
     const currentdata = useMemo(() => select.slice(indexOfFirst, indexOfLast), [select, indexOfFirst, indexOfLast]);
 
     useEffect(() => {
-        setCurrentpages(currentdata)
-    }, [currentPage, select, currentdata])
+        setCurrentpages(currentdata);
+    }, [currentPage, select, currentdata]);
     const pageNumbers: any = [];
 
     for (let i = 1; i <= Math.ceil(select.length / perPageData); i++) {
         pageNumbers.push(i);
     }
     const handleprevPage = () => {
-        let prevPage = currentPage - 1;
+        const prevPage = currentPage - 1;
         setCurrentPage(prevPage);
     };
     const handlenextPage = () => {
-        let nextPage = currentPage + 1;
+        const nextPage = currentPage + 1;
         setCurrentPage(nextPage);
     };
     useEffect(() => {
         if (pageNumbers.length && pageNumbers.length < currentPage) {
-            setCurrentPage(pageNumbers.length)
+            setCurrentPage(pageNumbers.length);
         }
     }, [currentPage, pageNumbers.length]);
     return (

@@ -15,7 +15,7 @@ interface dealse {
 const Deals = () => {
     const renderers = ({ days, hours, minutes, seconds, completed }: dealse) => {
         if (completed) {
-            return <span className='countdown-endtxt'>The countdown has ended!</span>
+            return <span className='countdown-endtxt'>The countdown has ended!</span>;
         } else {
             return (
                 <>
@@ -37,9 +37,9 @@ const Deals = () => {
                         <div className="count-num">{seconds}</div>
                     </div>
                 </>
-            )
+            );
         }
-    }
+    };
     return (
         <React.Fragment>
             <section className="section pt-0">
@@ -91,14 +91,14 @@ const Deals = () => {
                                             </div>
                                         </div>
                                     </Col>
-                                )
+                                );
                             })
                         }
                     </Row>
                 </Container>
             </section>
         </React.Fragment>
-    )
-}
+    );
+};
 
 export default Deals;

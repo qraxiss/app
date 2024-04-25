@@ -14,15 +14,15 @@ const Listnoslider = () => {
     //ratting
     const handleRatting = (event: any) => {
         setListnoslider(filterProduct?.filter((rat: any) => rat.ratting.toString().startsWith(event.value)));
-    }
+    };
     //diccount
     const handleDicount = (event: any) => {
-        setListnoslider(filterProduct?.filter((dicCount: any) => dicCount.dic === event.value))
-    }
+        setListnoslider(filterProduct?.filter((dicCount: any) => dicCount.dic === event.value));
+    };
     //category
     const handleCategory = (event: any) => {
-        setListnoslider(filterProduct?.filter((category: any) => category.products === event.value))
-    }
+        setListnoslider(filterProduct?.filter((category: any) => category.products === event.value));
+    };
     return (
         <React.Fragment>
             <ProductGrid title="Product List No Sidebar" />
@@ -45,6 +45,6 @@ const Listnoslider = () => {
             <CommonService />
         </React.Fragment>
     );
-}
+};
 
 export default Listnoslider;

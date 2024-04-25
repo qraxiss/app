@@ -77,6 +77,6 @@ const TableColumns = ({ data }: any) => {
             <ReactTable columns={columns} data={data} />
         </React.Fragment>
     );
-}
+};
 
 export default TableColumns;

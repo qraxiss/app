@@ -18,10 +18,7 @@ import Eimg3 from "assets/images/ecommerce/img-3.jpg";
 import Eimg1 from "assets/images/ecommerce/img-1.jpg";
 
 //shopProducDetails
-import Product4 from "assets/images/products/img-4.png";
-import Product16 from "assets/images/products/img-16.png";
-import Product6 from "assets/images/products/img-6.png";
-import Product8 from "assets/images/products/img-8.png";
+import img16 from "assets/images/products/img-16.png";
 
 const filterProduct = [
     {
@@ -35,7 +32,7 @@ const filterProduct = [
         ratting: 4.7,
         category: 'lowtohigh',
         products: 'Kids',
-        dic: '40'
+        dic: '40',
     },
     {
         id: 2,
@@ -50,7 +47,7 @@ const filterProduct = [
         ratting: '4.8',
         category: 'lowtohigh',
         products: "Fashion",
-        dic: '50'
+        dic: '50',
     },
     {
         id: 3,
@@ -61,7 +58,7 @@ const filterProduct = [
         ratting: '4.9',
         category: 'lowtohigh',
         products: 'Fashion',
-        dic: '50'
+        dic: '50',
     },
     {
         id: 4,
@@ -72,7 +69,7 @@ const filterProduct = [
         ratting: '4.7',
         category: 'lowtohigh',
         products: 'Kids',
-        dic: '40'
+        dic: '40',
     },
     {
         id: 5,
@@ -85,7 +82,7 @@ const filterProduct = [
         ratting: '3.8',
         category: "hightolow",
         products: "Grocery",
-        dic: '30'
+        dic: '30',
     },
     {
         id: 6,
@@ -96,7 +93,7 @@ const filterProduct = [
         ratting: '4.1',
         category: "hightolow",
         products: 'Fashion',
-        dic: '40'
+        dic: '40',
     },
     {
         id: 7,
@@ -109,7 +106,7 @@ const filterProduct = [
         ratting: '2.4',
         category: "hightolow",
         products: 'Kids',
-        dic: '20'
+        dic: '20',
     },
     {
         id: 8,
@@ -120,7 +117,7 @@ const filterProduct = [
         ratting: '4.1',
         category: "hightolow",
         products: 'Furniture',
-        dic: '40'
+        dic: '40',
     },
     {
         id: 9,
@@ -131,7 +128,7 @@ const filterProduct = [
         ratting: '4.0',
         category: "hightolow",
         products: 'Fashion',
-        dic: '40'
+        dic: '40',
     },
     {
         id: 10,
@@ -144,7 +141,7 @@ const filterProduct = [
         ratting: '3.5',
         category: "hightolow",
         products: 'Watches',
-        dic: '30'
+        dic: '30',
     },
     {
         id: 11,
@@ -157,7 +154,7 @@ const filterProduct = [
         ratting: '4.9',
         category: "hightolow",
         products: 'Fashion',
-        dic: '50'
+        dic: '50',
     },
     {
         id: 12,
@@ -168,9 +165,9 @@ const filterProduct = [
         ratting: '4.2 ',
         category: "hightolow",
         products: 'Fashion',
-        dic: '40'
+        dic: '40',
     },
-]
+];
 
 const catlogDeals = [
     {
@@ -180,7 +177,7 @@ const catlogDeals = [
         ratting: "4.9",
         price: "$124.99",
         deleteprice: "$354.99",
-        days: '2023/12/31'
+        days: '2023/12/31',
     },
     {
         id: 2,
@@ -206,44 +203,44 @@ const catlogDeals = [
 const shopProducDetails = [
     {
         id: 1,
-        img: Product4,
+        img: img4,
         title: 'Sangria Girls Mint Green & Off-White Solid Open Toe Flats',
         discription: 'Graphic Print Men & Women Footwear',
         rate: "24.00",
         quantity: "02",
         amount: "48.00",
-        bg: 'success'
+        bg: 'success',
     },
     {
         id: 2,
-        img: Product16,
+        img: img16,
         title: 'Rockerz Ear Bluetooth Smart Watch',
         discription: '32.5mm (1.28 Inch) TFT Color Touch Display',
         rate: "160.00",
         quantity: "01",
         amount: "160.00",
-        bg: 'dark'
+        bg: 'dark',
     },
     {
         id: 3,
-        img: Product6,
+        img: img6,
         title: 'Monte Carlo Sweaters',
         discription: 'Graphic Print Men & Women Fashion',
         rate: "244.99",
         quantity: '03',
         amount: "734.97",
-        bg: 'warning'
+        bg: 'warning',
     },
     {
         id: 4,
-        img: Product8,
+        img: img8,
         title: "World's most expensive t shirt",
         discription: 'Graphic Print Men & Women Fashion',
         rate: "120.30",
         quantity: "02",
         amount: "240.60",
-        bg: 'secondary'
+        bg: 'secondary',
     },
-]
+];
 
 export { filterProduct, catlogDeals, shopProducDetails };

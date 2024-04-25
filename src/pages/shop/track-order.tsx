@@ -121,7 +121,7 @@ const Trackorder = () => {
                                                         <td>{item.quantity}</td>
                                                         <td className="text-end">${item.amount}</td>
                                                     </tr>
-                                                )
+                                                );
                                             })
                                         }
                                     </tbody>
@@ -197,7 +197,7 @@ const Trackorder = () => {
             <EmailClothe />
             <CommonService />
         </React.Fragment>
-    )
-}
+    );
+};
 
 export default Trackorder;

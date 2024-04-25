@@ -25,7 +25,7 @@ const Comingsoon = () => {
             email: "",
         },
         validationSchema: Yup.object({
-            email: Yup.string().email().matches(/^(?!.*@[^,]*,)/).required("Please Enter Your Email")
+            email: Yup.string().email().matches(/^(?!.*@[^,]*,)/).required("Please Enter Your Email"),
         }),
         onSubmit: (values) => {
             // console.log("value", values);
@@ -158,7 +158,7 @@ const Comingsoon = () => {
                 </div>
             </section>
         </React.Fragment>
-    )
-}
+    );
+};
 
 export default Comingsoon;

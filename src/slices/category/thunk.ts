@@ -23,5 +23,5 @@ export const fetchCategories = createAsyncThunk(
     } catch (error: any) {
       dispatch(fetchCategoriesFailure(error.message));
     }
-  }
+  },
 );

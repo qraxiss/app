@@ -7,7 +7,7 @@ import { Button } from "react-bootstrap";
 
 const Flashsale = () => {
 
-    document.title="Flash Sale Email Template || Toner eCommerce + Admin HTML Template"
+    document.title="Flash Sale Email Template || Toner eCommerce + Admin HTML Template";
 
     return (
         <React.Fragment>
@@ -86,7 +86,7 @@ const Flashsale = () => {
                 </div>
             </section>
         </React.Fragment >
-    )
-}
+    );
+};
 
 export default Flashsale;

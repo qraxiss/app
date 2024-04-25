@@ -1,9 +1,9 @@
-import { pickdata } from 'common/data/top-picks-data'
-import React from 'react'
-import { Card, Col, Container, Image, Row } from 'react-bootstrap'
-import { Link } from 'react-router-dom'
-import { Autoplay, Navigation } from 'swiper/modules'
-import { Swiper, SwiperSlide } from 'swiper/react'
+import { pickdata } from 'common/data/top-picks-data';
+import React from 'react';
+import { Card, Col, Container, Image, Row } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+import { Autoplay, Navigation } from 'swiper/modules';
+import { Swiper, SwiperSlide } from 'swiper/react';
 
 export const TopPicks = () => {
     return (
@@ -140,5 +140,5 @@ export const TopPicks = () => {
                 </Container>
             </section>
         </React.Fragment>
-    )
-}
+    );
+};

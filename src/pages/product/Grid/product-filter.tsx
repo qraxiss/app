@@ -11,7 +11,7 @@ const Productfilter = ({ name, setSelect }: any) => {
     const [maxcost, setMaxcost] = useState(2000);
 
     //Collapse
-    let newArray: any = [];
+    const newArray: any = [];
     //colors
     const [open, setOpen] = useState(false);
     //sizes
@@ -24,44 +24,44 @@ const Productfilter = ({ name, setSelect }: any) => {
     const [rating, setRating] = useState(false);
 
     const handleProduct = (value: any) => {
-        setSelect(product?.filter((product: any) => product.products === value))
-    }
+        setSelect(product?.filter((product: any) => product.products === value));
+    };
 
     const handleColor = (value: any) => {
         product?.filter((item: any) => {
             return item?.color?.filter((color: any) => {
                 if (color === value) {
-                    newArray.push(item)
+                    newArray.push(item);
                     setSelect(newArray);
                 }
                 return item;
-            })
-        })
-    }
+            });
+        });
+    };
 
     const handleSize = (event: any) => {
         product?.filter((item: any) => {
             return item.size?.filter((size: any) => {
                 if (size === event.value.toUpperCase()) {
-                    newArray.push(item)
-                    setSelect(newArray)
+                    newArray.push(item);
+                    setSelect(newArray);
                 }
                 return item;
-            })
-        })
-    }
+            });
+        });
+    };
 
     const hanlerat = (value: any) => {
-        setSelect(product?.filter((rat: any) => rat.ratting.toString().startsWith(value)))
-    }
+        setSelect(product?.filter((rat: any) => rat.ratting.toString().startsWith(value)));
+    };
     const handleDic = (event: any) => {
-        setSelect(product?.filter((discount: any) => discount.dic === event.value))
-        product?.filter((discount: any) => discount.dic, event.value)
-    }
+        setSelect(product?.filter((discount: any) => discount.dic === event.value));
+        product?.filter((discount: any) => discount.dic, event.value);
+    };
     const onUpdate = (value: any) => {
         setMincost(value[0]);
         setMaxcost(value[1]);
-    }
+    };
     useEffect(() => {
         onUpdate([mincost, maxcost]);
     }, [mincost, maxcost]);
@@ -467,7 +467,7 @@ const Productfilter = ({ name, setSelect }: any) => {
                 </Card>
             </div>
         </React.Fragment>
-    )
-}
+    );
+};
 
 export default Productfilter;

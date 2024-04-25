@@ -148,7 +148,7 @@ const Payment = () => {
                 </Container>
             </section>
         </React.Fragment >
-    )
-}
+    );
+};
 
 export default Payment;

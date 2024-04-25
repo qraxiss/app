@@ -59,65 +59,65 @@ const recentlyOrder = [
         title: 'Opinion Striped Round Neck Green T-shirt',
         price: '$126.99',
         ratting: '4.1',
-    }
-]
+    },
+];
 
 const shopReviews = [
     {
         id: 1,
         img: Avatar10,
         title: 'Scott Barber',
-        discription: "Really don't regret buying it. great job done the design is simply fabulous love your job."
+        discription: "Really don't regret buying it. great job done the design is simply fabulous love your job.",
     },
     {
         id: 2,
         img: Avatar8,
         title: 'Daniel Owen',
-        discription: "High theme quality. Very good support, they spent almost an hour remotely to fix a problem. I hope this theme will have a long term support."
+        discription: "High theme quality. Very good support, they spent almost an hour remotely to fix a problem. I hope this theme will have a long term support.",
     },
     {
         id: 3,
         img: Avatar2,
         title: 'Patrick Kelly',
-        discription: "Very good support and also code works brilliantly and well documented"
+        discription: "Very good support and also code works brilliantly and well documented",
     },
     {
         id: 4,
         img: Avatar1,
         title: 'Victoria Le',
-        discription: "Thank you for supporting CakePHP 4, we have purchased the template because of this support, please push forward more integration"
+        discription: "Thank you for supporting CakePHP 4, we have purchased the template because of this support, please push forward more integration",
     },
     {
         id: 5,
         img: Avatar4,
         title: 'Nicole Davis ',
-        discription: "We have used your other templates as well and seems it's amazing with the design and code quality. Wish you best for the future updates. Keep updated you will be #1 in near future."
+        discription: "We have used your other templates as well and seems it's amazing with the design and code quality. Wish you best for the future updates. Keep updated you will be #1 in near future.",
     },
     {
         id: 6,
         img: Avatar3,
         title: 'Daniel Mejia',
-        discription: "Gracias por las correciones que hiceron para esta version 1.4. Ahora definitivamente la calificacion debe ser de 5 estrellas. Excelente trabajo muchachos!"
+        discription: "Gracias por las correciones que hiceron para esta version 1.4. Ahora definitivamente la calificacion debe ser de 5 estrellas. Excelente trabajo muchachos!",
     },
     {
         id: 7,
         img: Avatar5,
         title: 'Jessica Thomas',
-        discription: "This is an incredible framework worth so much in the right hands! Nowhere else are you going to get so much flexibility and great code for a few dollars. Highly recommend purchasing today! Like right now!"
+        discription: "This is an incredible framework worth so much in the right hands! Nowhere else are you going to get so much flexibility and great code for a few dollars. Highly recommend purchasing today! Like right now!",
     },
     {
         id: 8,
         img: Avatar6,
         title: 'Alexis Davidson',
-        discription: "great product. look forward to the vue and react versions"
+        discription: "great product. look forward to the vue and react versions",
     },
     {
         id: 9,
         img: Avatar7,
         title: 'Elizabeth Padilla',
-        discription: "Good design & good support. Go for it."
+        discription: "Good design & good support. Go for it.",
     },
-]
+];
 const orderHistorys = [
     {
         id: 1,
@@ -129,7 +129,7 @@ const orderHistorys = [
         amount: "287.53",
         status: "Delivered",
         bg: 'success',
-        avatar: 'light'
+        avatar: 'light',
     },
     {
         id: 2,
@@ -141,7 +141,7 @@ const orderHistorys = [
         amount: "39.99",
         status: "Shipping",
         bg: 'secondary',
-        avatar: 'danger-subtle'
+        avatar: 'danger-subtle',
     },
     {
         id: 3,
@@ -153,7 +153,7 @@ const orderHistorys = [
         amount: "874.00",
         status: "Out Of Delivery",
         bg: 'danger',
-        avatar: 'success-subtle'
+        avatar: 'success-subtle',
     },
     {
         id: 4,
@@ -165,7 +165,7 @@ const orderHistorys = [
         amount: "32.00",
         status: "Delivered",
         bg: 'success',
-        avatar: 'secondary-subtle'
+        avatar: 'secondary-subtle',
     },
     {
         id: 5,
@@ -177,9 +177,9 @@ const orderHistorys = [
         amount: "18.32",
         status: "Pending",
         bg: 'warning',
-        avatar: 'info-subtle'
+        avatar: 'info-subtle',
     },
-]
+];
 
 const productData = [
     {
@@ -191,7 +191,7 @@ const productData = [
         bg: "danger",
         ItemPrice: 89.99,
         Total: 89.99,
-        num: 1
+        num: 1,
     },
     {
         id: 2,
@@ -201,7 +201,7 @@ const productData = [
         bg: "secondary",
         ItemPrice: 742.00,
         Total: 742.00,
-        num: 1
+        num: 1,
     },
     {
         id: 3,
@@ -212,7 +212,7 @@ const productData = [
         bg: "warning",
         ItemPrice: 62.40,
         Total: 62.40,
-        num: 1
+        num: 1,
     },
     {
         id: 4,
@@ -222,9 +222,9 @@ const productData = [
         bg: "dark",
         ItemPrice: 38.00,
         Total: 38.00,
-        num: 1
+        num: 1,
     },
-]
+];
 const wishlishProduct = [
     {
         id: 1,
@@ -234,7 +234,7 @@ const wishlishProduct = [
         price: 154.49,
         status: "In Stock",
         color: 'success',
-        bg: 'dark'
+        bg: 'dark',
     },
     {
         id: 2,
@@ -244,7 +244,7 @@ const wishlishProduct = [
         price: 39.99,
         status: "Out Of Stock",
         bg: 'danger',
-        color: 'danger'
+        color: 'danger',
     },
     {
         id: 3,
@@ -254,7 +254,7 @@ const wishlishProduct = [
         price: 74.32,
         status: "In Stock",
         color: 'success',
-        bg: 'success'
+        bg: 'success',
     },
     {
         id: 4,
@@ -264,7 +264,7 @@ const wishlishProduct = [
         price: 32.00,
         status: "In Stock",
         color: 'success',
-        bg: 'secondary'
+        bg: 'secondary',
     },
     {
         id: 5,
@@ -274,9 +274,9 @@ const wishlishProduct = [
         price: 18.32,
         status: "Out Of Stock",
         color: 'danger',
-        bg: 'info'
+        bg: 'info',
     },
-]
+];
 
 const wishListCard = [
     {
@@ -286,7 +286,7 @@ const wishListCard = [
         text: "Striped High Neck Casual Men Orange Sweater",
         rat: 4.7,
         price: "62.40",
-        deletprice: "120.00"
+        deletprice: "120.00",
     },
     {
         id: 2,
@@ -295,7 +295,7 @@ const wishListCard = [
         text: "Girls Mint Green & Off-White Solid Open Toe Flats",
         rat: 4.5,
         price: "80.00",
-        deletprice: "180.00"
+        deletprice: "180.00",
     },
     {
         id: 3,
@@ -304,7 +304,7 @@ const wishListCard = [
         text: "Ethex Women Ribbed Sweater",
         rat: 5.0,
         price: "24.07",
-        deletprice: "120.00"
+        deletprice: "120.00",
     },
 ];
 
@@ -314,15 +314,15 @@ const selectAddressData = [
         address: "HOME ADDRESS",
         addressname: "Witney Blessington",
         addressdetails: "144 Cavendish Avenue, Indianapolis, IN 46251",
-        phonenumber: "012-345-6789"
+        phonenumber: "012-345-6789",
     },
     {
         id: 2,
         address: "OFFICE ADDRESS",
         addressname: "Edwin Adenike",
         addressdetails: "2971 Westheimer Road, Santa Ana, IL 80214",
-        phonenumber: "123-456-7890"
+        phonenumber: "123-456-7890",
     },
-]
+];
 
 export { recentlyOrder, shopReviews, orderHistorys, productData, wishlishProduct, wishListCard, selectAddressData };

@@ -7,7 +7,7 @@ const ReactTable = ({ columns, data }: any) => {
         getTableBodyProps,
         headerGroups,
         rows,
-        prepareRow, } = useTable({ columns, data });
+        prepareRow } = useTable({ columns, data });
 
     return (
         <React.Fragment>
@@ -28,18 +28,18 @@ const ReactTable = ({ columns, data }: any) => {
                 <tbody {...getTableBodyProps()}>
                     {
                         rows?.map((row: any) => {
-                            prepareRow(row)
+                            prepareRow(row);
                             return (
                                 <tr {...row.getRowProps()}>
                                     {
                                         row.cells?.map((cell: any) => {
                                             return (
                                                 <td {...cell.getCellProps()}>{cell.render('Cell')}</td>
-                                            )
+                                            );
                                         })
                                     }
                                 </tr>
-                            )
+                            );
                         })
                     }
 
@@ -47,6 +47,6 @@ const ReactTable = ({ columns, data }: any) => {
             </Table>
         </React.Fragment>
     );
-}
+};
 
 export default ReactTable;

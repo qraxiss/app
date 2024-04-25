@@ -11,8 +11,8 @@ import ListProductData from "components/list-product-data";
 const Leftrightsidebar = () => {
     const [select, setSelect] = useState(product);
     const handleSelect = (event: any) => {
-        setSelect(product?.filter((sort: any) => sort.sortBy === event.value || sort === "all"))
-    }
+        setSelect(product?.filter((sort: any) => sort.sortBy === event.value || sort === "all"));
+    };
     return (
         <React.Fragment>
             <ProductGrid title="Product List Right Sidebar" />
@@ -41,6 +41,6 @@ const Leftrightsidebar = () => {
             <CommonService />
         </React.Fragment>
     );
-}
+};
 
 export default Leftrightsidebar;

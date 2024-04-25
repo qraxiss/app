@@ -34,7 +34,7 @@ const Signin = () => {
 
     const handleToogle = () => {
         passwordtype === password ? setPassword("text") : setPassword("password");
-    }
+    };
     return (
         <React.Fragment>
             <section className="auth-page-wrapper position-relative bg-light min-vh-100 d-flex align-items-center justify-content-between">
@@ -169,7 +169,7 @@ const Signin = () => {
                 </div>
             </section>
         </React.Fragment >
-    )
-}
+    );
+};
 
 export default Signin;

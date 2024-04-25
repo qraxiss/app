@@ -21,35 +21,35 @@ const Cardshop = () => {
 
     const deleteData = () => {
         setProductcount(productData?.filter((delet: any) => delet.id !== id));
-    }
+    };
 
     const assinged = (productcount || [])?.map(M => M.Total);
     let subtotal = 0;
     for (let i = 0; i < assinged.length; i++) {
-        subtotal += Math.round(assinged[i])
+        subtotal += Math.round(assinged[i]);
     }
 
     useEffect(() => {
-        let dis: any = (0.15 * subtotal).toFixed(2);
-        let tax = (0.125 * subtotal);
+        const dis: any = (0.15 * subtotal).toFixed(2);
+        const tax = (0.125 * subtotal);
 
         if (subtotal !== 0) {
-            setCharge(65)
+            setCharge(65);
         } else {
-            setCharge(0)
+            setCharge(0);
         }
         setDis(dis);
         setTax(tax);
-    }, [subtotal])
+    }, [subtotal]);
 
 
     const countUP = (item: any) => {
-        setProductcount((productData || [])?.map(count => count.id === item.id ? { ...count, num: item.num + 1, Total: (item.num + 1) * item.ItemPrice } : count))
-    }
+        setProductcount((productData || [])?.map(count => count.id === item.id ? { ...count, num: item.num + 1, Total: (item.num + 1) * item.ItemPrice } : count));
+    };
 
     const countDown = (item: any) => {
         setProductcount((productData || []).map((count: any) => (count.id === item.id && count.num > 0) ? { ...count, num: item.num > 0 ? item.num - 1 : 0, Total: (item.num > 0 ? item.num - 1 : 0) * item.ItemPrice } : count));
-    }
+    };
 
     return (
         <React.Fragment>
@@ -118,7 +118,7 @@ const Cardshop = () => {
                                     </Row>
                                 </Card.Footer>
                             </Card>
-                        )
+                        );
                     })
                 }
 
@@ -134,7 +134,7 @@ const Cardshop = () => {
             </div>
             <DeleteModal removeModel={removeModel} hideModal={RemoveModel} deleteData={deleteData} />
         </React.Fragment >
-    )
-}
+    );
+};
 
 export default Cardshop;

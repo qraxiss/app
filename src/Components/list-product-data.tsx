@@ -5,7 +5,7 @@ import Pagination from "./pagination";
 
 const ListProductData = ({ listnoslider }: any) => {
 
-    const pagination: boolean = true;
+    const pagination = true;
     const [currentPage, setCurrentPage] = useState<any>(1);
     const [currentpages, setCurrentpages] = useState<any>([]);
     const perPageData = 5;
@@ -17,24 +17,24 @@ const ListProductData = ({ listnoslider }: any) => {
     const currentdata = useMemo(() => listnoslider.slice(indexOfFirst, indexOfLast), [listnoslider, indexOfFirst, indexOfLast]);
 
     useEffect(() => {
-        setCurrentpages(currentdata)
-    }, [currentPage, listnoslider, currentdata])
+        setCurrentpages(currentdata);
+    }, [currentPage, listnoslider, currentdata]);
     const pageNumbers: any = [];
 
     for (let i = 1; i <= Math.ceil(listnoslider.length / perPageData); i++) {
         pageNumbers.push(i);
     }
     const handleprevPage = () => {
-        let prevPage = currentPage - 1;
+        const prevPage = currentPage - 1;
         setCurrentPage(prevPage);
     };
     const handlenextPage = () => {
-        let nextPage = currentPage + 1;
+        const nextPage = currentPage + 1;
         setCurrentPage(nextPage);
     };
     useEffect(() => {
         if (pageNumbers.length && pageNumbers.length < currentPage) {
-            setCurrentPage(pageNumbers.length)
+            setCurrentPage(pageNumbers.length);
         }
     }, [currentPage, pageNumbers.length]);
 
@@ -215,7 +215,7 @@ const ListProductData = ({ listnoslider }: any) => {
                                             </Row>
                                         </Card.Body>
                                     </Card>
-                                )
+                                );
                             })
                             // :
                             // (<Row id="search-result-elem">
@@ -248,6 +248,6 @@ const ListProductData = ({ listnoslider }: any) => {
 
         </React.Fragment>
     );
-}
+};
 
 export default ListProductData;

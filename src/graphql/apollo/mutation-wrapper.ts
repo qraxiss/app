@@ -1,14 +1,15 @@
+/* eslint-disable prefer-const */
 import { GQL_STATUS } from "types/gql";
 import { handle } from "./helpers";
 import { simplifyResponse } from "./simplify-response";
-import { DocumentNode, MutationHookOptions, useMutation } from '@apollo/client';
-import { ApolloError } from '@apollo/client';
+import { DocumentNode, MutationHookOptions, useMutation, ApolloError } from '@apollo/client';
 import { useState } from 'react';
 
 const useShopcekMutation = <DType>(
   mutation: DocumentNode,
   options?: MutationHookOptions,
-  notFound?: (data: any) => boolean
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  notFound?: (data: any) => boolean,
 ): {
   status: GQL_STATUS;
   fn: CallableFunction;
@@ -25,10 +26,10 @@ const useShopcekMutation = <DType>(
     context: {
       headers: jwt
         ? {
-          Authorization: `Bearer ${jwt}`
+          Authorization: `Bearer ${jwt}`,
         }
-        : {}
-    }
+        : {},
+    },
   });
   const [stateData, setStateData] = useState<DType>();
 
@@ -54,7 +55,7 @@ const useShopcekMutation = <DType>(
   } else if (!called) {
     status = 'not-called';
   } else {
-    status = undefined;
+    status = null;
   }
 
   return {
@@ -64,7 +65,7 @@ const useShopcekMutation = <DType>(
     loading,
     called,
     fn: handle(fn),
-    status
+    status,
   };
 };
 

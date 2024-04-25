@@ -36,7 +36,7 @@ const EmailClothe = () => {
                 </Container>
             </section>
         </React.Fragment>
-    )
-}
+    );
+};
 
 export default EmailClothe;

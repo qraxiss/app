@@ -15,6 +15,6 @@ const Home = () => {
             <Instagram />
         </React.Fragment>
     );
-}
+};
 
 export default Home;

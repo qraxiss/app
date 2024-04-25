@@ -1,8 +1,8 @@
-import { useLazyQuery, useQuery } from "@apollo/client";
-import { DocumentNode, QueryHookOptions } from "@apollo/client";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable prefer-const */
+import { useLazyQuery, useQuery, DocumentNode, QueryHookOptions, ApolloError } from "@apollo/client";
 import { simplifyResponse } from "./simplify-response";
 
-import { ApolloError } from "@apollo/client";
 import { useState } from "react";
 import { handle } from "./helpers";
 import { GQL_STATUS } from "types/gql";
@@ -10,7 +10,7 @@ import { GQL_STATUS } from "types/gql";
 export function useShopcekQuery<DType>(
   query: DocumentNode,
   options?: QueryHookOptions,
-  notFound?: (data: any) => boolean
+  notFound?: (data: any) => boolean,
 ): {
   status: GQL_STATUS;
   refetch: CallableFunction;
@@ -56,7 +56,7 @@ export function useShopcekQuery<DType>(
   } else if (!called) {
     status = "not-called";
   } else {
-    status = undefined;
+    status = null;
   }
   
   return {
@@ -73,7 +73,7 @@ export function useShopcekQuery<DType>(
 export function useLazyShopcekQuery<DType>(
   query: DocumentNode,
   options?: QueryHookOptions,
-  notFound?: (data: any) => boolean
+  notFound?: (data: any) => boolean,
 ): {
   status: GQL_STATUS;
   fn: CallableFunction;
@@ -122,7 +122,7 @@ export function useLazyShopcekQuery<DType>(
   } else if (!called) {
     status = "not-called";
   } else {
-    status = undefined;
+    status = null;
   }
 
   return {

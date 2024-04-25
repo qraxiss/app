@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import { filterProduct } from "common/data";
 
 const Filters = ({ name, setFilterlist }: any) => {
-    let newList: any = [];
+    const newList: any = [];
     const [mincost, setMincost] = useState(0);
     const [maxcost, setMaxcost] = useState(2000);
     //Collapse
@@ -26,49 +26,49 @@ const Filters = ({ name, setFilterlist }: any) => {
         (filterProduct || [])?.map((item: any) => {
             return item.color?.filter((color: any) => {
                 if (color === value) {
-                    newList.push(item)
+                    newList.push(item);
                     setFilterlist(newList);
 
                 }
                 return item;
-            })
-        })
-    }
+            });
+        });
+    };
 
     //size
     const handleSize = (e: any) => {
         (filterProduct || [])?.map((item: any) => {
             return item.size?.filter((size: any) => {
                 if (size === e.target.value.toUpperCase()) {
-                    newList.push(item)
-                    setFilterlist(newList)
+                    newList.push(item);
+                    setFilterlist(newList);
                 }
                 return item;
-            })
+            });
 
-        })
-    }
+        });
+    };
 
     // products
     const handleProduct = (value: any) => {
-        setFilterlist(filterProduct?.filter((product: any) => product.products === value))
-    }
+        setFilterlist(filterProduct?.filter((product: any) => product.products === value));
+    };
 
     //dicount
     const handleDic = (e: any) => {
-        setFilterlist(filterProduct?.filter((discount: any) => discount.dic === e.value))
-    }
+        setFilterlist(filterProduct?.filter((discount: any) => discount.dic === e.value));
+    };
 
     //ratting
     const hanleRat = (value: any) => {
-        setFilterlist(filterProduct?.filter((rat: any) => rat.ratting.toString().startsWith(value)))
-    }
+        setFilterlist(filterProduct?.filter((rat: any) => rat.ratting.toString().startsWith(value)));
+    };
 
     //nouislider
     const onUpDate = (value: any) => {
         setMincost(value[0]);
         setMaxcost(value[1]);
-    }
+    };
 
     useEffect(() => {
         onUpDate([mincost, maxcost]);
@@ -477,7 +477,7 @@ const Filters = ({ name, setFilterlist }: any) => {
                 </Card>
             </div>
         </React.Fragment >
-    )
+    );
 };
 
 export default Filters;

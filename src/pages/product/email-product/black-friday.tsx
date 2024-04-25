@@ -8,7 +8,7 @@ import products14 from "assets/images/products/img-14.png";
 import { BlackFridaysymbol, BlueFridaySymbol } from "components/friday-symbol";
 
 const Blackfriday = () => {
-    document.title="Black Friday Email Template || Toner eCommerce + Admin HTML Template"
+    document.title="Black Friday Email Template || Toner eCommerce + Admin HTML Template";
     return (
         <React.Fragment>
             <section style={{ fontFamily: "'Inter', sans-serif", boxSizing: "border-box", fontSize: "15px", width: "100%", backgroundColor: "transparent", margin: "35px 0", color: "#06283D" }}>
@@ -112,7 +112,7 @@ const Blackfriday = () => {
                 </div>
             </section>
         </React.Fragment >
-    )
-}
+    );
+};
 
 export default Blackfriday;

@@ -1,4 +1,4 @@
-import React from "react"
+import React from "react";
 import { Card, Col, Container, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { PublishedProduct } from "components/product-silde";
@@ -143,7 +143,7 @@ const Termsconditions = () => {
             <EmailClothe />
             <CommonService />
         </React.Fragment>
-    )
-}
+    );
+};
 
 export default Termsconditions;

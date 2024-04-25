@@ -31,9 +31,9 @@ const Header = (props: any) => {
     const handlecardClose = () => setCard(false);
     const handlecardShow = () => setCard(true);
 
-    const [showMenu, setShowMenu] = useState<any>("")
-    const [showSubMenu, setShowSubMenu] = useState<any>("")
-    const [showPageSubMenu, setShowPageSubMenu] = useState<any>("")
+    const [showMenu, setShowMenu] = useState<any>("");
+    const [showSubMenu, setShowSubMenu] = useState<any>("");
+    const [showPageSubMenu, setShowPageSubMenu] = useState<any>("");
 
     const path = props.router.location.pathname;
 
@@ -42,17 +42,6 @@ const Header = (props: any) => {
       }, [dispatch]);
 
     useEffect(() => {
-        const initMenu = () => {
-            const pathName = process.env.PUBLIC_URL + path;
-            const ul = document.getElementById("navigation-menu") as HTMLElement;
-            const items: any = ul.getElementsByTagName("a");
-            let itemsArray: any = Array.from(items);
-            removeActivation(itemsArray);
-            let matchingMenuItem = itemsArray.find((x: HTMLAnchorElement) => x.pathname === pathName);
-            if (matchingMenuItem) {
-                activateParentDropdown(matchingMenuItem);
-            }
-        };
 
         const removeActivation = (items: HTMLAnchorElement[]) => {
             items.forEach((item: HTMLAnchorElement) => {
@@ -62,15 +51,15 @@ const Header = (props: any) => {
 
         const activateParentDropdown = (item: HTMLAnchorElement) => {
             item.classList.add("active");
-            let parentDrop: any = item.closest(".dropdown");
+            const parentDrop: any = item.closest(".dropdown");
             if (parentDrop) {
                 parentDrop.classList.add("active");
                 parentDrop.querySelector('.dropdown-toggle').classList.add("active");
-                let parentDropdown = parentDrop.parentElement.closest(".dropdown");
+                const parentDropdown = parentDrop.parentElement.closest(".dropdown");
 
                 if (parentDropdown) {
                     parentDropdown.querySelector('.dropdown-toggle').classList.add("active");
-                    let parentEleDropdown = parentDropdown.parentElement.closest(".dropdown");
+                    const parentEleDropdown = parentDropdown.parentElement.closest(".dropdown");
                     if (parentEleDropdown) {
                         parentEleDropdown.querySelector('.dropdown-toggle').classList.add("active");
                     }
@@ -78,15 +67,27 @@ const Header = (props: any) => {
             }
         };
 
+        const initMenu = () => {
+            const pathName = process.env.PUBLIC_URL + path;
+            const ul = document.getElementById("navigation-menu") as HTMLElement;
+            const items: any = ul.getElementsByTagName("a");
+            const itemsArray: any = Array.from(items);
+            removeActivation(itemsArray);
+            const matchingMenuItem = itemsArray.find((x: HTMLAnchorElement) => x.pathname === pathName);
+            if (matchingMenuItem) {
+                activateParentDropdown(matchingMenuItem);
+            }
+        };
+
         initMenu();
-        let collapse = document.getElementById("navbarSupportedContent") as HTMLElement;
+        const collapse = document.getElementById("navbarSupportedContent") as HTMLElement;
         if (collapse && collapse.classList.contains("show")) {
             collapse.classList.remove("show");
         }
     }, [path]);
 
     const windowScroll = () => {
-        let navbar = document.getElementById("navbar");
+        const navbar = document.getElementById("navbar");
         if (navbar) {
             if (document.body.scrollTop >= 50 || document.documentElement.scrollTop >= 50) {
                 navbar.classList.add("is-sticky");
@@ -94,34 +95,36 @@ const Header = (props: any) => {
                 navbar.classList.remove("is-sticky");
             }
         }
-    }
+    };
 
-    window.addEventListener('scroll', function (ev) { ev.preventDefault(); windowScroll(); });
+    window.addEventListener('scroll', function (ev) {
+ ev.preventDefault(); windowScroll(); 
+});
 
     const handleShowColl = () => {
-        let navbar = document.getElementById("navbar");
-        let collapse = document.getElementById("navbarSupportedContent") as HTMLElement;
+        const navbar = document.getElementById("navbar");
+        const collapse = document.getElementById("navbarSupportedContent") as HTMLElement;
         navbar && navbar.classList.remove("navbar-expand");
         if (collapse && collapse.classList.contains("show")) {
             collapse.addEventListener('shown.bs.collapse', event => {
-                collapse.classList.remove("show")
-            })
+                collapse.classList.remove("show");
+            });
         } else {
-            collapse.classList.add("show")
+            collapse.classList.add("show");
         }
-    }
+    };
 
     // Resize Nav Collapse
     const windowResizeHover = () => {
-        var windowSize = document.documentElement.clientWidth;
+        const windowSize = document.documentElement.clientWidth;
         if (windowSize > 992) {
-            let collapse = document.getElementById("navbarSupportedContent") as HTMLElement;
+            const collapse = document.getElementById("navbarSupportedContent") as HTMLElement;
             if (collapse && collapse.classList.contains("show")) {
-                collapse.classList.remove("show")
+                collapse.classList.remove("show");
             }
             setShowMenu("");
             setShowSubMenu("");
-            setShowPageSubMenu("")
+            setShowPageSubMenu("");
         }
     };
 
@@ -129,7 +132,7 @@ const Header = (props: any) => {
         window.addEventListener('resize', windowResizeHover);
         return () => {
             window.removeEventListener('resize', windowResizeHover);
-        }
+        };
     }, []);
 
     return (
@@ -211,7 +214,7 @@ const Header = (props: any) => {
             </Navbar>
             <CardModal show={card} handleClose={handlecardClose} />
         </React.Fragment>
-    )
+    );
 };
 
 export default withRouter(withTranslation()(Header));

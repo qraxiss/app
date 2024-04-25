@@ -54,7 +54,7 @@ const FAQ = () => {
                                         </Card>
                                     </Col>
 
-                                )
+                                );
                             })
                         }
                     </Row>
@@ -106,6 +106,6 @@ const FAQ = () => {
             </section>
             <ContactHelp cname="section" />
         </React.Fragment>
-    )
-}
+    );
+};
 export default FAQ;

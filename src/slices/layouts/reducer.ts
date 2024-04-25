@@ -3,21 +3,21 @@ import { footerModeTypes, layoutThemeModes } from "components/constants/layout";
 
 export const initialState = {
     footerModeType: footerModeTypes.DARKMODE,
-    layoutThemeMode: layoutThemeModes.LIGHTTHEME
-}
+    layoutThemeMode: layoutThemeModes.LIGHTTHEME,
+};
 
 const LayoutSlice = createSlice({
     name: "LayoutSlice",
     initialState,
     reducers: {
         changeLayoutModeAction(state, action) {
-            state.footerModeType = action.payload
+            state.footerModeType = action.payload;
         },
         changeLayoutThemeModeAction(state, action) {
-            state.layoutThemeMode = action.payload
-        }
-    }
-})
+            state.layoutThemeMode = action.payload;
+        },
+    },
+});
 
 export const { changeLayoutModeAction, changeLayoutThemeModeAction } = LayoutSlice.actions;
 export default LayoutSlice.reducer;

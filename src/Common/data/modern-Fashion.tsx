@@ -22,17 +22,17 @@ export const trendingProducts =[
         tooltip:[   
             {
                 color:"primary",
-                tooltipName:"Blue"    
+                tooltipName:"Blue",    
              },
              {
                 color:"warning",
-                tooltipName:"Yellow"    
+                tooltipName:"Yellow",    
              },
              {
                 color:"success",
-                tooltipName:"Green"    
+                tooltipName:"Green",    
              },
-        ]
+        ],
     },
     {
         id:2,
@@ -43,18 +43,18 @@ export const trendingProducts =[
         tooltip:[   
             {
                 color:"dark",
-                tooltipName:"Gray"    
+                tooltipName:"Gray",    
              },
              {
                 color:"secondary",
-                tooltipName:"Cyan"    
-             }
+                tooltipName:"Cyan",    
+             },
         ],
         ribbon:
             {
                 text:"10% Off",
-                color:"danger"
-            }
+                color:"danger",
+            },
         
     },{
         id:3,
@@ -65,13 +65,13 @@ export const trendingProducts =[
         tooltip:[   
             {
                 color:"primary",
-                tooltipName:"Blue"    
+                tooltipName:"Blue",    
              },
              {
                 color:"danger",
-                tooltipName:"Red"    
-             }
-        ]
+                tooltipName:"Red",    
+             },
+        ],
     },{
         id:4,
         fashionImgMain:fashionImg18,
@@ -81,14 +81,14 @@ export const trendingProducts =[
         tooltip:[   
             {
                 color:"light",
-                tooltipName:"White"    
-             }             
+                tooltipName:"White",    
+             },             
         ],
         ribbon:
             {
                 text:"Trending",
-                color:"info"
-            }
+                color:"info",
+            },
         
     },{
         id:5,
@@ -99,13 +99,13 @@ export const trendingProducts =[
         tooltip:[   
             {
                 color:"success",
-                tooltipName:"Green"    
+                tooltipName:"Green",    
              },
              {
                 color:"secondary",
-                tooltipName:"Cyan"    
-             }
-        ]
+                tooltipName:"Cyan",    
+             },
+        ],
     },{
         id:6,
         fashionImgMain:fashionImg12,
@@ -115,18 +115,18 @@ export const trendingProducts =[
         tooltip:[   
             {
                 color:"primary",
-                tooltipName:"Blue"    
+                tooltipName:"Blue",    
              },
              {
                 color:"success",
-                tooltipName:"Green"    
-             }
+                tooltipName:"Green",    
+             },
         ],
         ribbon:
             {
                 text:"Up to 15% off",
-                color:"danger"
-            }
+                color:"danger",
+            },
         
     },{
         id:7,
@@ -137,17 +137,17 @@ export const trendingProducts =[
         tooltip:[   
             {
                 color:"primary",
-                tooltipName:"Blue"    
+                tooltipName:"Blue",    
              },
              {
                 color:"dark",
-                tooltipName:"Gray"    
+                tooltipName:"Gray",    
              },
              {
                 color:"secondary",
-                tooltipName:"Cyan"    
-             }
-        ]
+                tooltipName:"Cyan",    
+             },
+        ],
     },{
         id:8,
         fashionImgMain:fashionImg13,
@@ -157,13 +157,13 @@ export const trendingProducts =[
         tooltip:[   
             {
                 color:"danger",
-                tooltipName:"Red"    
+                tooltipName:"Red",    
              },
              {
                 color:"warning",
-                tooltipName:"Yellow"    
-             }
-        ]
+                tooltipName:"Yellow",    
+             },
+        ],
     },{
         id:9,
         fashionImgMain:fashionImg15,
@@ -173,13 +173,13 @@ export const trendingProducts =[
         tooltip:[   
             {
                 color:"light",
-                tooltipName:"White"    
+                tooltipName:"White",    
              },
              {
                 color:"success",
-                tooltipName:"Green"    
-             }
-        ]
+                tooltipName:"Green",    
+             },
+        ],
     },{
         id:10,
         fashionImgMain:fashionImg9,
@@ -189,15 +189,15 @@ export const trendingProducts =[
         tooltip:[   
             {
                 color:"warning",
-                tooltipName:"Yellow"    
+                tooltipName:"Yellow",    
              },
              {
                 color:"primary",
-                tooltipName:"Blue"    
-             }
-        ]
+                tooltipName:"Blue",    
+             },
+        ],
     },
-]
+];
 
 export const cardData =[
     {
@@ -205,30 +205,30 @@ export const cardData =[
         bgColor:"success",
         feature:"Fast & Free Shipping",
         description:"Free Shipping for orders over $100",
-        icon:"bi bi-truck"
+        icon:"bi bi-truck",
     },
     {
         id:2,
         bgColor:"primary",
         feature:"Payment Security",
         description:"Within 1 days for an exchange.",
-        icon:"bi bi-cash-coin"
+        icon:"bi bi-cash-coin",
     },
     {
         id:3,
         bgColor:"danger",
         feature:"Products Quality",
         description:"Free Shipping for orders over $100",
-        icon:"bi bi-shield-check"
+        icon:"bi bi-shield-check",
     },
     {
         id:4,
         bgColor:"secondary",
         feature:"24/7 Support",
         description:"24 hours a day, 7 days a week",
-        icon:"bi bi-clock-history"
+        icon:"bi bi-clock-history",
     },
-]
+];
 
 export const featuredProducts = [
     {
@@ -237,7 +237,7 @@ export const featuredProducts = [
         cardColor :"warning",
         productImg : fashionImg2,
         price:"$154.67",
-        description :"Style Women A-Line Dark Blue Dress"
+        description :"Style Women A-Line Dark Blue Dress",
     },
     {
         id:2,
@@ -246,7 +246,7 @@ export const featuredProducts = [
         productImg : fashionImg5,
         price:"$120.32",
         offer: "$348.24",
-        description :"Elanhood Full Sleeve Solid Women Jacket"
+        description :"Elanhood Full Sleeve Solid Women Jacket",
     },
     {
         id:3,
@@ -255,7 +255,7 @@ export const featuredProducts = [
         productImg : fashionImg14,
         price:"$59.99",
         offer: "$249.99",
-        description :"Imported Fabulous Women Top And Bottom Set"
+        description :"Imported Fabulous Women Top And Bottom Set",
     },
     {
         id:4,
@@ -263,7 +263,7 @@ export const featuredProducts = [
         cardColor :"success",
         productImg : fashionImg8,
         price:"$124.64",
-        description :"Girls Printed Shorts"
+        description :"Girls Printed Shorts",
     },
     {
         id:5,
@@ -271,35 +271,35 @@ export const featuredProducts = [
         cardColor :"body",
         productImg : fashionImg11,
         price:"$249.99",
-        description :"Stylish Collar Full Sleeve T-shirt"
+        description :"Stylish Collar Full Sleeve T-shirt",
     },
-]
+];
 
 export const trendingOutfit = [
     {
         id:1,
         fashionImg : fashionImg11,
-        tshirt : "Polo Shirt"
+        tshirt : "Polo Shirt",
     },
     {
         id:2,
         fashionImg : fashionImg17,
-        tshirt : "Oxford Shirts"
+        tshirt : "Oxford Shirts",
     },
     {
         id:1,
         fashionImg : fashionImg15,
-        tshirt : "Dramatic Tops"
+        tshirt : "Dramatic Tops",
     },
     {
         id:1,
         fashionImg : fashionImg13,
-        tshirt : "Elegant Chic"
+        tshirt : "Elegant Chic",
     },
     {
         id:1,
         fashionImg : fashionImg12,
-        tshirt : "Sweater"
+        tshirt : "Sweater",
     },
 
-]
+];

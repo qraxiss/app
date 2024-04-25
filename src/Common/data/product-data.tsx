@@ -38,7 +38,7 @@ export const productData = [
         stock: "In stock",
         color: ["light", "dark"],
         bg: 'success',
-        sortBy: "hightolow"
+        sortBy: "hightolow",
     },
     {
         id: 3,
@@ -94,7 +94,7 @@ export const productData = [
         color: ["danger"],
         size: ["40", "41", "42"],
         bg: 'danger',
-        sortBy: "hightolow"
+        sortBy: "hightolow",
     },
     {
         id: 7,
@@ -123,7 +123,7 @@ export const productData = [
         color: ["light", "warning"],
         size: ["s", "l"],
         bg: 'success',
-        sortBy: "hightolow"
+        sortBy: "hightolow",
     },
     {
         id: 9,
@@ -150,7 +150,7 @@ export const productData = [
         stock: "Out of stock",
         color: ["secondary", "dark", "danger", "light"],
         bg: 'danger',
-        sortBy: "hightolow"
+        sortBy: "hightolow",
     },
     {
         id: 11,
@@ -163,7 +163,7 @@ export const productData = [
         stock: "In stock",
         color: ["secondary", "info"],
         bg: 'success',
-        sortBy: "hightolow"
+        sortBy: "hightolow",
     },
     {
         id: 12,
@@ -178,5 +178,5 @@ export const productData = [
         size: ["s", "m", "l", "xl"],
         bg: 'danger',
         sortBy: "lowtohigh",
-    }
-]
+    },
+];

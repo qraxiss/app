@@ -11,24 +11,24 @@ const Nosider = () => {
     //select product
     const setCategories = (event: any) => {
         setSelect(product?.filter((Sort: any) => Sort.sortBy === event.value || event.value === 'all'));
-    }
+    };
     //rating
     const handleRatting = (event: any) => {
         setSelect(product?.filter((rat: any) => rat.ratting.toString().startsWith(event.value)));
-    }
+    };
     //diccount
     const handleDicount = (event: any) => {
-        setSelect(product?.filter((dicCount: any) => dicCount.dic === event.value))
-    }
+        setSelect(product?.filter((dicCount: any) => dicCount.dic === event.value));
+    };
     //category
     const handleCategory = (event: any) => {
-        setSelect(product?.filter((category: any) => category.products === event.value))
-    }
+        setSelect(product?.filter((category: any) => category.products === event.value));
+    };
     //search product
     const searchProducts = (ele: any) => {
         let search = ele.target.value;
         if (search) {
-            search = search.toLowerCase()
+            search = search.toLowerCase();
             setSelect(product.filter((data: any) => (data.title.toLowerCase().includes(search))));
         } else {
             setSelect(product);
@@ -64,7 +64,7 @@ const Nosider = () => {
             <EmailClothe />
             <CommonService />
         </React.Fragment>
-    )
-}
+    );
+};
 
 export default Nosider;

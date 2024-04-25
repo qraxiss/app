@@ -26,8 +26,8 @@ export const TopCategoies = ({ title }: any) => {
                 </div>
             </Col>
         </Row>
-    )
-}
+    );
+};
 
 const Categories = () => {
     return (
@@ -64,7 +64,7 @@ const Categories = () => {
                                             </Card.Body>
                                         </Card>
                                     </Col>
-                                )
+                                );
                             })
                         }
                     </Row>
@@ -95,7 +95,7 @@ const Categories = () => {
                                             </div>
                                         </div>
                                     </Col>
-                                )
+                                );
                             })
                         }
 
@@ -200,7 +200,7 @@ const Categories = () => {
             <DefauilOffer />
             <CommonService />
         </React.Fragment>
-    )
-}
+    );
+};
 
 export default Categories;

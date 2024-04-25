@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Col, Container, Row, Button, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { Shoporder } from "components/shop-top-bar"
+import { Shoporder } from "components/shop-top-bar";
 import DeleteModal, { ModalAdd } from "components/delete-modal";
 import { selectAddressData } from "common/data";
 
@@ -21,7 +21,7 @@ const Selectaddress = () => {
 
     const deleteData = () => {
         setAddressData(selectAddressData?.filter((delet: any) => delet.id !== id));
-    }
+    };
 
     //Add address
     const [addressModal, setAddressModal] = useState(false);
@@ -65,7 +65,7 @@ const Selectaddress = () => {
                                                         </div>
                                                     </div>
                                                 </Col>
-                                            )
+                                            );
                                         })
                                     }
                                 </Row>
@@ -98,6 +98,6 @@ const Selectaddress = () => {
                 </Container>
             </section>
         </React.Fragment>
-    )
-}
+    );
+};
 export default Selectaddress;

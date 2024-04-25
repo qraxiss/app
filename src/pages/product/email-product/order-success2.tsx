@@ -10,7 +10,7 @@ import products6 from "assets/images/products/img-6.png";
 import products5 from "assets/images/products/img-5.png";
 
 const Ordersuccess2 = () => {
-    document.title="Order Success 2 Email Template || Toner eCommerce + Admin HTML Template"
+    document.title="Order Success 2 Email Template || Toner eCommerce + Admin HTML Template";
     return (
         <React.Fragment>
             <section style={{ fontFamily: "'Poppins', sans-serif", boxSizing: "border-box", fontSize: "15px", width: "100%", backgroundColor: "transparent", margin: "35px 0", color: "#06283D" }}>
@@ -280,7 +280,7 @@ const Ordersuccess2 = () => {
                         <p style={{
                             color: "#878a99 ",
                             marginBottom: "20px",
-                            marginTop: "15px"
+                            marginTop: "15px",
                         }}>We'll send you shipping Confirmation when your item(s) are on the way! We appereciate your business, and hope you enjoy your purchase.</p>
                         <div style={{ textAlign: "right" }}>
                             <h6 style={{
@@ -288,12 +288,12 @@ const Ordersuccess2 = () => {
                                 margin: "0px",
                                 fontWeight: 500,
                                 fontFamily: "'Poppins', sans-serif",
-                                color: "#fafafa"
+                                color: "#fafafa",
                             }}>Thank you!</h6>
                             <p style={{
                                 color: "#878a99 ",
                                 marginBottom: "0",
-                                marginTop: "8px"
+                                marginTop: "8px",
                             }}>Themesbrand</p>
                         </div>
                     </div>
@@ -307,6 +307,6 @@ const Ordersuccess2 = () => {
                 </div>
             </section>
         </React.Fragment >
-    )
-}
+    );
+};
 export default Ordersuccess2;

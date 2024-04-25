@@ -1,7 +1,7 @@
-import React from 'react'
-import img4 from "assets/images/fashion/img-4.png"
-import { Button, Col, Row } from 'react-bootstrap'
-import Countdown from 'react-countdown'
+import React from 'react';
+import img4 from "assets/images/fashion/img-4.png";
+import { Button, Col, Row } from 'react-bootstrap';
+import Countdown from 'react-countdown';
 
 interface DealDay {
     days: number;
@@ -15,7 +15,7 @@ export const DealofDay = () => {
     const renderer = ({ days, hours, minutes, seconds, completed }: DealDay) => {
         if (completed) {
             // Render a completed state
-            return <span>You are good to go!</span>
+            return <span>You are good to go!</span>;
         } else {
             return (
                 <>
@@ -34,9 +34,9 @@ export const DealofDay = () => {
                         </li>
                     
                 </>
-            )
+            );
         }
-    }
+    };
 
     return (
         <React.Fragment>
@@ -61,5 +61,5 @@ export const DealofDay = () => {
                 </div>
             </section>
         </React.Fragment>
-    )
-}
+    );
+};

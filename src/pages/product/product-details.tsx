@@ -28,7 +28,7 @@ const Productdetails = () => {
 
     const handleSetImg = (id: any) => {
         setSliderImg(sliderProduct.filter((selectImg: any) => selectImg.id === id));
-    }
+    };
 
     //tooltip
     const renderTooltip = (props: any) => (
@@ -40,11 +40,11 @@ const Productdetails = () => {
     //like button 
     const handleLikeIcone = (event: any) => {
         if (event.closest("button").classList.contains('active')) {
-            event.closest("button").classList.remove('active')
+            event.closest("button").classList.remove('active');
         } else {
-            event.closest("button").classList.add('active')
+            event.closest("button").classList.add('active');
         }
-    }
+    };
     return (
         <React.Fragment>
             <section
@@ -52,7 +52,7 @@ const Productdetails = () => {
                 style={{
                     backgroundImage: `url(${profileBg})`,
                     backgroundSize: "cover",
-                    backgroundPosition: "center"
+                    backgroundPosition: "center",
                 }}
             >
                 <div className="bg-overlay bg-primary" style={{ opacity: "0.85" }} />
@@ -88,7 +88,7 @@ const Productdetails = () => {
                                             aria-live="polite"
                                             style={{
                                                 transform: "translate3d(0px, 0px, 0px)",
-                                                transitionDuration: "0ms"
+                                                transitionDuration: "0ms",
                                             }}
                                         >
                                             {(sliderProduct || [])?.map((item, idx) => {
@@ -98,7 +98,7 @@ const Productdetails = () => {
                                                             <Image src={item.img} alt="" fluid onClick={() => handleSetImg(item.id)} />
                                                         </div>
                                                     </div>
-                                                )
+                                                );
                                             })}
                                         </div>
                                         <span
@@ -131,7 +131,7 @@ const Productdetails = () => {
                                                                 <Image src={item.img} alt="" fluid />
                                                             </div>
                                                         </SwiperSlide>
-                                                    )
+                                                    );
                                                 })
                                             }
                                         </Swiper>
@@ -398,7 +398,7 @@ const Productdetails = () => {
                                                                             <th>{item.thead}</th>
                                                                             <td>{item.tdata}</td>
                                                                         </tr>
-                                                                    )
+                                                                    );
                                                                 })
                                                             }
                                                             <tr>
@@ -473,7 +473,7 @@ const Productdetails = () => {
                                                                                     </div>
                                                                                 </Col>
                                                                             </Row>
-                                                                        )
+                                                                        );
                                                                     })
                                                                 }
                                                             </div>
@@ -807,7 +807,7 @@ const Productdetails = () => {
                                             </Row>
                                         </Card>
                                     </Col>
-                                )
+                                );
                             })
                         }
                     </Row>
@@ -817,7 +817,7 @@ const Productdetails = () => {
             <EmailClothe />
             <CommonService />
         </React.Fragment >
-    )
-}
+    );
+};
 
 export default Productdetails;

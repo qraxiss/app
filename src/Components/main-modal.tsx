@@ -20,7 +20,7 @@ export const MainModal = ({ location }: any) => {
 
     useEffect(() => {
         setTimeout(() => {
-            setShow(false)
+            setShow(false);
         }, 2000);
     }, [location]);
 
@@ -52,8 +52,8 @@ export const MainModal = ({ location }: any) => {
                 </Modal.Body>
             </Modal>
         </React.Fragment>
-    )
-}
+    );
+};
 
 //===============================================
 
@@ -61,7 +61,7 @@ export const MainModal = ({ location }: any) => {
 export const InvoiceModal = ({ modal, handleClose }: any) => {
     const InvoicePrint = () => {
         window.print();
-    }
+    };
     return (
         <React.Fragment>
             <Modal show={modal} onHide={handleClose} animation={true} dialogClassName="modal-custom-size" id='invoiceModal' aria-labelledby="invoiceModalLabel">
@@ -252,8 +252,8 @@ export const InvoiceModal = ({ modal, handleClose }: any) => {
                 </Modal.Body>
             </Modal>
         </React.Fragment>
-    )
-}
+    );
+};
 
 //=======================================================
 
@@ -263,12 +263,12 @@ export const SearchModal = ({ show, handleClose }: any) => {
     const [value, setValue] = useState('');
     const handlesearch = (event: any) => {
         setValue(event.value);
-    }
+    };
 
     useEffect(() => {
-        var searchOption = document.getElementById('search-close-options');
-        var dropdown = document.getElementById("search-dropdown");
-        var searchInput: any = document.getElementById("search-options");
+        const searchOption = document.getElementById('search-close-options');
+        const dropdown = document.getElementById("search-dropdown");
+        const searchInput: any = document.getElementById("search-options");
 
         searchInput?.addEventListener('keyup', function () {
             if (searchInput?.value.length > 0) {
@@ -283,11 +283,11 @@ export const SearchModal = ({ show, handleClose }: any) => {
         searchOption?.addEventListener('click', function () {
             searchInput.value = '';
             dropdown?.classList.remove('show');
-            searchOption?.classList.add('d-none')
-            setValue('')
+            searchOption?.classList.add('d-none');
+            setValue('');
         });
 
-    }, [value])
+    }, [value]);
     return (
         <React.Fragment>
             <Modal show={show} onHide={handleClose} size="lg" contentClassName="rounded" id='searchModal'>
@@ -365,8 +365,8 @@ export const SearchModal = ({ show, handleClose }: any) => {
                 </div>
             </Modal>
         </React.Fragment >
-    )
-}
+    );
+};
 
 //===================================================
 
@@ -387,37 +387,37 @@ export const CardModal = ({ show, handleClose }: any) => {
 
     const deleteData = () => {
         setProductcount(productData?.filter((delet: any) => delet.id !== id));
-    }
+    };
 
     const CloseremoveModal = () => setRemovemodel(false);
 
     const assinged = productcount?.map(M => M.Total);
     let subtotal = 0;
     for (let i = 0; i < assinged.length; i++) {
-        subtotal += Math.round(assinged[i])
+        subtotal += Math.round(assinged[i]);
     }
 
     useEffect(() => {
-        let dis: any = (0.15 * subtotal).toFixed(2);
-        let tax = (0.125 * subtotal);
+        const dis: any = (0.15 * subtotal).toFixed(2);
+        const tax = (0.125 * subtotal);
 
         if (subtotal !== 0) {
-            setCharge(65)
+            setCharge(65);
         } else {
-            setCharge(0)
+            setCharge(0);
         }
         setDis(dis);
         setTax(tax);
-    }, [subtotal])
+    }, [subtotal]);
 
 
     const countUP = (item: any) => {
-        setProductcount((productData || [])?.map(count => count.id === item.id ? { ...count, num: item.num + 1, Total: (item.num + 1) * item.ItemPrice } : count))
-    }
+        setProductcount((productData || [])?.map(count => count.id === item.id ? { ...count, num: item.num + 1, Total: (item.num + 1) * item.ItemPrice } : count));
+    };
 
     const countDown = (item: any) => {
-        setProductcount((productData || []).map((count) => (count.id === item.id && count.num >= 0) ? { ...count, num: item.num?.lenght > 0 ? item.num - 1 : 0, Total: (item.num?.lenght > 0 ? item.num - 1 : 0) * item.ItemPrice } : count))
-    }
+        setProductcount((productData || []).map((count) => (count.id === item.id && count.num >= 0) ? { ...count, num: item.num?.lenght > 0 ? item.num - 1 : 0, Total: (item.num?.lenght > 0 ? item.num - 1 : 0) * item.ItemPrice } : count));
+    };
     return (
         <React.Fragment>
             <Offcanvas show={show} onHide={handleClose} backdrop="static" placement="end">
@@ -463,7 +463,7 @@ export const CardModal = ({ show, handleClose }: any) => {
                                             </div>
                                         </li>
 
-                                    )
+                                    );
                                 })
                             }
                         </ul>
@@ -510,5 +510,5 @@ export const CardModal = ({ show, handleClose }: any) => {
             </Offcanvas>
             <DeleteModal hideModal={CloseremoveModal} removeModel={removeModel} deleteData={deleteData} />
         </React.Fragment>
-    )
-}
+    );
+};

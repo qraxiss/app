@@ -1,11 +1,11 @@
-import { newarrivaldata, subarrivaldata } from 'common/data/top-picks-data'
-import React, { useState } from 'react'
-import { Button, Card, Col, Image, Row } from 'react-bootstrap'
-import { Link } from 'react-router-dom'
+import { newarrivaldata, subarrivaldata } from 'common/data/top-picks-data';
+import React, { useState } from 'react';
+import { Button, Card, Col, Image, Row } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 export const NewArrival = () => {
 
-    const [showData, setShowData] = useState(false)
+    const [showData, setShowData] = useState(false);
 
     const handleOnClick = () => {
         setShowData(true);
@@ -238,5 +238,5 @@ export const NewArrival = () => {
                 </div>
             </section>
         </React.Fragment>
-    )
-}
+    );
+};

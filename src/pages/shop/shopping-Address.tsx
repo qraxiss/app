@@ -3,14 +3,14 @@ import { Row, Col, Form } from "react-bootstrap";
 import { Link } from 'react-router-dom';
 import DeleteModal from "components/delete-modal";
 
-export const ShopingAddress = ({ title, HomeAdd, officeAdd, }: any) => {
+export const ShopingAddress = ({ title, HomeAdd, officeAdd }: any) => {
     //modal
     const [removeModel, setRemovemodel] = useState(false);
     const RemoveModel = () => setRemovemodel(!removeModel);
     const [id, setId] = useState(false);
     const deleteData = () => {
         setId(true);
-    }
+    };
     return (
         <React.Fragment>
             <div className="mt-4 pt-2">
@@ -69,5 +69,5 @@ export const ShopingAddress = ({ title, HomeAdd, officeAdd, }: any) => {
                 <DeleteModal removeModel={removeModel} hideModal={RemoveModel} onClick={RemoveModel} deleteData={deleteData} id={id} />
             </div>
         </React.Fragment >
-    )
-}
+    );
+};

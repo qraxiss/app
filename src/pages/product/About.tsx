@@ -1,4 +1,4 @@
-import React from "react"
+import React from "react";
 import { Card, Col, Container, Row, Image } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
@@ -64,7 +64,7 @@ const About = () => {
                                             </Card.Body>
                                         </Card>
                                     </Col>
-                                )
+                                );
                             })
                         }
                     </Row>
@@ -97,7 +97,7 @@ const About = () => {
                                             </div>
                                         </div>
                                     </Col>
-                                )
+                                );
                             })
                         }
                     </Row>
@@ -125,7 +125,7 @@ const About = () => {
             <DefauilOffer />
             <CommonService />
         </React.Fragment>
-    )
-}
+    );
+};
 
 export default About;

@@ -123,7 +123,7 @@ const Footer = () => {
                 </Container>
             </section>
         </React.Fragment >
-    )
-}
+    );
+};
 
 export default Footer;

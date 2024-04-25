@@ -15,7 +15,7 @@ export const handle = <T>(fn: (options: T) => Promise<any>) => {
 export const shopcekQuery = async <DType>({
     query,
     options,
-    notFound
+    notFound,
 }: SHOPCEK_QUERY_PAYLOAD): Promise<SHOPCECK_QUERY_RESPONSE<DType>> => {
     const jwt = localStorage.getItem('jwt');
 
@@ -25,10 +25,10 @@ export const shopcekQuery = async <DType>({
         context: {
             headers: jwt
                 ? {
-                      Authorization: `Bearer ${jwt}`
+                      Authorization: `Bearer ${jwt}`,
                   }
-                : {}
-        }
+                : {},
+        },
     });
     let status: string | undefined;
     if (loading) {
@@ -43,12 +43,12 @@ export const shopcekQuery = async <DType>({
         status = 'error';
     } else if (data) {
         status = 'success';
-    } else status = undefined
+    } else status = undefined;
 
     return {
         data: data ? simplifyResponse(data) : data,
         error,
         loading,
-        status
+        status,
     };
-}
+};

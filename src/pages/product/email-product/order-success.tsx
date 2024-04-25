@@ -1,4 +1,4 @@
-import React from "react"
+import React from "react";
 import { Link } from "react-router-dom";
 import { Table, Image } from "react-bootstrap";
 
@@ -10,7 +10,7 @@ import products6 from 'assets/images/products/img-6.png';
 import products4 from 'assets/images/products/img-4.png';
 
 const Ordersuccess = () => {
-    document.title="Order Success Email Template || Toner eCommerce + Admin HTML Template"
+    document.title="Order Success Email Template || Toner eCommerce + Admin HTML Template";
     return (
         <React.Fragment>
             <section style={{ fontFamily: "'Inter', sans-serif", boxSizing: "border-box", fontSize: "15px", width: "100%", backgroundColor: "transparent", margin: " 35px 0", color: "#06283D" }}>
@@ -305,7 +305,7 @@ const Ordersuccess = () => {
                 </div>
             </section>
         </React.Fragment >
-    )
-}
+    );
+};
 
 export default Ordersuccess;

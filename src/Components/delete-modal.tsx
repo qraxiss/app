@@ -9,7 +9,7 @@ const DeleteModal = ({ removeModel, hideModal, deleteData }: any) => {
     const handleDelete = () => {
         deleteData();
         hideModal();
-    }
+    };
     return (
         <Modal show={removeModel} onHide={hideModal} centered id='removeItemModal' className="zoomIn">
             <Modal.Header closeButton>
@@ -28,8 +28,8 @@ const DeleteModal = ({ removeModel, hideModal, deleteData }: any) => {
                 </div>
             </Modal.Body>
         </Modal >
-    )
-}
+    );
+};
 
 export default DeleteModal;
 
@@ -48,7 +48,7 @@ export const ModalAdd = ({ addressModal, handleClose }: any) => {
             name: Yup.string().required('Please Enter Your Name'),
             address: Yup.string().required('Please Enter Your Address'),
             phone: Yup.string().matches(RegExp('[0-9]{7}')).required("Please Enter Your Phone"),
-            addressType: Yup.string().required("Please Enter Your Type")
+            addressType: Yup.string().required("Please Enter Your Type"),
         }),
         onSubmit: (values) => {
             // console.log("value", values);
@@ -142,5 +142,5 @@ export const ModalAdd = ({ addressModal, handleClose }: any) => {
                 </Modal.Body>
             </Modal>
         </React.Fragment>
-    )
-}
+    );
+};

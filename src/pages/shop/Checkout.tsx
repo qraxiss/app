@@ -1,4 +1,4 @@
-import React from "react"
+import React from "react";
 import { Col, Container, Row, Alert, Card, Button,Table,Image } from "react-bootstrap";
 import { Shoporder, Shoptopbar } from "components/shop-top-bar";
 import { Link } from "react-router-dom";
@@ -58,7 +58,7 @@ const Checkout = () => {
                                                                 <td> 0{item.id}</td>
                                                                 <td className="text-end">${item.amount}</td>
                                                             </tr>
-                                                        )
+                                                        );
                                                     })
                                                 }
                                             </tbody>
@@ -84,7 +84,7 @@ const Checkout = () => {
             <EmailClothe />
             <CommonService />
         </React.Fragment>
-    )
-}
+    );
+};
 
 export default Checkout;

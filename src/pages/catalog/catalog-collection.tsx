@@ -7,7 +7,7 @@ import Pagination from "components/pagination";
 const CatalogCollection = ({ cxxl, cxl, clg, cmd, cheight, filterList }: any) => {
     //select
     const [select, setSelect] = useState("all");
-    const pagination: boolean = true;
+    const pagination = true;
     const [currentPage, setCurrentPage] = useState<any>(1);
     const [currentpages, setCurrentpages] = useState<any>([]);
     const perPageData = 9;
@@ -19,43 +19,43 @@ const CatalogCollection = ({ cxxl, cxl, clg, cmd, cheight, filterList }: any) =>
     const currentdata = useMemo(() => filterList.slice(indexOfFirst, indexOfLast), [filterList, indexOfFirst, indexOfLast]);
 
     useEffect(() => {
-        setCurrentpages(currentdata)
-    }, [currentPage, filterList, currentdata])
+        setCurrentpages(currentdata);
+    }, [currentPage, filterList, currentdata]);
     const pageNumbers: any = [];
 
     for (let i = 1; i <= Math.ceil(filterList.length / perPageData); i++) {
         pageNumbers.push(i);
     }
     const handleprevPage = () => {
-        let prevPage = currentPage - 1;
+        const prevPage = currentPage - 1;
         setCurrentPage(prevPage);
     };
     const handlenextPage = () => {
-        let nextPage = currentPage + 1;
+        const nextPage = currentPage + 1;
         setCurrentPage(nextPage);
     };
     useEffect(() => {
         if (pageNumbers.length && pageNumbers.length < currentPage) {
-            setCurrentPage(pageNumbers.length)
+            setCurrentPage(pageNumbers.length);
         }
     }, [currentPage, pageNumbers.length]);
 
     //change icon
     const LikeIcone = (event: any) => {
         if (event.closest("button").classList.contains("active")) {
-            event.closest("button").classList.remove("active")
+            event.closest("button").classList.remove("active");
         } else {
             event.closest("button").classList.add("active");
         }
-    }
+    };
 
     //select value
     const selectValue = (value: any) => {
         setSelect(value);
         setCurrentpages(
-            filterProduct?.filter((e: any) => e.category === select || select === 'all')
-        )
-    }
+            filterProduct?.filter((e: any) => e.category === select || select === 'all'),
+        );
+    };
 
     return (
         <React.Fragment>
@@ -287,7 +287,7 @@ const CatalogCollection = ({ cxxl, cxl, clg, cmd, cheight, filterList }: any) =>
                                                 </Card.Body>
                                             </Card>
                                         )
-                                )
+                                );
                             })
 
                             : (
@@ -321,7 +321,7 @@ const CatalogCollection = ({ cxxl, cxl, clg, cmd, cheight, filterList }: any) =>
                 />
             </div >
         </React.Fragment >
-    )
-}
+    );
+};
 
 export default CatalogCollection; 

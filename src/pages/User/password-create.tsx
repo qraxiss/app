@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState } from "react";
 import { Card, Col, Container, Row, Form, Button, Image } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { useFormik } from "formik";
@@ -19,7 +19,7 @@ const Passwordcreate = () => {
     const formik = useFormik({
         initialValues: {
             password: "",
-            confirmPassword: ""
+            confirmPassword: "",
         },
         validationSchema: Yup.object({
             password: Yup.string()
@@ -38,10 +38,10 @@ const Passwordcreate = () => {
     });
     const handleTooglePassword = () => {
         passwordtype === password ? setPassword("text") : setPassword("password");
-    }
+    };
     const handleConfirmPassword = () => {
         confirmPasswordtype === confirmpassword ? setConfirmpassword("text") : setConfirmpassword("password");
-    }
+    };
     return (
         <React.Fragment>
             <section className="auth-page-wrapper position-relative bg-light min-vh-100 d-flex align-items-center justify-content-between">
@@ -169,7 +169,7 @@ const Passwordcreate = () => {
                 </div>
             </section>
         </React.Fragment>
-    )
-}
+    );
+};
 
 export default Passwordcreate;

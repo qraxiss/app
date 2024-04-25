@@ -1,4 +1,4 @@
-import React from "react"
+import React from "react";
 import { Location, storeLocation } from "common/data";
 import { Card, Col, Container, Row, Table } from "react-bootstrap";
 import { Link } from "react-router-dom";
@@ -43,7 +43,7 @@ const Storelocator = () => {
                                                         </div>
                                                     </Card.Body>
                                                 </Card>
-                                            )
+                                            );
                                         })
                                     }
                                 </SimpleBar>
@@ -94,7 +94,7 @@ const Storelocator = () => {
                                                                     </Link>
                                                                 </td>
                                                             </tr>
-                                                        )
+                                                        );
                                                     })
                                                 }
                                             </tbody>
@@ -108,7 +108,7 @@ const Storelocator = () => {
             </section>
             <CommonService />
         </React.Fragment>
-    )
-}
+    );
+};
 
 export default Storelocator;

@@ -1,39 +1,40 @@
+/* eslint-disable no-use-before-define */
 export function simplifyResponse<T extends ObjectType>(response: T): SimpleResponse<T> {
-    const entries = Object.entries(response).filter(([k]) => k !== '__typename')
+    const entries = Object.entries(response).filter(([k]) => k !== '__typename');
 
     if (entries.length === 1) {
-        return simplify(entries[0][1] as any)
+        return simplify(entries[0][1] as any);
     } else if (entries.length > 1) {
-        const simplifiedResponse = {} as any
+        const simplifiedResponse = {} as any;
 
         for (const [key, value] of entries) {
-            simplifiedResponse[key] = simplify(value as any)
+            simplifiedResponse[key] = simplify(value as any);
         }
 
-        return simplifiedResponse
+        return simplifiedResponse;
     } else {
-        throw new Error('Cannot simplify an empty Strapi response')
+        throw new Error('Cannot simplify an empty Strapi response');
     }
 }
 
 export function simplify<T extends ValidType>(value: T): SimpleType<T>
 export function simplify<T>(value: T) {
-    if (Array.isArray(value)) return value.map(simplify)
+    if (Array.isArray(value)) return value.map(simplify);
 
     if (isPlainObject(value)) {
         if ('id' in value && 'attributes' in value) {
-            return simplify({ id: value.id, ...value.attributes })
+            return simplify({ id: value.id, ...value.attributes });
         }
-        if ('data' in value) return simplify(value.data)
-        if ('attributes' in value) return simplify(value.attributes)
-        return objectMap(value, simplify)
+        if ('data' in value) return simplify(value.data);
+        if ('attributes' in value) return simplify(value.attributes);
+        return objectMap(value, simplify);
     }
 
-    return value
+    return value;
 }
 
 function isPlainObject<O extends R | any, R extends Record<string | number | symbol, any>>(obj: O): obj is R {
-    return typeof obj === 'object' && obj !== null && obj.constructor === Object && Object.getPrototypeOf(obj) === Object.prototype
+    return typeof obj === 'object' && obj !== null && obj.constructor === Object && Object.getPrototypeOf(obj) === Object.prototype;
 }
 
 interface Dictionary<T> {
@@ -44,16 +45,16 @@ function objectMap<TValue, TResult>(
     obj: Dictionary<TValue>,
     valSelector: (val: TValue, obj: Dictionary<TValue>) => TResult,
     keySelector?: (key: string, obj: Dictionary<TValue>) => string,
-    ctx?: Dictionary<TValue>
+    ctx?: Dictionary<TValue>,
 ) {
-    const ret = {} as Dictionary<TResult>
+    const ret = {} as Dictionary<TResult>;
     for (const key of Object.keys(obj)) {
-        if (key === '__typename') continue
-        const retKey = keySelector ? keySelector.call(ctx || null, key, obj) : key
-        const retVal = valSelector.call(ctx || null, obj[key], obj)
-        ret[retKey] = retVal
+        if (key === '__typename') continue;
+        const retKey = keySelector ? keySelector.call(ctx || null, key, obj) : key;
+        const retVal = valSelector.call(ctx || null, obj[key], obj);
+        ret[retKey] = retVal;
     }
-    return ret
+    return ret;
 }
 
 type ValidType = UntouchedType | ObjectType | ArrayType

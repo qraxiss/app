@@ -187,7 +187,7 @@ const SignUp = () => {
                 </div>
             </section>
         </React.Fragment>
-    )
-}
+    );
+};
 
 export default SignUp;

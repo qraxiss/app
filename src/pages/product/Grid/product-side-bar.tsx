@@ -39,7 +39,7 @@ const ProductSidebar = () => {
             <EmailClothe />
             <CommonService />
         </React.Fragment>
-    )
-}
+    );
+};
 
 export default ProductSidebar;

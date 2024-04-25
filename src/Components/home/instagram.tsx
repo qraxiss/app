@@ -1,7 +1,7 @@
-import React from 'react'
-import { Button, Col, Image, OverlayTrigger, Popover, Row } from 'react-bootstrap'
+import React from 'react';
+import { Button, Col, Image, OverlayTrigger, Popover, Row } from 'react-bootstrap';
 
-import { instadata } from 'common/data/top-picks-data'
+import { instadata } from 'common/data/top-picks-data';
 
 export const Instagram = () => {
 
@@ -41,11 +41,12 @@ export const Instagram = () => {
                                 <Image src={item.image} alt="" className="img-fluid rounded" />
                             </div>
                         </div>
-                        )})
+                        );
+})
                     }
                     </Row>
                 </div>
             </section>
         </React.Fragment>
-    )
-}
+    );
+};

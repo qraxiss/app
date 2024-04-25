@@ -16,7 +16,7 @@ const ContactUs = () => {
             name: Yup.string().required('Please Enter Your Name'),
             email: Yup.string().email().matches(/^(?!.*@[^,]*,)/).required("Please Enter Your Email"),
             subject: Yup.string().required('Please Enter Your Subject'),
-            message: Yup.string().required("Please Enter Your some message")
+            message: Yup.string().required("Please Enter Your some message"),
         }),
         onSubmit: (values) => {
             // console.log("value", values);
@@ -59,7 +59,7 @@ const ContactUs = () => {
                                                 </div>
                                             </Card.Body>
                                         </Card>
-                                    )
+                                    );
                                 })
                             }
                         </Col>
@@ -182,7 +182,7 @@ const ContactUs = () => {
                 </Container>
             </section>
         </React.Fragment >
-    )
-}
+    );
+};
 
 export default ContactUs;

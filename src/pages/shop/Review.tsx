@@ -32,7 +32,7 @@ const Review = () => {
                                             </Card.Body>
                                         </Card>
                                     </Col>
-                                )
+                                );
                             })
                         }
                     </Row>
@@ -40,7 +40,7 @@ const Review = () => {
             </section>
             <ContactHelp cname="section" />
         </React.Fragment >
-    )
-}
+    );
+};
 
 export default Review;

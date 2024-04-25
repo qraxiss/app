@@ -24,8 +24,8 @@ export const Shoptopbar = ({ title, page }: any) => {
                 </Container>
             </section>
         </React.Fragment>
-    )
-}
+    );
+};
 
 export const Shoporder = ({ dic, subtotal, charge, tax, total }: any) => {
     return (
@@ -77,18 +77,18 @@ export const Shoporder = ({ dic, subtotal, charge, tax, total }: any) => {
                 </Card.Body>
             </Card>
         </React.Fragment>
-    )
-}
+    );
+};
 
 export const BrandedProduct = ({ title }: any) => {
 
     const handleLike = (event: any) => {
         if (event.closest('button').classList.contains('active')) {
-            event.closest('button').classList.remove('active')
+            event.closest('button').classList.remove('active');
         } else {
-            event.closest('button').classList.add('active')
+            event.closest('button').classList.add('active');
         }
-    }
+    };
     return (
         <React.Fragment>
             <section className="section">
@@ -164,12 +164,12 @@ export const BrandedProduct = ({ title }: any) => {
                                             </div>
                                         </Card>
                                     </Col>
-                                )
+                                );
                             })
                         }
                     </Row>
                 </Container>
             </section>
         </React.Fragment>
-    )
-}
+    );
+};

@@ -1,32 +1,32 @@
 // pickdata Images
-import img1 from "assets/images/fashion/product/img-01.png"
-import img2 from "assets/images/fashion/product/img-02.png"
-import img3 from "assets/images/fashion/product/img-03.png"
-import img4 from "assets/images/fashion/product/img-04.png"
-import img5 from "assets/images/fashion/product/img-05.png"
-import img6 from "assets/images/fashion/product/img-06.png"
-import img7 from "assets/images/fashion/product/img-07.png"
-import img8 from "assets/images/fashion/product/img-08.png"
-import img9 from "assets/images/fashion/product/img-09.png"
-import img10 from "assets/images/fashion/product/img-10.png"
-import img11 from "assets/images/fashion/product/img-11.png"
-import img12 from "assets/images/fashion/product/img-12.png"
-import img13 from "assets/images/fashion/product/img-13.png"
-import img14 from "assets/images/fashion/product/img-14.png"
-import img15 from "assets/images/fashion/product/img-15.png"
-import img17 from "assets/images/fashion/product/img-17.png"
-import img18 from "assets/images/fashion/product/img-18.png"
+import img1 from "assets/images/fashion/product/img-01.png";
+import img2 from "assets/images/fashion/product/img-02.png";
+import img3 from "assets/images/fashion/product/img-03.png";
+import img4 from "assets/images/fashion/product/img-04.png";
+import img5 from "assets/images/fashion/product/img-05.png";
+import img6 from "assets/images/fashion/product/img-06.png";
+import img7 from "assets/images/fashion/product/img-07.png";
+import img8 from "assets/images/fashion/product/img-08.png";
+import img9 from "assets/images/fashion/product/img-09.png";
+import img10 from "assets/images/fashion/product/img-10.png";
+import img11 from "assets/images/fashion/product/img-11.png";
+import img12 from "assets/images/fashion/product/img-12.png";
+import img13 from "assets/images/fashion/product/img-13.png";
+import img14 from "assets/images/fashion/product/img-14.png";
+import img15 from "assets/images/fashion/product/img-15.png";
+import img17 from "assets/images/fashion/product/img-17.png";
+import img18 from "assets/images/fashion/product/img-18.png";
 
-import image6 from "assets/images/products/img-6.png"
-import image19 from "assets/images/products/img-19.png"
+import image6 from "assets/images/products/img-6.png";
+import image19 from "assets/images/products/img-19.png";
 
 
-import insta1 from "assets/images/instgram/img-01.jpg"
-import insta2 from "assets/images/instgram/img-02.jpg"
-import insta3 from "assets/images/instgram/img-03.jpg"
-import insta4 from "assets/images/instgram/img-04.jpg"
-import insta5 from "assets/images/instgram/img-05.jpg"
-import insta6 from "assets/images/instgram/img-06.jpg"
+import insta1 from "assets/images/instgram/img-01.jpg";
+import insta2 from "assets/images/instgram/img-02.jpg";
+import insta3 from "assets/images/instgram/img-03.jpg";
+import insta4 from "assets/images/instgram/img-04.jpg";
+import insta5 from "assets/images/instgram/img-05.jpg";
+import insta6 from "assets/images/instgram/img-06.jpg";
 
 const pickdata = [
     {
@@ -35,7 +35,7 @@ const pickdata = [
         img2:img14,
         info:"Urbanic Women Fit And Flare Black Dress",
         price1:"$97.49",
-        price2:"$265.37"
+        price2:"$265.37",
     },
     {
         id:2,
@@ -45,7 +45,7 @@ const pickdata = [
         price1:"$59.99",
         price2:"$249.99",
         color:"yellow",
-        size:"M"
+        size:"M",
     },
     {
         id:3,
@@ -53,7 +53,7 @@ const pickdata = [
         img2:img9,
         info:"Like Style Women pink Shoulder Bag",
         price1:"$97.49",
-        price2:"$265.37"
+        price2:"$265.37",
     },
     {
         id:4,
@@ -61,7 +61,7 @@ const pickdata = [
         img2:img2,
         info:"Elanhood Full Sleeve Solid Women Jacket",
         // price1:"$97.49",
-        price2:"$249.99"
+        price2:"$249.99",
     },
     {
         id:5,
@@ -69,7 +69,7 @@ const pickdata = [
         img2:img4,
         info:"Nike MAG Back To The Future",
         price1:"$120.32",
-        price2:"$348.24"
+        price2:"$348.24",
     },
     {
         id:6,
@@ -77,36 +77,36 @@ const pickdata = [
         img2:img10,
         info:"Girls Printed Shorts",
         // price1:"$97.49",
-        price2:"$149.57"
+        price2:"$149.57",
     },
-]
+];
 
 const choosedata = [
     {
         id:1,
         header:"Products Quality",
         info:"Product quality refers to how well a product satisfies customer needs, serves its purpose and meets industry standards. ",
-        icon:"bi bi-shield-check"
+        icon:"bi bi-shield-check",
     },
     {
         id:2,
         header:"Fast & Free Shipping",
         info:"The cheapest way to ship a package will depend on factors such as package size and weight, as well as distance and delivery speed. ",
-        icon:"bi bi-truck"
+        icon:"bi bi-truck",
     },
     {
         id:3,
         header:"Payment Security",
         info:"Payment security refers to providing rules, regulations, and security measures to protect a customer or partner's privacy. ",
-        icon:"bi bi-cash-coin"
+        icon:"bi bi-cash-coin",
     },
     {
         id:4,
         header:"Global Warehouse",
         info:"An international warehouse is a warehouse that's set up internationally, typically located in a global trade Houston, or Hong Kong. ",
-        icon:"bi bi-house-door"
+        icon:"bi bi-house-door",
     },
-]
+];
 
 const newarrivaldata = [
     {
@@ -202,7 +202,7 @@ const newarrivaldata = [
         btn6:"Red",
         btn1:"Blue",
     },
-]
+];
 
 const subarrivaldata = [
 
@@ -250,8 +250,8 @@ const subarrivaldata = [
         btn1:"Blue",
         btn2:"Yellow",
         btn3:"Success",
-    }
-]
+    },
+];
 
 const instadata = [
     {
@@ -259,43 +259,43 @@ const instadata = [
         image: insta1,
         header:"Women Fashion",
         body: "One or two brand names can look classy, but too many can detract from the sophistication you're going for.",
-        position:"right"
+        position:"right",
     },
     {
         id:2,
         image: insta2,
         header:"Unique Fashion",
         body: "A capsule collection is essentially a condensed version of a designer's vision",
-        position:"right"
+        position:"right",
     },
     {
         id:3,
         image: insta3,
         header:"Men's wear",
         body: "Yours may consist of traditional pieces, such as tops, bottoms, and outerwear, or focus on a single product.",
-        position:"right"
+        position:"right",
     },
     {
         id:4,
         image: insta4,
         header:"Sport wear",
         body: "Typical sport-specific garments include tracksuits, shorts, T-shirts and polo shirts.",
-        position:"right"
+        position:"right",
     },
     {
         id:5,
         image: insta5,
         header:"Women Fashion",
         body: "One or two brand names can look classy, but too many can detract from the sophistication you're going for.",
-        position:"right"
+        position:"right",
     },
     {
         id:6,
         image: insta6,
         header:"Footwear",
         body: "Footwear refers to garments worn on the feet, which typically serves the purpose of protection against adversities.",
-        position:"left"
+        position:"left",
     },
-]
+];
 
-export { pickdata, choosedata, newarrivaldata, instadata , subarrivaldata }
+export { pickdata, choosedata, newarrivaldata, instadata , subarrivaldata };

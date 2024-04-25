@@ -1,6 +1,6 @@
 import { DocumentNode, QueryOptions } from "@apollo/client";
 
-export type GQL_STATUS = 'error' | 'loading' | 'success' | 'error-and-data' | 'not-called' | 'not-found' | 'error-and-not-found' | undefined;
+export type GQL_STATUS = 'error' | 'loading' | 'success' | 'error-and-data' | 'not-called' | 'not-found' | 'error-and-not-found' | undefined | null;
 
 export type SHOPCEK_QUERY_PAYLOAD = {
     query: DocumentNode;

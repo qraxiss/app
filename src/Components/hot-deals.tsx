@@ -48,7 +48,7 @@ const HotDeals = () => {
                                             </div>
                                         </div>
                                     </Col>
-                                )
+                                );
                             })
                         }
                     </Row>
@@ -56,6 +56,6 @@ const HotDeals = () => {
             </section>
         </React.Fragment>
     );
-}
+};
 
 export default HotDeals;

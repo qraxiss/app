@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState } from "react";
 import { Col, Container, Row, Table, Button, Image } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import EmailClothe from "pages/catalog/email-clothe";
@@ -66,7 +66,7 @@ const Orderhistory = () => {
                                                                 <Link to="#invoiceModal" data-bs-toggle="modal" className="btn btn-secondary btn-sm" onClick={handleInvoice}>Invoice</Link>
                                                             </td>
                                                         </tr>
-                                                    )
+                                                    );
                                                 })
                                             }
 
@@ -85,7 +85,7 @@ const Orderhistory = () => {
             <EmailClothe />
             <CommonService />
         </React.Fragment>
-    )
-}
+    );
+};
 
 export default Orderhistory;

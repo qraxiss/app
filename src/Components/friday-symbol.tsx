@@ -138,7 +138,7 @@ export const BlueFridaySymbol = () => {
             </symbol>
         </React.Fragment>
     );
-}
+};
 
 export const BlackFridaysymbol = () => {
     return (
@@ -197,5 +197,5 @@ export const BlackFridaysymbol = () => {
                 </defs>
             </svg>
         </React.Fragment>
-    )
-}
+    );
+};

@@ -10,7 +10,7 @@ import { Link } from "react-router-dom";
 const Verifyemail = () => {
     const moveToNext = (index: any) => {
         // console.log("index", index);
-    }
+    };
 
     return (
         <React.Fragment>
@@ -128,7 +128,7 @@ const Verifyemail = () => {
                 </div>
             </section>
         </React.Fragment>
-    )
-}
+    );
+};
 
 export default Verifyemail;

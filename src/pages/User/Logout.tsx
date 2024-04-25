@@ -87,6 +87,6 @@ const Logout = () => {
                 </div>
             </section>
         </React.Fragment>
-    )
-}
+    );
+};
 export default Logout;

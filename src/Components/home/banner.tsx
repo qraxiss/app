@@ -1,8 +1,8 @@
-import React from 'react'
-import { Button, Card, Col, Row } from 'react-bootstrap'
+import React from 'react';
+import { Button, Card, Col, Row } from 'react-bootstrap';
 
-import img3 from 'assets/images/home/1.png'
-import img5 from 'assets/images/home/2.png'
+import img3 from 'assets/images/home/1.png';
+import img5 from 'assets/images/home/2.png';
 
 export const Banner = () => {
     return (
@@ -46,5 +46,5 @@ export const Banner = () => {
                 </div>
             </section>
         </React.Fragment>
-    )
-}
+    );
+};

@@ -27,15 +27,15 @@ const CommonService = () => {
                                             </div>
                                         </div>
                                     </Col>
-                                )
+                                );
                             })
                         }
                     </Row>
                 </Container>
             </section>
         </React.Fragment>
-    )
-}
+    );
+};
 
 const ContactHelp = ({ cname }: any) => {
     return (
@@ -56,7 +56,7 @@ const ContactHelp = ({ cname }: any) => {
                 </Container>
             </section>
         </React.Fragment>
-    )
-}
+    );
+};
 
 export { CommonService, ContactHelp };

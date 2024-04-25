@@ -16,8 +16,8 @@ const PaymentIndex = () => {
             <EmailClothe />
             <CommonService />
         </React.Fragment>
-    )
+    );
 
-}
+};
 
 export default PaymentIndex;

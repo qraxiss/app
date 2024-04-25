@@ -1,10 +1,10 @@
-import React from 'react'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import Layout from 'layout'
+import React from 'react';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Layout from 'layout';
 
 //routes
-import { authProtectedRoutes, publicRoutes } from './all-routes'
-import NonAuthLayout from '../layout/non-auth-layout'
+import { authProtectedRoutes, publicRoutes } from './all-routes';
+import NonAuthLayout from '../layout/non-auth-layout';
 
 export const AppRouter = () => {
     return (
@@ -25,5 +25,5 @@ export const AppRouter = () => {
                 </Routes>
             </BrowserRouter>
         </React.Fragment>
-    )
-}
+    );
+};
