@@ -5,7 +5,7 @@ const categorySlice = createSlice({
   initialState: {
     loading: false,
     error: null,
-    categories: [],
+    data: [],
   },
   reducers: {
     fetchCategoriesStart(state) {
@@ -14,7 +14,7 @@ const categorySlice = createSlice({
     },
     fetchCategoriesSuccess(state, action) {
       state.loading = false;
-      state.categories = action.payload;
+      state.data = action.payload;
     },
     fetchCategoriesFailure(state, action) {
       state.loading = false;

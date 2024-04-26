@@ -3,14 +3,16 @@ import { Container, Row, Col, Image } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 //img
-import logolight from "assets/images/logo-light.png";
-import logodark from "assets/images/logo-dark.png";
+import shopcekLogo from "assets/images/svg/Shopcek_Official.png";
 import visa from "assets/images/ecommerce/payment/visa.png";
 import discover from "assets/images/ecommerce/payment/discover.png";
 import americanexpress from "assets/images/ecommerce/payment/american-express.png";
 import paypal from "assets/images/ecommerce/payment/paypal.png";
+import { useSelector } from "react-redux";
 
 const Footer = () => {
+    const categories = useSelector((state: any) => state.categories.data);
+    
     return (
         <React.Fragment>
             <section className="section footer-landing pb-0">
@@ -18,8 +20,8 @@ const Footer = () => {
                     <Row>
                         <Col lg={4}>
                             <div className="footer-info">
-                                <Image src={logolight} alt="" height="28" className="logo-light" />
-                                <Image src={logodark} alt="" height="28" className="logo-dark" />
+                                <Image src={shopcekLogo} alt="" height="28" className="logo-light" />
+                                <Image src={shopcekLogo} alt="" height="28" className="logo-dark" />
                                 <p className="footer-desc mt-4 mb-2 me-3">Toner provides best fashion experience for both men and women at best pricing. We follow New fashion approach to give best premium feel.</p>
 
                                 <div className="footer-social mt-4">
@@ -47,11 +49,7 @@ const Footer = () => {
                                     <div className="mt-lg-0 mt-4">
                                         <h5 className="footer-title">Categories</h5>
                                         <ul className="list-unstyled footer-link mt-3">
-                                            <li><Link to="#">Men</Link></li>
-                                            <li><Link to="#">Jewellers</Link></li>
-                                            <li><Link to="#">Accessories</Link></li>
-                                            <li><Link to="#">Clothing</Link></li>
-                                            <li><Link to="#">Beauty Items</Link></li>
+                                            {categories?.map((category: any) => <li><Link to={`/${category.slug}`}>{category.name}</Link></li>)}
                                         </ul>
                                     </div>
                                 </Col>
@@ -99,7 +97,7 @@ const Footer = () => {
 
                     <Row className="footer-border-alt mt-4 align-items-center fs-15">
                         <Col sm={6}>
-                            {new Date().getFullYear()} © Toner. Design &amp; Develop by <Link to="https://themesbrand.com/" target="_blank" className="text-reset text-decoration-underline">Themesbrand</Link>
+                            {new Date().getFullYear()} © SHOPCEK-All Rights Reserved
                         </Col>
                         <Col sm={6}>
                             <div className="text-sm-end d-none d-sm-block">

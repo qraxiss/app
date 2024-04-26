@@ -12,7 +12,7 @@ const Home = () => {
             <DealofDay />
             <NewArrival />
             <WhyChoose />
-            <Instagram />
+            {/* <Instagram /> */}
         </React.Fragment>
     );
 };

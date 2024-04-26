@@ -48,6 +48,8 @@ File: Main Css File
 @import "components/badge";
 @import "components/buttons";
 @import "components/breadcrumb";
+@import 'components/card-modal';
+@import 'components/collections-modal';
 @import "components/card";
 @import "components/dropdown";
 @import "components/nav";
@@ -60,6 +62,7 @@ File: Main Css File
 @import "components/form-check";
 @import "components/form-control";
 @import "components/list-group";
+
 
 // Plugins
 @import "plugins/custom-scrollbar";

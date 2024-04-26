@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, Card, Col, Container, Form, Row } from 'react-bootstrap';
-import cta from "assets/images/fashion/cta.png";
+import cta from "assets/images/fashion/cta1.png";
 import { choosedata } from 'common/data/top-picks-data';
 
 export const WhyChoose = () => {
@@ -41,15 +41,16 @@ export const WhyChoose = () => {
                 <Container fluid className="container-custom">
                     <Card className="border-0 overflow-hidden">
                         <Row className=" g-0">
-                            <Col lg={5}>
+                            <Col style={{backgroundColor: '#D3D0C1'}} lg={5}> 
                                 <img src={cta} alt="" className="img-fluid h-100 object-fit-cover" />
                             </Col>
                             <Col lg={7}>
                                 <Card.Body className="bg-dark h-100 p-xxl-5">
                                     <div className="p-4">
-                                        <p className="text-white opacity-75 text-uppercase fs-15">Limited Offers</p>
-                                        <h1 className="lh-base text-capitalize text-white mb-3">Subscribe to our newsletter to get updates to our latest Collection</h1>
-                                        <p className="text-white-50 mb-4 fs-15 pb-2">A newsletter introduction should tell the reader what they'll get out of reading the rest of the email or linked article.</p>
+                                        <p className="text-white opacity-75 text-uppercase fs-15">PARTNERSHIP</p>
+                                        <h1 className="lh-base text-capitalize text-white mb-3">Your Ambition, Our Digital Execution</h1>
+                                        <p className="text-white-50 mb-4 fs-15 pb-2">Our mission is to transform your online presence into a dynamic e-commerce store, enriched with tools and services tailored to enhance your brand.</p>
+                                        <p className="text-white-50 mb-0 fs-18 pb-2">Apply the Program</p>
                                         <Row>
                                             <Col lg={7}>
                                                 <Form action="#">

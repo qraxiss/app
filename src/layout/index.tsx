@@ -6,12 +6,20 @@ import Footer from './footer';
 import Header from "./header";
 import { MainModal } from 'components/main-modal';
 import { createSelector } from 'reselect';
-import { changeLayoutMood, changeThemeMood } from 'slices/thunk';
+import { changeLayoutMood, changeThemeMood, fetchCategoriesAsync, fetchSideBarAsync, fetchHotDealsAsync, fetchNewArrivalsAsync } from 'slices/thunk';
+import { AppDispatch } from 'store';
 
 const Layout = (props: any) => {
 
     const location = useLocation();
-    const dispatch: any = useDispatch();
+    const dispatch: AppDispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(fetchCategoriesAsync());
+        dispatch(fetchSideBarAsync());
+        dispatch(fetchNewArrivalsAsync());
+        dispatch(fetchHotDealsAsync());
+    }, [dispatch]);
 
     const selectProperties = createSelector(
         (state: any) => state.Layout,

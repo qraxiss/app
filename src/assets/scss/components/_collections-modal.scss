@@ -1,0 +1,150 @@
+.offcanvas-header {
+    flex-direction: column !important;
+    align-items: start;
+
+    hr {
+        border-bottom: solid gray 0.5px;
+        width: 80%;
+        height: 0px;
+        margin-bottom: 0px;
+    }
+}
+
+
+.collections-modal {
+    width: 18em !important;
+    z-index: 9999;
+    // border-right: 0px !important;
+
+    .header {
+        img {
+            position: relative;
+            height: calc(100vw*0.04*0.59);
+            width: unset;
+        }
+    }
+    
+
+    .offcanvas-title {
+        gap: .5em;
+        display: flex;
+        align-items: center;
+        text-transform: uppercase;
+    }
+
+    font-size: larger;
+
+    // padding: 2em;
+    display: flex;
+    flex-direction: column;
+    img {
+        width: 10%;
+    }
+
+    img.dropdown {
+        width: 5% !important;
+        rotate: 270deg;
+    }
+
+    .body {
+        text-transform: uppercase;
+        font-weight: 500;
+        padding: 0px 20px 0px 20px;
+        
+        .item {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            padding-bottom: 1.5em;
+            gap: 0.55em;
+
+            img {
+                width: calc(100vw*0.04*0.5);
+            }
+        }
+    }
+
+    .simplebar-content {
+        display: flex;
+        flex-direction: column;
+
+        img {
+            width: 10%;
+        }
+    }
+
+}
+
+.collections-modal.extended {
+    .header {
+        width: calc(100% + 18em);
+    }
+}
+
+li.nav-item {
+    cursor: pointer;
+}
+
+.details-modal {
+    .offcanvas-title {
+        gap: .5em;
+        display: flex;
+        align-items: center;
+        text-transform: uppercase;
+    }
+
+    backdrop-filter: blur(10px);
+    background-color: rgba(255,255,255,0.75);
+
+
+
+    border-radius: 0px 15px 0px 15px;
+    width: 18em !important;
+    position: fixed;
+    left: 18em !important;
+    border-left: 0px !important;
+
+    font-size: larger;
+
+    .header {
+        .box {
+            height: 1.5em;
+        }
+
+        img {
+            position: relative;
+            width: 2.36vw;
+        }
+    }
+
+
+    .projects {
+        padding: 0px 0px 0px 19px;
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+        
+        .items {
+            display: flex;
+            flex-direction: column;
+            gap: 0.7em;
+
+            .item {
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                gap: 0.4em;
+
+                img {
+                    width: 10%;
+                }
+            }
+        }
+    }
+
+    .ogs {
+    }
+
+    .exchanges {
+    }
+}

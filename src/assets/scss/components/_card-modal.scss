@@ -1,0 +1,22 @@
+.cart-modal {
+    .bottom {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .product-price {
+        font-size: large;
+    }
+    
+    .offcanvas-title {
+        .spinner-border {
+            width: 1rem !important;
+            height: 1rem !important;
+        }
+    }
+    
+    .offcanvas-header {
+        flex-direction: unset !important;
+    }
+}
