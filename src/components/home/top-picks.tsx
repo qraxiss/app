@@ -4,6 +4,9 @@ import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Autoplay, Navigation } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
 
 export const TopPicks = () => {
     const hotDeals = useSelector((state: any) => state.hotDeals.data);
@@ -24,7 +27,7 @@ export const TopPicks = () => {
                     <Row>
                         <Col lg={12}>
                             <Swiper
-                                className=" top-Product-slider"
+                                className="top-Product-slider"
                                 modules={[Navigation, Autoplay]}
                                 spaceBetween={30}
                                 slidesPerView={5}

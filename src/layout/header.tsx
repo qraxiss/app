@@ -12,7 +12,6 @@ import { CardModal, SearchModal } from 'components/main-modal';
 import { withTranslation } from 'react-i18next';
 import withRouter from 'components/with-router';
 import { useSelector } from 'react-redux';
-import { CollectionModal } from 'common/modal/collections';
 
 const Header = (props: any) => {
     //search modal
@@ -20,7 +19,6 @@ const Header = (props: any) => {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
     const categories = useSelector((state: any) => state.categories.data);
-    const sideBarData = useSelector((state: any) => state.sideBar.data);
 
     //card modal
     const [card, setCard] = useState(false);
@@ -31,8 +29,6 @@ const Header = (props: any) => {
     const [showMenu, setShowMenu] = useState<any>('');
     const [showSubMenu, setShowSubMenu] = useState<any>('');
     const [showPageSubMenu, setShowPageSubMenu] = useState<any>('');
-
-    const [sideBarOpen, setSideBarOpen] = useState(false);
 
     const path = props.router.location.pathname;
 
@@ -162,7 +158,7 @@ const Header = (props: any) => {
                             </li>
 
                             <li className="nav-item" key={`category-0`}>
-                                <span className="nav-link" onClick={() => setSideBarOpen(true)}>
+                                <span className="nav-link" onClick={() => props.openSideBar()}>
                                 <i className="bi bi-list fs-20"></i>
                                     Collections
                                 </span>
@@ -276,15 +272,6 @@ const Header = (props: any) => {
                 </Container>
             </Navbar>
             <CardModal show={card} handleClose={handlecardClose} />
-            {sideBarOpen && (
-                <CollectionModal
-                    show={sideBarOpen}
-                    data={sideBarData}
-                    handleClose={() => {
-                        setSideBarOpen(false);
-                    }}
-                />
-            )}
         </React.Fragment>
     );
 };

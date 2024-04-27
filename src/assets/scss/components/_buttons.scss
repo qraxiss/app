@@ -20,6 +20,15 @@ a {
     }
 }
 
+.button-primary {
+    background-image: linear-gradient(to right, #FF68C3, #FFDD5A);
+    border: 3px solid ;
+    transition: background-image 0.3s ease;
+    border-image: linear-gradient(to right, #5270FF, #FE66C4) 1;
+    border-image-slice: 1;
+    color: black;
+}
+
 .btn.show,
 .btn:first-child:active,
 :not(.btn-check)+.btn:active {

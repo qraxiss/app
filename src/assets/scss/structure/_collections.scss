@@ -1,0 +1,33 @@
+.collections-sidebar {
+    width: 4%;
+    background: white;
+    border-right: solid 0.3px gray;
+    position: fixed;
+    height: 100vh;
+    z-index: 1001;
+
+    .header {
+        height: 85px;
+        width: 100%;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+
+        img {
+            width: 59%;
+        }
+    }
+
+    .icons {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5em;
+        align-items: center;
+
+        img {
+            width: 50%;
+        }
+    }
+}

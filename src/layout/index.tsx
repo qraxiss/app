@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Button } from "react-bootstrap";
 import { useLocation } from 'react-router-dom';
@@ -8,11 +8,19 @@ import { MainModal } from 'components/main-modal';
 import { createSelector } from 'reselect';
 import { changeLayoutMood, changeThemeMood, fetchCategoriesAsync, fetchSideBarAsync, fetchHotDealsAsync, fetchNewArrivalsAsync } from 'slices/thunk';
 import { AppDispatch } from 'store';
+import { CollectionModal } from 'common/modal/collections';
+import { CollectionsSideBar } from './collection-side-bar';
 
 const Layout = (props: any) => {
 
     const location = useLocation();
     const dispatch: AppDispatch = useDispatch();
+    const [sideBarOpen, setSideBarOpen] = useState(false);
+    const sideBarData = useSelector((state: any) => state.sideBar.data);
+
+    const openSideBar = () => {
+        setSideBarOpen(true);
+    };
 
     useEffect(() => {
         dispatch(fetchCategoriesAsync());
@@ -73,14 +81,10 @@ const Layout = (props: any) => {
         <React.Fragment>
             {location.pathname && <MainModal location={location.pathname} />}
             {/* <TopBar /> */}
-            <Header handleMood={handleThemeMood} />
+            <CollectionsSideBar openSideBar={openSideBar}/>
+            <Header handleMood={handleThemeMood} openSideBar={openSideBar}/>
             {props.children}
             <Footer />
-            {/* <Link to="//themes.themesbrand.com/toner/react/backend/dashboard"
-                target='_blank'
-                className="btn btn-warning position-fixed bottom-0 start-0 m-5 z-3 btn-hover d-none d-lg-block">
-                <i className="bi bi-database align-middle me-1"></i> Backend</Link> */}
-            {/* <OnlineChat /> */}
             <Button
                 onClick={() => ScrollbarTop()}
                 variant="info"
@@ -89,6 +93,15 @@ const Layout = (props: any) => {
                 id="back-to-top">
                 <i className="ri-arrow-up-line"></i>
             </Button>
+            {sideBarOpen && (
+                <CollectionModal
+                    show={sideBarOpen}
+                    data={sideBarData}
+                    handleClose={() => {
+                        setSideBarOpen(false);
+                    }}
+                />
+            )}
 
         </React.Fragment>
     );

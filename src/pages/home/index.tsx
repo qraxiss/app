@@ -1,5 +1,5 @@
 import React from 'react';
-import { Banner, DealofDay, Instagram, NewArrival, Premium, TopPicks, WhyChoose } from 'components/home';
+import { Banner, DealOfDay, NewArrival, Premium, TopPicks, WhyChoose } from 'components/home';
 
 const Home = () => {
     document.title = "Shopcek";
@@ -9,10 +9,9 @@ const Home = () => {
             <Banner />
             <Premium />
             <TopPicks />
-            <DealofDay />
+            <DealOfDay />
             <NewArrival />
             <WhyChoose />
-            {/* <Instagram /> */}
         </React.Fragment>
     );
 };

@@ -19,14 +19,14 @@ export const Banner = () => {
                             </Card>
                         </Col>
                         <Col lg={4}>
-                            <Card className="card-height-100 border-0 rounded-0 bg-info-subtle">
+                            <Card className="card-height-100 border-0 rounded-0 card-bg-gradient">
                                 <Card.Body className="px-4 px-lg-5 text-center d-flex align-items-center">
                                     <div>
                                         <h3 className="text-capitalize lh-base mb-2">
                                             Welcome from the beyond. <span className="ff-secondary">Fashion</span> Collection
                                         </h3>
                                         <p className="fs-16 mb-4"> Future generations will prefer SHOPCEK for its unique shopping experience. </p>
-                                        <Button variant="info" type="button" className="btn-hover rounded-0">
+                                        <Button variant="info" type="button" className="button-primary rounded-0">
                                             {' '}
                                             See How <i className="bi bi-bag align-baseline ms-1"></i>
                                         </Button>

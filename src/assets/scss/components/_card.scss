@@ -38,6 +38,10 @@
     height: calc(100% - #{$grid-gutter-width});
 }
 
+.card-bg-gradient{
+    background-image: linear-gradient(to right, #FFF7AE, #FFAAF8);
+}
+
 .card-animate{
     transition: all 0.4s;
 

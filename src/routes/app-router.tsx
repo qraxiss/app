@@ -3,8 +3,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Layout from 'layout';
 
 //routes
-import { authProtectedRoutes, publicRoutes } from './all-routes';
-import NonAuthLayout from '../layout/non-auth-layout';
+import { publicRoutes } from './public-routes';
 
 export const AppRouter = () => {
     return (
@@ -12,16 +11,13 @@ export const AppRouter = () => {
             <BrowserRouter>
                 <Routes>
                     <Route>
-                        {authProtectedRoutes.map((route, idx) => (
-                            <Route path={route.path} element={<Layout isLight={route.isLight}>{route.component}</Layout>} key={idx} />
-                        ))}
-                    </Route>
-
-                    <Route>
                         {publicRoutes.map((route, idx) => (
-                            <Route path={route.path} element={<NonAuthLayout>{route.component}</NonAuthLayout>} key={idx} />
+                            <Route path={route.path} element={<Layout>{route.component}</Layout>} key={idx} />
                         ))}
                     </Route>
+                    {/**
+                     * Protected routes will define here
+                     */}
                 </Routes>
             </BrowserRouter>
         </React.Fragment>

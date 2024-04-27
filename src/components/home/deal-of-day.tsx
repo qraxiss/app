@@ -11,7 +11,7 @@ interface DealDay {
     completed: boolean;
 }
 
-export const DealofDay = () => {
+export const DealOfDay = () => {
     const renderer = ({ days, hours, minutes, seconds, completed }: DealDay) => {
         if (completed) {
             // Render a completed state

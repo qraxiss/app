@@ -9,7 +9,7 @@ import EmailClothe from "pages/catalog/email-clothe";
 import { CommonService } from "components/common-service";
 import Index from "components";
 
-const Defaultgrid = () => {
+const Products = () => {
     return (
         <React.Fragment>
             <section className="section pb-0 mt-4">
@@ -67,4 +67,4 @@ const Defaultgrid = () => {
     );
 };
 
-export default Defaultgrid;
+export default Products;

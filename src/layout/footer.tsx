@@ -49,7 +49,7 @@ const Footer = () => {
                                     <div className="mt-lg-0 mt-4">
                                         <h5 className="footer-title">Categories</h5>
                                         <ul className="list-unstyled footer-link mt-3">
-                                            {categories?.map((category: any) => <li><Link to={`/${category.slug}`}>{category.name}</Link></li>)}
+                                            {categories?.map((category: any, idx: number) => <li key={`category-${idx}`}><Link to={`/${category.slug}`}>{category.name}</Link></li>)}
                                         </ul>
                                     </div>
                                 </Col>
