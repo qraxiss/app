@@ -166,7 +166,7 @@ const Header = (props: any) => {
 
                             {categories?.map((item: any, index: number) => (
                                 <li className="nav-item" key={`category-${index + 1}`}>
-                                    <Link className="nav-link" to={`/${item.slug}`} data-key="t-slug">
+                                    <Link className="nav-link" to={`products/${item.slug}`} data-key="t-slug">
                                         <img src={`${process.env.REACT_APP_API_URL}/${item.icon.url}`} alt={item.name} width={20} height={20} />{' '}
                                         {item.name}
                                     </Link>

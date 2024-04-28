@@ -8,7 +8,13 @@ export type SHOPCEK_QUERY_PAYLOAD = {
     notFound?: (data: any) => boolean;
 };
 
-export type SHOPCECK_QUERY_RESPONSE<DType> = {
+export type SHOPCEK_MUTATION_PAYLOAD = {
+    mutation: DocumentNode;
+    options?: QueryOptions;
+    notFound?: (data: any) => boolean;
+};
+
+export type SHOPCECK_RESPONSE<DType> = {
     data?: DType;
     error?: any;
     loading?: boolean;

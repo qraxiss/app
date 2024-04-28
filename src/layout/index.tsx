@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Button } from "react-bootstrap";
@@ -80,7 +81,6 @@ const Layout = (props: any) => {
     return (
         <React.Fragment>
             {location.pathname && <MainModal location={location.pathname} />}
-            {/* <TopBar /> */}
             <CollectionsSideBar openSideBar={openSideBar}/>
             <Header handleMood={handleThemeMood} openSideBar={openSideBar}/>
             {props.children}
@@ -88,7 +88,7 @@ const Layout = (props: any) => {
             <Button
                 onClick={() => ScrollbarTop()}
                 variant="info"
-                className="btn-icon"
+                className="btn-icon button-primary"
                 style={{ bottom: "50px"}}
                 id="back-to-top">
                 <i className="ri-arrow-up-line"></i>
