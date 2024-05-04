@@ -3,7 +3,10 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   loading: false,
   error: null,
-  data: {},
+  data: {
+    nonce: "",
+    jwt: "",
+  },
 };
 
 const walletSlice = createSlice({
@@ -16,7 +19,7 @@ const walletSlice = createSlice({
     },
     fetchNonceSuccess(state, action) {
       state.loading = false;
-      state.data = action.payload;
+      state.data.nonce = action.payload;
     },
     fetchNonceFailure(state, action) {
       state.loading = false;
@@ -28,7 +31,7 @@ const walletSlice = createSlice({
     },
     verifySignatureSuccess(state, action) {
       state.loading = false;
-      state.data = action.payload;
+      state.data.jwt = action.payload;
     },
     verifySignatureFailure(state, action) {
       state.loading = false;
