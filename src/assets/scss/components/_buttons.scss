@@ -28,6 +28,68 @@ a {
     border-image-slice: 1;
     color: black;
 }
+.button-secondary {
+    background: #0000 linear-gradient(108deg, #f556b8, #14c5f0) 0 0 no-repeat padding-box;
+    transition: background-image 0.3s ease;
+    border-width: 0;
+    padding: .7rem 1.6rem;
+}
+.button-buy {
+    align-items: center;
+    background-color: #ffffffb3;
+    color: #f556b7;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    border: 2px solid;
+    border-image: linear-gradient(104deg, #f556b8, #14c5f0) 1;
+}
+// .button-buy {
+//     align-items: center;
+//     background-color: #ffffffb3;
+//     color: #f556b7;
+//     cursor: pointer;
+//     display: flex;
+//     justify-content: center;
+//     border: 2px solid transparent; /* Start with a transparent solid border */
+//     border-radius: 20px; /* Adjust the border radius value */
+//     transition-duration: 0.3s;
+//     position: relative; /* Position relative for pseudo-element */
+//     overflow: hidden; /* Hide overflow to prevent shadow overflow issues */
+// }
+
+// .button-buy::before {
+//     content: ''; /* Create a pseudo-element */
+//     position: absolute;
+//     top: -2px;
+//     left: -2px;
+//     right: -2px;
+//     bottom: -2px;
+//     z-index: -1; /* Behind the button content */
+//     border-radius: 20px; /* Match the button border radius */
+//     background: linear-gradient(104deg, #f556b8, #14c5f0); /* Gradient colors */
+// }
+
+// .button-buy:hover::before {
+//     transform: scale(1.1); /* Scale up on hover */
+// }
+
+.button-add-cart{
+    background: rgb(19, 197, 240); 
+    border: none;
+
+    &:hover {
+        background: rgb(15, 170, 208);
+    }
+}
+.button-buy-now{
+    background: #f556b7; 
+    border: none;
+
+    &:hover {
+        background: #ff39b2
+    }
+}
 
 .btn.show,
 .btn:first-child:active,

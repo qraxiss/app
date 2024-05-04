@@ -18,7 +18,7 @@ export const CollectionsSideBar: FC<CollectionsSideBarProps> = ({ openSideBar })
         {sideBarData.map((item: any, idx: number) => {
           return (
             <img
-              src={`${process.env.REACT_APP_API_URL}/${item.icon.url}`}
+              src={`${process.env.REACT_APP_API_URL}${item.icon?.url}`}
               alt=""
               key={'collection-sidebar-' + idx}
             />

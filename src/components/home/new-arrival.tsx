@@ -25,9 +25,11 @@ export const NewArrival = () => {
                             <Col className=" item" key={idx}>
                                 <Card className=" product-widget border-0 card-animate">
                                     <Card.Body className="p-2">
-                                        <div className="position-relative p-4 bg-light">
+                                        <div className="position-relative p-4">
+                                            <Link to={`/product-details/${item?.slug}`}>
                                             <Image src={item.image} alt="" className="img-fluid product-img-main" />
                                             <Image src={item.image} alt="" className="img-fluid product-img-2" />
+                                            </Link>
 
                                             <ul className="product-menu list-unstyled">
                                                 <li className="mb-2">
@@ -38,11 +40,11 @@ export const NewArrival = () => {
                                                 </li>
                                             </ul>
                                             <div className="product-btn mx-auto">
-                                                <Link to="/#" className="btn btn-info w-100"><i className="bi bi-bag align-baseline me-1"></i> Buy Now</Link>
+                                                <Link to={`/product-details/${item?.slug}`} className="btn button-buy-now text-white w-100"><i className="bi bi-bag align-baseline me-1"></i> Buy Now</Link>
                                             </div>
                                         </div>
                                         <div className="mt-3">
-                                            <Link to="/#">
+                                            <Link to={`/product-details/${item?.slug}`}>
                                                 <h6 className="text-capitalize fs-16 text-truncate">{item.name}</h6>
                                             </Link>
                                             <h6 className="fw-normal mb-3 fs-16">${item.price} <small className="text-decoration-line-through fs-14 text-muted">{item.price2}</small></h6>

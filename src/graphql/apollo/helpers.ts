@@ -61,7 +61,7 @@ export async function shopcekMutation<DType>({
     const jwt = localStorage.getItem('jwt');
 
     try {
-        const response = await client.mutate<any, any>({
+        const response = await client.mutate({
             mutation,
             ...options,
             context: {

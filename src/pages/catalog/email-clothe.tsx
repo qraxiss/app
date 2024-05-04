@@ -22,7 +22,7 @@ const EmailClothe = () => {
                                 <Form action="#">
                                     <div className="position-relative ecommerce-subscript">
                                         <Form.Control type="email" className="rounded-pill" placeholder="Enter your email" name="email"/>
-                                        <Button type="submit" variant="primary" className="btn-hover rounded-pill">Subscript Now</Button>
+                                        <Button type="submit" variant="primary" className="btn-hover button-secondary rounded-pill">Subscript Now</Button>
                                     </div>
                                 </Form>
                             </div>

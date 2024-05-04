@@ -130,13 +130,15 @@ const Header = (props: any) => {
         <React.Fragment>
             <Navbar className="navbar-expand-lg ecommerce-navbar" id="navbar" expanded={false}>
                 <Container>
-                    <Navbar.Brand href="/#" className="d-none d-lg-block">
-                        <div className="logo-dark">
-                            <Image src={shopcekLogo} alt="" height="35" />
-                        </div>
-                        <div className="logo-light">
-                            <Image src={shopcekLogo} alt="" height="35" /> <span className="logo-txt"></span>
-                        </div>
+                    <Navbar.Brand className="d-none d-lg-block">
+                        <Link to='/'>
+                            <div className="logo-dark">
+                                <Image src={shopcekLogo} alt="" height="35" />
+                            </div>
+                            <div className="logo-light">
+                                <Image src={shopcekLogo} alt="" height="35" /> <span className="logo-txt"></span>
+                            </div>
+                        </Link>
                     </Navbar.Brand>
                     <Button
                         className="btn btn-soft-primary btn-icon d-lg-none collapsed"
@@ -159,19 +161,25 @@ const Header = (props: any) => {
 
                             <li className="nav-item" key={`category-0`}>
                                 <span className="nav-link" onClick={() => props.openSideBar()}>
-                                <i className="bi bi-list fs-20"></i>
+                                {/* <i className="bi bi-list fs-20"></i> */}
                                     Collections
                                 </span>
                             </li>
 
                             {categories?.map((item: any, index: number) => (
                                 <li className="nav-item" key={`category-${index + 1}`}>
-                                    <Link className="nav-link" to={`products/${item.slug}`} data-key="t-slug">
-                                        <img src={`${process.env.REACT_APP_API_URL}/${item.icon.url}`} alt={item.name} width={20} height={20} />{' '}
+                                    <Link className="nav-link" to={`/products/${item.slug}`} data-key="t-slug">
+                                        {/* <img src={`${process.env.REACT_APP_API_URL}/${item.icon.url}`} alt={item.name} width={20} height={20} />{' '} */}
                                         {item.name}
                                     </Link>
                                 </li>
                             ))}
+                            <li className="nav-item" >
+                                <Link className="nav-link" to={`/earn`} data-key="t-slug">
+                                    {/* <img src={`${process.env.REACT_APP_API_URL}/${item.icon.url}`} alt={item.name} width={20} height={20} />{' '} */}
+                                    Earn
+                                </Link>
+                            </li>
                         </Nav>
                     </Navbar.Collapse>
 
@@ -197,9 +205,9 @@ const Header = (props: any) => {
                                 onClick={handleCardShow}
                             >
                                 <i className="ph-shopping-cart fs-18"></i>
-                                <span className="position-absolute topbar-badge cartitem-badge fs-10 translate-middle badge rounded-pill bg-danger">
+                                {/* <span className="position-absolute topbar-badge cartitem-badge fs-10 translate-middle badge rounded-pill bg-danger">
                                     4
-                                </span>
+                                </span> */}
                             </Button>
                         </div>
 

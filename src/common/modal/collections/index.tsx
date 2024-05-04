@@ -71,12 +71,12 @@ export const CollectionModal: FC<CollectionModalProps> = ({
               <div
                 className="item"
                 onClick={() => {
-                  navigate(`/products/collection/${item.slug}`);
+                  navigate(`/products/${item.slug}`);
                   handleClose();
                 }}
               >
                 <img
-                  src={`${process.env.REACT_APP_API_URL}/${item.icon.url}`}
+                  src={`${process.env.REACT_APP_API_URL}${item.icon?.url}`}
                   alt=""
                   style={{height: 'auto', maxWidth: '150px'}}
                 />
@@ -90,7 +90,7 @@ export const CollectionModal: FC<CollectionModalProps> = ({
 
     setHeader([
       <img
-        src={`${process.env.REACT_APP_API_URL}/${contents.icon.url}`}
+        src={`${process.env.REACT_APP_API_URL}${contents.icon?.url}`}
         alt=""
       />,
       contents.name,
@@ -131,7 +131,7 @@ export const CollectionModal: FC<CollectionModalProps> = ({
                   }}
                 >
                   <img
-                    src={`${process.env.REACT_APP_API_URL}/${item.icon.url}`}
+                    src={`${process.env.REACT_APP_API_URL}${item.icon?.url}`}
                     alt=""
                   />
                   {item.name}

@@ -41,8 +41,8 @@ export const WhyChoose = () => {
                 <Container fluid className="container-custom">
                     <Card className="border-0 overflow-hidden">
                         <Row className=" g-0">
-                            <Col style={{backgroundColor: '#D3D0C1'}} lg={5}> 
-                                <img src={cta} alt="" className="img-fluid h-100 object-fit-cover" />
+                            <Col className='d-flex align-items-center' style={{backgroundColor: '#D3D0C1'}} lg={5}> 
+                                <img src={cta} alt="" className="img-fluid" />
                             </Col>
                             <Col lg={7}>
                                 <Card.Body className="bg-dark h-100 p-xxl-5">
@@ -56,7 +56,7 @@ export const WhyChoose = () => {
                                                 <Form action="#">
                                                     <div className="subscribe-input position-relative">
                                                         <input type="email" className="form-control" id="exampleFormControlInput1" placeholder="Enter your email" />
-                                                        <Button type="submit" variant="primary">Subscribe Now</Button>
+                                                        <Button className='button-secondary' type="submit" variant="primary">Subscribe Now</Button>
                                                     </div>
                                                 </Form>
                                             </Col>

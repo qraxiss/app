@@ -71,7 +71,7 @@ export const TopPicks = () => {
                                         <SwiperSlide key={index}>
                                             <Card className="product-widget border-0 card-animate">
                                                 <Card.Body className="p-2">
-                                                    <div className="position-relative p-4 bg-light">
+                                                    <div className="position-relative p-4">
                                                         <Image src={item.image} alt="" className="img-fluid product-img-main" />
                                                         <Image src={item.image} alt="" className="img-fluid product-img-2" />
                                                         <ul className="product-menu list-unstyled">
@@ -157,11 +157,11 @@ export const TopPicks = () => {
                                                         </div>
                                                     </div>
                                                     <div className="mt-3">
-                                                        <Link to="/#">
+                                                        <Link to={`/product-details/${item?.slug}`}>
                                                             <h6 className="text-capitalize fs-16 text-truncate">{item.name}</h6>
                                                         </Link>
                                                         <h6 className="fw-normal mb-3 fs-16">
-                                                            {item.price}
+                                                            ${item.price}
                                                             {item.discount && (
                                                                 <small className="text-decoration-line-through fs-14 text-muted">
                                                                     {item.discount}

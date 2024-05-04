@@ -28,7 +28,7 @@
 
                 &:hover,
                 &.active {
-                    color: $primary;
+                    color: #f556b7;
                 }
             }
         }
@@ -59,7 +59,7 @@
 
                 &:hover {
                     padding-left: 13px;
-                    color: $primary;
+                    color: #f556b7;
 
                     &::before {
                         opacity: 1;

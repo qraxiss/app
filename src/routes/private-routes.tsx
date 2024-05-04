@@ -16,9 +16,6 @@ import WishList from "pages/shop/whish-list";
 //pages /user
 import MyAccount from "pages/user/my-account";
 
-//Productdetails
-import Productdetails from "pages/products/product-details";
-
 //contact
 import ContactUs from "pages/contact-us/contact";
 
@@ -38,9 +35,6 @@ const authProtectedRoutes = [
     // { path: "/shop/shopingcard", component: <Shopingcard /> },
     // { path: "/shop/checkout", component: <Checkout /> },
     // { path: "/shop/wishList", component: <WishList /> },
-
-    //Productdetails
-    { path: "/product-details", component: <Productdetails /> },
 
     //My Account
     { path: "/account", component: <MyAccount /> },

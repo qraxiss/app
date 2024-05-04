@@ -350,7 +350,7 @@ const Filters = ({ name, setFilterlist }: any) => {
                                 </div>
                             </Collapse>
                         </div>
-                        <div className="accordion-item">
+                        {/* <div className="accordion-item">
                             <h2 className="accordion-header" id="flush-headingDiscount">
                                 <Button
                                     onClick={() => setDiscount(!discount)}
@@ -404,9 +404,9 @@ const Filters = ({ name, setFilterlist }: any) => {
                                     </div>
                                 </div>
                             </Collapse>
-                        </div>
+                        </div> */}
 
-                        <Button
+                        {/* <Button
                             onClick={() => setRating(!rating)}
                             aria-controls="flush-collapseRating"
                             aria-expanded={rating}
@@ -414,8 +414,8 @@ const Filters = ({ name, setFilterlist }: any) => {
                         >
                             <span className="text-muted text-uppercase fs-12 fw-medium">Rating</span>
                             <span className="badge bg-success rounded-pill align-middle ms-1 filter-badge"></span>
-                        </Button>
-                        <Collapse in={rating}>
+                        </Button> */}
+                        {/* <Collapse in={rating}>
                             <div id="flush-collapseRating">
                                 <div className="accordion-collapse collapse show" aria-labelledby="flush-headingRating">
                                     <div className="accordion-body text-body">
@@ -472,7 +472,7 @@ const Filters = ({ name, setFilterlist }: any) => {
                                     </div>
                                 </div>
                             </div>
-                        </Collapse>
+                        </Collapse> */}
                     </div>
                 </Card>
             </div>

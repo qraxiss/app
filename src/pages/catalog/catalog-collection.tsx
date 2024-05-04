@@ -84,13 +84,16 @@ const CatalogCollection = ({ cxxl, cxl, clg, cmd, cheight, filterList }: any) =>
                     {select &&
                         (currentpages && currentpages.length > 0 ?
                             (currentpages || [])?.map((item: any,idx:any) => {
+                                console.log(item);
                                 return (
                                     !cxl ?
                                         <Col key={item.id} xxl={cxxl} lg={clg} md={cmd} >
                                             <Card className="ecommerce-product-widgets border-0 rounded-0 shadow-none overflow-hidden" key={idx}>
-                                                <div className="bg-light bg-opacity-50 rounded py-4 position-relative">
-                                                    <Image src={item.img} alt="" style={{ maxHeight: "200px", maxWidth: "100%" }}
-                                                        className="mx-auto d-block rounded-2" />
+                                                <div className="bg-opacity-50 rounded py-4 position-relative">
+                                                    <Link to={`/product-details/${item?.slug}`}>
+                                                        <Image src={item.image} alt="" style={{ maxHeight: "200px", maxWidth: "100%" }}
+                                                            className="mx-auto d-block rounded-2" />
+                                                    </Link>
                                                     <div className="action vstack gap-2">
                                                         <Button color="danger" className="avatar-xs p-0 btn-soft-warning custom-toggle product-action" data-bs-toggle="button" onClick={(e) => LikeIcone(e.target)} >
                                                             <span className="icon-on"><i className="ri-heart-line"></i></span>
@@ -105,49 +108,30 @@ const CatalogCollection = ({ cxxl, cxl, clg, cmd, cheight, filterList }: any) =>
                                                 </div>
                                                 <div className="pt-4">
                                                     <div>
-                                                        {
-                                                            item?.color ?
-                                                                <ul className="clothe-colors list-unstyled hstack gap-1 mb-3 flex-wrap">
-
-                                                                    <li>
-                                                                        <Form.Control type="radio" name="sizes1" id="product-color-12" />
-                                                                        <Form.Label className={`avatar-xxs btn btn-${item?.color[0] || ''} p-0 d-flex align-items-center justify-content-center rounded-circle fs-${item.font || 0}`} htmlFor="product-color-12">{item.size ? item.size[0] : ''}</Form.Label>
-                                                                    </li>
-                                                                    <li>
-                                                                        <Form.Control type="radio" name="sizes1" id="product-color-13" />
-                                                                        <Form.Label className={`avatar-xxs btn btn-${item?.color[1] || ''} p-0 d-flex align-items-center justify-content-center rounded-circle fs-${item.font || 0}`} htmlFor="product-color-13">{item.size ? item.size[1] : ''}</Form.Label>
-                                                                    </li>
-                                                                    <li>
-                                                                        <Form.Control type="radio" name="sizes1" id="product-color-14" />
-                                                                        <Form.Label className={`avatar-xxs btn btn-${item?.color[2] || ''} p-0 d-flex align-items-center justify-content-center rounded-circle fs-${item.font || 0}`} htmlFor="product-color-14">{item.size ? item.size[2] : ''}</Form.Label>
-                                                                    </li>
-                                                                    <li> <Form.Control type="radio" name="sizes1" id="product-color-15" />
-                                                                        <Form.Label className={`avatar-xxs btn btn-${item?.color[3] || ''} p-0 d-flex align-items-center justify-content-center rounded-circle fs-${item.font || 0}`} htmlFor="product-color-15">{item.size ? item.size[3] : ''}</Form.Label>
-                                                                    </li>
-                                                                </ul>
-                                                                :
-                                                                <div className="avatar-xxs mb-3">
-                                                                    <div className="avatar-title bg-light text-muted rounded cursor-pointer">
-                                                                        <i className={`${item?.icone}`}></i>
+                                                        <div className="d-flex">
+                                                            {
+                                                                item.colors?.slice(0, 3)?.map((color: any, idx: any) => (
+                                                                    <div key={idx} data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" aria-label={color?.value} data-bs-original-title={color?.value}>
+                                                                        <button type="button" className='btn avatar-xs p-0 mx-1 d-flex align-items-center justify-content-center border rounded-circle fs-20' style={{background: color?.hex}}>
+                                                                            {/* <i className="ri-checkbox-blank-circle-fill"></i> */}
+                                                                        </button>
                                                                     </div>
-                                                                </div>
-                                                        }
-
-
-
-                                                        <Link to="#">
-                                                            <h6 className="text-capitalize fs-15 lh-base text-truncate mb-0">{item?.title}</h6>
+                                                                ))
+                                                            }
+                                                        </div>
+                                                        <Link to={`/product-details/${item?.slug}`}>
+                                                            <h6 className="text-capitalize fs-15 lh-base text-truncate mb-0">{item?.name}</h6>
                                                         </Link>
                                                         <div className="mt-2">
                                                             <span className="float-end">{item?.ratting}
                                                                 <i className="ri-star-half-fill text-warning align-bottom"></i>
                                                             </span>
-                                                            <h5 className="text-secondary mb-0">{item?.price}
+                                                            <h5 className="text-secondary mb-0">${item?.price}
                                                                 <span className="text-muted fs-12"><del>{item?.deleteproce}</del></span></h5>
                                                         </div>
                                                         <div className="tn mt-3">
-                                                            <Link to="#" className="btn btn-primary btn-hover w-100 add-btn">
-                                                                <i className="mdi mdi-cart me-1"></i> Add To Cart
+                                                            <Link to={`/product-details/${item?.slug}`} className="btn button-buy btn-hover w-100 add-btn">
+                                                                <i className="mdi mdi-cart me-1"></i> Buy
                                                             </Link>
                                                         </div>
                                                     </div>
@@ -178,7 +162,7 @@ const CatalogCollection = ({ cxxl, cxl, clg, cmd, cheight, filterList }: any) =>
                                                                     </span>
                                                                 </div>
                                                                 <Link to="#">
-                                                                    <h4 className="fs-16">{item.title}</h4>
+                                                                    <h4 className="fs-16">{item.slug}</h4>
                                                                 </Link>
                                                                 <p className="text-muted mb-3">
                                                                     T-Shirt house best black boys T-Shirt fully cotton material &amp;
