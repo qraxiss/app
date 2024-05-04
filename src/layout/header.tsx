@@ -19,6 +19,7 @@ import { CardModal, SearchModal } from "components/main-modal";
 import { withTranslation } from "react-i18next";
 import withRouter from "components/with-router";
 import { useSelector } from "react-redux";
+import ConnectWallet from "components/connect-wallet";
 
 const Header = (props: any) => {
   //search modal
@@ -76,7 +77,7 @@ const Header = (props: any) => {
       const itemsArray: any = Array.from(items);
       removeActivation(itemsArray);
       const matchingMenuItem = itemsArray.find(
-        (x: HTMLAnchorElement) => x.pathname === pathName,
+        (x: HTMLAnchorElement) => x.pathname === pathName
       );
       if (matchingMenuItem) {
         activateParentDropdown(matchingMenuItem);
@@ -85,7 +86,7 @@ const Header = (props: any) => {
 
     initMenu();
     const collapse = document.getElementById(
-      "navbarSupportedContent",
+      "navbarSupportedContent"
     ) as HTMLElement;
     if (collapse && collapse.classList.contains("show")) {
       collapse.classList.remove("show");
@@ -114,7 +115,7 @@ const Header = (props: any) => {
   const handleShowColl = () => {
     const navbar = document.getElementById("navbar");
     const collapse = document.getElementById(
-      "navbarSupportedContent",
+      "navbarSupportedContent"
     ) as HTMLElement;
     navbar && navbar.classList.remove("navbar-expand");
     if (collapse && collapse.classList.contains("show")) {
@@ -131,7 +132,7 @@ const Header = (props: any) => {
     const windowSize = document.documentElement.clientWidth;
     if (windowSize > 992) {
       const collapse = document.getElementById(
-        "navbarSupportedContent",
+        "navbarSupportedContent"
       ) as HTMLElement;
       if (collapse && collapse.classList.contains("show")) {
         collapse.classList.remove("show");
@@ -255,9 +256,6 @@ const Header = (props: any) => {
                 onClick={handleCardShow}
               >
                 <i className="ph-shopping-cart fs-18"></i>
-                {/* <span className="position-absolute topbar-badge cartitem-badge fs-10 translate-middle badge rounded-pill bg-danger">
-                                    4
-                                </span> */}
               </Button>
             </div>
 
@@ -298,60 +296,64 @@ const Header = (props: any) => {
               </Dropdown.Menu>
             </Dropdown>
 
-            <div className="dropdown header-item dropdown-hover-end">
-              <Dropdown>
-                <Dropdown.Toggle
-                  id="page-header-user-dropdown"
-                  bsPrefix="btn"
-                  className="btn btn-icon btn-topbar btn-link rounded-circle"
-                  as="a"
-                >
-                  <Image
-                    className="rounded-circle header-profile-user"
-                    src={avtar1}
-                    alt="Header Avatar"
-                  />
-                </Dropdown.Toggle>
+            {localStorage.getItem("jwt") ? (
+              <div className="dropdown header-item dropdown-hover-end">
+                <Dropdown>
+                  <Dropdown.Toggle
+                    id="page-header-user-dropdown"
+                    bsPrefix="btn"
+                    className="btn btn-icon btn-topbar btn-link rounded-circle"
+                    as="a"
+                  >
+                    <Image
+                      className="rounded-circle header-profile-user"
+                      src={avtar1}
+                      alt="Header Avatar"
+                    />
+                  </Dropdown.Toggle>
 
-                <Dropdown.Menu>
-                  <Dropdown.Item href="/shop/orderhistory">
-                    <i className="bi bi-cart4 text-muted fs-16 align-middle me-1"></i>{" "}
-                    <span className="align-middle">Order History</span>
-                  </Dropdown.Item>
-                  <Dropdown.Item href="/shop/order">
-                    <i className="bi bi-truck text-muted fs-16 align-middle me-1"></i>{" "}
-                    <span className="align-middle">Track Orders</span>
-                  </Dropdown.Item>
-                  <Dropdown.Item href="#/action-3">
-                    <i className="bi bi-speedometer2 text-muted fs-16 align-middle me-1"></i>{" "}
-                    <span className="align-middle">Dashboard</span>
-                  </Dropdown.Item>
-                  <Dropdown.Item href="/ecommerce-faq">
-                    <i className="mdi mdi-lifebuoy text-muted fs-16 align-middle me-1"></i>{" "}
-                    <span className="align-middle">Help</span>
-                  </Dropdown.Item>
-                  <Dropdown.Item href="/account">
-                    <i className="bi bi-coin text-muted fs-16 align-middle me-1"></i>{" "}
-                    <span className="align-middle">
-                      Balance : <b>$8451.36</b>
-                    </span>
-                  </Dropdown.Item>
-                  <Dropdown.Item href="/account">
-                    <span className="badge bg-success-subtle text-success mt-1 float-end">
-                      New
-                    </span>
-                    <i className="mdi mdi-cog-outline text-muted fs-16 align-middle me-1"></i>{" "}
-                    <span className="align-middle">Settings</span>
-                  </Dropdown.Item>
-                  <Dropdown.Item href="/auth-logout-basic">
-                    <i className="bi bi-box-arrow-right text-muted fs-16 align-middle me-1"></i>{" "}
-                    <span className="align-middle" data-key="t-logout">
-                      Logout
-                    </span>
-                  </Dropdown.Item>
-                </Dropdown.Menu>
-              </Dropdown>
-            </div>
+                  <Dropdown.Menu>
+                    <Dropdown.Item href="/shop/orderhistory">
+                      <i className="bi bi-cart4 text-muted fs-16 align-middle me-1"></i>{" "}
+                      <span className="align-middle">Order History</span>
+                    </Dropdown.Item>
+                    <Dropdown.Item href="/shop/order">
+                      <i className="bi bi-truck text-muted fs-16 align-middle me-1"></i>{" "}
+                      <span className="align-middle">Track Orders</span>
+                    </Dropdown.Item>
+                    <Dropdown.Item href="#/action-3">
+                      <i className="bi bi-speedometer2 text-muted fs-16 align-middle me-1"></i>{" "}
+                      <span className="align-middle">Dashboard</span>
+                    </Dropdown.Item>
+                    <Dropdown.Item href="/ecommerce-faq">
+                      <i className="mdi mdi-lifebuoy text-muted fs-16 align-middle me-1"></i>{" "}
+                      <span className="align-middle">Help</span>
+                    </Dropdown.Item>
+                    <Dropdown.Item href="/account">
+                      <i className="bi bi-coin text-muted fs-16 align-middle me-1"></i>{" "}
+                      <span className="align-middle">
+                        Balance : <b>$8451.36</b>
+                      </span>
+                    </Dropdown.Item>
+                    <Dropdown.Item href="/account">
+                      <span className="badge bg-success-subtle text-success mt-1 float-end">
+                        New
+                      </span>
+                      <i className="mdi mdi-cog-outline text-muted fs-16 align-middle me-1"></i>{" "}
+                      <span className="align-middle">Settings</span>
+                    </Dropdown.Item>
+                    <Dropdown.Item href="/auth-logout-basic">
+                      <i className="bi bi-box-arrow-right text-muted fs-16 align-middle me-1"></i>{" "}
+                      <span className="align-middle" data-key="t-logout">
+                        Logout
+                      </span>
+                    </Dropdown.Item>
+                  </Dropdown.Menu>
+                </Dropdown>
+              </div>
+            ) : (
+              <ConnectWallet />
+            )}
           </div>
         </Container>
       </Navbar>
