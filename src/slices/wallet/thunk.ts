@@ -10,6 +10,9 @@ import {
 } from "./slice";
 import { VERIFY } from "graphql/wallet/mutations";
 import { GET_NONCE } from "graphql/wallet/queries";
+import { VERIFY as VERIFY_INPUT } from "types/wallet";
+
+import { signInWithEthereumLocal } from "wallet/siwe";
 
 export const fetchNonceAsync = createAsyncThunk(
   "wallet/fetchNonce",
@@ -30,11 +33,20 @@ export const fetchNonceAsync = createAsyncThunk(
 
 export const verifySignatureAsync = createAsyncThunk(
   "wallet/verifySignature",
-  async (_, { dispatch }) => {
+  async ({ message, signature }: VERIFY_INPUT, { dispatch }) => {
     try {
       dispatch(verifySignatureStart());
       const { data } = await shopcekMutation<string>({
         mutation: VERIFY,
+
+        // TODO: options parameter require query or mutation, we should send mutation in options field.
+        //@ts-ignore
+        options: {
+          variables: {
+            message,
+            signature,
+          },
+        },
       });
 
       dispatch(verifySignatureSuccess(data));
