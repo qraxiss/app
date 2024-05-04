@@ -28,7 +28,7 @@ export const fetchNonceAsync = createAsyncThunk(
     } catch (error: any) {
       dispatch(fetchNonceFailure(error.message));
     }
-  },
+  }
 );
 
 export const verifySignatureAsync = createAsyncThunk(
@@ -40,18 +40,17 @@ export const verifySignatureAsync = createAsyncThunk(
         mutation: VERIFY,
 
         // TODO: options parameter require query or mutation, we should send mutation in options field.
-        //@ts-ignore
         options: {
           variables: {
             message,
             signature,
           },
-        },
+        } as any,
       });
 
       dispatch(verifySignatureSuccess(data));
     } catch (error: any) {
       dispatch(verifySignatureFailure(error.message));
     }
-  },
+  }
 );
