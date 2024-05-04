@@ -8,7 +8,7 @@ import { store } from "store";
 import { Web3ModalProvider } from "wallet/web3modal";
 
 const root = ReactDOM.createRoot(
-  document.getElementById("root") as HTMLElement
+  document.getElementById("root") as HTMLElement,
 );
 root.render(
   <Web3ModalProvider>
@@ -17,7 +17,7 @@ root.render(
         <App />
       </ReduxProvider>
     </ShopcekApolloProvider>
-  </Web3ModalProvider>
+  </Web3ModalProvider>,
 );
 
 reportWebVitals();

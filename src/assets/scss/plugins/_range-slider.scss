@@ -156,7 +156,6 @@
   }
 }
 
-
 // Non linear slider
 
 .example-val {
@@ -218,8 +217,7 @@
 
 // rangeslider color
 
-@each $color,
-$value in $theme-colors {
+@each $color, $value in $theme-colors {
   [data-slider-color="#{$color}"] {
     .noUi-connect {
       background: $value;

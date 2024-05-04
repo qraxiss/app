@@ -9,7 +9,7 @@ import { GET_CATEGORIES } from "graphql/category/queries";
 import { shopcekQuery } from "graphql/apollo/helpers";
 
 export const fetchCategoriesAsync = createAsyncThunk(
-  'categories/fetchCategories',
+  "categories/fetchCategories",
   async (_, { dispatch }) => {
     try {
       dispatch(fetchCategoriesStart());

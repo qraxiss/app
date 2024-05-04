@@ -1,7 +1,7 @@
-import React from 'react';
+import React from "react";
 
 import "./assets/scss/themes.scss";
-import { AppRouter } from 'routes';
+import { AppRouter } from "routes";
 
 function App() {
   return (

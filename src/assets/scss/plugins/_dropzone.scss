@@ -2,7 +2,6 @@
 // Dropzone
 //
 
-
 .dropzone {
   min-height: 230px;
   border: 2px dashed var(--#{$prefix}border-color);
@@ -16,7 +15,7 @@
   }
 }
 
-[data-dz-thumbnail]{
+[data-dz-thumbnail] {
   width: 100%;
   height: 100%;
 }

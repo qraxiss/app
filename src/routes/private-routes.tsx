@@ -20,29 +20,29 @@ import MyAccount from "pages/user/my-account";
 import ContactUs from "pages/contact-us/contact";
 
 const authProtectedRoutes = [
-    //catalog
-    // { path: "/catalog/clothing", component: <Catalog /> },
-    // { path: "/product-list/left", component: <LeftsideBar /> },
-    // { path: "/products-grid/right", component: <RightSidebar /> },
+  //catalog
+  // { path: "/catalog/clothing", component: <Catalog /> },
+  // { path: "/product-list/left", component: <LeftsideBar /> },
+  // { path: "/products-grid/right", component: <RightSidebar /> },
 
-    //shop
-    // { path: "/shop/address", component: <ShopIndex /> },
-    // { path: "/shop/order", component: <Trackorder /> },
-    // { path: "/shop/payment", component: <PaymentIndex /> },
-    // { path: "/shop/review", component: <Review />, isLight: "light" },
-    // { path: "/shop/confirm", component: <Confirm /> },
-    // { path: "/shop/orderhistory", component: <Orderhistory /> },
-    // { path: "/shop/shopingcard", component: <Shopingcard /> },
-    // { path: "/shop/checkout", component: <Checkout /> },
-    // { path: "/shop/wishList", component: <WishList /> },
+  //shop
+  // { path: "/shop/address", component: <ShopIndex /> },
+  // { path: "/shop/order", component: <Trackorder /> },
+  // { path: "/shop/payment", component: <PaymentIndex /> },
+  // { path: "/shop/review", component: <Review />, isLight: "light" },
+  // { path: "/shop/confirm", component: <Confirm /> },
+  // { path: "/shop/orderhistory", component: <Orderhistory /> },
+  // { path: "/shop/shopingcard", component: <Shopingcard /> },
+  // { path: "/shop/checkout", component: <Checkout /> },
+  // { path: "/shop/wishList", component: <WishList /> },
 
-    //My Account
-    { path: "/account", component: <MyAccount /> },
+  //My Account
+  { path: "/account", component: <MyAccount /> },
 
-    //contact us
-    { path: "/contact", component: <ContactUs /> },
+  //contact us
+  { path: "/contact", component: <ContactUs /> },
 
-    { path: "*", component: <Navigate to="/" /> },
+  { path: "*", component: <Navigate to="/" /> },
 ];
 
 export { authProtectedRoutes };

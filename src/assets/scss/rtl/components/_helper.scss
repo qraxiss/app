@@ -3,27 +3,26 @@
 //
 
 .customizer-setting {
-    right: auto;
-    left: 27px;
+  right: auto;
+  left: 27px;
 }
 
-// Search 
+// Search
 .search-box {
-    position: relative;
+  position: relative;
 
-    .form-control {
-        padding-left: $input-btn-padding-x;
-        padding-right: 40px;
+  .form-control {
+    padding-left: $input-btn-padding-x;
+    padding-right: 40px;
+  }
 
-    }
-
-    .search-icon {
-        right: 13px;
-        left: auto;
-    }
+  .search-icon {
+    right: 13px;
+    left: auto;
+  }
 }
 
 #back-to-top {
-    left: 28px;
-    right: auto;
+  left: 28px;
+  right: auto;
 }

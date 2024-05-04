@@ -1,8 +1,6 @@
 import React, { FC, useEffect, useState } from "react";
 
-import {
-  Offcanvas,
-} from "react-bootstrap";
+import { Offcanvas } from "react-bootstrap";
 import SimpleBar from "simplebar-react";
 
 import { DetailsModal } from "./details";
@@ -19,7 +17,7 @@ interface ICategory {
 }
 interface ICollection {
   slug: string;
-  name: string
+  name: string;
   icon: {
     url: string;
   };
@@ -78,7 +76,7 @@ export const CollectionModal: FC<CollectionModalProps> = ({
                 <img
                   src={`${process.env.REACT_APP_API_URL}${item.icon?.url}`}
                   alt=""
-                  style={{height: 'auto', maxWidth: '150px'}}
+                  style={{ height: "auto", maxWidth: "150px" }}
                 />
                 <div>{item.name}</div>
               </div>
@@ -107,8 +105,7 @@ export const CollectionModal: FC<CollectionModalProps> = ({
       >
         <Offcanvas.Header className="header">
           <Offcanvas.Title id="ecommerceCartLabel" as="h5">
-            <img src={icon} alt="" />{" "}
-            Collections
+            <img src={icon} alt="" /> Collections
           </Offcanvas.Title>
 
           <hr />

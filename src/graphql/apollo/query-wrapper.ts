@@ -1,6 +1,12 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable prefer-const */
-import { useLazyQuery, useQuery, DocumentNode, QueryHookOptions, ApolloError } from "@apollo/client";
+import {
+  useLazyQuery,
+  useQuery,
+  DocumentNode,
+  QueryHookOptions,
+  ApolloError,
+} from "@apollo/client";
 import { simplifyResponse } from "./simplify-response";
 
 import { useState } from "react";
@@ -58,7 +64,7 @@ export function useShopcekQuery<DType>(
   } else {
     status = null;
   }
-  
+
   return {
     data: data || stateData,
     setData: setStateData,

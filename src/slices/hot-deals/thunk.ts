@@ -1,10 +1,14 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { shopcekQuery } from "graphql/apollo/helpers";
-import { fetchHotDealsStart, fetchHotDealsSuccess, fetchHotDealsFailure } from "./slice";
+import {
+  fetchHotDealsStart,
+  fetchHotDealsSuccess,
+  fetchHotDealsFailure,
+} from "./slice";
 import { GET_HOT_DEALS } from "graphql/hot-deals/queries";
 
 export const fetchHotDealsAsync = createAsyncThunk(
-  'categories/fetchNewArrivals',
+  "categories/fetchNewArrivals",
   async (_, { dispatch }) => {
     try {
       dispatch(fetchHotDealsStart());

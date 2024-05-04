@@ -7,11 +7,11 @@ import newArrivalsReducer from "./new-arrivals/slice";
 import hotDealsReducer from "./hot-deals/slice";
 
 const rootReducer = combineReducers({
-    Layout: LayoutReducer,
-    categories: categoryReducer,
-    sideBar: sideBarReducer,
-    newArrivals: newArrivalsReducer,
-    hotDeals: hotDealsReducer,
+  Layout: LayoutReducer,
+  categories: categoryReducer,
+  sideBar: sideBarReducer,
+  newArrivals: newArrivalsReducer,
+  hotDeals: hotDealsReducer,
 });
 
 export default rootReducer;

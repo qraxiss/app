@@ -1,10 +1,10 @@
-// 
+//
 // reboot.scss
 //
 
 html {
-    position: relative;
-    min-height: 100%;
+  position: relative;
+  min-height: 100%;
 }
 
 b,
@@ -15,14 +15,14 @@ strong {
 // blockquote
 
 .blockquote {
-    padding: 10px 20px;
-    border-left: 4px solid var(--#{$prefix}border-color-translucent);
+  padding: 10px 20px;
+  border-left: 4px solid var(--#{$prefix}border-color-translucent);
 }
 
 .blockquote-reverse {
-    border-left: 0;
-    border-right: 4px solid var(--#{$prefix}border-color-translucent);
-    text-align: right;
+  border-left: 0;
+  border-right: 4px solid var(--#{$prefix}border-color-translucent);
+  text-align: right;
 }
 
 // container
@@ -33,23 +33,22 @@ strong {
 .container-sm,
 .container-xl,
 .container-xxl {
-    @media (min-width: 1200px) {
-        max-width: 1140px;
-    }
+  @media (min-width: 1200px) {
+    max-width: 1140px;
+  }
 }
 
 // row
-.row>*{
-    position: relative;
+.row > * {
+  position: relative;
 }
 
 // mixing
 
 @function set-color-from-background($color) {
-    @if (lightness($color) > 70) {
-        @return $color-contrast-dark;
-    }
-    @else {
-        @return $color-contrast-light;
-    }
+  @if (lightness($color) > 70) {
+    @return $color-contrast-dark;
+  } @else {
+    @return $color-contrast-light;
+  }
 }

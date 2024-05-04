@@ -1,11 +1,15 @@
 // productThunks.js
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { shopcekQuery } from "graphql/apollo/helpers";
-import { fetchSideBarFailure, fetchSideBarStart, fetchSideBarSuccess } from "./slice";
+import {
+  fetchSideBarFailure,
+  fetchSideBarStart,
+  fetchSideBarSuccess,
+} from "./slice";
 import { GET_SideBar } from "graphql/sidebar/queries";
 
 export const fetchSideBarAsync = createAsyncThunk(
-  'categories/fetchSideBar',
+  "categories/fetchSideBar",
   async (_, { dispatch }) => {
     try {
       dispatch(fetchSideBarStart());

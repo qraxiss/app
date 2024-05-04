@@ -7,7 +7,9 @@ interface CollectionsSideBarProps {
   openSideBar: () => void;
 }
 
-export const CollectionsSideBar: FC<CollectionsSideBarProps> = ({ openSideBar }) => {
+export const CollectionsSideBar: FC<CollectionsSideBarProps> = ({
+  openSideBar,
+}) => {
   const sideBarData = useSelector((state: any) => state.sideBar.data);
   return (
     <div onMouseEnter={openSideBar} className="collections-sidebar">
@@ -20,7 +22,7 @@ export const CollectionsSideBar: FC<CollectionsSideBarProps> = ({ openSideBar })
             <img
               src={`${process.env.REACT_APP_API_URL}${item.icon?.url}`}
               alt=""
-              key={'collection-sidebar-' + idx}
+              key={"collection-sidebar-" + idx}
             />
           );
         })}

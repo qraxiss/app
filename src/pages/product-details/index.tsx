@@ -26,9 +26,7 @@ const ProductDetails = () => {
   const { slug } = useParams();
   const swiperRef = useRef<SwiperRef>(null);
 
-  const { data } = useShopcekQuery<any>(
-    GET_Products_Details(slug || "")
-  );
+  const { data } = useShopcekQuery<any>(GET_Products_Details(slug || ""));
 
   const handleImgSelect = (index: number) => {
     if (swiperRef.current) {
@@ -249,7 +247,7 @@ const ProductDetails = () => {
                                   {size.value}
                                 </Form.Label>
                               </li>
-                            )
+                            ),
                           )}
                       </ul>
                     </div>
@@ -273,7 +271,7 @@ const ProductDetails = () => {
                                 htmlFor={`product-color-${index}`}
                               />
                             </li>
-                          )
+                          ),
                         )}
                     </ul>
                   </Col>
@@ -309,9 +307,7 @@ const ProductDetails = () => {
         </Container>
         {/*end container*/}
       </section>
-      <p className="text-muted px-5 ms-2 fs-15">
-        {data?.product?.description}
-      </p>
+      <p className="text-muted px-5 ms-2 fs-15">{data?.product?.description}</p>
 
       <EmailClothe />
       <CommonService />

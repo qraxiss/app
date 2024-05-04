@@ -25,7 +25,10 @@ const newArrivalsSlice = createSlice({
   },
 });
 
-export const { fetchNewArrivalsStart, fetchNewArrivalsSuccess, fetchNewArrivalsFailure } =
-  newArrivalsSlice.actions;
+export const {
+  fetchNewArrivalsStart,
+  fetchNewArrivalsSuccess,
+  fetchNewArrivalsFailure,
+} = newArrivalsSlice.actions;
 
 export default newArrivalsSlice.reducer;

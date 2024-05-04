@@ -2,8 +2,13 @@
 import { GQL_STATUS } from "types/gql";
 import { handle } from "./helpers";
 import { simplifyResponse } from "./simplify-response";
-import { DocumentNode, MutationHookOptions, useMutation, ApolloError } from '@apollo/client';
-import { useState } from 'react';
+import {
+  DocumentNode,
+  MutationHookOptions,
+  useMutation,
+  ApolloError,
+} from "@apollo/client";
+import { useState } from "react";
 
 const useShopcekMutation = <DType>(
   mutation: DocumentNode,
@@ -19,15 +24,15 @@ const useShopcekMutation = <DType>(
   called?: boolean;
   setData?: (value: DType) => void;
 } => {
-  const jwt = localStorage.getItem('jwt');
+  const jwt = localStorage.getItem("jwt");
 
   let [fn, { data, error, loading, called }] = useMutation(mutation, {
     ...options,
     context: {
       headers: jwt
         ? {
-          Authorization: `Bearer ${jwt}`,
-        }
+            Authorization: `Bearer ${jwt}`,
+          }
         : {},
     },
   });
@@ -35,25 +40,25 @@ const useShopcekMutation = <DType>(
 
   let status: GQL_STATUS;
   if (loading) {
-    status = 'loading';
+    status = "loading";
   } else if (error && data) {
     if (notFound && notFound(data)) {
-      status = 'error-and-not-found';
+      status = "error-and-not-found";
     } else {
       data = simplifyResponse(data);
-      status = 'error-and-data';
+      status = "error-and-data";
     }
   } else if (error) {
-    status = 'error';
+    status = "error";
   } else if (data) {
     if (notFound && notFound(data)) {
-      status = 'not-found';
+      status = "not-found";
     } else {
-      status = 'success';
+      status = "success";
       data = simplifyResponse(data);
     }
   } else if (!called) {
-    status = 'not-called';
+    status = "not-called";
   } else {
     status = null;
   }

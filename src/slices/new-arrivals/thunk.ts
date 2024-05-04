@@ -1,10 +1,14 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { shopcekQuery } from "graphql/apollo/helpers";
-import { fetchNewArrivalsStart, fetchNewArrivalsSuccess, fetchNewArrivalsFailure } from "./slice";
+import {
+  fetchNewArrivalsStart,
+  fetchNewArrivalsSuccess,
+  fetchNewArrivalsFailure,
+} from "./slice";
 import { GET_NEW_ARRIVALS } from "graphql/new-arrivals/queries";
 
 export const fetchNewArrivalsAsync = createAsyncThunk(
-  'categories/fetchNewArrivals',
+  "categories/fetchNewArrivals",
   async (_, { dispatch }) => {
     try {
       dispatch(fetchNewArrivalsStart());

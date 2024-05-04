@@ -69,12 +69,7 @@ const Footer = () => {
                         target="_blank"
                         className="text-reset"
                       >
-                        <Image
-                          src={mediumIcon}
-                          alt=""
-                          height={24}
-                          width={24}
-                        />
+                        <Image src={mediumIcon} alt="" height={24} width={24} />
                       </Link>
                     </li>
                   </ul>

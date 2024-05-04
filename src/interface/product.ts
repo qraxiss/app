@@ -1,15 +1,15 @@
 interface Color {
-    hex?: string;
-    value?: string;
+  hex?: string;
+  value?: string;
 }
 interface Size {
-    value?: string;
+  value?: string;
 }
 export interface Product {
-    slug?: string;
-    name?: string;
-    price?: number;
-    image?: string;
-    colors?: Color[];
-    sizes?: Size[];
+  slug?: string;
+  name?: string;
+  price?: number;
+  image?: string;
+  colors?: Color[];
+  sizes?: Size[];
 }

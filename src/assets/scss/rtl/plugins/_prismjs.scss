@@ -5,35 +5,34 @@
  */
 
 :is(code, pre) {
-    &:is([class*="language-"]) {
-        text-align: right;
-    }
+  &:is([class*="language-"]) {
+    text-align: right;
+  }
 }
 
 // Scroll-top
 
 #scroll-top {
-    left: 30px;
-    right: auto;
+  left: 30px;
+  right: auto;
 }
 
 // Toolbar (Copy button)
 .btn-clipboard {
-    left: 15px !important;
-    right: auto !important;
+  left: 15px !important;
+  right: auto !important;
 }
-
 
 // slick slider
 
 .slick-prev {
-    background-color: transparent !important;
-    right: auto !important;
-    left: 5px !important;
+  background-color: transparent !important;
+  right: auto !important;
+  left: 5px !important;
 }
 
 .slick-next {
-    background-color: transparent !important;
-    left: auto !important;
-    right: 5px !important;
+  background-color: transparent !important;
+  left: auto !important;
+  right: 5px !important;
 }

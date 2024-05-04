@@ -25,7 +25,10 @@ const hotDealsSlice = createSlice({
   },
 });
 
-export const { fetchHotDealsStart, fetchHotDealsSuccess, fetchHotDealsFailure } =
-hotDealsSlice.actions;
+export const {
+  fetchHotDealsStart,
+  fetchHotDealsSuccess,
+  fetchHotDealsFailure,
+} = hotDealsSlice.actions;
 
 export default hotDealsSlice.reducer;

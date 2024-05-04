@@ -28,7 +28,7 @@ export const publicRoutes = [
   //Logout
   { path: "/auth/logout", component: <Logout /> },
   // Earn
-  { path: "/earn", component: <Earn/> },
+  { path: "/earn", component: <Earn /> },
   //error 404
   { path: "/404", component: <Error404 /> },
   //error 500

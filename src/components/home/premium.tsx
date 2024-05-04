@@ -43,25 +43,27 @@ export const Premium: FC = () => {
             </Col>
             <Col lg={7}>
               <Row>
-                {
-                    categories.slice(1).map((category: any, index: number) => (
-                        <Col lg={6} key={index}>
-                        <div className="category-widgets-main card border-0 shadow-none bg-light">
-                            <div className="effect">
-                            <img src={`${process.env.REACT_APP_API_URL}${category.cover.url}`} alt="" className="img-fluid" />
-                            <div className="widgets-wrapper position-absolute text-center">
-                                <Link
-                                to="#"
-                                className="btn button-primary w-md rounded-0 stretched-link"
-                                >
-                                {category.name}
-                                </Link>
-                            </div>
-                            </div>
+                {categories.slice(1).map((category: any, index: number) => (
+                  <Col lg={6} key={index}>
+                    <div className="category-widgets-main card border-0 shadow-none bg-light">
+                      <div className="effect">
+                        <img
+                          src={`${process.env.REACT_APP_API_URL}${category.cover.url}`}
+                          alt=""
+                          className="img-fluid"
+                        />
+                        <div className="widgets-wrapper position-absolute text-center">
+                          <Link
+                            to="#"
+                            className="btn button-primary w-md rounded-0 stretched-link"
+                          >
+                            {category.name}
+                          </Link>
                         </div>
-                        </Col>
-                    ))
-                }
+                      </div>
+                    </div>
+                  </Col>
+                ))}
               </Row>
             </Col>
           </Row>
