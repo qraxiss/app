@@ -5,6 +5,7 @@ import categoryReducer from "./category/slice";
 import sideBarReducer from "./sidebar/slice";
 import newArrivalsReducer from "./new-arrivals/slice";
 import hotDealsReducer from "./hot-deals/slice";
+import walletReducer from "./wallet/slice";
 
 const rootReducer = combineReducers({
   Layout: LayoutReducer,
@@ -12,6 +13,7 @@ const rootReducer = combineReducers({
   sideBar: sideBarReducer,
   newArrivals: newArrivalsReducer,
   hotDeals: hotDealsReducer,
+  wallet: walletReducer,
 });
 
 export default rootReducer;
