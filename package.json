@@ -1,76 +1,85 @@
 {
-    "name": "shopcek-ui",
-    "version": "1.0.0",
-    "private": true,
-    "dependencies": {
-        "@apollo/client": "^3.10.0",
-        "@reduxjs/toolkit": "^2.2.3",
-        "@testing-library/jest-dom": "^6.4.2",
-        "@testing-library/react": "^15.0.2",
-        "@testing-library/user-event": "^14.5.2",
-        "@types/jest": "^29.5.12",
-        "@types/node": "^20.12.7",
-        "@types/react": "^18.2.79",
-        "@types/react-dom": "^18.2.25",
-        "bootstrap": "^5.3.3",
-        "formik": "^2.4.5",
-        "i18next": "^23.11.2",
-        "i18next-browser-languagedetector": "^7.2.1",
-        "lodash": "^4.17.21",
-        "nouislider-react": "^3.4.2",
-        "react": "^18.2.0",
-        "react-bootstrap": "^2.10.2",
-        "react-countdown": "^2.3.5",
-        "react-data-table-component": "^7.6.2",
-        "react-dom": "^18.2.0",
-        "react-i18next": "^14.1.1",
-        "react-redux": "^9.1.1",
-        "react-router-dom": "^6.22.3",
-        "react-scripts": "^5.0.1",
-        "react-table": "^7.8.0",
-        "reselect": "^5.1.0",
-        "sass": "^1.75.0",
-        "simplebar-react": "^3.2.4",
-        "styled-components": "^6.1.8",
-        "swiper": "^11.1.1",
-        "typescript": "^5.4.5",
-        "web-vitals": "^3.5.2",
-        "yup": "^1.4.0"
-    },
-    "scripts": {
-        "start": "react-scripts start",
-        "build": "react-scripts build",
-        "test": "react-scripts test",
-        "eject": "react-scripts eject",
-        "lint": "eslint .",
-        "lint:fix": "eslint . --fix",
-        "format": "prettier --plugin-search-dir . --write ."
-    },
-    "eslintConfig": {
-        "extends": [
-            "react-app",
-            "react-app/jest"
-        ]
-    },
-    "browserslist": {
-        "production": [
-            ">0.2%",
-            "not dead",
-            "not op_mini all"
-        ],
-        "development": [
-            "last 1 chrome version",
-            "last 1 firefox version",
-            "last 1 safari version"
-        ]
-    },
-    "devDependencies": {
-        "@types/lodash": "^4.17.0",
-        "@types/react-table": "^7.7.20",
-        "eslint-config-prettier": "^9.1.0",
-        "prettier": "^3.2.5"
-    },
-    "resolutions": {
-        "autoprefixer": "10.4.5"
-    }
+  "name": "shopcek-ui",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "@apollo/client": "^3.10.0",
+    "@reduxjs/toolkit": "^2.2.3",
+    "@tanstack/react-query": "^5.34.1",
+    "@testing-library/jest-dom": "^6.4.2",
+    "@testing-library/react": "^15.0.2",
+    "@testing-library/user-event": "^14.5.2",
+    "@types/jest": "^29.5.12",
+    "@types/node": "^20.12.7",
+    "@types/react": "^18.2.79",
+    "@types/react-dom": "^18.2.25",
+    "@web3modal/wagmi": "^4.1.11",
+    "bootstrap": "^5.3.3",
+    "formik": "^2.4.5",
+    "graphql": "^16.8.1",
+    "i18next": "^23.11.2",
+    "i18next-browser-languagedetector": "^7.2.1",
+    "lodash": "^4.17.21",
+    "nouislider-react": "^3.4.2",
+    "ra-data-graphql": "^4.16.17",
+    "react": "^18.2.0",
+    "react-app-rewired": "^2.2.1",
+    "react-bootstrap": "^2.10.2",
+    "react-countdown": "^2.3.5",
+    "react-data-table-component": "^7.6.2",
+    "react-dom": "^18.2.0",
+    "react-i18next": "^14.1.1",
+    "react-redux": "^9.1.1",
+    "react-router-dom": "^6.22.3",
+    "react-scripts": "^5.0.1",
+    "react-table": "^7.8.0",
+    "reselect": "^5.1.0",
+    "sass": "^1.75.0",
+    "simplebar-react": "^3.2.4",
+    "styled-components": "^6.1.8",
+    "swiper": "^11.1.1",
+    "typescript": "^5.4.5",
+    "viem": "^2.9.31",
+    "wagmi": "^2.8.1",
+    "web-vitals": "^3.5.2",
+    "yup": "^1.4.0"
+  },
+  "scripts": {
+    "start": "react-app-rewired start",
+    "build": "react-app-rewired build",
+    "test": "react-app-rewired test",
+    "eject": "react-app-rewired eject",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --plugin-search-dir . --write ."
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@types/lodash": "^4.17.0",
+    "@types/react-table": "^7.7.20",
+    "browserify": "^17.0.0",
+    "eslint-config-prettier": "^9.1.0",
+    "prettier": "^3.2.5",
+    "process": "^0.11.10"
+  },
+  "resolutions": {
+    "autoprefixer": "10.4.5"
+  }
 }
