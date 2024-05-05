@@ -22,6 +22,9 @@ import { useSelector } from "react-redux";
 import ConnectWallet from "components/connect-wallet";
 
 const Header = (props: any) => {
+  //user slice
+  const { logged } = useSelector((state: any) => state.user.data);
+
   //search modal
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
@@ -296,7 +299,7 @@ const Header = (props: any) => {
               </Dropdown.Menu>
             </Dropdown>
 
-            {localStorage.getItem("jwt") ? (
+            {logged ? (
               <div className="dropdown header-item dropdown-hover-end">
                 <Dropdown>
                   <Dropdown.Toggle

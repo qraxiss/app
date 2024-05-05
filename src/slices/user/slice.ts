@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const jwt = localStorage.getItem("jwt");
 const address = localStorage.getItem("jwt");
 
-const logged = jwt ? true : false;
+const logged = !!jwt && !!address;
 
 const initialState = {
   loading: false,
