@@ -18,10 +18,17 @@ import avtar1 from "assets/images/users/avatar-1.jpg";
 import { CardModal, SearchModal } from "components/main-modal";
 import { withTranslation } from "react-i18next";
 import withRouter from "components/with-router";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import ConnectWallet from "components/connect-wallet";
 
+import { logoutAsync } from "slices/thunk";
+
+import { AppDispatch } from "store";
+
 const Header = (props: any) => {
+  //dispatch
+  const dispatch: AppDispatch = useDispatch();
+
   //user slice
   const { logged } = useSelector((state: any) => state.user.data);
 
@@ -300,7 +307,12 @@ const Header = (props: any) => {
             </Dropdown>
 
             {logged ? (
-              <div className="dropdown header-item dropdown-hover-end">
+              <div
+                onClick={() => {
+                  dispatch(logoutAsync());
+                }}
+                className="dropdown header-item dropdown-hover-end"
+              >
                 <Dropdown>
                   <Dropdown.Toggle
                     id="page-header-user-dropdown"

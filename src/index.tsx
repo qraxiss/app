@@ -5,10 +5,10 @@ import App from "./App";
 import { ShopcekApolloProvider } from "./graphql/apollo/provider";
 import { store } from "store";
 
-import { Web3ModalProvider } from "wallet/web3modal";
+import { Web3ModalProvider } from "wallet";
 
 const root = ReactDOM.createRoot(
-  document.getElementById("root") as HTMLElement,
+  document.getElementById("root") as HTMLElement
 );
 root.render(
   <Web3ModalProvider>
@@ -17,7 +17,7 @@ root.render(
         <App />
       </ReduxProvider>
     </ShopcekApolloProvider>
-  </Web3ModalProvider>,
+  </Web3ModalProvider>
 );
 
 reportWebVitals();

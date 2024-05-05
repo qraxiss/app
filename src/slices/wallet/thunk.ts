@@ -7,13 +7,18 @@ import {
   verifySignatureFailure,
   verifySignatureStart,
   verifySignatureSuccess,
+  disconnectWalletFailure,
+  disconnectWalletStart,
+  disconnectWalletSuccess,
 } from "./slice";
-
-import { login } from "slices/user/slice";
 
 import { VERIFY } from "graphql/wallet/mutations";
 import { GET_NONCE } from "graphql/wallet/queries";
 import { VERIFY as VERIFY_INPUT } from "types/wallet";
+
+//wallet
+import { disconnect } from "@wagmi/core";
+import config from "wallet/config";
 
 export const fetchNonceAsync = createAsyncThunk(
   "wallet/fetchNonce",
@@ -37,6 +42,7 @@ export const verifySignatureAsync = createAsyncThunk(
   async ({ address, message, signature }: VERIFY_INPUT, { dispatch }) => {
     try {
       dispatch(verifySignatureStart());
+      await dispatch(fetchNonceAsync());
       const { data } = await shopcekMutation<string>({
         mutation: VERIFY,
 
@@ -50,9 +56,24 @@ export const verifySignatureAsync = createAsyncThunk(
       });
 
       dispatch(verifySignatureSuccess());
-      dispatch(login({ address, jwt: data }));
+      dispatch({ type: "user/login", payload: { address, jwt: data } });
     } catch (error: any) {
       dispatch(verifySignatureFailure(error.message));
+    }
+  }
+);
+
+export const disconnectWalletAsync = createAsyncThunk(
+  "wallet/disconnect",
+  async (_, { dispatch }) => {
+    try {
+      dispatch(disconnectWalletStart());
+
+      await disconnect(config);
+
+      dispatch(disconnectWalletSuccess());
+    } catch (error: any) {
+      dispatch(disconnectWalletFailure(error.message));
     }
   }
 );

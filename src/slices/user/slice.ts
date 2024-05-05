@@ -1,5 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+// wallet
+import { disconnectWalletAsync } from "slices/thunk";
+
 const jwt = localStorage.getItem("jwt");
 const address = localStorage.getItem("jwt");
 
@@ -24,9 +27,29 @@ const userSlice = createSlice({
       localStorage.setItem("jwt", jwt);
       localStorage.setItem("address", address);
     },
+
+    logout(state) {
+      state.data = { logged: false, jwt: null, address: null };
+      localStorage.removeItem("jwt");
+      localStorage.removeItem("address");
+    },
+
+    logoutStart(state) {
+      state.error = null;
+      state.loading = true;
+    },
+    logoutSuccess(state) {
+      state.error = null;
+      state.loading = false;
+    },
+    logoutFailure(state, action) {
+      state.error = action.payload;
+      state.loading = false;
+    },
   },
 });
 
-export const { login } = userSlice.actions;
+export const { login, logout, logoutFailure, logoutStart, logoutSuccess } =
+  userSlice.actions;
 
 export default userSlice.reducer;

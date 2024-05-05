@@ -36,6 +36,17 @@ const walletSlice = createSlice({
       state.loading = false;
       state.error = action.payload;
     },
+    disconnectWalletStart(state) {
+      state.loading = true;
+      state.error = null;
+    },
+    disconnectWalletSuccess(state) {
+      state.loading = false;
+    },
+    disconnectWalletFailure(state, action) {
+      state.loading = false;
+      state.error = action.payload;
+    },
   },
 });
 
@@ -46,6 +57,9 @@ export const {
   verifySignatureFailure,
   verifySignatureStart,
   verifySignatureSuccess,
+  disconnectWalletFailure,
+  disconnectWalletStart,
+  disconnectWalletSuccess,
 } = walletSlice.actions;
 
 export default walletSlice.reducer;
