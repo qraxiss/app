@@ -1,11 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { login } from "slices/user/slice";
 
 const initialState = {
   loading: false,
   error: null,
   data: {
     nonce: "",
-    jwt: "",
   },
 };
 
@@ -29,9 +29,8 @@ const walletSlice = createSlice({
       state.loading = true;
       state.error = null;
     },
-    verifySignatureSuccess(state, action) {
+    verifySignatureSuccess(state) {
       state.loading = false;
-      state.data.jwt = action.payload;
     },
     verifySignatureFailure(state, action) {
       state.loading = false;

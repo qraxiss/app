@@ -8,11 +8,12 @@ import {
   verifySignatureStart,
   verifySignatureSuccess,
 } from "./slice";
+
+import { login } from "slices/user/slice";
+
 import { VERIFY } from "graphql/wallet/mutations";
 import { GET_NONCE } from "graphql/wallet/queries";
 import { VERIFY as VERIFY_INPUT } from "types/wallet";
-
-import { signInWithEthereumLocal } from "wallet/siwe";
 
 export const fetchNonceAsync = createAsyncThunk(
   "wallet/fetchNonce",
@@ -33,7 +34,7 @@ export const fetchNonceAsync = createAsyncThunk(
 
 export const verifySignatureAsync = createAsyncThunk(
   "wallet/verifySignature",
-  async ({ message, signature }: VERIFY_INPUT, { dispatch }) => {
+  async ({ address, message, signature }: VERIFY_INPUT, { dispatch }) => {
     try {
       dispatch(verifySignatureStart());
       const { data } = await shopcekMutation<string>({
@@ -48,7 +49,8 @@ export const verifySignatureAsync = createAsyncThunk(
         } as any,
       });
 
-      dispatch(verifySignatureSuccess(data));
+      dispatch(verifySignatureSuccess());
+      dispatch(login({ address, jwt: data }));
     } catch (error: any) {
       dispatch(verifySignatureFailure(error.message));
     }

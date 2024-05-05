@@ -25,5 +25,6 @@ export async function signInWithEthereumLocal(
   return {
     message,
     signature,
+    address,
   };
 }
