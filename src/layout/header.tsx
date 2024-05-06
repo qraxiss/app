@@ -330,26 +330,9 @@ const Header = (props: any) => {
                     <i className="bi bi-truck text-muted fs-16 align-middle me-1"></i>{" "}
                     <span className="align-middle">Track Orders</span>
                   </Dropdown.Item>
-                  <Dropdown.Item href="#/action-3">
-                    <i className="bi bi-speedometer2 text-muted fs-16 align-middle me-1"></i>{" "}
-                    <span className="align-middle">Dashboard</span>
-                  </Dropdown.Item>
-                  <Dropdown.Item href="/ecommerce-faq">
-                    <i className="mdi mdi-lifebuoy text-muted fs-16 align-middle me-1"></i>{" "}
-                    <span className="align-middle">Help</span>
-                  </Dropdown.Item>
                   <Dropdown.Item href="/account">
-                    <i className="bi bi-coin text-muted fs-16 align-middle me-1"></i>{" "}
-                    <span className="align-middle">
-                      Balance : <b>$8451.36</b>
-                    </span>
-                  </Dropdown.Item>
-                  <Dropdown.Item href="/account">
-                    <span className="badge bg-success-subtle text-success mt-1 float-end">
-                      New
-                    </span>
-                    <i className="mdi mdi-cog-outline text-muted fs-16 align-middle me-1"></i>{" "}
-                    <span className="align-middle">Settings</span>
+                    <i className="bi bi-person text-muted fs-16 align-middle me-1"></i>{" "}
+                    <span className="align-middle">Account</span>
                   </Dropdown.Item>
                   <Dropdown.Item
                     onClick={() => {

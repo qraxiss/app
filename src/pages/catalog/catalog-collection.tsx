@@ -9,7 +9,6 @@ const CatalogCollection = ({
   cxl,
   clg,
   cmd,
-  cheight,
   filterList,
 }: any) => {
   //select
@@ -102,7 +101,6 @@ const CatalogCollection = ({
           {select &&
             (currentpages && currentpages.length > 0 ? (
               (currentpages || [])?.map((item: any, idx: any) => {
-                console.log(item);
                 return !cxl ? (
                   <Col key={item.id} xxl={cxxl} lg={clg} md={cmd}>
                     <Card

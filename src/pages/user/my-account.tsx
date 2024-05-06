@@ -10,30 +10,32 @@ import {
   Form,
   Image,
 } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 //img
 import usersavatar1 from "assets/images/users/avatar-1.jpg";
 
-import profilebg from "assets/images/profile-bg.jpg";
 import { orderHistorys, wishlishProduct } from "common/data";
 import EmailClothe from "pages/catalog/email-clothe";
 import { CommonService } from "components/common-service";
+import { AppDispatch } from "store";
+import { useDispatch } from "react-redux";
+import { logoutAsync } from "slices/thunk";
 
 const MyAccount = () => {
+
+  //dispatch
+  const dispatch: AppDispatch = useDispatch();
+  const navigate = useNavigate();
+
   return (
     <React.Fragment>
       <section className="position-relative">
         <div
-          className="profile-basic position-relative"
           style={{
-            backgroundImage: `url(${profilebg})`,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            height: "300px",
+            height: "150px",
           }}
         >
-          <div className="bg-overlay bg-primary"></div>
         </div>
         <Container>
           <Row>
@@ -110,19 +112,11 @@ const MyAccount = () => {
                       <Nav.Item as="li">
                         <Nav.Link
                           as="a"
-                          eventKey="setting"
                           className="fs-15"
-                          role="presentation"
-                        >
-                          <i className="bi bi-gear align-middle me-1"></i>{" "}
-                          Settings
-                        </Nav.Link>
-                      </Nav.Item>
-                      <Nav.Item as="li">
-                        <Nav.Link
-                          as="a"
-                          className="fs-15"
-                          href="/auth-logout-basic"
+                          onClick={async () => {
+                            await dispatch(logoutAsync());
+                            navigate('/');
+                          }}
                         >
                           <i className="bi bi-box-arrow-right align-middle me-1"></i>{" "}
                           Logout
