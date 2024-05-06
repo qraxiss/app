@@ -1,0 +1,69 @@
+---
+env:
+  browser: true
+  es6: true
+  mocha: true
+  node: true
+parser: "@typescript-eslint/parser"
+plugins:
+  - "@typescript-eslint"
+extends: ["eslint:recommended", "plugin:@typescript-eslint/recommended"]
+parserOptions:
+  ecmaVersion: 2020
+  requireConfigFile: false
+  sourceType: "module"
+  ecmaFeatures:
+    classes: true
+    jsx: true
+rules:
+  brace-style:
+    - warn
+    - 1tbs
+  camelcase: 0
+  comma-dangle:
+    - warn
+    - always-multiline
+  comma-style:
+    - error
+    - last
+  complexity:
+    - 0
+    - 30
+  curly: 0
+  eol-last:
+    - error
+    - always
+  id-length: 0
+  max-lines: 0
+  max-params:
+    - error
+    - 4
+  no-duplicate-imports: error
+  no-eq-null: error
+  eqeqeq:
+    - error
+    - smart
+  no-eval: error
+  no-implied-eval: error
+  no-invalid-this: error
+  no-shadow: 0
+  no-undefined: warn
+  no-empty-function: 0
+  no-extend-native: error
+  no-param-reassign: warn
+  no-unused-expressions: warn
+  no-unused-vars: 0
+  no-useless-concat: warn
+  no-label-var: warn
+  no-use-before-define: error
+  no-const-assign: error
+  no-useless-constructor: 0
+  no-useless-rename: warn
+  no-warning-comments:
+    - warn
+    - location: anywhere
+      terms:
+        - todo
+        - fixme
+  prefer-promise-reject-errors: error
+  semi: error

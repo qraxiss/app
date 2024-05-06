@@ -1,9 +1,0 @@
-.layout {
-    display: flex;
-    flex-direction: row;
-
-    --sidebar-width: calc(100% - var(--content-width));
-    --content-width: 96%;
-    --header-height: 5em;
-    --footer-height: 20em;
-}
