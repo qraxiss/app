@@ -1,20 +1,21 @@
-import { Navigate } from "react-router-dom";
+import { Navigate, Outlet } from "react-router-dom";
 
 //pages /user
 import MyAccount from "pages/user/my-account";
-
-//contact
-import ContactUs from "pages/contact-us/contact";
 
 const authProtectedRoutes = [
 
   //My Account
   { path: "/account", component: <MyAccount /> },
 
-  //contact us
-  { path: "/contact", component: <ContactUs /> },
-
-  { path: "*", component: <Navigate to="/" /> },
 ];
 
-export { authProtectedRoutes };
+const PrivateRoutes = () => {
+  const jwt = localStorage.getItem("jwt");
+  return(
+    jwt ? <Outlet /> : <Navigate to="/"/>
+  );
+};
+
+
+export { authProtectedRoutes, PrivateRoutes };

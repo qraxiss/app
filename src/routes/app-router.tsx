@@ -4,6 +4,7 @@ import Layout from "layout";
 
 //routes
 import { publicRoutes } from "./public-routes";
+import { authProtectedRoutes, PrivateRoutes } from "./private-routes";
 
 export const AppRouter = () => {
   return (
@@ -19,9 +20,15 @@ export const AppRouter = () => {
               />
             ))}
           </Route>
-          {/**
-           * Protected routes will define here
-           */}
+          <Route element={<PrivateRoutes />}>
+            {authProtectedRoutes.map((route, idx) => (
+              <Route
+                path={route.path}
+                element={<Layout>{route.component}</Layout>}
+                key={`private-route-${idx}`}
+              />
+            ))}
+          </Route>
         </Routes>
       </BrowserRouter>
     </React.Fragment>
