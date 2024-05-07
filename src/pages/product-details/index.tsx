@@ -49,11 +49,9 @@ const ProductDetails = () => {
   const likeButton = useRef<any>(null);
 
   const logged = useSelector((state: any) => state.user.data.logged);
-  const wishlist = useSelector(
-    (state: any) => state.wishlist.data.items
-  ) as any;
+  const wishlist = useSelector((state: any) => state.wishlist) as any;
   if (logged && wishlist) {
-    const isInWishlist = !!wishlist.find((item: any) => {
+    const isInWishlist = !!wishlist?.data?.items.find((item: any) => {
       return item.slug === slug;
     });
 
@@ -68,11 +66,18 @@ const ProductDetails = () => {
     }
 
     if (event.closest("button").classList.contains("active")) {
+      await dispatch(removeFromWishlistAsync(data?.product as any));
+
+      if (wishlist.error) {
+        return;
+      }
       event.closest("button").classList.remove("active");
-      dispatch(removeFromWishlistAsync(data?.product as any));
     } else {
+      if (wishlist.error) {
+        return;
+      }
+      await dispatch(addToWishlistAsync(data?.product as any));
       event.closest("button").classList.add("active");
-      dispatch(addToWishlistAsync(data?.product as any));
     }
   };
   return (
