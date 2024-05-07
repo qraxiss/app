@@ -50,7 +50,7 @@ export const addToWishlistAsync = createAsyncThunk(
         } as any,
       });
 
-      dispatch(addToWishlistSuccess(data));
+      dispatch(addToWishlistSuccess(item));
     } catch (error: any) {
       dispatch(addToWishlistError(error.message));
     }
@@ -72,7 +72,7 @@ export const removeFromWishlistAsync = createAsyncThunk(
         } as any,
       });
 
-      dispatch(removeFromWishlistSuccess(data));
+      dispatch(removeFromWishlistSuccess(item));
     } catch (error: any) {
       dispatch(removeFromWishlistError(error.message));
     }
