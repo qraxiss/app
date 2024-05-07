@@ -46,7 +46,21 @@ const ProductDetails = () => {
   const [count, setCount] = useState(0);
 
   //like button
+  const likeButton = useRef<any>(null);
+
   const logged = useSelector((state: any) => state.user.data.logged);
+  const wishlist = useSelector(
+    (state: any) => state.wishlist.data.items
+  ) as any;
+  if (logged && wishlist) {
+    const isInWishlist = !!wishlist.find((item: any) => {
+      return item.slug === slug;
+    });
+
+    if (isInWishlist) {
+      likeButton?.current?.classList?.add("active");
+    }
+  }
 
   const handleLikeIcone = async (event: any) => {
     if (!logged) {
@@ -303,6 +317,7 @@ const ProductDetails = () => {
                     className="btn btn-soft-danger custom-toggle btn-hover"
                     data-bs-toggle="button"
                     aria-pressed="false"
+                    ref={likeButton}
                     onClick={(ele: any) => handleLikeIcone(ele.target)}
                   >
                     <span className="icon-on">
