@@ -9,6 +9,7 @@ import {
   Table,
   Form,
   Image,
+  Button,
 } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 
@@ -19,14 +20,14 @@ import { orderHistorys, wishlishProduct } from "common/data";
 import EmailClothe from "pages/catalog/email-clothe";
 import { CommonService } from "components/common-service";
 import { AppDispatch } from "store";
-import { useDispatch } from "react-redux";
-import { logoutAsync } from "slices/thunk";
+import { useDispatch, useSelector } from "react-redux";
+import { logoutAsync, removeFromWishlistAsync } from "slices/thunk";
 
 const MyAccount = () => {
-
   //dispatch
   const dispatch: AppDispatch = useDispatch();
   const navigate = useNavigate();
+  const wishlist = useSelector((state: any) => state.wishlist.data.items);
 
   return (
     <React.Fragment>
@@ -35,8 +36,7 @@ const MyAccount = () => {
           style={{
             height: "150px",
           }}
-        >
-        </div>
+        ></div>
         <Container>
           <Row>
             <Col lg={12}>
@@ -115,7 +115,7 @@ const MyAccount = () => {
                           className="fs-15"
                           onClick={async () => {
                             await dispatch(logoutAsync());
-                            navigate('/');
+                            navigate("/");
                           }}
                         >
                           <i className="bi bi-box-arrow-right align-middle me-1"></i>{" "}
@@ -282,8 +282,8 @@ const MyAccount = () => {
                                     </tr>
                                   </thead>
                                   <tbody>
-                                    {(wishlishProduct || [])?.map(
-                                      (item, inx) => {
+                                    {(wishlist || [])?.map(
+                                      (item: any, inx: number) => {
                                         return (
                                           <tr key={inx}>
                                             <td>
@@ -293,16 +293,18 @@ const MyAccount = () => {
                                                     className={`avatar-title bg-${item.bg}-subtle rounded`}
                                                   >
                                                     <Image
-                                                      src={item.img}
+                                                      src={item.image}
                                                       alt=""
                                                       className="avatar-xs"
                                                     />
                                                   </div>
                                                 </div>
                                                 <div className="flex-grow-1">
-                                                  <Link to="/product-details">
+                                                  <Link
+                                                    to={`/product-details/${item.slug}`}
+                                                  >
                                                     <h6 className="fs-16">
-                                                      {item.title}
+                                                      {item.name}
                                                     </h6>
                                                   </Link>
                                                   <p className="mb-0 text-muted fs-13">
@@ -314,9 +316,9 @@ const MyAccount = () => {
                                             <td>${item.price}</td>
                                             <td>
                                               <span
-                                                className={`badge bg-${item.color}-subtle text-${item.color}`}
+                                                className={`badge bg-${"success"}-subtle text-${"success"}`}
                                               >
-                                                {item.status}
+                                                {"In Stock"}
                                               </span>
                                             </td>
                                             <td>
@@ -330,18 +332,24 @@ const MyAccount = () => {
                                                   </Link>
                                                 </li>
                                                 <li>
-                                                  <Link
-                                                    to="#"
+                                                  <Button
+                                                    onClick={() => {
+                                                      dispatch(
+                                                        removeFromWishlistAsync(
+                                                          item
+                                                        )
+                                                      );
+                                                    }}
                                                     className="btn btn-soft-danger btn-icon btn-sm"
                                                   >
                                                     <i className="ri-close-line fs-13"></i>
-                                                  </Link>
+                                                  </Button>
                                                 </li>
                                               </ul>
                                             </td>
                                           </tr>
                                         );
-                                      },
+                                      }
                                     )}
                                   </tbody>
                                 </Table>
@@ -398,7 +406,7 @@ const MyAccount = () => {
                                         </Link>
                                       </td>
                                       <td>
-                                        <Link to="/product-details">
+                                        <Link to={`/product-details/`}>
                                           <h6 className="fs-15 mb-1">
                                             {item.title}
                                           </h6>

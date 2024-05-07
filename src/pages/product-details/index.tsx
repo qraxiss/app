@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
 import {
   Button,
@@ -22,8 +22,14 @@ import EmailClothe from "pages/catalog/email-clothe";
 import { GET_Products_Details } from "graphql/product-details/queries";
 import { useShopcekQuery } from "graphql/apollo/query-wrapper";
 
+import { useSelector, useDispatch } from "react-redux";
+
+import { addToWishlistAsync, removeFromWishlistAsync } from "slices/thunk";
+import { AppDispatch } from "store";
+
 const ProductDetails = () => {
   const { slug } = useParams();
+  const dispatch: AppDispatch = useDispatch();
   const swiperRef = useRef<SwiperRef>(null);
 
   const { data } = useShopcekQuery<any>(GET_Products_Details(slug || ""));
@@ -40,10 +46,37 @@ const ProductDetails = () => {
   const [count, setCount] = useState(0);
 
   //like button
-  const handleLikeIcone = (event: any) => {
+  const likeButton = useRef<any>(null);
+
+  const logged = useSelector((state: any) => state.user.data.logged);
+  const wishlist = useSelector((state: any) => state.wishlist) as any;
+  if (logged && wishlist) {
+    const isInWishlist = !!wishlist?.data?.items.find((item: any) => {
+      return item.slug === slug;
+    });
+
+    if (isInWishlist) {
+      likeButton?.current?.classList?.add("active");
+    }
+  }
+
+  const handleLikeIcone = async (event: any) => {
+    if (!logged) {
+      return;
+    }
+
     if (event.closest("button").classList.contains("active")) {
+      await dispatch(removeFromWishlistAsync(data?.product as any));
+
+      if (wishlist.error) {
+        return;
+      }
       event.closest("button").classList.remove("active");
     } else {
+      if (wishlist.error) {
+        return;
+      }
+      await dispatch(addToWishlistAsync(data?.product as any));
       event.closest("button").classList.add("active");
     }
   };
@@ -247,7 +280,7 @@ const ProductDetails = () => {
                                   {size.value}
                                 </Form.Label>
                               </li>
-                            ),
+                            )
                           )}
                       </ul>
                     </div>
@@ -271,7 +304,7 @@ const ProductDetails = () => {
                                 htmlFor={`product-color-${index}`}
                               />
                             </li>
-                          ),
+                          )
                         )}
                     </ul>
                   </Col>
@@ -289,6 +322,7 @@ const ProductDetails = () => {
                     className="btn btn-soft-danger custom-toggle btn-hover"
                     data-bs-toggle="button"
                     aria-pressed="false"
+                    ref={likeButton}
                     onClick={(ele: any) => handleLikeIcone(ele.target)}
                   >
                     <span className="icon-on">

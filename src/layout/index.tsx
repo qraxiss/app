@@ -14,6 +14,7 @@ import {
   fetchSideBarAsync,
   fetchHotDealsAsync,
   fetchNewArrivalsAsync,
+  fetchWishlistAsync,
 } from "slices/thunk";
 import { AppDispatch } from "store";
 import { CollectionModal } from "common/modal/collections";
@@ -24,6 +25,7 @@ const Layout = (props: any) => {
   const dispatch: AppDispatch = useDispatch();
   const [sideBarOpen, setSideBarOpen] = useState(false);
   const sideBarData = useSelector((state: any) => state.sideBar.data);
+  const logged = useSelector((state: any) => state.user.data.logged);
 
   const openSideBar = () => {
     setSideBarOpen(true);
@@ -34,6 +36,10 @@ const Layout = (props: any) => {
     dispatch(fetchSideBarAsync());
     dispatch(fetchNewArrivalsAsync());
     dispatch(fetchHotDealsAsync());
+
+    if (logged) {
+      dispatch(fetchWishlistAsync());
+    }
   }, [dispatch]);
 
   const selectProperties = createSelector(
@@ -41,7 +47,7 @@ const Layout = (props: any) => {
     (layout) => ({
       footerModeType: layout.footerModeType,
       layoutThemeMode: layout.layoutThemeMode,
-    }),
+    })
   );
 
   const { footerModeType, layoutThemeMode } = useSelector(selectProperties);
