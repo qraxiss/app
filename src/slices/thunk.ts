@@ -9,3 +9,5 @@ export {
   verifySignatureAsync,
   disconnectWalletAsync,
 } from "./wallet/thunk";
+
+export { fetchWishlistAsync } from "./wishlist/thunk";
