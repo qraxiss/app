@@ -83,7 +83,7 @@ export const CollectionModal: FC<CollectionModalProps> = ({
             );
           })}
         </div>
-      </div>,
+      </div>
     );
 
     setHeader([
@@ -113,9 +113,10 @@ export const CollectionModal: FC<CollectionModalProps> = ({
 
         <Offcanvas.Body className="px-0">
           <SimpleBar className="body h-100">
-            {data.map((item) => {
+            {data.map((item, idx) => {
               return (
                 <div
+                  key={idx}
                   className="item"
                   onClick={() => {
                     if (item.slug !== "blockchain-boutique") {
