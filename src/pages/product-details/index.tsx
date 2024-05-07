@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
 import {
   Button,
@@ -22,8 +22,14 @@ import EmailClothe from "pages/catalog/email-clothe";
 import { GET_Products_Details } from "graphql/product-details/queries";
 import { useShopcekQuery } from "graphql/apollo/query-wrapper";
 
+import { useSelector, useDispatch } from "react-redux";
+
+import { addToWishlistAsync, removeFromWishlistAsync } from "slices/thunk";
+import { AppDispatch } from "store";
+
 const ProductDetails = () => {
   const { slug } = useParams();
+  const dispatch: AppDispatch = useDispatch();
   const swiperRef = useRef<SwiperRef>(null);
 
   const { data } = useShopcekQuery<any>(GET_Products_Details(slug || ""));
@@ -40,11 +46,19 @@ const ProductDetails = () => {
   const [count, setCount] = useState(0);
 
   //like button
-  const handleLikeIcone = (event: any) => {
+  const logged = useSelector((state: any) => state.user.data.logged);
+
+  const handleLikeIcone = async (event: any) => {
+    if (!logged) {
+      return;
+    }
+
     if (event.closest("button").classList.contains("active")) {
       event.closest("button").classList.remove("active");
+      dispatch(removeFromWishlistAsync(data?.product as any));
     } else {
       event.closest("button").classList.add("active");
+      dispatch(addToWishlistAsync(data?.product as any));
     }
   };
   return (
@@ -247,7 +261,7 @@ const ProductDetails = () => {
                                   {size.value}
                                 </Form.Label>
                               </li>
-                            ),
+                            )
                           )}
                       </ul>
                     </div>
@@ -271,7 +285,7 @@ const ProductDetails = () => {
                                 htmlFor={`product-color-${index}`}
                               />
                             </li>
-                          ),
+                          )
                         )}
                     </ul>
                   </Col>

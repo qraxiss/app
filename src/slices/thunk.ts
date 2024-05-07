@@ -10,4 +10,8 @@ export {
   disconnectWalletAsync,
 } from "./wallet/thunk";
 
-export { fetchWishlistAsync } from "./wishlist/thunk";
+export {
+  fetchWishlistAsync,
+  removeFromWishlistAsync,
+  addToWishlistAsync,
+} from "./wishlist/thunk";

@@ -26,10 +26,50 @@ const wishlistSlice = createSlice({
       state.error = error;
       state.loading = false;
     },
+    addToWishlistStart(state) {
+      state.loading = true;
+      state.error = null;
+    },
+
+    addToWishlistSuccess(state, action) {
+      state.data.items.push(action.payload as never);
+      state.loading = false;
+    },
+
+    addToWishlistError(state, { payload: { error } }) {
+      state.error = error;
+      state.loading = false;
+    },
+
+    removeFromWishlistStart(state) {
+      state.loading = true;
+      state.error = null;
+    },
+
+    removeFromWishlistSuccess(state, { payload: { slug } }) {
+      state.data.items = state.data.items.filter((item: any) => {
+        return item.slug !== slug;
+      });
+      state.loading = false;
+    },
+
+    removeFromWishlistError(state, { payload: { error } }) {
+      state.error = error;
+      state.loading = false;
+    },
   },
 });
 
-export const { fetchWishlistStart, fetchWishlistSuccess, fetchWishlistError } =
-  wishlistSlice.actions;
+export const {
+  fetchWishlistStart,
+  fetchWishlistSuccess,
+  fetchWishlistError,
+  addToWishlistError,
+  addToWishlistStart,
+  addToWishlistSuccess,
+  removeFromWishlistError,
+  removeFromWishlistStart,
+  removeFromWishlistSuccess,
+} = wishlistSlice.actions;
 
 export default wishlistSlice.reducer;

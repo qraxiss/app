@@ -9,6 +9,7 @@ import {
   Table,
   Form,
   Image,
+  Button,
 } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 
@@ -20,7 +21,7 @@ import EmailClothe from "pages/catalog/email-clothe";
 import { CommonService } from "components/common-service";
 import { AppDispatch } from "store";
 import { useDispatch, useSelector } from "react-redux";
-import { logoutAsync, fetchWishlistAsync } from "slices/thunk";
+import { logoutAsync, removeFromWishlistAsync } from "slices/thunk";
 
 const MyAccount = () => {
   //dispatch
@@ -331,12 +332,18 @@ const MyAccount = () => {
                                                   </Link>
                                                 </li>
                                                 <li>
-                                                  <Link
-                                                    to="#"
+                                                  <Button
+                                                    onClick={() => {
+                                                      dispatch(
+                                                        removeFromWishlistAsync(
+                                                          item
+                                                        )
+                                                      );
+                                                    }}
                                                     className="btn btn-soft-danger btn-icon btn-sm"
                                                   >
                                                     <i className="ri-close-line fs-13"></i>
-                                                  </Link>
+                                                  </Button>
                                                 </li>
                                               </ul>
                                             </td>
