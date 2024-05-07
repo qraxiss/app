@@ -50,7 +50,7 @@ export const addToWishlistAsync = createAsyncThunk(
         } as any,
       });
 
-      dispatch(addToWishlistSuccess(data));
+      dispatch(addToWishlistSuccess(item));
     } catch (error: any) {
       dispatch(addToWishlistError(error.message));
     }
