@@ -16,4 +16,10 @@ export {
   addToWishlistAsync,
 } from "./wishlist/thunk";
 
-export { fetchCartAsync } from "./cart/thunk";
+export {
+  fetchCartAsync,
+  addItemToCartAsync,
+  emptyAsync,
+  removeItemAsync,
+  updateItemAsync,
+} from "./cart/thunk";
