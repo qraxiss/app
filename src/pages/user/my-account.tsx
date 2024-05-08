@@ -10,6 +10,7 @@ import {
   Form,
   Image,
   Button,
+  CardBody,
 } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 
@@ -28,6 +29,7 @@ const MyAccount = () => {
   const dispatch: AppDispatch = useDispatch();
   const navigate = useNavigate();
   const wishlist = useSelector((state: any) => state.wishlist.data.items);
+  const userData = useSelector((state: any) => state.user.data);
 
   return (
     <React.Fragment>
@@ -51,13 +53,14 @@ const MyAccount = () => {
                   <div>
                     <h5 className="fs-18">Raquel Murillo</h5>
                     <div className="text-muted">
-                      <i className="bi bi-geo-alt"></i> Phoenix, USA
+                      {/* <i className="bi bi-geo-alt"></i>  */}
+                      {`${userData.address.substring(0, 6)}...${userData.address.substring(userData.address.length - 6)}`}
                     </div>
                   </div>
                   <div className="ms-md-auto">
                     <Link
                       to="/product-list"
-                      className="btn btn-success btn-hover"
+                      className="btn button-add-cart btn-hover"
                     >
                       <i className="bi bi-cart4 me-1 align-middle"></i> Shopping
                       Now
@@ -85,7 +88,7 @@ const MyAccount = () => {
                           role="presentation"
                         >
                           <i className="bi bi-person-circle align-middle me-1"></i>{" "}
-                          Account Info
+                          Username
                         </Nav.Link>
                       </Nav.Item>
                       <Nav.Item as="li">
@@ -112,6 +115,28 @@ const MyAccount = () => {
                       <Nav.Item as="li">
                         <Nav.Link
                           as="a"
+                          eventKey="XP"
+                          className="fs-15"
+                          role="presentation"
+                        >
+                          <i className="bi bi-coin align-middle me-1"></i> XP
+                          Points
+                        </Nav.Link>
+                      </Nav.Item>
+                      <Nav.Item as="li">
+                        <Nav.Link
+                          as="a"
+                          eventKey="stake"
+                          className="fs-15"
+                          role="presentation"
+                        >
+                          <i className="bi bi-piggy-bank align-middle me-1"></i>{" "}
+                          Stake
+                        </Nav.Link>
+                      </Nav.Item>
+                      {/* <Nav.Item as="li">
+                        <Nav.Link
+                          as="a"
                           className="fs-15"
                           onClick={async () => {
                             await dispatch(logoutAsync());
@@ -121,7 +146,7 @@ const MyAccount = () => {
                           <i className="bi bi-box-arrow-right align-middle me-1"></i>{" "}
                           Logout
                         </Nav.Link>
-                      </Nav.Item>
+                      </Nav.Item> */}
                     </Nav>
                   </Card.Body>
                 </Card>
@@ -357,14 +382,14 @@ const MyAccount = () => {
                               <div className="hstack gap-2 justify-content-end mt-4">
                                 <Link
                                   to="/product-list"
-                                  className="btn btn-hover btn-secondary"
+                                  className="btn button-add-cart btn-secondary"
                                 >
                                   Continue Shopping{" "}
                                   <i className="ri-arrow-right-line align-bottom"></i>
                                 </Link>
                                 <Link
                                   to="/shop/checkout"
-                                  className="btn btn-hover btn-primary"
+                                  className="btn btn-hover button-buy-now"
                                 >
                                   Check Out{" "}
                                   <i className="ri-arrow-right-line align-bottom"></i>
@@ -448,7 +473,7 @@ const MyAccount = () => {
                           <div className="text-end mt-4">
                             <Link
                               to={"/products-grid"}
-                              className="btn btn-hover btn-primary"
+                              className="btn btn-hover button-add-cart"
                             >
                               Continue Shopping{" "}
                               <i className="ri-arrow-right-line align-middle ms-1"></i>
@@ -458,7 +483,35 @@ const MyAccount = () => {
                       </Card>
                     </div>
                   </Tab.Pane>
-                  <Tab.Pane eventKey="setting">
+                  <Tab.Pane eventKey="XP">
+                    <div
+                      className="tab-pane fade show"
+                      id="custom-v-pills-order"
+                      role="tabpanel"
+                    >
+                      <Card>
+                        <CardBody>
+                          <div style={{display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
+                            <h3>Total: {0}</h3>
+                            <div className="hstack gap-2 justify-content-center mt-4">
+                              <Button
+                                className="btn button-add-cart"
+                              >
+                                Collect XP
+                              </Button>
+                              <Button
+                                className="btn btn-secondary button-buy-now"
+                              >
+                                Earn Docs
+                              </Button>
+                            </div>
+                          </div>
+                        </CardBody>
+                      </Card>
+                    </div>
+                  </Tab.Pane>
+                  <Tab.Pane eventKey="stake"></Tab.Pane>
+                  {/* <Tab.Pane eventKey="setting">
                     <div
                       className="tab-pane fade show"
                       id="custom-v-pills-setting"
@@ -802,7 +855,7 @@ const MyAccount = () => {
                         </Col>
                       </Row>
                     </div>
-                  </Tab.Pane>
+                  </Tab.Pane> */}
                 </Tab.Content>
               </Col>
             </Row>
