@@ -8,6 +8,7 @@ import hotDealsReducer from "./hot-deals/slice";
 import walletReducer from "./wallet/slice";
 import userReducer from "./user/slice";
 import wishlistReducer from "./wishlist/slice";
+import cartReducer from "./cart/slice";
 
 const rootReducer = combineReducers({
   Layout: LayoutReducer,
@@ -18,6 +19,7 @@ const rootReducer = combineReducers({
   wallet: walletReducer,
   user: userReducer,
   wishlist: wishlistReducer,
+  cart: cartReducer,
 });
 
 export default rootReducer;
