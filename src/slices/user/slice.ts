@@ -4,7 +4,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import { disconnectWalletAsync } from "slices/thunk";
 
 const jwt = localStorage.getItem("jwt");
-const address = localStorage.getItem("jwt");
+const address = localStorage.getItem("address");
 
 const logged = !!jwt && !!address;
 
