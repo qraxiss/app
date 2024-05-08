@@ -16,9 +16,9 @@ export const UPDATE_CART_ITEM = gql`
     }
 `;
 
-export const DELETE_CART_ITEM = gql`
-  mutation DELETE_CART_ITEM($itemId: ID!) {
-    deleteCartItem(itemId: $itemId) {
+export const REMOVE_CART_ITEM = gql`
+  mutation REMOVE_CART_ITEM($itemId: ID!) {
+    removeCartItem(itemId: $itemId) {
       status
     }
   }
