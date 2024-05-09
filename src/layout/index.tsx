@@ -15,6 +15,7 @@ import {
   fetchHotDealsAsync,
   fetchNewArrivalsAsync,
   fetchWishlistAsync,
+  fetchCartAsync,
 } from "slices/thunk";
 import { AppDispatch } from "store";
 import { CollectionModal } from "common/modal/collections";
@@ -39,6 +40,7 @@ const Layout = (props: any) => {
 
     if (logged) {
       dispatch(fetchWishlistAsync());
+      dispatch(fetchCartAsync());
     }
   }, [dispatch]);
 

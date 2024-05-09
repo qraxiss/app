@@ -9,6 +9,7 @@ const initialState: {
     items: any[];
     price: number;
     count: number;
+    isModalOpen: boolean;
   };
 } = {
   loading: false,
@@ -17,6 +18,7 @@ const initialState: {
     items: [],
     price: 0,
     count: 0,
+    isModalOpen: false,
   },
 };
 
@@ -24,13 +26,19 @@ const cartSlice = createSlice({
   name: "cart",
   initialState,
   reducers: {
+    openModal(state) {
+      state.data.isModalOpen = true;
+    },
+    closeModal(state) {
+      state.data.isModalOpen = false;
+    },
     fetchCartStart(state) {
       state.loading = true;
       state.error = null;
     },
-    fetchCartSuccess(state, { payload: { items, price, count } }) {
+    fetchCartSuccess(state, { payload: { items, count, price } }) {
       state.loading = false;
-      state.data = { items, price, count };
+      state.data = { ...state.data, items, count, price };
     },
     fetchCartFailure(state, action) {
       state.loading = false;
@@ -40,9 +48,8 @@ const cartSlice = createSlice({
       state.loading = true;
       state.error = null;
     },
-    addItemSuccess(state, { payload: { item } }) {
+    addItemSuccess(state) {
       state.loading = false;
-      state.data.items.push(item);
     },
     addItemFailure(state, action) {
       state.loading = false;
@@ -52,11 +59,11 @@ const cartSlice = createSlice({
       state.loading = true;
       state.error = null;
     },
-    removeItemSuccess(state, { payload: { itemId } }) {
+    removeItemSuccess(state) {
       state.loading = false;
-      state.data.items = state.data.items.filter((item) => {
-        return item.id !== itemId;
-      });
+      // state.data.items = state.data.items.filter((item) => {
+      //   return item.id !== itemId;
+      // });
     },
     removeItemFailure(state, action) {
       state.loading = false;
@@ -66,11 +73,12 @@ const cartSlice = createSlice({
       state.loading = false;
       state.error = null;
     },
-    updateItemSuccess(state, { payload: { item } }) {
-      const idx = state.data.items.findIndex((itemi) => {
-        return itemi.id === item.id;
-      });
-      state.data.items[idx] = item;
+    updateItemSuccess(state) {
+      state.loading = false;
+      // const idx = state.data.items.findIndex((itemi) => {
+      //   return itemi.id === item.id;
+      // });
+      // state.data.items[idx] = item;
     },
     updateItemFailure(state, action) {
       state.loading = false;
@@ -107,6 +115,8 @@ export const {
   updateItemFailure,
   updateItemStart,
   updateItemSuccess,
+  closeModal,
+  openModal,
 } = cartSlice.actions;
 
 export default cartSlice.reducer;

@@ -23,6 +23,11 @@ import avatar7 from "assets/images/users/avatar-7.jpg";
 import { productData } from "common/data";
 import DeleteModal from "components/delete-modal";
 
+import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch } from "store";
+
+import { updateItemAsync, deleteCartItem } from "slices/thunk";
+
 //go to one page to another page opne modal
 export const MainModal = ({ location }: any) => {
   const [show, setShow] = useState(false);
@@ -652,6 +657,9 @@ export const SearchModal = ({ show, handleClose }: any) => {
 
 //card modal
 export const CardModal = ({ show, handleClose }: any) => {
+  const dispatch: AppDispatch = useDispatch();
+  const cart = useSelector((state: any) => state.cart.data);
+
   const [productcount, setProductcount] = useState(productData);
   const [charge, setCharge] = useState(0);
   const [dis, setDis] = useState(0);
@@ -666,7 +674,8 @@ export const CardModal = ({ show, handleClose }: any) => {
   };
 
   const deleteData = () => {
-    setProductcount(productData?.filter((delet: any) => delet.id !== id));
+    dispatch(deleteCartItem({ itemId: id }));
+    // setProductcount(productData?.filter((delet: any) => delet.id !== id));
   };
 
   const CloseremoveModal = () => setRemovemodel(false);
@@ -690,32 +699,36 @@ export const CardModal = ({ show, handleClose }: any) => {
     setTax(tax);
   }, [subtotal]);
 
-  const countUP = (item: any) => {
-    setProductcount(
-      (productData || [])?.map((count) =>
-        count.id === item.id
-          ? {
-              ...count,
-              num: item.num + 1,
-              Total: (item.num + 1) * item.ItemPrice,
-            }
-          : count,
-      ),
-    );
+  const countUP = (itemId: number | string, count: number) => {
+    dispatch(updateItemAsync({ count, itemId }));
+
+    // setProductcount(
+    //   (productData || [])?.map((count) =>
+    //     count.id === item.id
+    //       ? {
+    //           ...count,
+    //           num: item.num + 1,
+    //           Total: (item.num + 1) * item.ItemPrice,
+    //         }
+    //       : count
+    //   )
+    // );
   };
 
-  const countDown = (item: any) => {
-    setProductcount(
-      (productData || []).map((count) =>
-        count.id === item.id && count.num >= 0
-          ? {
-              ...count,
-              num: item.num?.lenght > 0 ? item.num - 1 : 0,
-              Total: (item.num?.lenght > 0 ? item.num - 1 : 0) * item.ItemPrice,
-            }
-          : count,
-      ),
-    );
+  const countDown = (itemId: number | string, count: number) => {
+    dispatch(updateItemAsync({ count, itemId }));
+
+    // setProductcount(
+    //   (productData || []).map((count) =>
+    //     count.id === item.id && count.num >= 0
+    //       ? {
+    //           ...count,
+    //           num: item.num?.lenght > 0 ? item.num - 1 : 0,
+    //           Total: (item.num?.lenght > 0 ? item.num - 1 : 0) * item.ItemPrice,
+    //         }
+    //       : count
+    //   )
+    // );
   };
   return (
     <React.Fragment>
@@ -736,7 +749,7 @@ export const CardModal = ({ show, handleClose }: any) => {
         <Offcanvas.Body className=" px-0">
           <SimpleBar className="h-100">
             <ul className="list-group list-group-flush cartlist">
-              {(productcount || [])?.map((item: any, inx) => {
+              {(cart.items || [])?.map((item: any, inx: number) => {
                 return (
                   <li key={inx} className="list-group-item product">
                     <div className="d-flex gap-3">
@@ -749,7 +762,7 @@ export const CardModal = ({ show, handleClose }: any) => {
                             className={`avatar-title bg-${item.bg}-subtle rounded-3`}
                           >
                             <Image
-                              src={item.img}
+                              src={item.variant.image}
                               alt=""
                               className="avatar-sm"
                             />
@@ -758,13 +771,13 @@ export const CardModal = ({ show, handleClose }: any) => {
                       </div>
                       <div className="flex-grow-1">
                         <Link to="#">
-                          <h5 className="fs-15">{item.title}</h5>
+                          <h5 className="fs-15">{item.variant.product.name}</h5>
                         </Link>
                         <div className="d-flex mb-3 gap-2">
                           <div className="text-muted fw-medium mb-0">
                             $
                             <span className="product-price">
-                              {item.ItemPrice}
+                              {item.variant.price}
                             </span>
                           </div>
                           <div className="vr"></div>
@@ -775,21 +788,21 @@ export const CardModal = ({ show, handleClose }: any) => {
                         <div className="input-step">
                           <Button
                             className="minus"
-                            onClick={() => countDown(item)}
+                            onClick={() => countDown(item.id, item.count - 1)}
                           >
                             –
                           </Button>
                           <Form.Control
                             type="number"
                             className="product-quantity"
-                            value={item.num}
+                            value={item.count}
                             min="0"
                             max="100"
                             readOnly
                           />
                           <Button
                             className="plus"
-                            onClick={() => countUP(item)}
+                            onClick={() => countUP(item.id, item.count + 1)}
                           >
                             +
                           </Button>
@@ -805,7 +818,7 @@ export const CardModal = ({ show, handleClose }: any) => {
                         <div className="fw-medium mb-0 fs-16">
                           $
                           <span className="product-line-price">
-                            {item.Total.toFixed(2)}
+                            {item.totalPrice}
                           </span>
                         </div>
                       </div>
@@ -819,9 +832,7 @@ export const CardModal = ({ show, handleClose }: any) => {
                 <tbody>
                   <tr>
                     <td>Sub Total :</td>
-                    <td className="text-end cart-subtotal">
-                      ${subtotal || "0.00"}
-                    </td>
+                    <td className="text-end cart-subtotal">${cart.data}</td>
                   </tr>
                   <tr>
                     <td>

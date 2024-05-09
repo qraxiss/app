@@ -20,6 +20,6 @@ export {
   fetchCartAsync,
   addItemToCartAsync,
   emptyAsync,
-  removeItemAsync,
+  deleteCartItem,
   updateItemAsync,
 } from "./cart/thunk";

@@ -21,7 +21,7 @@ import {
 
 import {
   ADD_ITEM_TO_CART,
-  REMOVE_CART_ITEM,
+  DELETE_CART_ITEM,
   UPDATE_CART_ITEM,
   EMPTY_CART,
 } from "graphql/cart/mutations";
@@ -35,6 +35,9 @@ export const fetchCartAsync = createAsyncThunk(
 
       const { data } = await shopcekQuery({
         query: GET_CART,
+        options: {
+          fetchPolicy: "no-cache",
+        } as any,
       });
 
       dispatch(fetchCartSuccess(data));
@@ -53,7 +56,9 @@ export const addItemToCartAsync = createAsyncThunk(
     try {
       dispatch(addItemStart());
 
-      const { data } = await shopcekMutation({
+      const {
+        data: { status },
+      } = await shopcekMutation<any>({
         mutation: ADD_ITEM_TO_CART,
         options: {
           variables: {
@@ -62,8 +67,10 @@ export const addItemToCartAsync = createAsyncThunk(
           },
         } as any,
       });
-
-      dispatch(addItemSuccess(data));
+      if (status) {
+        await dispatch(fetchCartAsync());
+        dispatch(addItemSuccess());
+      }
     } catch (error: any) {
       dispatch(addItemFailure(error.message));
     }
@@ -77,12 +84,13 @@ export const emptyAsync = createAsyncThunk(
       dispatch(emptyStart());
 
       const {
-        data: { success },
+        data: { status },
       } = await shopcekMutation<any>({
         mutation: EMPTY_CART,
       });
 
-      if (success) {
+      if (status) {
+        await dispatch(fetchCartAsync());
         dispatch(emptySuccess());
       } else {
         dispatch(emptyFailure("Empty cart operation not success"));
@@ -93,16 +101,16 @@ export const emptyAsync = createAsyncThunk(
   }
 );
 
-export const removeItemAsync = createAsyncThunk(
-  "cart/removeItem",
+export const deleteCartItem = createAsyncThunk(
+  "cart/deleteItem",
   async ({ itemId }: { itemId: number | string }, { dispatch }) => {
     try {
       dispatch(removeItemStart());
 
       const {
-        data: { success },
+        data: { status },
       } = await shopcekMutation<any>({
-        mutation: REMOVE_CART_ITEM,
+        mutation: DELETE_CART_ITEM,
         options: {
           variables: {
             itemId,
@@ -110,8 +118,9 @@ export const removeItemAsync = createAsyncThunk(
         } as any,
       });
 
-      if (success) {
-        dispatch(removeItemSuccess({ itemId }));
+      if (status) {
+        await dispatch(fetchCartAsync());
+        dispatch(removeItemSuccess());
       } else {
         dispatch(removeItemFailure("Empty cart operation not success"));
       }
@@ -131,7 +140,7 @@ export const updateItemAsync = createAsyncThunk(
       dispatch(updateItemStart());
 
       const {
-        data: { success },
+        data: { status },
       } = await shopcekMutation<any>({
         mutation: UPDATE_CART_ITEM,
         options: {
@@ -142,8 +151,9 @@ export const updateItemAsync = createAsyncThunk(
         } as any,
       });
 
-      if (success) {
-        dispatch(updateItemSuccess({ itemId, count }));
+      if (status) {
+        await dispatch(fetchCartAsync());
+        dispatch(updateItemSuccess());
       } else {
         dispatch(updateItemFailure("Empty cart operation not success"));
       }
