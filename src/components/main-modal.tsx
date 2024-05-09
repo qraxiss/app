@@ -687,17 +687,17 @@ export const CardModal = ({ show, handleClose }: any) => {
   }
 
   useEffect(() => {
-    const dis: any = (0.15 * subtotal).toFixed(2);
-    const tax = 0.125 * subtotal;
+    const dis: any = (0.15 * cart.price).toFixed(2);
+    const tax = 0.125 * cart.price;
 
-    if (subtotal !== 0) {
+    if (cart.price !== 0) {
       setCharge(65);
     } else {
       setCharge(0);
     }
     setDis(dis);
     setTax(tax);
-  }, [subtotal]);
+  }, [cart]);
 
   const countUP = (itemId: number | string, count: number) => {
     dispatch(updateItemAsync({ count, itemId }));
@@ -742,7 +742,7 @@ export const CardModal = ({ show, handleClose }: any) => {
           <Offcanvas.Title id="ecommerceCartLabel" as="h5">
             My Cart{" "}
             <span className="badge bg-danger align-middle ms-1 cartitem-badge">
-              {productcount.length}
+              {cart.count}
             </span>
           </Offcanvas.Title>
         </Offcanvas.Header>
@@ -832,7 +832,7 @@ export const CardModal = ({ show, handleClose }: any) => {
                 <tbody>
                   <tr>
                     <td>Sub Total :</td>
-                    <td className="text-end cart-subtotal">${cart.data}</td>
+                    <td className="text-end cart-subtotal">${cart.price}</td>
                   </tr>
                   <tr>
                     <td>
@@ -862,7 +862,7 @@ export const CardModal = ({ show, handleClose }: any) => {
             <h6 className="m-0 fs-16 text-muted">Total:</h6>
             <div className="px-2">
               <h6 className="m-0 fs-16 cart-total">
-                ${subtotal + charge + tax - dis || "0.00"}
+                ${cart.price + charge + tax - dis || "0.00"}
               </h6>
             </div>
           </div>
