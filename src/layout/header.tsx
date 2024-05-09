@@ -25,6 +25,8 @@ import { logoutAsync } from "slices/thunk";
 
 import { AppDispatch } from "store";
 
+import { openModal, closeModal } from "slices/cart/slice";
+
 const Header = (props: any) => {
   //dispatch
   const dispatch: AppDispatch = useDispatch();
@@ -39,10 +41,10 @@ const Header = (props: any) => {
   const categories = useSelector((state: any) => state.categories.data);
 
   //card modal
-  const [card, setCard] = useState(false);
+  const isModalOpen = useSelector((state: any) => state.cart.data.isModalOpen);
 
-  const handlecardClose = () => setCard(false);
-  const handleCardShow = () => setCard(true);
+  const handlecardClose = () => dispatch(closeModal());
+  const handleCardShow = () => dispatch(openModal());
 
   const [showMenu, setShowMenu] = useState<any>("");
   const [showSubMenu, setShowSubMenu] = useState<any>("");
@@ -352,7 +354,7 @@ const Header = (props: any) => {
           </div>
         </Container>
       </Navbar>
-      <CardModal show={card} handleClose={handlecardClose} />
+      <CardModal show={isModalOpen} handleClose={handlecardClose} />
     </React.Fragment>
   );
 };

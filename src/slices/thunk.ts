@@ -15,3 +15,11 @@ export {
   removeFromWishlistAsync,
   addToWishlistAsync,
 } from "./wishlist/thunk";
+
+export {
+  fetchCartAsync,
+  addItemToCartAsync,
+  emptyAsync,
+  deleteCartItem,
+  updateItemAsync,
+} from "./cart/thunk";

@@ -1,14 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
-import { useParams } from "react-router-dom";
-import {
-  Button,
-  Col,
-  Container,
-  Row,
-  Tooltip,
-  Form,
-  Image,
-} from "react-bootstrap";
+import { useNavigate, useParams } from "react-router-dom";
+import { Button, Col, Container, Row, Form, Image } from "react-bootstrap";
 import { Swiper, SwiperRef, SwiperSlide } from "swiper/react";
 import { FreeMode, Navigation, Thumbs } from "swiper/modules";
 //scss
@@ -24,10 +16,20 @@ import { useShopcekQuery } from "graphql/apollo/query-wrapper";
 
 import { useSelector, useDispatch } from "react-redux";
 
-import { addToWishlistAsync, removeFromWishlistAsync } from "slices/thunk";
+import {
+  addToWishlistAsync,
+  removeFromWishlistAsync,
+  addItemToCartAsync,
+} from "slices/thunk";
 import { AppDispatch } from "store";
 
+import { openModal } from "slices/cart/slice";
+import { Option } from "types/product";
+
 const ProductDetails = () => {
+  const logged = useSelector((state: any) => state.user.data.logged);
+  const navigate = useNavigate();
+
   const { slug } = useParams();
   const dispatch: AppDispatch = useDispatch();
   const swiperRef = useRef<SwiperRef>(null);
@@ -41,14 +43,20 @@ const ProductDetails = () => {
     }
   };
 
-  console.log(`${process.env.REACT_APP_API_URL}/${data?.product?.video?.url}`);
+  // add to cart
+  const [count, setCount] = useState(1);
+  const [size, setSize] = useState<Option | null>(null);
+  const [color, setColor] = useState<Option | null>(null);
+  const [disabled, setDisabled] = useState(false);
+  const cart = useSelector((state: any) => state.cart);
 
-  const [count, setCount] = useState(0);
+  useEffect(() => {
+    setDisabled(!(!cart.loading && logged && count > 0 && !!size && !!color));
+  }, [cart.loading, count, size, color, logged]);
 
   //like button
   const likeButton = useRef<any>(null);
 
-  const logged = useSelector((state: any) => state.user.data.logged);
   const wishlist = useSelector((state: any) => state.wishlist) as any;
   if (logged && wishlist) {
     const isInWishlist = !!wishlist?.data?.items.find((item: any) => {
@@ -59,6 +67,18 @@ const ProductDetails = () => {
       likeButton?.current?.classList?.add("active");
     }
   }
+
+  const handleAddToCart = async () => {
+    const variantId = data?.variants?.find((variant: any) => {
+      return (
+        variant.variant.size.value === size!.value &&
+        variant.variant.color.value === color!.value
+      );
+    }).id;
+
+    await dispatch(addItemToCartAsync({ variantId, count }));
+    dispatch(openModal());
+  };
 
   const handleLikeIcone = async (event: any) => {
     if (!logged) {
@@ -267,7 +287,12 @@ const ProductDetails = () => {
                           data?.product?.sizes.length > 0 &&
                           data?.product?.sizes.map(
                             (size: any, index: number) => (
-                              <li key={index}>
+                              <li
+                                key={index}
+                                onClick={() => {
+                                  setSize(size);
+                                }}
+                              >
                                 <Form.Control
                                   type="radio"
                                   name="sizes7"
@@ -292,7 +317,12 @@ const ProductDetails = () => {
                         data?.product?.colors.length > 0 &&
                         data?.product?.colors.map(
                           (color: any, index: number) => (
-                            <li key={index}>
+                            <li
+                              key={index}
+                              onClick={() => {
+                                setColor(color);
+                              }}
+                            >
                               <Form.Control
                                 type="radio"
                                 name="colors"
@@ -310,11 +340,22 @@ const ProductDetails = () => {
                   </Col>
                 </Row>
                 <div className="hstack gap-2">
-                  <Button className="btn button-add-cart w-100">
+                  <Button
+                    className="btn button-add-cart w-100"
+                    disabled={disabled}
+                    onClick={handleAddToCart}
+                  >
                     {" "}
                     <i className="bi bi-basket2 me-2" /> Add To Cart
                   </Button>
-                  <Button className="btn button-buy-now w-100">
+                  <Button
+                    className="btn button-buy-now w-100"
+                    onClick={async () => {
+                      await handleAddToCart();
+                      navigate("/shop/checkout");
+                    }}
+                    disabled={disabled}
+                  >
                     {" "}
                     <i className="bi bi-cart2 me-2" /> Buy Now
                   </Button>
