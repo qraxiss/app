@@ -1,5 +1,5 @@
 import { useWeb3Modal } from "@web3modal/wagmi/react";
-import { Button, Image } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 
 import { signInWithEthereumLocal } from "wallet/siwe";
 import { BrowserProvider } from "ethers";
@@ -7,12 +7,16 @@ import { BrowserProvider } from "ethers";
 import { useAccount } from "wagmi";
 import { verifySignatureAsync } from "slices/wallet/thunk";
 
-import { useEffect } from "react";
+import { FC, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { AppDispatch } from "store";
 
-export default function ConnectWallet() {
+interface ConnectWalletProps {
+  buttonText?: string;
+}
+
+export const ConnectWallet: FC<ConnectWalletProps> = ({ buttonText }) => {
   const { open } = useWeb3Modal();
   const provider = new BrowserProvider(window.ethereum);
   const { address, chainId, status } = useAccount();
@@ -26,18 +30,30 @@ export default function ConnectWallet() {
       signInWithEthereumLocal(address, chainId!, nonce, provider).then(
         (data) => {
           dispatch(verifySignatureAsync(data));
-        }
+        },
       );
     }
   }, [status]);
 
   return (
-    <Button
-      type="button"
-      className="btn btn-icon btn-topbar btn-ghost-dark rounded-circle text-muted"
-      onClick={() => open({ view: "Connect" })}
-    >
-      <i className="bi bi-coin fs-20"></i>
-    </Button>
+    <>
+      {buttonText ? (
+        <Button
+          type="button"
+          className="btn btn-primary"
+          onClick={() => open({ view: "Connect" })}
+        >
+          {buttonText}
+        </Button>
+      ) : (
+        <Button
+          type="button"
+          className="btn btn-icon btn-topbar btn-ghost-dark rounded-circle text-muted"
+          onClick={() => open({ view: "Connect" })}
+        >
+          <i className="bi bi-coin fs-20"></i>
+        </Button>
+      )}
+    </>
   );
-}
+};
