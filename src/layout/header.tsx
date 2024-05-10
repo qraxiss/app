@@ -19,13 +19,13 @@ import { CardModal, SearchModal } from "components/main-modal";
 import { withTranslation } from "react-i18next";
 import withRouter from "components/with-router";
 import { useSelector, useDispatch } from "react-redux";
-import ConnectWallet from "components/connect-wallet";
 
 import { logoutAsync } from "slices/thunk";
 
 import { AppDispatch } from "store";
 
 import { openModal, closeModal } from "slices/cart/slice";
+import { ConnectWallet } from "components/connect-wallet";
 
 const Header = (props: any) => {
   //dispatch
@@ -131,7 +131,7 @@ const Header = (props: any) => {
     ) as HTMLElement;
     navbar && navbar.classList.remove("navbar-expand");
     if (collapse && collapse.classList.contains("show")) {
-      collapse.addEventListener("shown.bs.collapse", (event) => {
+      collapse.addEventListener("shown.bs.collapse", () => {
         collapse.classList.remove("show");
       });
     } else {
