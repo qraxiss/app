@@ -13,7 +13,7 @@ export const projectId = "e2d0ce35fa2c99ac5578cba14294027b";
 const metadata = {
   name: "Web3Modal",
   description: "Web3Modal Example",
-  url: "https://web3modal.com", // origin must match your domain & subdomain
+  url: "https://app.shopcek.com", // origin must match your domain & subdomain
   icons: ["https://avatars.githubusercontent.com/u/37784886"],
 };
 
