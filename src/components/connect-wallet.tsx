@@ -7,7 +7,7 @@ import { BrowserProvider } from "ethers";
 import { useAccount } from "wagmi";
 import { verifySignatureAsync } from "slices/wallet/thunk";
 
-import { FC, useEffect } from "react";
+import { FC, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { AppDispatch } from "store";
@@ -18,22 +18,33 @@ interface ConnectWalletProps {
 
 export const ConnectWallet: FC<ConnectWalletProps> = ({ buttonText }) => {
   const { open } = useWeb3Modal();
-  const provider = new BrowserProvider(window.ethereum);
+  const provider = window.ethereum
+    ? new BrowserProvider(window.ethereum)
+    : null;
   const { address, chainId, status } = useAccount();
   const { nonce } = useSelector((state: any) => state.wallet.data);
   const { logged } = useSelector((state: any) => state.user.data);
 
+  const [connect, setConnect] = useState(false);
+
   const dispatch: AppDispatch = useDispatch();
 
   useEffect(() => {
-    if (status === "connected" && !logged) {
+    if (status === "connected" && !logged && connect && provider) {
       signInWithEthereumLocal(address, chainId!, nonce, provider).then(
         (data) => {
-          dispatch(verifySignatureAsync(data));
-        },
+          dispatch(verifySignatureAsync(data)).then(() => {
+            setConnect(false);
+          });
+        }
       );
     }
   }, [status]);
+
+  const handleConnect = () => {
+    open({ view: "Connect" });
+    setConnect(true);
+  };
 
   return (
     <>
@@ -41,7 +52,7 @@ export const ConnectWallet: FC<ConnectWalletProps> = ({ buttonText }) => {
         <Button
           type="button"
           className="btn btn-primary"
-          onClick={() => open({ view: "Connect" })}
+          onClick={handleConnect}
         >
           {buttonText}
         </Button>
@@ -49,7 +60,7 @@ export const ConnectWallet: FC<ConnectWalletProps> = ({ buttonText }) => {
         <Button
           type="button"
           className="btn btn-icon btn-topbar btn-ghost-dark rounded-circle text-muted"
-          onClick={() => open({ view: "Connect" })}
+          onClick={handleConnect}
         >
           <i className="bi bi-coin fs-20"></i>
         </Button>
