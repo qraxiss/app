@@ -49,7 +49,7 @@ const Layout = (props: any) => {
     (layout) => ({
       footerModeType: layout.footerModeType,
       layoutThemeMode: layout.layoutThemeMode,
-    })
+    }),
   );
 
   const { footerModeType, layoutThemeMode } = useSelector(selectProperties);

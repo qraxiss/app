@@ -4,13 +4,7 @@ import { Form, Row, Col, Card, Button, Image } from "react-bootstrap";
 import { filterProduct } from "common/data";
 import Pagination from "components/pagination";
 
-const CatalogCollection = ({
-  cxxl,
-  cxl,
-  clg,
-  cmd,
-  filterList,
-}: any) => {
+const CatalogCollection = ({ cxxl, cxl, clg, cmd, filterList }: any) => {
   //select
   const [select, setSelect] = useState("all");
   const pagination = true;

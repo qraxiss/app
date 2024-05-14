@@ -361,8 +361,8 @@ const MyAccount = () => {
                                                     onClick={() => {
                                                       dispatch(
                                                         removeFromWishlistAsync(
-                                                          item
-                                                        )
+                                                          item,
+                                                        ),
                                                       );
                                                     }}
                                                     className="btn btn-soft-danger btn-icon btn-sm"
@@ -374,7 +374,7 @@ const MyAccount = () => {
                                             </td>
                                           </tr>
                                         );
-                                      }
+                                      },
                                     )}
                                   </tbody>
                                 </Table>
@@ -491,17 +491,20 @@ const MyAccount = () => {
                     >
                       <Card>
                         <CardBody>
-                          <div style={{display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
+                          <div
+                            style={{
+                              display: "flex",
+                              flexDirection: "column",
+                              alignItems: "center",
+                              justifyContent: "center",
+                            }}
+                          >
                             <h3>Total: {0}</h3>
                             <div className="hstack gap-2 justify-content-center mt-4">
-                              <Button
-                                className="btn button-add-cart"
-                              >
+                              <Button className="btn button-add-cart">
                                 Collect XP
                               </Button>
-                              <Button
-                                className="btn btn-secondary button-buy-now"
-                              >
+                              <Button className="btn btn-secondary button-buy-now">
                                 Earn Docs
                               </Button>
                             </div>

@@ -305,7 +305,7 @@ const ProductDetails = () => {
                                   {size.value}
                                 </Form.Label>
                               </li>
-                            )
+                            ),
                           )}
                       </ul>
                     </div>
@@ -334,7 +334,7 @@ const ProductDetails = () => {
                                 htmlFor={`product-color-${index}`}
                               />
                             </li>
-                          )
+                          ),
                         )}
                     </ul>
                   </Col>

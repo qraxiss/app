@@ -36,7 +36,7 @@ export const ConnectWallet: FC<ConnectWalletProps> = ({ buttonText }) => {
           dispatch(verifySignatureAsync(data)).then(() => {
             setConnect(false);
           });
-        }
+        },
       );
     }
   }, [status]);

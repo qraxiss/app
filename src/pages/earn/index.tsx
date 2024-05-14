@@ -1,4 +1,9 @@
-import { LoginToEarn, NameService, StayHereToEarn, TaskRewards } from "components/earn";
+import {
+  LoginToEarn,
+  NameService,
+  StayHereToEarn,
+  TaskRewards,
+} from "components/earn";
 
 export const Earn = () => {
   return (

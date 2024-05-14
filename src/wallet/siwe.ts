@@ -7,7 +7,7 @@ export async function signInWithEthereumLocal(
   address: string,
   chainId: number,
   nonce: string,
-  provider: BrowserProvider
+  provider: BrowserProvider,
 ): Promise<VERIFY> {
   const message = new SiweMessage({
     domain: window.location.host,

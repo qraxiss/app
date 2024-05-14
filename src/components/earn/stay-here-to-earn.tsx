@@ -121,33 +121,32 @@ export const StayHereToEarn = () => {
 
           <Container>
             <Row>
-              <Col >
-                  <div className="blue-box divider">
-                    <p>{addOneZero(pastTime.days)}</p>
-                  </div>
-                  <p className="time">Days</p>
+              <Col>
+                <div className="blue-box divider">
+                  <p>{addOneZero(pastTime.days)}</p>
+                </div>
+                <p className="time">Days</p>
               </Col>
-              <Col >
-                  <div className="blue-box divider">
-                    <p>{addOneZero(pastTime.hours)}</p>
-                  </div>
-                  <p className="time">Hours</p>
+              <Col>
+                <div className="blue-box divider">
+                  <p>{addOneZero(pastTime.hours)}</p>
+                </div>
+                <p className="time">Hours</p>
               </Col>
-              <Col >
-                  <div className="blue-box divider">
-                    <p>{addOneZero(pastTime.minutes)}</p>
-                  </div>
-                  <p className="time">Minutes</p>
+              <Col>
+                <div className="blue-box divider">
+                  <p>{addOneZero(pastTime.minutes)}</p>
+                </div>
+                <p className="time">Minutes</p>
               </Col>
-              <Col >
-                  <div className="blue-box divider">
-                    <p>{addOneZero(pastTime.seconds)}</p>
-                  </div>
-                  <p className="time">Seconds</p>
+              <Col>
+                <div className="blue-box divider">
+                  <p>{addOneZero(pastTime.seconds)}</p>
+                </div>
+                <p className="time">Seconds</p>
               </Col>
             </Row>
           </Container>
-
         </div>
       </div>
     </section>

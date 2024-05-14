@@ -204,7 +204,7 @@ export function DomainModal({
 }
 
 export const NameService = () => {
-    const [close, setClose] = useState(true);
+  const [close, setClose] = useState(true);
   const [domain, setDomain] = useState("");
 
   return (
@@ -234,8 +234,18 @@ export const NameService = () => {
               maxLength={15}
               minLength={3}
             />
-            <span className="input-group-append" style={{paddingRight: '6px', display: "flex", alignItems: "center"}}>
-              <i className="bi bi-search search-icon" style={{fontSize: '48px'}}></i>
+            <span
+              className="input-group-append"
+              style={{
+                paddingRight: "6px",
+                display: "flex",
+                alignItems: "center",
+              }}
+            >
+              <i
+                className="bi bi-search search-icon"
+                style={{ fontSize: "48px" }}
+              ></i>
             </span>
           </div>
           <Button

@@ -16,5 +16,5 @@ export const logoutAsync = createAsyncThunk(
     } catch (error: any) {
       dispatch(logoutFailure(error.message));
     }
-  }
+  },
 );

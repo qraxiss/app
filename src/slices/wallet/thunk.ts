@@ -34,7 +34,7 @@ export const fetchNonceAsync = createAsyncThunk(
     } catch (error: any) {
       dispatch(fetchNonceFailure(error.message));
     }
-  }
+  },
 );
 
 export const verifySignatureAsync = createAsyncThunk(
@@ -60,7 +60,7 @@ export const verifySignatureAsync = createAsyncThunk(
     } catch (error: any) {
       dispatch(verifySignatureFailure(error.message));
     }
-  }
+  },
 );
 
 export const disconnectWalletAsync = createAsyncThunk(
@@ -75,5 +75,5 @@ export const disconnectWalletAsync = createAsyncThunk(
     } catch (error: any) {
       dispatch(disconnectWalletFailure(error.message));
     }
-  }
+  },
 );

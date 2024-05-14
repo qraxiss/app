@@ -1,14 +1,37 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React from "react";
-import { Container, Row, Col, Image } from "react-bootstrap";
+import { Container, Row, Col, Image, Form, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import telegramIcon from "assets/images/socials/telegram.svg";
-import mediumIcon from "assets/images/socials/medium.svg";
-import twitterIcon from "assets/images/socials/x.svg";
+import discordIcon from "assets/images/socials/dc.png";
+import mediumIcon from "assets/images/socials/md.png";
+import telegramIcon from "assets/images/socials/tg.png";
+import twitterIcon from "assets/images/socials/x.png";
 //img
-import shopcekLogo from "assets/images/svg/Shopcek_Official.png";
 import { useSelector } from "react-redux";
 import { MISC } from "constants/footer";
+
+import logo from "assets/images/svg/footer-logo-icon.svg";
+import Shopcek from "assets/images/logo-dark.png";
+import microsoft_banner from "assets/images/ms-purple.png";
+
+const socials = [
+  {
+    to: "https://telegram.com/shopcek",
+    icon: telegramIcon,
+  },
+  {
+    to: "https://discord.com/shopcek",
+    icon: discordIcon,
+  },
+  {
+    to: "https://twitter.com/shopcek",
+    icon: twitterIcon,
+  },
+  {
+    to: "https://medium.com/shopcek",
+    icon: mediumIcon,
+  },
+];
 
 const Footer = () => {
   const categories = useSelector((state: any) => state.categories.data);
@@ -20,59 +43,37 @@ const Footer = () => {
           <Row>
             <Col lg={4}>
               <div className="footer-info">
-                <Image
-                  src={shopcekLogo}
-                  alt=""
-                  height="28"
-                  className="logo-light"
-                />
-                <Image
-                  src={shopcekLogo}
-                  alt=""
-                  height="28"
-                  className="logo-dark"
-                />
-
-                <div className="footer-social mt-4">
-                  <ul className="list-inline mb-0">
-                    <li className="list-inline-item">
-                      <Link
-                        to="https://twitter.com/shopcek"
-                        target="_blank"
-                        className="text-reset"
-                      >
-                        <Image
-                          src={telegramIcon}
-                          alt=""
-                          height={24}
-                          width={24}
-                        />
-                      </Link>
-                    </li>
-                    <li className="list-inline-item">
-                      <Link
-                        to="https://twitter.com/shopcek"
-                        target="_blank"
-                        className="text-reset"
-                      >
-                        <Image
-                          src={twitterIcon}
-                          alt=""
-                          height={24}
-                          width={24}
-                        />
-                      </Link>
-                    </li>
-                    <li className="list-inline-item">
-                      <Link
-                        to="https://medium.com/shopcek"
-                        target="_blank"
-                        className="text-reset"
-                      >
-                        <Image src={mediumIcon} alt="" height={24} width={24} />
-                      </Link>
-                    </li>
-                  </ul>
+                <div style={{ paddingRight: "40px" }}>
+                  <Image
+                    style={{ margin: "auto" }}
+                    src={logo}
+                    alt=""
+                    height="120"
+                    className="logo-light"
+                  />
+                  <Image
+                    style={{ margin: "auto" }}
+                    src={Shopcek}
+                    alt=""
+                    height="80"
+                    width="auto"
+                    className="logo-light"
+                  />
+                </div>
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "center",
+                  }}
+                >
+                  <Image src={logo} alt="" height="120" className="logo-dark" />
+                  <Image
+                    src={Shopcek}
+                    alt=""
+                    height="80"
+                    className="logo-dark"
+                  />
                 </div>
               </div>
             </Col>
@@ -106,6 +107,67 @@ const Footer = () => {
                         </li>
                       ))}
                     </ul>
+                  </div>
+                </Col>
+
+                <Col md={6}>
+                  <div className="mt-lg-0 mt-4">
+                    <h5 className="footer-title text-start mb-3">
+                      {" "}
+                      SUBSCRIBE TO OUR NEWSLETTER{" "}
+                    </h5>
+                    <Form action="#">
+                      <div className="subscribe-input position-relative">
+                        <input
+                          type="email"
+                          className="form-control"
+                          id="exampleFormControlInput1"
+                          placeholder="Enter your email"
+                        />
+                        <Button
+                          className="button-secondary"
+                          type="submit"
+                          variant="primary"
+                        >
+                          Subscribe Now
+                        </Button>
+                      </div>
+                    </Form>
+                    <div className="footer-social mt-3">
+                      <ul
+                        className="list-inline mb-0"
+                        style={{
+                          display: "flex",
+                          justifyContent: "flex-start",
+                        }}
+                      >
+                        {socials.map((social) => (
+                          <li className="list-inline-item">
+                            <Link
+                              to={social.to}
+                              target="_blank"
+                              className="text-reset"
+                            >
+                              <Image
+                                src={social.icon}
+                                alt=""
+                                height={30}
+                                width={30}
+                              />
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    <div className="mt-3">
+                      <Image
+                        src={microsoft_banner}
+                        alt=""
+                        height="auto"
+                        width="60%"
+                        className="logo-light"
+                      />
+                    </div>
                   </div>
                 </Col>
               </Row>

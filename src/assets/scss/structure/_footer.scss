@@ -173,7 +173,8 @@
     }
 
     .footer-border-alt {
-      border-top: 1px solid rgba($white, 0.15);
+      border-top: 2px solid;
+      border-image: linear-gradient(to right, #12c2e9, #c471ed, #f64f59) 1;
       color: #758195;
     }
   }
