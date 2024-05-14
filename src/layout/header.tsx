@@ -89,7 +89,7 @@ const Header = (props: any) => {
       const itemsArray: any = Array.from(items);
       removeActivation(itemsArray);
       const matchingMenuItem = itemsArray.find(
-        (x: HTMLAnchorElement) => x.pathname === pathName
+        (x: HTMLAnchorElement) => x.pathname === pathName,
       );
       if (matchingMenuItem) {
         activateParentDropdown(matchingMenuItem);
@@ -98,7 +98,7 @@ const Header = (props: any) => {
 
     initMenu();
     const collapse = document.getElementById(
-      "navbarSupportedContent"
+      "navbarSupportedContent",
     ) as HTMLElement;
     if (collapse && collapse.classList.contains("show")) {
       collapse.classList.remove("show");
@@ -127,7 +127,7 @@ const Header = (props: any) => {
   const handleShowColl = () => {
     const navbar = document.getElementById("navbar");
     const collapse = document.getElementById(
-      "navbarSupportedContent"
+      "navbarSupportedContent",
     ) as HTMLElement;
     navbar && navbar.classList.remove("navbar-expand");
     if (collapse && collapse.classList.contains("show")) {
@@ -144,7 +144,7 @@ const Header = (props: any) => {
     const windowSize = document.documentElement.clientWidth;
     if (windowSize > 992) {
       const collapse = document.getElementById(
-        "navbarSupportedContent"
+        "navbarSupportedContent",
       ) as HTMLElement;
       if (collapse && collapse.classList.contains("show")) {
         collapse.classList.remove("show");
@@ -236,7 +236,7 @@ const Header = (props: any) => {
               <li className="nav-item">
                 <Link className="nav-link" to={`/earn`} data-key="t-slug">
                   {/* <img src={`${process.env.REACT_APP_API_URL}/${item.icon.url}`} alt={item.name} width={20} height={20} />{' '} */}
-                  Earn
+                  EARN
                 </Link>
               </li>
             </Nav>

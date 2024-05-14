@@ -83,7 +83,7 @@ export const CollectionModal: FC<CollectionModalProps> = ({
             );
           })}
         </div>
-      </div>
+      </div>,
     );
 
     setHeader([
