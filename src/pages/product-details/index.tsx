@@ -339,9 +339,9 @@ const ProductDetails = () => {
                     </ul>
                   </Col>
                 </Row>
-                <div className="hstack gap-2">
+                <div className="hstack gap-1">
                   <Button
-                    className="btn button-add-cart w-100"
+                    className="btn button-add-cart w-100 px-2"
                     disabled={disabled}
                     onClick={handleAddToCart}
                   >
@@ -349,7 +349,7 @@ const ProductDetails = () => {
                     <i className="bi bi-basket2 me-2" /> Add To Cart
                   </Button>
                   <Button
-                    className="btn button-buy-now w-100"
+                    className="btn button-buy-now w-100 px-2"
                     onClick={async () => {
                       await handleAddToCart();
                       navigate("/shop/checkout");
