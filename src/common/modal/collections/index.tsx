@@ -1,12 +1,13 @@
 import React, { FC, useEffect, useState } from "react";
 
-import { Offcanvas } from "react-bootstrap";
+import { Offcanvas, Tab, Tabs } from "react-bootstrap";
 import SimpleBar from "simplebar-react";
 
 import { DetailsModal } from "./details";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import icon from "../../../assets/images/icon.svg";
 import dropdown from "../../../assets/images/dropdown.png";
+import { useSelector } from "react-redux";
 
 interface ICategory {
   slug: string;
@@ -35,7 +36,10 @@ export const CollectionModal: FC<CollectionModalProps> = ({
   handleClose,
   data,
 }) => {
+  const categories = useSelector((state: any) => state.categories.data);
+
   const [card, setCard] = useState(false);
+  const [currentModule, setCurrentModule] = useState("collections");
   const handlecardClose = () => {
     setCard(false);
     handleClose();
@@ -83,7 +87,7 @@ export const CollectionModal: FC<CollectionModalProps> = ({
             );
           })}
         </div>
-      </div>,
+      </div>
     );
 
     setHeader([
@@ -104,46 +108,86 @@ export const CollectionModal: FC<CollectionModalProps> = ({
         className={`collections-modal`}
       >
         <Offcanvas.Header className="header">
-          <Offcanvas.Title id="ecommerceCartLabel" as="h5">
-            <img src={icon} alt="" /> Collections
+          <Offcanvas.Title
+            onClick={() => setCurrentModule("menu")}
+            id="ecommerceCartLabel"
+            as="h5"
+            className={currentModule === "menu" ? "active mobile" : "mobile"}
+          >
+            <span>Menu</span>
           </Offcanvas.Title>
-
-          <hr />
+          <Offcanvas.Title
+            onClick={() => setCurrentModule("collections")}
+            id="ecommerceCartLabel"
+            as="h5"
+            className={currentModule === "collections" ? "active" : ""}
+          >
+            <span>Collections</span>
+          </Offcanvas.Title>
         </Offcanvas.Header>
 
-        <Offcanvas.Body className="px-0">
-          <SimpleBar className="body h-100">
-            {data.map((item, idx) => {
-              return (
-                <div
-                  key={idx}
-                  className="item"
-                  onClick={() => {
-                    if (item.slug !== "blockchain-boutique") {
-                      setNewContent(item.slug);
-                      handleCardShow();
-                    } else {
-                      handleClose();
-                      navigate("/products/collection/blockchain-boutique");
-                    }
-                  }}
-                >
-                  <img
-                    src={`${process.env.REACT_APP_API_URL}${item.icon?.url}`}
-                    alt=""
-                  />
-                  {item.name}
-                  {item.slug !== "blockchain-boutique" ? (
-                    <img
-                      src={dropdown}
-                      alt=""
-                      className="dropdown ${animation}"
-                    />
-                  ) : undefined}
+        <Offcanvas.Body className="p-0">
+          <div className="body h-100">
+            {currentModule === "collections" && (
+              <>
+                {data.map((item, idx) => {
+                  return (
+                    <div
+                      key={idx}
+                      className="item"
+                      onClick={() => {
+                        if (item.slug !== "blockchain-boutique") {
+                          setNewContent(item.slug);
+                          handleCardShow();
+                        } else {
+                          handleClose();
+                          navigate("/products/collection/blockchain-boutique");
+                        }
+                      }}
+                    >
+                      <img
+                        src={`${process.env.REACT_APP_API_URL}${item.icon?.url}`}
+                        alt=""
+                      />
+                      {item.name}
+                      {item.slug !== "blockchain-boutique" ? (
+                        <img
+                          src={dropdown}
+                          alt=""
+                          className="dropdown ${animation}"
+                        />
+                      ) : undefined}
+                    </div>
+                  );
+                })}
+              </>
+            )}
+            {currentModule === "menu" && (
+              <div className="mobile">
+                {categories?.map((item: any, index: number) => (
+                  <div className="item" key={`category-${index + 1}`}>
+                    <Link
+                      className="nav-link"
+                      to={`/products/${item.slug}`}
+                      data-key="t-slug"
+                    >
+                      {/* <img src={`${process.env.REACT_APP_API_URL}/${item.icon.url}`} alt={item.name} width={20} height={20} />{' '} */}
+                      {item.name}
+                    </Link>
+                  </div>
+                ))}
+                <div className="item">
+                  <Link
+                    className="nav-link"
+                    to={`/earn`}
+                    data-key="t-slug"
+                  >
+                    EARN
+                  </Link>
                 </div>
-              );
-            })}
-          </SimpleBar>
+              </div>
+            )}
+          </div>
         </Offcanvas.Body>
 
         <DetailsModal

@@ -52,115 +52,115 @@ const Header = (props: any) => {
 
   const path = props.router.location.pathname;
 
-  useEffect(() => {
-    const removeActivation = (items: HTMLAnchorElement[]) => {
-      items.forEach((item: HTMLAnchorElement) => {
-        item.classList.remove("active");
-      });
-    };
+  // useEffect(() => {
+  //   const removeActivation = (items: HTMLAnchorElement[]) => {
+  //     items.forEach((item: HTMLAnchorElement) => {
+  //       item.classList.remove("active");
+  //     });
+  //   };
 
-    const activateParentDropdown = (item: HTMLAnchorElement) => {
-      item.classList.add("active");
-      const parentDrop: any = item.closest(".dropdown");
-      if (parentDrop) {
-        parentDrop.classList.add("active");
-        parentDrop.querySelector(".dropdown-toggle").classList.add("active");
-        const parentDropdown = parentDrop.parentElement.closest(".dropdown");
+  //   const activateParentDropdown = (item: HTMLAnchorElement) => {
+  //     item.classList.add("active");
+  //     const parentDrop: any = item.closest(".dropdown");
+  //     if (parentDrop) {
+  //       parentDrop.classList.add("active");
+  //       parentDrop.querySelector(".dropdown-toggle").classList.add("active");
+  //       const parentDropdown = parentDrop.parentElement.closest(".dropdown");
 
-        if (parentDropdown) {
-          parentDropdown
-            .querySelector(".dropdown-toggle")
-            .classList.add("active");
-          const parentEleDropdown =
-            parentDropdown.parentElement.closest(".dropdown");
-          if (parentEleDropdown) {
-            parentEleDropdown
-              .querySelector(".dropdown-toggle")
-              .classList.add("active");
-          }
-        }
-      }
-    };
+  //       if (parentDropdown) {
+  //         parentDropdown
+  //           .querySelector(".dropdown-toggle")
+  //           .classList.add("active");
+  //         const parentEleDropdown =
+  //           parentDropdown.parentElement.closest(".dropdown");
+  //         if (parentEleDropdown) {
+  //           parentEleDropdown
+  //             .querySelector(".dropdown-toggle")
+  //             .classList.add("active");
+  //         }
+  //       }
+  //     }
+  //   };
 
-    const initMenu = () => {
-      const pathName = process.env.PUBLIC_URL + path;
-      const ul = document.getElementById("navigation-menu") as HTMLElement;
-      const items: any = ul.getElementsByTagName("a");
-      const itemsArray: any = Array.from(items);
-      removeActivation(itemsArray);
-      const matchingMenuItem = itemsArray.find(
-        (x: HTMLAnchorElement) => x.pathname === pathName,
-      );
-      if (matchingMenuItem) {
-        activateParentDropdown(matchingMenuItem);
-      }
-    };
+  //   const initMenu = () => {
+  //     const pathName = process.env.PUBLIC_URL + path;
+  //     const ul = document.getElementById("navigation-menu") as HTMLElement;
+  //     const items: any = ul.getElementsByTagName("a");
+  //     const itemsArray: any = Array.from(items);
+  //     removeActivation(itemsArray);
+  //     const matchingMenuItem = itemsArray.find(
+  //       (x: HTMLAnchorElement) => x.pathname === pathName,
+  //     );
+  //     if (matchingMenuItem) {
+  //       activateParentDropdown(matchingMenuItem);
+  //     }
+  //   };
 
-    initMenu();
-    const collapse = document.getElementById(
-      "navbarSupportedContent",
-    ) as HTMLElement;
-    if (collapse && collapse.classList.contains("show")) {
-      collapse.classList.remove("show");
-    }
-  }, [path]);
+  //   initMenu();
+  //   const collapse = document.getElementById(
+  //     "navbarSupportedContent",
+  //   ) as HTMLElement;
+  //   if (collapse && collapse.classList.contains("show")) {
+  //     collapse.classList.remove("show");
+  //   }
+  // }, [path]);
 
-  const windowScroll = () => {
-    const navbar = document.getElementById("navbar");
-    if (navbar) {
-      if (
-        document.body.scrollTop >= 50 ||
-        document.documentElement.scrollTop >= 50
-      ) {
-        navbar.classList.add("is-sticky");
-      } else {
-        navbar.classList.remove("is-sticky");
-      }
-    }
-  };
+  // const windowScroll = () => {
+  //   const navbar = document.getElementById("navbar");
+  //   if (navbar) {
+  //     if (
+  //       document.body.scrollTop >= 50 ||
+  //       document.documentElement.scrollTop >= 50
+  //     ) {
+  //       navbar.classList.add("is-sticky");
+  //     } else {
+  //       navbar.classList.remove("is-sticky");
+  //     }
+  //   }
+  // };
 
-  window.addEventListener("scroll", function (ev) {
-    ev.preventDefault();
-    windowScroll();
-  });
+  // window.addEventListener("scroll", function (ev) {
+  //   ev.preventDefault();
+  //   windowScroll();
+  // });
 
-  const handleShowColl = () => {
-    const navbar = document.getElementById("navbar");
-    const collapse = document.getElementById(
-      "navbarSupportedContent",
-    ) as HTMLElement;
-    navbar && navbar.classList.remove("navbar-expand");
-    if (collapse && collapse.classList.contains("show")) {
-      collapse.addEventListener("shown.bs.collapse", () => {
-        collapse.classList.remove("show");
-      });
-    } else {
-      collapse.classList.add("show");
-    }
-  };
+  // const handleShowColl = () => {
+  //   const navbar = document.getElementById("navbar");
+  //   const collapse = document.getElementById(
+  //     "navbarSupportedContent",
+  //   ) as HTMLElement;
+  //   navbar && navbar.classList.remove("navbar-expand");
+  //   if (collapse && collapse.classList.contains("show")) {
+  //     collapse.addEventListener("shown.bs.collapse", () => {
+  //       collapse.classList.remove("show");
+  //     });
+  //   } else {
+  //     collapse.classList.add("show");
+  //   }
+  // };
 
   // Resize Nav Collapse
-  const windowResizeHover = () => {
-    const windowSize = document.documentElement.clientWidth;
-    if (windowSize > 992) {
-      const collapse = document.getElementById(
-        "navbarSupportedContent",
-      ) as HTMLElement;
-      if (collapse && collapse.classList.contains("show")) {
-        collapse.classList.remove("show");
-      }
-      setShowMenu("");
-      setShowSubMenu("");
-      setShowPageSubMenu("");
-    }
-  };
+  // const windowResizeHover = () => {
+  //   const windowSize = document.documentElement.clientWidth;
+  //   if (windowSize > 992) {
+  //     const collapse = document.getElementById(
+  //       "navbarSupportedContent",
+  //     ) as HTMLElement;
+  //     if (collapse && collapse.classList.contains("show")) {
+  //       collapse.classList.remove("show");
+  //     }
+  //     setShowMenu("");
+  //     setShowSubMenu("");
+  //     setShowPageSubMenu("");
+  //   }
+  // };
 
-  useEffect(() => {
-    window.addEventListener("resize", windowResizeHover);
-    return () => {
-      window.removeEventListener("resize", windowResizeHover);
-    };
-  }, []);
+  // useEffect(() => {
+  //   window.addEventListener("resize", windowResizeHover);
+  //   return () => {
+  //     window.removeEventListener("resize", windowResizeHover);
+  //   };
+  // }, []);
 
   return (
     <React.Fragment>
@@ -184,15 +184,14 @@ const Header = (props: any) => {
           <Button
             className="btn btn-soft-primary btn-icon d-lg-none collapsed"
             aria-controls="navbarSupportedContent"
-            onClick={handleShowColl}
+            onClick={() => props.openSideBar()}
           >
             <i className="bi bi-list fs-20"></i>
           </Button>
 
-          <Navbar.Collapse id="navbarSupportedContent">
             <Nav
               as="ul"
-              className="mx-lg-auto mb-2 mb-lg-0"
+              className="mx-lg-auto mb-2 mb-lg-0 desktop-navbar"
               id="navigation-menu"
             >
               <li className="nav-item d-block d-lg-none">
@@ -240,13 +239,14 @@ const Header = (props: any) => {
                 </Link>
               </li>
             </Nav>
-          </Navbar.Collapse>
+          {/* <Navbar.Collapse className="desktop-navbar">
+          </Navbar.Collapse> */}
 
-          <div
+          {/* <div
             className="bg-overlay navbar-overlay"
             data-bs-toggle="collapse"
             data-bs-target="#navbarSupportedContent.show"
-          ></div>
+          ></div> */}
           <div className="d-flex align-items-center">
             <Button
               type="button"
