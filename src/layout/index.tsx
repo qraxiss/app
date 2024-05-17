@@ -98,13 +98,15 @@ const Layout = (props: any) => {
     <React.Fragment>
       {location.pathname && <MainModal location={location.pathname} />}
       <CollectionsSideBar openSideBar={openSideBar} />
-      <Header handleMood={handleThemeMood} openSideBar={openSideBar} />
-      {props.children}
-      <Footer />
+      <div style={{marginLeft: "50px"}}>
+        <Header handleMood={handleThemeMood} openSideBar={openSideBar} />
+        {props.children}
+        <Footer />
+      </div>
       <Button
         onClick={() => ScrollbarTop()}
         variant="info"
-        className="btn-icon button-primary"
+        className="btn-icon button-secondary"
         style={{ bottom: "50px" }}
         id="back-to-top"
       >

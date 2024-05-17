@@ -7,6 +7,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
+// import { MdOutlineArrowForwardIos, MdOutlineArrowBackIos } from "react-icons/md";
 
 export const TopPicks = () => {
   const hotDeals = useSelector((state: any) => state.hotDeals.data);
@@ -83,7 +84,7 @@ export const TopPicks = () => {
                               alt=""
                               className="img-fluid product-img-2"
                             />
-                            <ul className="product-menu list-unstyled">
+                            {/* <ul className="product-menu list-unstyled">
                               <li className="mb-2">
                                 <Link
                                   to="/#"
@@ -172,7 +173,7 @@ export const TopPicks = () => {
                                   ))}
                                 </div>
                               </div>
-                            </div>
+                            </div> */}
                           </div>
                           <div className="mt-3">
                             <Link to={`/product-details/${item?.slug}`}>

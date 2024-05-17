@@ -63,7 +63,7 @@ export const WhyChoose = () => {
                       tailored to enhance your brand.
                     </p>
                     <p className="text-white-50 mb-0 fs-18 pb-2">
-                      Apply the Program
+                      Apply Now
                     </p>
                     <Row>
                       <Col lg={7}>
