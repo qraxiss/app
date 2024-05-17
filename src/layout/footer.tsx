@@ -91,6 +91,11 @@ const Footer = () => {
                           </Link>
                         </li>
                       ))}
+                      <li>
+                        <Link to={`products/earn`}>
+                          EARN
+                        </Link>
+                      </li>
                     </ul>
                   </div>
                 </Col>
@@ -159,12 +164,12 @@ const Footer = () => {
                         ))}
                       </ul>
                     </div>
-                    <div className="mt-3">
+                    <div className="mt-3 d-flex justify-content-end">
                       <Image
                         src={microsoft_banner}
                         alt=""
                         height="auto"
-                        width="60%"
+                        width="50%"
                         className="logo-light"
                       />
                     </div>

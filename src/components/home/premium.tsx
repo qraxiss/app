@@ -33,7 +33,7 @@ export const Premium: FC = () => {
                   <div className="widgets-wrapper position-absolute text-center">
                     <Link
                       to="#"
-                      className="btn button-primary w-md rounded-0 stretched-link"
+                      className="btn button-secondary w-md rounded-3 stretched-link text-white"
                     >
                       {categories[0]?.name}
                     </Link>
@@ -55,7 +55,7 @@ export const Premium: FC = () => {
                         <div className="widgets-wrapper position-absolute text-center">
                           <Link
                             to="#"
-                            className="btn button-primary w-md rounded-0 stretched-link"
+                            className="btn button-secondary w-md rounded-3 stretched-link text-white"
                           >
                             {category.name}
                           </Link>

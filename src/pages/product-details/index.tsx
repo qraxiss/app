@@ -54,6 +54,8 @@ const ProductDetails = () => {
     setDisabled(!(!cart.loading && logged && count > 0 && !!size && !!color));
   }, [cart.loading, count, size, color, logged]);
 
+  console.log(disabled);
+  
   //like button
   const likeButton = useRef<any>(null);
 
@@ -102,7 +104,7 @@ const ProductDetails = () => {
   };
   return (
     <React.Fragment>
-      <section className="section pt-20">
+      <section className="section" style={{ paddingTop: "140px" }}>
         <Container>
           <Row className="gx-2">
             <Col lg={6}>
@@ -116,6 +118,7 @@ const ProductDetails = () => {
                       padding: "2px",
                     }}
                   >
+                    
                     <div
                       className="swiper-wrapper"
                       id="swiper-wrapper-6100bf53c3db1675b"
@@ -247,10 +250,6 @@ const ProductDetails = () => {
                       <i className="bi bi-check2-circle me-2 align-middle text-success" />
                       Free delivery available
                     </li>
-                    <li>
-                      <i className="bi bi-check2-circle me-2 align-middle text-success" />
-                      Sales 10% Off Use Code: <b>FASHION10</b>
-                    </li>
                   </ul>
                 </div>
                 <div className="d-flex align-items-center mb-4">
@@ -305,38 +304,43 @@ const ProductDetails = () => {
                                   {size.value}
                                 </Form.Label>
                               </li>
-                            ),
+                            )
                           )}
                       </ul>
                     </div>
                   </Col>
                   <Col md={12}>
-                    <h6 className="fs-14 fw-medium text-muted">Colors: </h6>
-                    <ul className="clothe-colors list-unstyled hstack gap-1 mb-0 flex-wrap ms-2">
-                      {data?.product?.colors &&
-                        data?.product?.colors.length > 0 &&
-                        data?.product?.colors.map(
-                          (color: any, index: number) => (
-                            <li
-                              key={index}
-                              onClick={() => {
-                                setColor(color);
-                              }}
-                            >
-                              <Form.Control
-                                type="radio"
-                                name="colors"
-                                id={`product-color-${index}`}
-                              />
-                              <Form.Label
-                                style={{ background: color.hex }}
-                                className="avatar-xs btn p-0 d-flex align-items-center justify-content-center rounded-circle"
-                                htmlFor={`product-color-${index}`}
-                              />
-                            </li>
-                          ),
-                        )}
-                    </ul>
+                    {data?.product?.colors &&
+                      data?.product?.colors.length > 0 && (
+                        <>
+                          <h6 className="fs-14 fw-medium text-muted">
+                            Colors:{" "}
+                          </h6>
+                          <ul className="clothe-colors list-unstyled hstack gap-1 mb-0 flex-wrap ms-2">
+                            {data?.product?.colors.map(
+                              (color: any, index: number) => (
+                                <li
+                                  key={index}
+                                  onClick={() => {
+                                    setColor(color);
+                                  }}
+                                >
+                                  <Form.Control
+                                    type="radio"
+                                    name="colors"
+                                    id={`product-color-${index}`}
+                                  />
+                                  <Form.Label
+                                    style={{ background: color.hex }}
+                                    className="avatar-xs btn p-0 d-flex align-items-center justify-content-center rounded-circle"
+                                    htmlFor={`product-color-${index}`}
+                                  />
+                                </li>
+                              )
+                            )}
+                          </ul>
+                        </>
+                      )}
                   </Col>
                 </Row>
                 <div className="hstack gap-1">
@@ -385,7 +389,6 @@ const ProductDetails = () => {
       <p className="text-muted px-5 ms-2 fs-15">{data?.product?.description}</p>
 
       <EmailClothe />
-      <CommonService />
     </React.Fragment>
   );
 };

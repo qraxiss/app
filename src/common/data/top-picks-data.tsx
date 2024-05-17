@@ -103,7 +103,7 @@ const choosedata = [
     id: 4,
     header: "Earn While You Shop",
     info: "Maximize your shopping benefits by earning SHPC tokens with every purchase, making shopping more rewarding than ever.",
-    icon: "bi bi-house-door",
+    icon: "bi bi-piggy-bank",
   },
 ];
 

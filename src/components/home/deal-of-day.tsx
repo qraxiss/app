@@ -23,7 +23,14 @@ export const DealOfDay = () => {
             <span className="fs-36 fw-medium" id="days">
               {days}
             </span>{" "}
-            Days
+            <span >
+              Days
+            </span>
+          </li>
+          <li className="px-3">
+            <span className="fs-36 fw-medium" id="days">
+              :
+            </span>{" "}
           </li>
           <li>
             <span className="fs-36 fw-medium" id="hours">
@@ -31,11 +38,21 @@ export const DealOfDay = () => {
             </span>{" "}
             Hours
           </li>
+          <li className="px-3">
+            <span className="fs-36 fw-medium" id="days">
+              :
+            </span>{" "}
+          </li>
           <li>
             <span className="fs-36 fw-medium" id="minutes">
               {minutes}
             </span>{" "}
             Minutes
+          </li>
+          <li className="px-3">
+            <span className="fs-36 fw-medium" id="days">
+              :
+            </span>{" "}
           </li>
           <li>
             <span className="fs-36 fw-medium" id="seconds">
@@ -60,7 +77,7 @@ export const DealOfDay = () => {
                 <span className="fw-medium">Winter Season</span> Sales
               </h1>
               <p id="done"></p>
-              <ul className="countdown d-flex justify-content-center gap-3 flex-wrap gap-lg-5 list-unstyled text-center fs-17">
+              <ul className="countdown d-flex justify-content-center list-unstyled text-center fs-17">
                 <Countdown date="2025/08/16" renderer={renderer} />
               </ul>
               <div className="mt-4 pt-3">

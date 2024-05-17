@@ -27,6 +27,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch } from "store";
 
 import { updateItemAsync, deleteCartItem } from "slices/thunk";
+import { useLazyShopcekQuery, useShopcekQuery } from "graphql/apollo/query-wrapper";
+import { SEARCH_QUERY } from "graphql/search/queries";
 
 //go to one page to another page opne modal
 export const MainModal = ({ location }: any) => {
@@ -453,9 +455,17 @@ export const InvoiceModal = ({ modal, handleClose }: any) => {
 //search modal
 export const SearchModal = ({ show, handleClose }: any) => {
   const [value, setValue] = useState("");
+  console.log(value);
   const handlesearch = (event: any) => {
     setValue(event.value);
   };
+
+  const searchGQL = useShopcekQuery<any>(SEARCH_QUERY(value), {
+    nextFetchPolicy: "no-cache",
+    fetchPolicy: "no-cache",
+  });
+
+  console.log(searchGQL.data);
 
   useEffect(() => {
     const searchOption = document.getElementById("search-close-options");
@@ -493,7 +503,7 @@ export const SearchModal = ({ show, handleClose }: any) => {
             <Form.Control
               type="text"
               className="form-control-lg border-2"
-              placeholder="Search for Toner..."
+              placeholder="Search for Products..."
               id="search-options"
               value={value}
               onChange={(e: any) => handlesearch(e.target)}
@@ -501,6 +511,7 @@ export const SearchModal = ({ show, handleClose }: any) => {
             <span className="bi bi-search search-widget-icon fs-17"></span>
             <Link
               to="#"
+              onClick={() => setValue("")}
               className="search-widget-icon fs-14 link-secondary text-decoration-underline search-widget-icon-close"
               id="search-close-options"
             >
@@ -512,138 +523,22 @@ export const SearchModal = ({ show, handleClose }: any) => {
           className="dropdown-menu dropdown-menu-lg dropdown-menu-end p-0 overflow-hidden"
           id="search-dropdown"
         >
-          <div className="dropdown-head rounded-top">
-            <div className="p-3">
-              <Row className="align-items-center">
-                <Col>
-                  <h6 className="m-0 fs-14 text-muted fw-semibold">
-                    {" "}
-                    RECENT SEARCHES{" "}
-                  </h6>
-                </Col>
-              </Row>
-            </div>
-
-            <div className="dropdown-item bg-transparent text-wrap">
-              <Link
-                to="/"
-                className="btn btn-soft-secondary btn-sm btn-rounded"
-              >
-                how to setup{" "}
-                <i className="mdi mdi-magnify ms-1 align-middle"></i>
-              </Link>
-              <Link
-                to="/"
-                className="btn btn-soft-secondary btn-sm btn-rounded"
-              >
-                buttons <i className="mdi mdi-magnify ms-1 align-middle"></i>
-              </Link>
-            </div>
-          </div>
           <SimpleBar className="pe-2 ps-3 mt-3" style={{ maxHeight: "300px" }}>
             <div className="list-group list-group-flush border-dashed">
               <div className="notification-group-list">
                 <h5 className="text-overflow text-muted fs-13 mb-2 mt-3 text-uppercase notification-title">
-                  Apps Pages
+                  Products
                 </h5>
-                <Link
-                  to="#"
-                  className="list-group-item dropdown-item notify-item"
-                >
-                  <i className="bi bi-speedometer2 me-2"></i>{" "}
-                  <span>Analytics Dashboard</span>
-                </Link>
-                <Link
-                  to="#"
-                  className="list-group-item dropdown-item notify-item"
-                >
-                  <i className="bi bi-filetype-psd me-2"></i>{" "}
-                  <span>Toner.psd</span>
-                </Link>
-                <Link
-                  to="#"
-                  className="list-group-item dropdown-item notify-item"
-                >
-                  <i className="bi bi-ticket-detailed me-2"></i>{" "}
-                  <span>Support Tickets</span>
-                </Link>
-                <Link
-                  to="#"
-                  className="list-group-item dropdown-item notify-item"
-                >
-                  <i className="bi bi-file-earmark-zip me-2"></i>{" "}
-                  <span>Toner.zip</span>
-                </Link>
-              </div>
-
-              <div className="notification-group-list">
-                <h5 className="text-overflow text-muted fs-13 mb-2 mt-3 text-uppercase notification-title">
-                  Links
-                </h5>
-                <Link
-                  to="#"
-                  className="list-group-item dropdown-item notify-item"
-                >
-                  <i className="bi bi-link-45deg me-2 align-middle"></i>{" "}
-                  <span>www.themesbrand.com</span>
-                </Link>
-              </div>
-
-              <div className="notification-group-list">
-                <h5 className="text-overflow text-muted fs-13 mb-2 mt-3 text-uppercase notification-title">
-                  People
-                </h5>
-                <Link
-                  to="#"
-                  className="list-group-item dropdown-item notify-item"
-                >
-                  <div className="d-flex align-items-center">
-                    <Image
-                      src={avatar1}
-                      alt=""
-                      className="avatar-xs flex-shrink-0 me-2"
-                      roundedCircle
-                    />
-                    <div>
-                      <h6 className="mb-0">Ayaan Bowen</h6>
-                      <span className="fs-12 text-muted">React Developer</span>
-                    </div>
-                  </div>
-                </Link>
-                <Link
-                  to="#"
-                  className="list-group-item dropdown-item notify-item"
-                >
-                  <div className="d-flex align-items-center">
-                    <Image
-                      src={avatar7}
-                      alt=""
-                      className="avatar-xs flex-shrink-0 me-2"
-                      roundedCircle
-                    />
-                    <div>
-                      <h6 className="mb-0">Alexander Kristi</h6>
-                      <span className="fs-12 text-muted">React Developer</span>
-                    </div>
-                  </div>
-                </Link>
-                <Link
-                  to="#"
-                  className="list-group-item dropdown-item notify-item"
-                >
-                  <div className="d-flex align-items-center">
-                    <Image
-                      src={avatar7}
-                      alt=""
-                      className="avatar-xs flex-shrink-0 me-2"
-                      roundedCircle
-                    />
-                    <div>
-                      <h6 className="mb-0">Alan Carla</h6>
-                      <span className="fs-12 text-muted">React Developer</span>
-                    </div>
-                  </div>
-                </Link>
+                {
+                  (searchGQL.data && searchGQL.data.length > 0) && searchGQL.data.map((item: any) => (
+                    <Link
+                      to={`/product-details/${item.slug}`}
+                      className="list-group-item dropdown-item notify-item"
+                    >
+                      <span>{item.name}</span>
+                    </Link>
+                  ))
+                }
               </div>
             </div>
           </SimpleBar>
@@ -702,46 +597,22 @@ export const CardModal = ({ show, handleClose }: any) => {
   const countUP = (itemId: number | string, count: number) => {
     dispatch(updateItemAsync({ count, itemId }));
 
-    // setProductcount(
-    //   (productData || [])?.map((count) =>
-    //     count.id === item.id
-    //       ? {
-    //           ...count,
-    //           num: item.num + 1,
-    //           Total: (item.num + 1) * item.ItemPrice,
-    //         }
-    //       : count
-    //   )
-    // );
   };
 
   const countDown = (itemId: number | string, count: number) => {
     dispatch(updateItemAsync({ count, itemId }));
-
-    // setProductcount(
-    //   (productData || []).map((count) =>
-    //     count.id === item.id && count.num >= 0
-    //       ? {
-    //           ...count,
-    //           num: item.num?.lenght > 0 ? item.num - 1 : 0,
-    //           Total: (item.num?.lenght > 0 ? item.num - 1 : 0) * item.ItemPrice,
-    //         }
-    //       : count
-    //   )
-    // );
   };
   return (
     <React.Fragment>
       <Offcanvas
         show={show}
         onHide={handleClose}
-        backdrop="static"
         placement="end"
       >
-        <Offcanvas.Header closeButton className="border-bottom">
+        <Offcanvas.Header className="border-bottom">
           <Offcanvas.Title id="ecommerceCartLabel" as="h5">
             My Cart{" "}
-            <span className="badge bg-danger align-middle ms-1 cartitem-badge">
+            <span className="badge align-middle ms-1 cartitem-badge" style={{background: "#FF57BA"}}>
               {cart.count}
             </span>
           </Offcanvas.Title>
@@ -827,7 +698,7 @@ export const CardModal = ({ show, handleClose }: any) => {
                 );
               })}
             </ul>
-            <div className="table-responsive mx-2 border-top border-top-dashed">
+            {/* <div className="table-responsive mx-2 border-top border-top-dashed">
               <Table className="table table-borderless mb-0 fs-14 fw-semibold">
                 <tbody>
                   <tr>
@@ -854,7 +725,7 @@ export const CardModal = ({ show, handleClose }: any) => {
                   </tr>
                 </tbody>
               </Table>
-            </div>
+            </div> */}
           </SimpleBar>
         </Offcanvas.Body>
         <div className="offcanvas-footer border-top p-3 text-center">

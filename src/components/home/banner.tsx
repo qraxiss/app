@@ -37,7 +37,7 @@ export const Banner = () => {
                     <Button
                       variant="info"
                       type="button"
-                      className="button-primary rounded-0"
+                      className="button-secondary rounded-3"
                     >
                       {" "}
                       See How <i className="bi bi-bag align-baseline ms-1"></i>

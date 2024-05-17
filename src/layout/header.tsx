@@ -42,6 +42,7 @@ const Header = (props: any) => {
 
   //card modal
   const isModalOpen = useSelector((state: any) => state.cart.data.isModalOpen);
+  const cart = useSelector((state: any) => state.cart.data);
 
   const handlecardClose = () => dispatch(closeModal());
   const handleCardShow = () => dispatch(openModal());
@@ -50,117 +51,6 @@ const Header = (props: any) => {
   const [showSubMenu, setShowSubMenu] = useState<any>("");
   const [showPageSubMenu, setShowPageSubMenu] = useState<any>("");
 
-  const path = props.router.location.pathname;
-
-  // useEffect(() => {
-  //   const removeActivation = (items: HTMLAnchorElement[]) => {
-  //     items.forEach((item: HTMLAnchorElement) => {
-  //       item.classList.remove("active");
-  //     });
-  //   };
-
-  //   const activateParentDropdown = (item: HTMLAnchorElement) => {
-  //     item.classList.add("active");
-  //     const parentDrop: any = item.closest(".dropdown");
-  //     if (parentDrop) {
-  //       parentDrop.classList.add("active");
-  //       parentDrop.querySelector(".dropdown-toggle").classList.add("active");
-  //       const parentDropdown = parentDrop.parentElement.closest(".dropdown");
-
-  //       if (parentDropdown) {
-  //         parentDropdown
-  //           .querySelector(".dropdown-toggle")
-  //           .classList.add("active");
-  //         const parentEleDropdown =
-  //           parentDropdown.parentElement.closest(".dropdown");
-  //         if (parentEleDropdown) {
-  //           parentEleDropdown
-  //             .querySelector(".dropdown-toggle")
-  //             .classList.add("active");
-  //         }
-  //       }
-  //     }
-  //   };
-
-  //   const initMenu = () => {
-  //     const pathName = process.env.PUBLIC_URL + path;
-  //     const ul = document.getElementById("navigation-menu") as HTMLElement;
-  //     const items: any = ul.getElementsByTagName("a");
-  //     const itemsArray: any = Array.from(items);
-  //     removeActivation(itemsArray);
-  //     const matchingMenuItem = itemsArray.find(
-  //       (x: HTMLAnchorElement) => x.pathname === pathName,
-  //     );
-  //     if (matchingMenuItem) {
-  //       activateParentDropdown(matchingMenuItem);
-  //     }
-  //   };
-
-  //   initMenu();
-  //   const collapse = document.getElementById(
-  //     "navbarSupportedContent",
-  //   ) as HTMLElement;
-  //   if (collapse && collapse.classList.contains("show")) {
-  //     collapse.classList.remove("show");
-  //   }
-  // }, [path]);
-
-  // const windowScroll = () => {
-  //   const navbar = document.getElementById("navbar");
-  //   if (navbar) {
-  //     if (
-  //       document.body.scrollTop >= 50 ||
-  //       document.documentElement.scrollTop >= 50
-  //     ) {
-  //       navbar.classList.add("is-sticky");
-  //     } else {
-  //       navbar.classList.remove("is-sticky");
-  //     }
-  //   }
-  // };
-
-  // window.addEventListener("scroll", function (ev) {
-  //   ev.preventDefault();
-  //   windowScroll();
-  // });
-
-  // const handleShowColl = () => {
-  //   const navbar = document.getElementById("navbar");
-  //   const collapse = document.getElementById(
-  //     "navbarSupportedContent",
-  //   ) as HTMLElement;
-  //   navbar && navbar.classList.remove("navbar-expand");
-  //   if (collapse && collapse.classList.contains("show")) {
-  //     collapse.addEventListener("shown.bs.collapse", () => {
-  //       collapse.classList.remove("show");
-  //     });
-  //   } else {
-  //     collapse.classList.add("show");
-  //   }
-  // };
-
-  // Resize Nav Collapse
-  // const windowResizeHover = () => {
-  //   const windowSize = document.documentElement.clientWidth;
-  //   if (windowSize > 992) {
-  //     const collapse = document.getElementById(
-  //       "navbarSupportedContent",
-  //     ) as HTMLElement;
-  //     if (collapse && collapse.classList.contains("show")) {
-  //       collapse.classList.remove("show");
-  //     }
-  //     setShowMenu("");
-  //     setShowSubMenu("");
-  //     setShowPageSubMenu("");
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   window.addEventListener("resize", windowResizeHover);
-  //   return () => {
-  //     window.removeEventListener("resize", windowResizeHover);
-  //   };
-  // }, []);
 
   return (
     <React.Fragment>
@@ -169,7 +59,7 @@ const Header = (props: any) => {
         id="navbar"
         expanded={false}
       >
-        <Container>
+        <div className="ecommerce-navbar-container">
           <Navbar.Brand className="d-none d-lg-block">
             <Link to="/">
               <div className="logo-dark">
@@ -191,7 +81,7 @@ const Header = (props: any) => {
 
             <Nav
               as="ul"
-              className="mx-lg-auto mb-2 mb-lg-0 desktop-navbar"
+              className="mb-2 mb-lg-0 desktop-navbar"
               id="navigation-menu"
             >
               <li className="nav-item d-block d-lg-none">
@@ -268,6 +158,7 @@ const Header = (props: any) => {
                 onClick={handleCardShow}
               >
                 <i className="ph-shopping-cart fs-18"></i>
+                {cart?.count > 0 && <span className="position-absolute topbar-badge cartitem-badge fs-10 translate-middle badge rounded-pill bg-danger"> {cart?.count} </span>}
               </Button>
             </div>
 
@@ -352,7 +243,7 @@ const Header = (props: any) => {
               <ConnectWallet />
             )}
           </div>
-        </Container>
+        </div>
       </Navbar>
       <CardModal show={isModalOpen} handleClose={handlecardClose} />
     </React.Fragment>

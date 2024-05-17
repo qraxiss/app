@@ -130,36 +130,43 @@ export const CollectionModal: FC<CollectionModalProps> = ({
           <div className="body h-100">
             {currentModule === "collections" && (
               <>
-                {data.map((item, idx) => {
-                  return (
-                    <div
-                      key={idx}
-                      className="item"
-                      onClick={() => {
-                        if (item.slug !== "blockchain-boutique") {
-                          setNewContent(item.slug);
-                          handleCardShow();
-                        } else {
-                          handleClose();
-                          navigate("/products/collection/blockchain-boutique");
-                        }
-                      }}
-                    >
-                      <img
-                        src={`${process.env.REACT_APP_API_URL}${item.icon?.url}`}
-                        alt=""
-                      />
-                      {item.name}
-                      {item.slug !== "blockchain-boutique" ? (
+                {[...data].sort((a, b) => {
+                    if (a.name < b.name) return 1; 
+                    if (a.name > b.name) return -1;
+                    return 0;
+                  })
+                  .map((item, idx) => {
+                    return (
+                      <div
+                        key={idx}
+                        className="item"
+                        onClick={() => {
+                          if (item.slug !== "blockchain-boutique") {
+                            setNewContent(item.slug);
+                            handleCardShow();
+                          } else {
+                            handleClose();
+                            navigate(
+                              "/products/collection/blockchain-boutique"
+                            );
+                          }
+                        }}
+                      >
                         <img
-                          src={dropdown}
+                          src={`${process.env.REACT_APP_API_URL}${item.icon?.url}`}
                           alt=""
-                          className="dropdown ${animation}"
                         />
-                      ) : undefined}
-                    </div>
-                  );
-                })}
+                        {item.name}
+                        {item.slug !== "blockchain-boutique" ? (
+                          <img
+                            src={dropdown}
+                            alt=""
+                            className="dropdown ${animation}"
+                          />
+                        ) : undefined}
+                      </div>
+                    );
+                  })}
               </>
             )}
             {currentModule === "menu" && (
@@ -177,11 +184,7 @@ export const CollectionModal: FC<CollectionModalProps> = ({
                   </div>
                 ))}
                 <div className="item">
-                  <Link
-                    className="nav-link"
-                    to={`/earn`}
-                    data-key="t-slug"
-                  >
+                  <Link className="nav-link" to={`/earn`} data-key="t-slug">
                     EARN
                   </Link>
                 </div>

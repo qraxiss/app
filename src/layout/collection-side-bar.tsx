@@ -17,15 +17,21 @@ export const CollectionsSideBar: FC<CollectionsSideBarProps> = ({
         <img src={logo} alt="" />
       </div>
       <div className="icons">
-        {sideBarData.map((item: any, idx: number) => {
-          return (
-            <img
-              src={`${process.env.REACT_APP_API_URL}${item.icon?.url}`}
-              alt=""
-              key={"collection-sidebar-" + idx}
-            />
-          );
-        })}
+        {[...sideBarData]
+          .sort((a: any, b: any) => {
+            if (a.name < b.name) return 1; // Change -1 to 1 for descending order
+            if (a.name > b.name) return -1; // Change 1 to -1 for descending order
+            return 0;
+          })
+          .map((item: any, idx: number) => {
+            return (
+              <img
+                src={`${process.env.REACT_APP_API_URL}${item.icon?.url}`}
+                alt=""
+                key={"collection-sidebar-" + idx}
+              />
+            );
+          })}
       </div>
     </div>
   );
