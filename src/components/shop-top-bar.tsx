@@ -13,6 +13,8 @@ import {
 import { Link } from "react-router-dom";
 import { recentlyOrder } from "common/data";
 
+import { useSelector } from "react-redux";
+
 export const Shoptopbar = ({ title, page }: any) => {
   return (
     <React.Fragment>
@@ -40,6 +42,7 @@ export const Shoptopbar = ({ title, page }: any) => {
 };
 
 export const Shoporder = ({ dic, subtotal, charge, tax, total }: any) => {
+  const { count, price } = useSelector((state: any) => state.cart.data);
   return (
     <React.Fragment>
       <Card>
@@ -73,9 +76,7 @@ export const Shoporder = ({ dic, subtotal, charge, tax, total }: any) => {
               <tbody>
                 <tr>
                   <td>Sub Total :</td>
-                  <td className="text-end cart-subtotal">
-                    ${subtotal || "0.00"}
-                  </td>
+                  <td className="text-end cart-subtotal">${price || "0.00"}</td>
                 </tr>
                 <tr>
                   <td>
@@ -97,7 +98,7 @@ export const Shoporder = ({ dic, subtotal, charge, tax, total }: any) => {
                   <th>Total (USD) :</th>
                   <td className="text-end">
                     <span className="fw-semibold cart-total">
-                      ${total || "0.00"}
+                      ${price || "0.00"}
                     </span>
                   </td>
                 </tr>

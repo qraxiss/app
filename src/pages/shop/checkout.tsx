@@ -11,13 +11,21 @@ import {
 } from "react-bootstrap";
 import { Shoporder, Shoptopbar } from "components/shop-top-bar";
 import { Link } from "react-router-dom";
-import { shopProducDetails } from "common/data";
 import { ShopingAddress } from "./shopping-Address";
 import EmailClothe from "pages/catalog/email-clothe";
 import { CommonService } from "components/common-service";
 
+function getRandomInt(max: number) {
+  return Math.floor(Math.random() * max) + 1;
+}
+
+import { useSelector } from "react-redux";
+
 const Checkout = () => {
-  document.title = "Checkout | Toner - React FrontEnd";
+  document.title = "Shopcek | Checkout";
+
+  const { items } = useSelector((state: any) => state.cart.data);
+
   return (
     <React.Fragment>
       <Shoptopbar title="Checkout" page="Checkout" />
@@ -57,33 +65,37 @@ const Checkout = () => {
                         </tr>
                       </thead>
                       <tbody>
-                        {(shopProducDetails || [])?.map((item, inx) => {
+                        {items.map((item: any, inx: number) => {
                           return (
                             <tr key={inx}>
                               <td className="text-start">
                                 <div className="d-flex align-items-center gap-2">
                                   <div className="avatar-sm flex-shrink-0">
                                     <div
-                                      className={`avatar-title bg-${item.bg}-subtle rounded-3`}
+                                      className={`avatar-title bg-success-subtle rounded-3`}
                                     >
                                       <Image
-                                        src={item.img}
+                                        src={item.variant.image}
                                         alt=""
                                         className="avatar-xs"
                                       />
                                     </div>
                                   </div>
                                   <div className="flex-grow-1">
-                                    <h6>{item.title}</h6>
+                                    <h6>{item.variant.product.name}</h6>
                                     <p className="text-muted mb-0">
-                                      {item.discription}
+                                      {/*description*/}
+                                      Lorem ipsum dolor, sit amet consectetur
+                                      adipisicing elit. Eos, ipsam!
                                     </p>
                                   </div>
                                 </div>
                               </td>
-                              <td> ${item.rate}</td>
-                              <td> 0{item.id}</td>
-                              <td className="text-end">${item.amount}</td>
+                              <td> {"⭐️".repeat(getRandomInt(5))}</td>
+                              <td> {item.variant.id}</td>
+                              <td className="text-end">
+                                ${item.variant.price}
+                              </td>
                             </tr>
                           );
                         })}
@@ -117,7 +129,7 @@ const Checkout = () => {
                     <i className="ri-arrow-right-line label-icon align-middle ms-1"></i>
                   </Link>
                   <Link
-                    to="/shop/payment"
+                    to="/payment"
                     className="btn btn-hover btn-primary w-100"
                   >
                     Continue Payment
