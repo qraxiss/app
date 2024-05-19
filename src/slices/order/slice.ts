@@ -1,10 +1,15 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  loading: false,
-  error: null,
-  data: {
-    orders: [],
+  orders: {
+    loading: false,
+    error: null,
+    data: [],
+  },
+
+  purchase: {
+    loading: false,
+    error: null,
   },
 };
 
@@ -13,29 +18,29 @@ const orderSlice = createSlice({
   initialState,
   reducers: {
     fetchOrdersStart(state) {
-      state.loading = true;
-      state.error = null;
+      state.orders.loading = true;
+      state.orders.error = null;
     },
     fetchOrdersSuccess(state, { payload: { orders } }) {
-      state.loading = false;
-      state.error = null;
-      state.data.orders = orders;
+      state.orders.loading = false;
+      state.orders.error = null;
+      state.orders.data = orders;
     },
     fetchOrdersFailure(state, { payload: { message } }) {
-      state.loading = true;
-      state.error = message;
+      state.orders.loading = true;
+      state.orders.error = message;
     },
     purchaseItemStart(state) {
-      state.loading = true;
-      state.error = null;
+      state.purchase.loading = true;
+      state.purchase.error = null;
     },
     purchaseItemSuccess(state) {
-      state.loading = false;
-      state.error = null;
+      state.purchase.loading = false;
+      state.purchase.error = null;
     },
     purchaseItemFailure(state, { payload: { message } }) {
-      state.loading = false;
-      state.error = message;
+      state.purchase.loading = false;
+      state.purchase.error = message;
     },
   },
 });
