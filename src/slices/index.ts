@@ -10,6 +10,7 @@ import userReducer from "./user/slice";
 import wishlistReducer from "./wishlist/slice";
 import cartReducer from "./cart/slice";
 import orderReducer from "./order/slice";
+import cryptoMarketReducer from "./crypto-market/slice";
 
 const rootReducer = combineReducers({
   Layout: LayoutReducer,
@@ -22,6 +23,7 @@ const rootReducer = combineReducers({
   wishlist: wishlistReducer,
   cart: cartReducer,
   order: orderReducer,
+  cryptoMarket: cryptoMarketReducer,
 });
 
 export default rootReducer;
