@@ -23,3 +23,5 @@ export {
   deleteCartItem,
   updateItemAsync,
 } from "./cart/thunk";
+
+export { fetchOrdersAsync, purchaseItemAsync } from "./order/thunk";
