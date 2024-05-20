@@ -1,44 +1,61 @@
 import { useWeb3Modal } from "@web3modal/wagmi/react";
-import { Button } from "react-bootstrap";
-
-import { signInWithEthereumLocal } from "wallet/siwe";
+import { getWalletClient } from "wagmi/actions";
 import { BrowserProvider } from "ethers";
-
 import { useAccount } from "wagmi";
-import { verifySignatureAsync } from "slices/wallet/thunk";
+import { WalletClient } from "viem";
+import { siweConfig } from "wallet/web3modal-siwe";
+import config from "wallet/config";
 
+import { Button } from "react-bootstrap";
 import { FC, useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-
-import { AppDispatch } from "store";
-
+import { useSelector } from "react-redux";
 interface ConnectWalletProps {
   buttonText?: string;
 }
 
+const clientToProviderSigner = async (client: WalletClient) => {
+  const { account, chain, transport } = client;
+  const network = {
+    chainId: chain?.id,
+    name: chain?.name,
+    ensAddress: chain?.contracts?.ensRegistry?.address,
+  };
+  // You can use whatever provider that fits your need here.
+  const provider = new BrowserProvider(transport, network);
+  const signer = await provider.getSigner(account?.address);
+  return { provider, signer };
+};
+
 export const ConnectWallet: FC<ConnectWalletProps> = ({ buttonText }) => {
   const { open } = useWeb3Modal();
-  const provider = window.ethereum
-    ? new BrowserProvider(window.ethereum)
-    : null;
-  const { address, chainId, status } = useAccount();
-  const { nonce } = useSelector((state: any) => state.wallet.data);
+  const { status, chainId } = useAccount();
   const { logged } = useSelector((state: any) => state.user.data);
-
   const [connect, setConnect] = useState(false);
 
-  const dispatch: AppDispatch = useDispatch();
-
   useEffect(() => {
-    if (status === "connected" && !logged && connect && provider) {
-      signInWithEthereumLocal(address, chainId!, nonce, provider).then(
-        (data) => {
-          dispatch(verifySignatureAsync(data)).then(() => {
-            setConnect(false);
-          });
-        },
-      );
+    async function connectWallet() {
+      if (status === "connected") {
+        const client = await getWalletClient(config);
+        const { provider, signer } = await clientToProviderSigner(client);
+
+        if (!logged && connect && provider) {
+          const address = await signer.getAddress();
+          const nonce = await siweConfig.getNonce();
+
+          const message = siweConfig.createMessage({
+            nonce,
+            address,
+            chainId,
+          } as any);
+
+          const signature = await signer.signMessage(message);
+
+          siweConfig.verifyMessage({ message, signature });
+        }
+      }
     }
+
+    connectWallet();
   }, [status]);
 
   const handleConnect = () => {

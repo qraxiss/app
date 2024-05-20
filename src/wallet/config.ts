@@ -11,14 +11,14 @@ export const projectId = "e2d0ce35fa2c99ac5578cba14294027b";
 
 // 2. Create wagmiConfig
 const metadata = {
-  name: "Web3Modal",
-  description: "Web3Modal Example",
+  name: "Shopcek",
+  description: "Blockchain Fashion",
   url: "https://app.shopcek.com", // origin must match your domain & subdomain
   icons: ["https://avatars.githubusercontent.com/u/37784886"],
 };
 
 export default defaultWagmiConfig({
-  chains: chains,
+  chains,
   projectId,
   metadata,
   //   ...wagmiOptions // Optional - Override createConfig parameters
