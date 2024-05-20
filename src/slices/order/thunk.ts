@@ -10,8 +10,13 @@ import {
   purchaseItemSuccess,
 } from "./slice";
 
+import { fetchCartAsync } from "slices/thunk";
+
 import { NEW_ORDER } from "graphql/order/mutations";
 import { ORDERS } from "graphql/order/queries";
+
+import { payment } from "wallet/payment";
+import { store } from "store";
 
 export const fetchOrdersAsync = createAsyncThunk(
   "order/fetchOrders",
@@ -25,7 +30,7 @@ export const fetchOrdersAsync = createAsyncThunk(
 
       dispatch(fetchOrdersSuccess({ orders: data }));
     } catch (error: any) {
-      dispatch(fetchOrdersFailure({ error: error.message }));
+      dispatch(fetchOrdersFailure(error));
     }
   }
 );
@@ -35,15 +40,32 @@ export const purchaseItemAsync = createAsyncThunk(
   async (_, { dispatch }) => {
     try {
       dispatch(purchaseItemStart());
-
-      const { data } = await shopcekMutation<any>({
+      const state = store.getState();
+      const { BNBUSDT } = state.cryptoMarket.data;
+      const { price } = state.cart.data;
+      // const transaction = await payment(price / BNBUSDT);
+      const transaction = await payment(1 / BNBUSDT); // for test shoppings.
+      const { data, error } = await shopcekMutation<any>({
         mutation: NEW_ORDER,
+        options: {
+          variables: {
+            transaction,
+          },
+        } as any,
       });
 
-      await dispatch(fetchOrdersAsync());
-      dispatch(purchaseItemSuccess());
+      if (error) {
+        dispatch(purchaseItemFailure(error));
+        return;
+      }
+
+      await Promise.all([
+        dispatch(fetchOrdersAsync()),
+        dispatch(fetchCartAsync()),
+      ]);
+      dispatch(purchaseItemSuccess(data));
     } catch (error: any) {
-      dispatch(purchaseItemFailure({ error: error.message }));
+      dispatch(purchaseItemFailure(error));
     }
   }
 );

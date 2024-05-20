@@ -10,6 +10,7 @@ const initialState = {
   purchase: {
     loading: false,
     error: null,
+    data: {},
   },
 };
 
@@ -34,9 +35,10 @@ const orderSlice = createSlice({
       state.purchase.loading = true;
       state.purchase.error = null;
     },
-    purchaseItemSuccess(state) {
+    purchaseItemSuccess(state, action) {
       state.purchase.loading = false;
       state.purchase.error = null;
+      state.purchase.data = action.payload;
     },
     purchaseItemFailure(state, { payload: { message } }) {
       state.purchase.loading = false;

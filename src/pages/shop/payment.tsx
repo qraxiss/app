@@ -2,8 +2,16 @@ import React from "react";
 import { Card, Col, Container, Row, Tab, Alert, Nav } from "react-bootstrap";
 import { Shoporder } from "components/shop-top-bar";
 
+import { purchaseItemAsync } from "slices/thunk";
+
+import { useDispatch } from "react-redux";
+import { AppDispatch } from "store";
+
 const Payment = () => {
-  document.title = "payment | Toner - React FrontEnd";
+  document.title = "Shopcek | Payment";
+
+  const dispatch: AppDispatch = useDispatch();
+
   return (
     <React.Fragment>
       <section className="section pb-4">
@@ -20,13 +28,24 @@ const Payment = () => {
             <Col xl={8}>
               <h5 className="mb-0 flex-grow-1">Payment Selection</h5>
 
-              <Tab.Container defaultActiveKey="paypal">
+              <Tab.Container defaultActiveKey="crypto">
                 <Nav
                   variant="pills"
                   className="arrow-navtabs nav-success bg-light mb-3 mt-4 nav-justified custom-nav"
                   as="ul"
                   role="tablist"
                 >
+                  <Nav.Item as="li">
+                    <Nav.Link eventKey="crypto" className="py-3">
+                      <span className="d-block d-sm-none">
+                        <i className="ri-bit-coin-fill align-bottom"></i>
+                      </span>
+                      <span className="d-none d-sm-block">
+                        <i className="ri-bit-coin-fill align-bottom pe-2"></i>{" "}
+                        Crypto
+                      </span>
+                    </Nav.Link>
+                  </Nav.Item>
                   <Nav.Item as="li">
                     <Nav.Link eventKey="paypal" className="py-3">
                       <span className="d-block d-sm-none">
@@ -67,6 +86,38 @@ const Payment = () => {
                 </Nav>
 
                 <Tab.Content className="text-muted">
+                  <Tab.Pane eventKey="crypto">
+                    <Card>
+                      <Card.Body>
+                        <div className="text-center py-3">
+                          <div className="avatar-md mx-auto mb-4">
+                            <div className="avatar-title bg-primary-subtle text-primary rounded-circle display-6">
+                              <i className="bi bi-currency-bitcoin"></i>
+                            </div>
+                          </div>
+                          <h5 className="fs-16 mb-3">Pay with Crypto Wallet</h5>
+                          <p className="text-muted mt-3 mb-0 w-75 mx-auto">
+                            Integer vulputate metus eget purus maximus
+                            porttitor. Maecenas ut porta justo. Donec finibus
+                            nec nibh ut urna viverra semper.
+                          </p>
+                        </div>
+                        <div className="hstack gap-2 justify-content-end pt-3">
+                          <button
+                            type="button"
+                            className="btn btn-hover w-md btn-primary"
+                            onClick={() => {
+                              dispatch(purchaseItemAsync());
+                            }}
+                          >
+                            Continue
+                            <i className="ri-logout-box-r-line align-bottom ms-2"></i>
+                          </button>
+                        </div>
+                      </Card.Body>
+                    </Card>
+                  </Tab.Pane>
+
                   <Tab.Pane eventKey="paypal">
                     <Card>
                       <Card.Body>

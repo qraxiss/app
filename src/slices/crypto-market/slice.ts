@@ -1,5 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
-const initialState = {
+const initialState: {
+  data: any;
+  open: boolean;
+} = {
   data: {},
   open: false,
 };
@@ -16,7 +19,7 @@ const cryptoMarketSlice = createSlice({
         data[symbol as keyof typeof data] = Number(ticker["c"]);
       });
 
-      state.data = data;
+      state.data = { ...state.data, ...data };
     },
 
     listenMarket(state, { payload: { onMessage } }) {

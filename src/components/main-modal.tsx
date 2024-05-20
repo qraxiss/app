@@ -733,9 +733,7 @@ export const CardModal = ({ show, handleClose }: any) => {
           <div className="d-flex justify-content-between align-items-center mb-3">
             <h6 className="m-0 fs-16 text-muted">Total:</h6>
             <div className="px-2">
-              <h6 className="m-0 fs-16 cart-total">
-                ${cart.price + charge + tax - dis || "0.00"}
-              </h6>
+              <h6 className="m-0 fs-16 cart-total">${cart.price}</h6>
             </div>
           </div>
           <Row className="g-2">

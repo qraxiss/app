@@ -1,8 +1,12 @@
 import { gql } from "@apollo/client";
 
 export const ORDERS = gql`
-  query ORDERS{
-    printfulOrdersByUser
+  query ORDERS {
+    userOrders {
+      count
+      price
+      error
+    }
   }
 `;
 
