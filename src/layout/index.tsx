@@ -21,6 +21,8 @@ import { AppDispatch } from "store";
 import { CollectionModal } from "common/modal/collections";
 import { CollectionsSideBar } from "./collection-side-bar";
 
+import { listenMarket, updatePrice } from "slices/crypto-market/slice";
+
 const Layout = (props: any) => {
   const location = useLocation();
   const dispatch: AppDispatch = useDispatch();
@@ -37,6 +39,13 @@ const Layout = (props: any) => {
     dispatch(fetchSideBarAsync());
     dispatch(fetchNewArrivalsAsync());
     dispatch(fetchHotDealsAsync());
+    dispatch(
+      listenMarket({
+        onMessage: (data: any) => {
+          dispatch(updatePrice(data));
+        },
+      })
+    );
 
     if (logged) {
       dispatch(fetchWishlistAsync());
@@ -49,7 +58,7 @@ const Layout = (props: any) => {
     (layout) => ({
       footerModeType: layout.footerModeType,
       layoutThemeMode: layout.layoutThemeMode,
-    }),
+    })
   );
 
   const { footerModeType, layoutThemeMode } = useSelector(selectProperties);
@@ -98,7 +107,7 @@ const Layout = (props: any) => {
     <React.Fragment>
       {location.pathname && <MainModal location={location.pathname} />}
       <CollectionsSideBar openSideBar={openSideBar} />
-      <div style={{marginLeft: "50px"}}>
+      <div style={{ marginLeft: "50px" }}>
         <Header handleMood={handleThemeMood} openSideBar={openSideBar} />
         {props.children}
         <Footer />

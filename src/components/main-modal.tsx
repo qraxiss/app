@@ -27,7 +27,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch } from "store";
 
 import { updateItemAsync, deleteCartItem } from "slices/thunk";
-import { useLazyShopcekQuery, useShopcekQuery } from "graphql/apollo/query-wrapper";
+import {
+  useLazyShopcekQuery,
+  useShopcekQuery,
+} from "graphql/apollo/query-wrapper";
 import { SEARCH_QUERY } from "graphql/search/queries";
 
 //go to one page to another page opne modal
@@ -455,7 +458,7 @@ export const InvoiceModal = ({ modal, handleClose }: any) => {
 //search modal
 export const SearchModal = ({ show, handleClose }: any) => {
   const [value, setValue] = useState("");
-  console.log(value);
+  // console.log(value);
   const handlesearch = (event: any) => {
     setValue(event.value);
   };
@@ -465,7 +468,7 @@ export const SearchModal = ({ show, handleClose }: any) => {
     fetchPolicy: "no-cache",
   });
 
-  console.log(searchGQL.data);
+  // console.log(searchGQL.data);
 
   useEffect(() => {
     const searchOption = document.getElementById("search-close-options");
@@ -529,16 +532,16 @@ export const SearchModal = ({ show, handleClose }: any) => {
                 <h5 className="text-overflow text-muted fs-13 mb-2 mt-3 text-uppercase notification-title">
                   Products
                 </h5>
-                {
-                  (searchGQL.data && searchGQL.data.length > 0) && searchGQL.data.map((item: any) => (
+                {searchGQL.data &&
+                  searchGQL.data.length > 0 &&
+                  searchGQL.data.map((item: any) => (
                     <Link
                       to={`/product-details/${item.slug}`}
                       className="list-group-item dropdown-item notify-item"
                     >
                       <span>{item.name}</span>
                     </Link>
-                  ))
-                }
+                  ))}
               </div>
             </div>
           </SimpleBar>
@@ -596,7 +599,6 @@ export const CardModal = ({ show, handleClose }: any) => {
 
   const countUP = (itemId: number | string, count: number) => {
     dispatch(updateItemAsync({ count, itemId }));
-
   };
 
   const countDown = (itemId: number | string, count: number) => {
@@ -604,15 +606,14 @@ export const CardModal = ({ show, handleClose }: any) => {
   };
   return (
     <React.Fragment>
-      <Offcanvas
-        show={show}
-        onHide={handleClose}
-        placement="end"
-      >
+      <Offcanvas show={show} onHide={handleClose} placement="end">
         <Offcanvas.Header className="border-bottom">
           <Offcanvas.Title id="ecommerceCartLabel" as="h5">
             My Cart{" "}
-            <span className="badge align-middle ms-1 cartitem-badge" style={{background: "#FF57BA"}}>
+            <span
+              className="badge align-middle ms-1 cartitem-badge"
+              style={{ background: "#FF57BA" }}
+            >
               {cart.count}
             </span>
           </Offcanvas.Title>
@@ -732,9 +733,7 @@ export const CardModal = ({ show, handleClose }: any) => {
           <div className="d-flex justify-content-between align-items-center mb-3">
             <h6 className="m-0 fs-16 text-muted">Total:</h6>
             <div className="px-2">
-              <h6 className="m-0 fs-16 cart-total">
-                ${cart.price + charge + tax - dis || "0.00"}
-              </h6>
+              <h6 className="m-0 fs-16 cart-total">${cart.price}</h6>
             </div>
           </div>
           <Row className="g-2">
@@ -744,7 +743,11 @@ export const CardModal = ({ show, handleClose }: any) => {
               </Button>
             </Col>
             <Col xs={6}>
-              <Link to="#" target="_blank" className="btn btn-info w-100">
+              <Link
+                to="/checkout"
+                // target="_blank"
+                className="btn btn-info w-100"
+              >
                 Continue to Checkout
               </Link>
             </Col>
