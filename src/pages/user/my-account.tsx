@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   Col,
   Container,
@@ -12,7 +12,7 @@ import {
   Button,
   CardBody,
 } from "react-bootstrap";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 //img
 import usersavatar1 from "assets/images/users/avatar-1.jpg";
@@ -30,6 +30,15 @@ const MyAccount = () => {
   const navigate = useNavigate();
   const wishlist = useSelector((state: any) => state.wishlist.data.items);
   const userData = useSelector((state: any) => state.user.data);
+
+  const location = useLocation();
+  const [activeKey, setActiveKey] = useState(location.state || 'profile');
+
+  useEffect(() => {
+    if (location.state) {
+      setActiveKey(location.state);
+    }
+  }, [location.state]);
 
   return (
     <React.Fragment>
@@ -54,7 +63,7 @@ const MyAccount = () => {
                     <h5 className="fs-18">Raquel Murillo</h5>
                     <div className="text-muted">
                       {/* <i className="bi bi-geo-alt"></i>  */}
-                      {`${userData.address.substring(0, 6)}...${userData.address.substring(userData.address.length - 6)}`}
+                      {/* {`${userData.address.substring(0, 6)}...${userData.address.substring(userData.address.length - 6)}`} */}
                     </div>
                   </div>
                   <div className="ms-md-auto">
@@ -74,7 +83,7 @@ const MyAccount = () => {
       </section>
       <section className="py-5">
         <Container>
-          <Tab.Container id="left-tabs-example" defaultActiveKey="profile">
+          <Tab.Container id="left-tabs-example" activeKey={activeKey} onSelect={(k) => setActiveKey(k)}>
             <Row>
               <Col lg={3}>
                 <Card>
@@ -88,7 +97,7 @@ const MyAccount = () => {
                           role="presentation"
                         >
                           <i className="bi bi-person-circle align-middle me-1"></i>{" "}
-                          Username
+                          Account
                         </Nav.Link>
                       </Nav.Item>
                       <Nav.Item as="li">
@@ -134,19 +143,6 @@ const MyAccount = () => {
                           Stake
                         </Nav.Link>
                       </Nav.Item>
-                      {/* <Nav.Item as="li">
-                        <Nav.Link
-                          as="a"
-                          className="fs-15"
-                          onClick={async () => {
-                            await dispatch(logoutAsync());
-                            navigate("/");
-                          }}
-                        >
-                          <i className="bi bi-box-arrow-right align-middle me-1"></i>{" "}
-                          Logout
-                        </Nav.Link>
-                      </Nav.Item> */}
                     </Nav>
                   </Card.Body>
                 </Card>

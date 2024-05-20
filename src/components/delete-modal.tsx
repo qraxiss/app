@@ -37,8 +37,9 @@ const DeleteModal = ({ removeModel, hideModal, deleteData }: any) => {
             Close
           </Button>
           <Button
-            className="btn w-sm btn-danger"
+            className="btn w-sm"
             id="remove-product"
+            style={{ background: "#FF57BA" }}
             onClick={handleDelete}
           >
             Yes, Delete It!

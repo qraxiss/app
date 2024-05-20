@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { Button, Col, Container, Row, Form, Image } from "react-bootstrap";
+import { Button, Col, Container, Row, Form, Image, Modal } from "react-bootstrap";
 import { Swiper, SwiperRef, SwiperSlide } from "swiper/react";
 import { FreeMode, Navigation, Thumbs } from "swiper/modules";
 //scss
@@ -33,6 +33,7 @@ const ProductDetails = () => {
   const { slug } = useParams();
   const dispatch: AppDispatch = useDispatch();
   const swiperRef = useRef<SwiperRef>(null);
+  const [showModal, setShowModal] = useState(false);
 
   const { data } = useShopcekQuery<any>(GET_Products_Details(slug || ""));
 
@@ -54,8 +55,6 @@ const ProductDetails = () => {
     setDisabled(!(!cart.loading && logged && count > 0 && !!size && !!color));
   }, [cart.loading, count, size, color, logged]);
 
-  console.log(disabled);
-  
   //like button
   const likeButton = useRef<any>(null);
 
@@ -104,6 +103,17 @@ const ProductDetails = () => {
   };
   return (
     <React.Fragment>
+      <Modal
+        show={showModal}
+        onHide={() => setShowModal(false)}
+        centered
+        id="removeItemModal"
+        className="zoomIn"
+      >
+        <div>
+          <Image src={data?.variants[swiperRef?.current?.swiper?.activeIndex || 0]?.variant?.image} alt="" fluid />
+        </div>
+      </Modal>
       <section className="section" style={{ paddingTop: "140px" }}>
         <Container>
           <Row className="gx-2">
@@ -217,7 +227,8 @@ const ProductDetails = () => {
                               data-swiper-slide-index={item.id}
                               role="group"
                               aria-label={`${item.id} / 5`}
-                              style={{ width: "458px", marginRight: "10px" }}
+                              style={{ width: "458px", marginRight: "10px", cursor: "pointer" }}
+                              onClick={() => setShowModal(true)}
                             >
                               <Image src={item?.variant?.image} alt="" fluid />
                             </div>
