@@ -3,7 +3,7 @@ import { getWalletClient } from "wagmi/actions";
 import { BrowserProvider } from "ethers";
 import { useAccount } from "wagmi";
 import { WalletClient } from "viem";
-import { siweConfig } from "wallet/web3modal-siwe";
+import { siweConfig } from "wallet/siwe";
 import config from "wallet/config";
 
 import { Button } from "react-bootstrap";

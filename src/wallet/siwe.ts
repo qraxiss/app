@@ -1,29 +1,97 @@
-// import { BrowserProvider } from "ethers";
-// import { SiweMessage } from "siwe";
+import { SiweMessage, generateNonce } from "siwe";
+import {
+  createSIWEConfig,
+  SIWESession,
+  SIWECreateMessageArgs,
+  SIWEVerifyMessageArgs,
+} from "@web3modal/siwe";
 
-// import { VERIFY } from "types/wallet";
+import { store } from "store";
+import config from "./config";
+import { getAccount } from "@wagmi/core";
+import {
+  verifySignatureAsync,
+  fetchNonceAsync,
+  disconnectWalletAsync,
+} from "slices/thunk";
+import chains from "./chains";
 
-// export async function signInWithEthereumLocal(
-//   address: string,
-//   chainId: number,
-//   nonce: string,
-//   provider: BrowserProvider
-// ): Promise<VERIFY> {
-//   const message = new SiweMessage({
-//     domain: window.location.host,
-//     address,
-//     statement: "Sign in with Ethereum to the app.",
-//     uri: window.location.origin,
-//     version: "1",
-//     chainId,
-//     nonce,
-//   }).toMessage();
+/* Function that creates a SIWE message */
+function createMessage({ nonce, address, chainId }: SIWECreateMessageArgs) {
+  const message = new SiweMessage({
+    version: "1",
+    domain: window.location.host,
+    uri: window.location.origin,
+    address,
+    chainId,
+    nonce,
+    statement: "Sign in With Ethereum.",
+  });
 
-//   const signer = await provider.getSigner();
-//   const signature = await signer.signMessage(message);
+  return message.prepareMessage();
+}
 
-//   return {
-//     message,
-//     signature,
-//   };
-// }
+async function validateMessage({
+  message,
+  signature,
+}: {
+  message: string;
+  signature: string;
+}): Promise<boolean> {
+  await store.dispatch(verifySignatureAsync({ message, signature }));
+  return store.getState().user.data.logged;
+}
+
+async function getNonce(address?: any) {
+  // await store.dispatch(fetchNonceAsync());
+  // return store.getState().wallet.data.nonce;
+
+  return generateNonce();
+}
+
+async function getSession(): Promise<SIWESession> {
+  const { address, chainId } = getAccount(config);
+
+  return {
+    address,
+    chainId,
+  } as SIWESession;
+}
+
+/* Use your SIWE server to verify if the message and the signature are valid */
+async function verifyMessage({ message, signature }: SIWEVerifyMessageArgs) {
+  try {
+    const isValid = await validateMessage({ message, signature });
+
+    return isValid;
+  } catch (error) {
+    return false;
+  }
+}
+
+async function signOut() {
+  await store.dispatch(disconnectWalletAsync());
+
+  return store.getState().user.data.logged;
+}
+
+async function getMessageParams() {
+  return {
+    nonce: await getNonce(),
+    ...(await getSession()),
+    chains: chains.map((chain) => chain.id),
+    version: "1",
+    domain: window.location.host,
+    uri: window.location.origin,
+  };
+}
+
+/* Create a SIWE configuration object */
+export const siweConfig = createSIWEConfig({
+  createMessage,
+  getNonce,
+  getSession,
+  verifyMessage,
+  signOut,
+  getMessageParams,
+});

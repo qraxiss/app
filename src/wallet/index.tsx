@@ -5,7 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 import config, { projectId } from "wallet/config";
 
-import { siweConfig } from "./web3modal-siwe";
+import { siweConfig } from "./siwe";
 
 const queryClient = new QueryClient();
 
@@ -17,7 +17,7 @@ createWeb3Modal({
   enableOnramp: true,
 });
 
-export default function Web3ModalProvider({ children }: any) {
+export function Web3ModalProvider({ children }: any) {
   return (
     <WagmiProvider config={config}>
       <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
