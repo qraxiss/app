@@ -1,11 +1,25 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { BrowserProvider, Signer } from "ethers";
+import { WalletClient } from "viem";
 
-const initialState = {
+const initialState: {
+  loading: boolean;
+  error: Error | null;
+  data: {
+    nonce: string | null;
+  };
+  provider: BrowserProvider | null;
+  client: WalletClient | null;
+  signer: Signer | null;
+} = {
   loading: false,
   error: null,
   data: {
-    nonce: "",
+    nonce: null,
   },
+  provider: null,
+  client: null,
+  signer: null,
 };
 
 const walletSlice = createSlice({
@@ -46,6 +60,15 @@ const walletSlice = createSlice({
       state.loading = false;
       state.error = action.payload;
     },
+    setProvider(state, action) {
+      state.provider = action.payload;
+    },
+    setClient(state, action) {
+      state.client = action.payload;
+    },
+    setSigner(state, action) {
+      state.signer = action.payload;
+    },
   },
 });
 
@@ -59,6 +82,9 @@ export const {
   disconnectWalletFailure,
   disconnectWalletStart,
   disconnectWalletSuccess,
+  setProvider,
+  setClient,
+  setSigner,
 } = walletSlice.actions;
 
 export default walletSlice.reducer;

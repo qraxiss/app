@@ -14,6 +14,7 @@ import chains from "./chains";
 
 import { WalletClient } from "viem";
 import { BrowserProvider } from "ethers";
+import { setProvider, setClient, setSigner } from "slices/wallet/slice";
 
 function createMessage({ nonce, address, chainId }: SIWECreateMessageArgs) {
   const message = new SiweMessage({
@@ -94,21 +95,62 @@ export const siweConfig = createSIWEConfig({
   getMessageParams,
 });
 
-export async function clientToProviderSigner(client: WalletClient) {
-  const { account, chain, transport } = client;
+export async function getProvider() {
+  let provider = store.getState().wallet.provider;
+
+  if (provider) {
+    return provider;
+  }
+
+  const client = await getWalletClient(config);
+
+  const { chain, transport } = client;
   const network = {
     chainId: chain?.id,
     name: chain?.name,
     ensAddress: chain?.contracts?.ensRegistry?.address,
   };
-  const provider = new BrowserProvider(transport, network);
-  const signer = await provider.getSigner(account?.address);
-  return { provider, signer };
+
+  provider = new BrowserProvider(transport, network);
+
+  store.dispatch(setProvider(provider));
+
+  return provider;
+}
+
+export async function getClient() {
+  let client = store.getState().wallet.client;
+
+  if (client) {
+    return client;
+  }
+
+  client = await getWalletClient(config);
+  store.dispatch(setClient(client));
+
+  return client;
+}
+
+export async function getSigner() {
+  let signer = store.getState().wallet.signer;
+
+  if (signer) {
+    return signer;
+  }
+
+  const [provider, client] = await Promise.all([getProvider(), getClient()]);
+
+  const { account } = client;
+
+  signer = await provider.getSigner(account?.address);
+
+  store.dispatch(setSigner(signer));
+
+  return signer;
 }
 
 export async function connectWallet() {
-  const client = await getWalletClient(config);
-  const { signer } = await clientToProviderSigner(client);
+  const signer = await getSigner();
 
   const address = await signer.getAddress();
   const { chainId } = getAccount(config);
