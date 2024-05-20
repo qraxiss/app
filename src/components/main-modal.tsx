@@ -534,10 +534,11 @@ export const SearchModal = ({ show, handleClose }: any) => {
                 </h5>
                 {searchGQL.data &&
                   searchGQL.data.length > 0 &&
-                  searchGQL.data.map((item: any) => (
+                  searchGQL.data.map((item: any, inx: number) => (
                     <Link
                       to={`/product-details/${item.slug}`}
                       className="list-group-item dropdown-item notify-item"
+                      key={inx}
                     >
                       <span>{item.name}</span>
                     </Link>

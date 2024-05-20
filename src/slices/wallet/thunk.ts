@@ -39,7 +39,7 @@ export const fetchNonceAsync = createAsyncThunk(
 
 export const verifySignatureAsync = createAsyncThunk(
   "wallet/verifySignature",
-  async ({ address, message, signature }: VERIFY_INPUT, { dispatch }) => {
+  async ({ message, signature }: VERIFY_INPUT, { dispatch }) => {
     try {
       dispatch(verifySignatureStart());
       await dispatch(fetchNonceAsync());
@@ -56,7 +56,7 @@ export const verifySignatureAsync = createAsyncThunk(
       });
 
       dispatch(verifySignatureSuccess());
-      dispatch({ type: "user/login", payload: { address, jwt: data } });
+      dispatch({ type: "user/login", payload: { jwt: data } });
     } catch (error: any) {
       dispatch(verifySignatureFailure(error.message));
     }

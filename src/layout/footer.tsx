@@ -92,9 +92,7 @@ const Footer = () => {
                         </li>
                       ))}
                       <li>
-                        <Link to={`products/earn`}>
-                          EARN
-                        </Link>
+                        <Link to={`products/earn`}>EARN</Link>
                       </li>
                     </ul>
                   </div>
@@ -146,8 +144,8 @@ const Footer = () => {
                           justifyContent: "flex-start",
                         }}
                       >
-                        {socials.map((social) => (
-                          <li className="list-inline-item">
+                        {socials.map((social, inx: number) => (
+                          <li className="list-inline-item" key={inx}>
                             <Link
                               to={social.to}
                               target="_blank"
