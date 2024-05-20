@@ -249,13 +249,14 @@ export const NameService = () => {
             </span>
           </div>
           <Button
-            className="btn btn btn-secondary"
+            className="btn button-secondary fs-36"
+            style={{background: "#FF5BC0"}}
             onClick={() => {
               setClose(false);
             }}
-            disabled={!(domain.length >= 3 && domain.length <= 15)}
+            // disabled={!(domain.length >= 3 && domain.length <= 15)}
           >
-            SEARCH
+            Buy
           </Button>
         </div>
 

@@ -119,7 +119,48 @@ export const StayHereToEarn = () => {
             </Button>
           </div>
 
-          <Container>
+          <div className="countdown d-flex justify-content-center list-unstyled text-center">
+            <li style={{flexGrow: 1}}>
+              <div className="blue-box divider" id="days">
+                {addOneZero(pastTime.days)}
+              </div>{" "}
+              <p className="time">Days</p>
+            </li>
+            <li className="px-3">
+              <span className="fs-36 fw-medium" id="days">
+                :
+              </span>{" "}
+            </li>
+            <li style={{flexGrow: 1}}>
+              <span className="blue-box divider" id="hours">
+                {addOneZero(pastTime.hours)}
+              </span>{" "}
+              <p className="time">Hours</p>
+            </li>
+            <li className="px-3">
+              <span className="fs-36 fw-medium" id="days">
+                :
+              </span>{" "}
+            </li>
+            <li style={{flexGrow: 1}}>
+              <span className="blue-box divider" id="minutes">
+                {addOneZero(pastTime.minutes)}
+              </span>{" "}
+              <p className="time">Minutes</p>
+            </li>
+            <li className="px-3">
+              <span className="fs-36 fw-medium" id="days">
+                :
+              </span>{" "}
+            </li>
+            <li style={{flexGrow: 1}}>
+              <span className="blue-box divider" id="seconds">
+                {addOneZero(pastTime.seconds)}
+              </span>{" "}
+              <p className="time">Seconds</p>
+            </li>
+          </div>
+          {/* <Container>
             <Row>
               <Col>
                 <div className="blue-box divider">
@@ -127,6 +168,7 @@ export const StayHereToEarn = () => {
                 </div>
                 <p className="time">Days</p>
               </Col>
+              <div className="divider">:</div>
               <Col>
                 <div className="blue-box divider">
                   <p>{addOneZero(pastTime.hours)}</p>
@@ -146,7 +188,7 @@ export const StayHereToEarn = () => {
                 <p className="time">Seconds</p>
               </Col>
             </Row>
-          </Container>
+          </Container> */}
         </div>
       </div>
     </section>

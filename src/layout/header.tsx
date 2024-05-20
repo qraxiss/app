@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   Container,
   Dropdown,
@@ -30,6 +30,7 @@ import { ConnectWallet } from "components/connect-wallet";
 const Header = (props: any) => {
   //dispatch
   const dispatch: AppDispatch = useDispatch();
+  const navigate = useNavigate();
 
   //user slice
   const { logged } = useSelector((state: any) => state.user.data);
@@ -214,18 +215,26 @@ const Header = (props: any) => {
                   />
                 </Dropdown.Toggle>
 
-                <Dropdown.Menu>
-                  <Dropdown.Item href="/shop/orderhistory">
-                    <i className="bi bi-cart4 text-muted fs-16 align-middle me-1"></i>{" "}
-                    <span className="align-middle">Order History</span>
-                  </Dropdown.Item>
-                  <Dropdown.Item href="/shop/order">
-                    <i className="bi bi-truck text-muted fs-16 align-middle me-1"></i>{" "}
-                    <span className="align-middle">Track Orders</span>
-                  </Dropdown.Item>
-                  <Dropdown.Item href="/account">
+                <Dropdown.Menu style={{left: "-80px"}}>
+                  <Dropdown.Item onClick={() => navigate("/account", { state: "profile"})}>
                     <i className="bi bi-person text-muted fs-16 align-middle me-1"></i>{" "}
-                    <span className="align-middle">Account</span>
+                    <span className="align-middle">My Account</span>
+                  </Dropdown.Item>
+                  <Dropdown.Item onClick={() => navigate("/account", { state: "order"})}>
+                    <i className="bi bi-truck text-muted fs-16 align-middle me-1"></i>{" "}
+                    <span className="align-middle">My Orders</span>
+                  </Dropdown.Item>
+                  <Dropdown.Item onClick={() => navigate("/account", { state: "list"})}>
+                    <i className="bi bi-bookmark-check text-muted fs-16 align-middle me-1"></i>{" "}
+                    <span className="align-middle">Wishlist</span>
+                  </Dropdown.Item>
+                  <Dropdown.Item onClick={() => navigate("/account", { state: "XP"})}>
+                    <i className="bi bi-coin text-muted fs-16 align-middle me-1"></i>{" "}
+                    <span className="align-middle">XP Points</span>
+                  </Dropdown.Item>
+                  <Dropdown.Item >
+                    <i className="bi bi-gear text-muted fs-16 align-middle me-1"></i>{" "}
+                    <span className="align-middle">Settings</span>
                   </Dropdown.Item>
                   <Dropdown.Item
                     onClick={() => {
