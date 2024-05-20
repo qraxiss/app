@@ -8,15 +8,13 @@ import {
 
 import { store } from "store";
 import config from "./config";
-import { getAccount } from "@wagmi/core";
-import {
-  verifySignatureAsync,
-  fetchNonceAsync,
-  disconnectWalletAsync,
-} from "slices/thunk";
+import { getAccount, getWalletClient } from "@wagmi/core";
+import { verifySignatureAsync, disconnectWalletAsync } from "slices/thunk";
 import chains from "./chains";
 
-/* Function that creates a SIWE message */
+import { WalletClient } from "viem";
+import { BrowserProvider } from "ethers";
+
 function createMessage({ nonce, address, chainId }: SIWECreateMessageArgs) {
   const message = new SiweMessage({
     version: "1",
@@ -95,3 +93,34 @@ export const siweConfig = createSIWEConfig({
   signOut,
   getMessageParams,
 });
+
+export async function clientToProviderSigner(client: WalletClient) {
+  const { account, chain, transport } = client;
+  const network = {
+    chainId: chain?.id,
+    name: chain?.name,
+    ensAddress: chain?.contracts?.ensRegistry?.address,
+  };
+  const provider = new BrowserProvider(transport, network);
+  const signer = await provider.getSigner(account?.address);
+  return { provider, signer };
+}
+
+export async function connectWallet() {
+  const client = await getWalletClient(config);
+  const { signer } = await clientToProviderSigner(client);
+
+  const address = await signer.getAddress();
+  const { chainId } = getAccount(config);
+  const nonce = await siweConfig.getNonce();
+
+  const message = siweConfig.createMessage({
+    nonce,
+    address,
+    chainId,
+  } as any);
+
+  const signature = await signer.signMessage(message);
+
+  return await siweConfig.verifyMessage({ message, signature });
+}
