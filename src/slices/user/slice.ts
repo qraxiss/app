@@ -1,8 +1,15 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { getAccount } from "@wagmi/core";
+import config from "wallet/config";
 
 const jwt = localStorage.getItem("jwt");
+const address = localStorage.getItem("address");
 
-const logged = !!jwt;
+const getAddress = () => {
+  return getAccount(config).address;
+};
+
+const logged = !!jwt && !!address;
 
 const initialState = {
   loading: false,
@@ -10,6 +17,7 @@ const initialState = {
   data: {
     logged,
     jwt,
+    address,
   },
 };
 
@@ -18,13 +26,16 @@ const userSlice = createSlice({
   initialState,
   reducers: {
     login(state, { payload: { jwt } }) {
-      state.data = { jwt, logged: true };
+      const address = getAddress()!;
+      state.data = { address, jwt, logged: true };
       localStorage.setItem("jwt", jwt);
+      localStorage.setItem("address", address);
     },
 
     logout(state) {
-      state.data = { logged: false, jwt: null };
+      state.data = { logged: false, jwt: null, address: null };
       localStorage.removeItem("jwt");
+      localStorage.removeItem("address");
     },
 
     logoutStart(state) {
