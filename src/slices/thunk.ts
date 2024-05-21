@@ -4,11 +4,7 @@ export { fetchSideBarAsync } from "./sidebar/thunk";
 export { fetchNewArrivalsAsync } from "./new-arrivals/thunk";
 export { fetchHotDealsAsync } from "./hot-deals/thunk";
 export { logoutAsync } from "./user/thunk";
-export {
-  fetchNonceAsync,
-  verifySignatureAsync,
-  disconnectWalletAsync,
-} from "./wallet/thunk";
+export { verifySignatureAsync, disconnectWalletAsync } from "./wallet/thunk";
 
 export {
   fetchWishlistAsync,

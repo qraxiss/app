@@ -4,11 +4,10 @@ import { useAccount } from "wagmi";
 import { Button } from "react-bootstrap";
 import { FC, useEffect } from "react";
 import { useSelector } from "react-redux";
+import { connectWallet } from "wallet/siwe";
 interface ConnectWalletProps {
   buttonText?: string;
 }
-
-import { connectWallet } from "wallet/siwe";
 
 export const ConnectWallet: FC<ConnectWalletProps> = ({ buttonText }) => {
   const { open } = useWeb3Modal();

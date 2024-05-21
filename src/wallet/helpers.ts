@@ -1,61 +1,59 @@
+import { getWalletClient } from "@wagmi/core";
+
+import { ethers, BrowserProvider } from "ethers";
+
+import UniversalProvider from "@walletconnect/universal-provider";
+import config, { metadata, projectId } from "./config";
+
+import { ABI, ADDRESS } from "common/data/mint";
 
 import { store } from "store";
-import config from "./config";
-import {  getWalletClient } from "@wagmi/core";
 
-import { BrowserProvider } from "ethers";
-import { setProvider, setClient, setSigner } from "slices/wallet/slice";
+export async function getBrowserProvider() {
+  const client = await getWalletClient(config);
 
-export async function getProvider() {
-    let provider = store.getState().wallet.provider;
-  
-    if (provider) {
-      return provider;
-    }
-  
-    const client = await getWalletClient(config);
-  
-    const { chain, transport } = client;
-    const network = {
-      chainId: chain?.id,
-      name: chain?.name,
-      ensAddress: chain?.contracts?.ensRegistry?.address,
-    };
-  
-    provider = new BrowserProvider(transport, network);
-  
-    store.dispatch(setProvider(provider));
-  
-    return provider;
+  const { chain, transport } = client;
+  const network = {
+    chainId: chain?.id,
+    name: chain?.name,
+    ensAddress: chain?.contracts?.ensRegistry?.address,
+  };
+
+  const provider = new BrowserProvider(transport, network);
+
+  return provider;
+}
+
+export async function getUniversalProvider() {
+  const provider = await UniversalProvider.init({
+    projectId,
+    metadata,
+  });
+
+  return provider;
+}
+
+export async function getClient() {
+  const client = await getWalletClient(config);
+  return client;
+}
+
+export async function getSigner() {
+  const [provider, client] = await Promise.all([
+    getBrowserProvider(),
+    getClient(),
+  ]);
+  const { account } = client;
+  const signer = await provider.getSigner(account?.address);
+
+  return signer;
+}
+
+export async function getContract(): Promise<ethers.Contract | null> {
+  const { logged } = store.getState().user.data;
+  if (!logged) {
+    return null;
   }
-  
-  export async function getClient() {
-    let client = store.getState().wallet.client;
-  
-    if (client) {
-      return client;
-    }
-  
-    client = await getWalletClient(config);
-    store.dispatch(setClient(client));
-  
-    return client;
-  }
-  
-  export async function getSigner() {
-    let signer = store.getState().wallet.signer;
-  
-    if (signer) {
-      return signer;
-    }
-  
-    const [provider, client] = await Promise.all([getProvider(), getClient()]);
-  
-    const { account } = client;
-  
-    signer = await provider.getSigner(account?.address);
-  
-    store.dispatch(setSigner(signer));
-  
-    return signer;
-  }
+
+  return new ethers.Contract(ADDRESS, ABI, await getSigner());
+}
