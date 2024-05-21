@@ -1,5 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { shopcekMutation, shopcekQuery } from "graphql/apollo/helpers";
+import { shopcekMutation } from "graphql/apollo/helpers";
 import {
   verifySignatureFailure,
   verifySignatureStart,
@@ -34,7 +34,7 @@ export const verifySignatureAsync = createAsyncThunk(
       });
 
       dispatch(verifySignatureSuccess(signature));
-      dispatch({ type: "user/login", payload: { jwt: data, signature } });
+      dispatch({ type: "user/login", payload: { jwt: data } });
     } catch (error: any) {
       dispatch(verifySignatureFailure(error.message));
     }
