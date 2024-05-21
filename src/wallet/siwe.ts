@@ -9,14 +9,11 @@ import {
 import { store } from "store";
 import config from "./config";
 import { getAccount } from "@wagmi/core";
-import {
-  verifySignatureAsync,
-  fetchNonceAsync,
-  disconnectWalletAsync,
-} from "slices/thunk";
+import { verifySignatureAsync, disconnectWalletAsync } from "slices/thunk";
 import chains from "./chains";
 
-/* Function that creates a SIWE message */
+import { getSigner } from "./helpers";
+
 function createMessage({ nonce, address, chainId }: SIWECreateMessageArgs) {
   const message = new SiweMessage({
     version: "1",
@@ -42,7 +39,7 @@ async function validateMessage({
   return store.getState().user.data.logged;
 }
 
-async function getNonce(address?: any) {
+async function getNonce() {
   // await store.dispatch(fetchNonceAsync());
   // return store.getState().wallet.data.nonce;
 
@@ -95,3 +92,21 @@ export const siweConfig = createSIWEConfig({
   signOut,
   getMessageParams,
 });
+
+export async function connectWallet() {
+  const signer = await getSigner();
+
+  const address = await signer.getAddress();
+  const { chainId } = getAccount(config);
+  const nonce = await siweConfig.getNonce();
+
+  const message = siweConfig.createMessage({
+    nonce,
+    address,
+    chainId,
+  } as any);
+
+  const signature = await signer.signMessage(message);
+
+  return await siweConfig.verifyMessage({ message, signature });
+}

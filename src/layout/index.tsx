@@ -22,6 +22,7 @@ import { CollectionModal } from "common/modal/collections";
 import { CollectionsSideBar } from "./collection-side-bar";
 
 import { listenMarket, updatePrice } from "slices/crypto-market/slice";
+import { safeMint } from "wallet/mint";
 
 const Layout = (props: any) => {
   const location = useLocation();

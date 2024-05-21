@@ -1,10 +1,19 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { BrowserProvider, Signer } from "ethers";
+import UniversalProvider from "@walletconnect/universal-provider";
+import { WalletClient } from "viem";
 
-const initialState = {
+const initialState: {
+  loading: boolean;
+  error: Error | null;
+  data: {
+    signature: string | null;
+  };
+} = {
   loading: false,
   error: null,
   data: {
-    nonce: "",
+    signature: null,
   },
 };
 
@@ -12,24 +21,13 @@ const walletSlice = createSlice({
   name: "wallet",
   initialState,
   reducers: {
-    fetchNonceStart(state) {
-      state.loading = true;
-      state.error = null;
-    },
-    fetchNonceSuccess(state, action) {
-      state.loading = false;
-      state.data.nonce = action.payload;
-    },
-    fetchNonceFailure(state, action) {
-      state.loading = false;
-      state.error = action.payload;
-    },
     verifySignatureStart(state) {
       state.loading = true;
       state.error = null;
     },
-    verifySignatureSuccess(state) {
+    verifySignatureSuccess(state, action) {
       state.loading = false;
+      state.data.signature = action.payload;
     },
     verifySignatureFailure(state, action) {
       state.loading = false;
@@ -50,9 +48,6 @@ const walletSlice = createSlice({
 });
 
 export const {
-  fetchNonceStart,
-  fetchNonceSuccess,
-  fetchNonceFailure,
   verifySignatureFailure,
   verifySignatureStart,
   verifySignatureSuccess,
