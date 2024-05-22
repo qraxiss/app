@@ -80,7 +80,7 @@ const Footer = () => {
 
             <Col lg={8}>
               <Row className="pl-0 pl-lg-3">
-                <Col md={3}>
+                <Col md={3} xs={6}>
                   <div className="mt-lg-0 mt-4">
                     <h5 className="footer-title">Categories</h5>
                     <ul className="list-unstyled footer-link mt-3">
@@ -98,7 +98,7 @@ const Footer = () => {
                   </div>
                 </Col>
 
-                <Col md={3}>
+                <Col md={3} xs={6}>
                   <div className="mt-lg-0 mt-4">
                     <h5 className="footer-title"> MISC </h5>
                     <ul className="list-unstyled footer-link mt-3">

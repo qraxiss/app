@@ -90,7 +90,7 @@ export const siweConfig = createSIWEConfig({
   getSession,
   verifyMessage,
   signOut,
-  getMessageParams,
+  // getMessageParams,
 });
 
 export async function connectWallet() {
