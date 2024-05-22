@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
+
 import React from "react";
 import { Container, Row, Col, Image, Form, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
@@ -162,7 +162,7 @@ const Footer = () => {
                         ))}
                       </ul>
                     </div>
-                    <div className="mt-3 d-flex justify-content-end">
+                    <div className="mt-3 d-flex justify-content-start">
                       <Image
                         src={microsoft_banner}
                         alt=""

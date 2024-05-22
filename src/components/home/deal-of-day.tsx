@@ -77,16 +77,16 @@ export const DealOfDay = () => {
                 <span className="fw-medium">Winter Season</span> Sales
               </h1>
               <p id="done"></p>
-              <ul className="countdown d-flex justify-content-center list-unstyled text-center fs-17">
+              <ul className="clock d-flex justify-content-center list-unstyled text-center fs-17">
                 <Countdown date="2025/08/16" renderer={renderer} />
               </ul>
               <div className="mt-4 pt-3">
                 <Button
                   variant="info"
                   type="button"
-                  className="rounded-0 w-lg btn-hover"
+                  className="rounded-3 w-lg btn-hover clock-button"
                 >
-                  Get 15% Off{" "}
+                  EARN Docs
                   <i className="bi bi-arrow-right align-baseline ms-1"></i>
                 </Button>
               </div>

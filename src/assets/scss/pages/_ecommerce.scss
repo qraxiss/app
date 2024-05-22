@@ -591,6 +591,8 @@
   }
 }
 
+
+
 // product details
 .productSwiper {
   .swiper-slide {
@@ -609,6 +611,17 @@
       }
     }
   }
+}
+
+    @media (max-width: 500px) {
+    .productSwiper{
+      max-height: 380px !important;
+    }
+}
+    @media (max-width: 400px) {
+    .productSwiper{
+      max-height: 280px !important;
+    }
 }
 
 // Delivery page

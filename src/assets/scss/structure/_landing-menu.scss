@@ -7,9 +7,8 @@
   transition: all 0.5s ease;
   background-color: var(--#{$prefix}secondary-bg);
   position: fixed;
-  left: 50px;
+  left: 0px;
   right: 0;
-  // top: 34px;
   z-index: 1000;
   padding: 0;
   justify-content: center;

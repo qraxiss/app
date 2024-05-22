@@ -146,6 +146,7 @@
   .method {
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
     gap: 1rem;
 
     button {
@@ -204,10 +205,21 @@
 
   .method {
     padding-left: 3rem;
-    // align-items: center;
     display: flex;
     flex-direction: column;
     width: 45%;
+    .bitcoin{
+      display: flex;
+      gap: 5px;
+      align-items: center;
+      p{
+        margin: 0 !important;
+      }
+      img{
+        width: 40px;
+        height: auto;
+      }
+    }
   }
 }
 
@@ -295,10 +307,12 @@
   box-sizing: unset !important;
 
   .row {
-    width: 108%;
-    margin-left: -0.3em;
+    width: 100%;
+    margin-left: 0;
     padding-bottom: 1rem;
     padding-top: 1rem;
+    display: flex;
+    justify-content: center;
   }
 
   .task {
@@ -306,7 +320,7 @@
     border: solid;
     border-radius: 10px;
     height: 6rem;
-    width: 80%;
+    width: 100%;
 
     display: flex;
     justify-content: space-between;
@@ -421,3 +435,91 @@
     }
   }
 }
+
+.days-container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: space-between;
+}
+.days {
+  background-color: #ffceec;
+  margin-top: 10px;
+  padding: 10px;
+  height: 180px;
+  border: 1px solid black;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+  img{
+    width: 85%;
+  }
+}
+.active{
+  background-color: #ffeef8 !important;
+}
+.day-30xp {
+  width: 100px;
+}
+.day-50xp {
+  width: 140px;
+}
+.day-80xp {
+  width: 180px;
+}
+.days:hover {
+  background-color: #ffeef8;
+}
+.countdown-container{
+  width: 200px;
+}
+.countdown{
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+@media (max-width: 800px) {
+ .days-container{
+  justify-content: space-around;
+ }
+ .countdown {
+  justify-content: space-around;
+}
+
+  .payment{
+    justify-content: center;
+    flex-wrap: wrap !important;
+    font-size: 20px !important;
+  }
+  .vl{
+    display: none;
+  }
+  .method{
+    align-items: center;
+  }
+  .countdown-container {
+    width: 110px;
+  }
+  .blue-box{
+    font-size: 80px !important;
+  }
+  .clock{
+    font-size: 10px !important;
+  }
+  .task-rewards {
+    .task {
+      button {
+        font-size: 10px !important;
+      }
+    }
+  }
+  .dots{
+    display: none !important;
+  }
+  .countdown-container{
+    margin: 10px !important;
+  }
+}
+

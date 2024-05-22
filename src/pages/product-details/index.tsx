@@ -119,7 +119,7 @@ const ProductDetails = () => {
           <Row className="gx-2">
             <Col lg={6}>
               <Row>
-                <Col md={2}>
+                <Col md={2} sm={2} xs={3}>
                   <div
                     className="swiper hide-scrollbar productSwiper mb-3 mb-lg-0 swiper-initialized swiper-vertical swiper-pointer-events swiper-free-mode swiper-watch-progress swiper-backface-hidden swiper-thumbs"
                     style={{
@@ -187,7 +187,7 @@ const ProductDetails = () => {
                   </div>
                 </Col>
                 {/*end col*/}
-                <Col md={10}>
+                <Col md={10} sm={10} xs={9}>
                   <div className="bg-light rounded-2 position-relative ribbon-box overflow-hidden">
                     <div className="ribbon ribbon-danger ribbon-shape trending-ribbon">
                       <span className="trending-ribbon-text">Trending</span>
@@ -227,10 +227,10 @@ const ProductDetails = () => {
                               data-swiper-slide-index={item.id}
                               role="group"
                               aria-label={`${item.id} / 5`}
-                              style={{ width: "458px", marginRight: "10px", cursor: "pointer" }}
+                              style={{ width: "100%", marginRight: "10px", cursor: "pointer" }}
                               onClick={() => setShowModal(true)}
                             >
-                              <Image src={item?.variant?.image} alt="" fluid />
+                              <Image className="product-image" src={item?.variant?.image} alt="" fluid />
                             </div>
                           </SwiperSlide>
                         );

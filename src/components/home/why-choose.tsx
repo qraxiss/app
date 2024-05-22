@@ -80,7 +80,7 @@ export const WhyChoose = () => {
                               type="submit"
                               variant="primary"
                             >
-                              Subscribe Now
+                              Apply Now
                             </Button>
                           </div>
                         </Form>

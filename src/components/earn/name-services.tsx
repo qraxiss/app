@@ -9,6 +9,7 @@ import length6 from "../../assets/images/earn/domain/6.png";
 import length7 from "../../assets/images/earn/domain/7.png";
 import length8 from "../../assets/images/earn/domain/8.png";
 import length9 from "../../assets/images/earn/domain/9.png";
+import bitcoin from "../../assets/images/earn/domain/bitcoin.png";
 
 // import { BinanceProvider, useBinance } from 'context/binance'
 // import { buyWithWallet } from 'lib/rainbow'
@@ -280,8 +281,12 @@ export const NameService = () => {
 
             <div className="vl" />
 
-            <div className="method">
-              <p>Payment Method</p>
+            <div className="method" style={{flexGrow: 1}}>
+              <h3>Payment Method</h3>
+              <div className="bitcoin">
+                <Image src={bitcoin} alt='bitcoin' />
+                <p>BNB ( BSC Chain)</p>
+              </div>
               <ConnectWallet buttonText="Connect Wallet" />
             </div>
           </div>

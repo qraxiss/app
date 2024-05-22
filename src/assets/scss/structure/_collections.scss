@@ -7,7 +7,7 @@
   z-index: 1001;
 
   .header {
-    height: 85px;
+    height: 66px;
     width: 100%;
 
     display: flex;
@@ -28,5 +28,12 @@
     img {
       width: 35%;
     }
+  }
+}
+
+/* For screens smaller than 800px */
+@media (max-width: 800px) {
+  .collections-sidebar {
+    display: none ;
   }
 }
