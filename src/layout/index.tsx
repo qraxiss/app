@@ -108,7 +108,7 @@ const Layout = (props: any) => {
     <React.Fragment>
       {location.pathname && <MainModal location={location.pathname} />}
       <CollectionsSideBar openSideBar={openSideBar} />
-      <div style={{ marginLeft: "50px" }}>
+      <div>
         <Header handleMood={handleThemeMood} openSideBar={openSideBar} />
         {props.children}
         <Footer />
