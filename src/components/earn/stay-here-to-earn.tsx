@@ -119,41 +119,41 @@ export const StayHereToEarn = () => {
             </Button>
           </div>
 
-          <div className="countdown d-flex justify-content-center list-unstyled text-center">
-            <li style={{flexGrow: 1}}>
+          <div className="countdown d-flex list-unstyled text-center">
+            <li className="countdown-container">
               <div className="blue-box divider" id="days">
                 {addOneZero(pastTime.days)}
               </div>{" "}
               <p className="time">Days</p>
             </li>
-            <li className="px-3">
+            <li className="px-3 dots">
               <span className="fs-36 fw-medium" id="days">
                 :
               </span>{" "}
             </li>
-            <li style={{flexGrow: 1}}>
+            <li className="countdown-container">
               <span className="blue-box divider" id="hours">
                 {addOneZero(pastTime.hours)}
               </span>{" "}
               <p className="time">Hours</p>
             </li>
-            <li className="px-3">
+            <li className="px-3 dots">
               <span className="fs-36 fw-medium" id="days">
                 :
               </span>{" "}
             </li>
-            <li style={{flexGrow: 1}}>
+            <li className="countdown-container">
               <span className="blue-box divider" id="minutes">
                 {addOneZero(pastTime.minutes)}
               </span>{" "}
               <p className="time">Minutes</p>
             </li>
-            <li className="px-3">
+            <li className="px-3 dots">
               <span className="fs-36 fw-medium" id="days">
                 :
               </span>{" "}
             </li>
-            <li style={{flexGrow: 1}}>
+            <li className="countdown-container">
               <span className="blue-box divider" id="seconds">
                 {addOneZero(pastTime.seconds)}
               </span>{" "}

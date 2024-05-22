@@ -38,9 +38,17 @@ export const TopPicks = () => {
                   prevEl: ".swiper-button-prev",
                 }}
                 breakpoints={{
+                  200: {
+                    slidesPerView: 1,
+                    spaceBetween: 20,
+                  },
+                  400: {
+                    slidesPerView: 3,
+                    spaceBetween: 20,
+                  },
                   640: {
                     slidesPerView: 5,
-                    spaceBetween: 30,
+                    spaceBetween: 20,
                   },
                   768: {
                     slidesPerView: 5,

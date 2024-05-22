@@ -160,7 +160,45 @@ export const LoginToEarn = () => {
             </Button>
           </div>
         </div>
-        <div className="purple-box-container">{days}</div>
+        <div className="purple-box-container">
+          <div className="days-container">
+            <div className="days day-30xp active">
+              <h5>day 1</h5>
+              <img src={smallReward} alt="" />
+              <h5>+30 XP</h5>
+            </div>
+            <div className="days day-30xp">
+              <h5>day 2</h5>
+              <img src={smallReward} alt="" />
+              <h5>+30 XP</h5>
+            </div>
+            <div className="days day-50xp">
+              <h5>day 3</h5>
+              <img src={mediumReward} alt="" />
+              <h5>+50 XP</h5>
+            </div>
+            <div className="days day-30xp">
+              <h5>day 4</h5>
+              <img src={smallReward} alt="" />
+              <h5>+30 XP</h5>
+            </div>
+            <div className="days day-30xp">
+              <h5>day 5</h5>
+              <img src={smallReward} alt="" />
+              <h5>+30 XP</h5>
+            </div>
+            <div className="days day-50xp">
+              <h5>day 6</h5>
+              <img src={mediumReward} alt="" />
+              <h5>+50 XP</h5>
+            </div>
+            <div className="days day-80xp">
+              <h5>day 7</h5>
+              <img src={largeReward} alt="" />
+              <h5>+80 XP</h5>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );

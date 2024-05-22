@@ -7,7 +7,7 @@ import {
 
 export const Earn = () => {
   return (
-    <section className="section pt-20 ms-5">
+    <section className="section pt-20">
       <div className="container earn-page">
         <LoginToEarn />
         <hr />
