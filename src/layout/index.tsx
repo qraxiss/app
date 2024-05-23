@@ -40,13 +40,13 @@ const Layout = (props: any) => {
     dispatch(fetchSideBarAsync());
     dispatch(fetchNewArrivalsAsync());
     dispatch(fetchHotDealsAsync());
-    // dispatch(
-    //   listenMarket({
-    //     onMessage: (data: any) => {
-    //       dispatch(updatePrice(data));
-    //     },
-    //   })
-    // );
+    dispatch(
+      listenMarket({
+        onMessage: (data: any) => {
+          dispatch(updatePrice(data));
+        },
+      })
+    );
 
     if (logged) {
       dispatch(fetchWishlistAsync());
