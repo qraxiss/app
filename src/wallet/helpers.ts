@@ -5,7 +5,7 @@ import { ethers, BrowserProvider } from "ethers";
 import UniversalProvider from "@walletconnect/universal-provider";
 import config, { metadata, projectId } from "./config";
 
-import { ABI, ADDRESS } from "common/data/mint";
+import { ABI, ADDRESS } from "constants/mint";
 
 import { store } from "store";
 
