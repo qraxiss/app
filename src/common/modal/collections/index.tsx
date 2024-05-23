@@ -104,7 +104,7 @@ export const CollectionModal: FC<CollectionModalProps> = ({
       <Offcanvas
         show={show}
         onHide={handleClose}
-        placement="start"
+        placement="bottom"
         className={`collections-modal`}
       >
         <Offcanvas.Header className="header">
@@ -120,7 +120,7 @@ export const CollectionModal: FC<CollectionModalProps> = ({
             onClick={() => setCurrentModule("collections")}
             id="ecommerceCartLabel"
             as="h5"
-            className={currentModule === "collections" ? "active" : ""}
+            className={currentModule === "collections" ? "active mobile" : " mobile"}
           >
             <span>Collections</span>
           </Offcanvas.Title>

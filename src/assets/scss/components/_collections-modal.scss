@@ -9,9 +9,9 @@
   justify-content: center;
   padding: 0;
 
-  .offcanvas-title{
-    width: 50%;
-    background-color: #F5F5F5;
+  .offcanvas-title {
+    width: 100%;
+    background-color: #f5f5f5;
     border-bottom: 1px solid grey;
     text-align: center;
     padding: 16px 16px;
@@ -22,33 +22,33 @@
     text-transform: uppercase;
     justify-content: center;
 
-    &:last-child{
+    &:last-child {
       border-left: 1px solid grey;
     }
 
-    &:hover{
-      span{
+    &:hover {
+      span {
         transform: scale(1.1);
       }
     }
-    
-    &.active{
+
+    &.active {
       background-color: #e8e8e8de;
-      border-bottom: 2px solid #2AC1E6;
+      border-bottom: 2px solid #2ac1e6;
     }
   }
-  
+
   @media (min-width: 991.98px) {
     .offcanvas-title {
       width: 100% !important;
     }
   }
-
 }
 
 .collections-modal {
   width: 18em !important;
   z-index: 9999;
+  height: 100% !important;
   // border-right: 0px !important;
 
   .header {
@@ -58,7 +58,6 @@
       width: unset;
     }
   }
-
 
   font-size: larger;
 
@@ -77,7 +76,7 @@
   .body {
     text-transform: uppercase;
     font-weight: 500;
-    
+
     .item {
       cursor: pointer;
       display: flex;
@@ -124,7 +123,7 @@ li.nav-item {
   backdrop-filter: blur(10px);
   background-color: rgba(255, 255, 255, 0.75);
 
-  border-radius: 0px 15px 0px 15px;
+  // border-radius: 0px 15px 0px 15px;
   width: 18em !important;
   position: fixed;
   left: 18em !important;
@@ -171,5 +170,35 @@ li.nav-item {
   }
 
   .exchanges {
+  }
+}
+@media (max-width: 500px) {
+  .mobile {
+    font-size: 10px !important;
+  }
+  .collections-modal {
+    width: 11em !important;
+    padding: 0 5px !important;
+
+    .body {
+      .item {
+        padding: 0.75em 0px !important;
+      }
+    }
+  }
+  .offcanvas-body {
+    font-size: 14px !important;
+  }
+  .details-modal {
+    left: 11em !important;
+    width: 8em !important;
+  }
+  .offcanvas-title {
+    font-size: 14px !important;
+    padding: 16px 12px !important;
+    justify-content: flex-start !important;
+  }
+  #ecommerceCartLabel{
+    justify-content: center !important;
   }
 }
