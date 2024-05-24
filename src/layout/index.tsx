@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
+
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Button } from "react-bootstrap";
@@ -22,7 +22,7 @@ import { CollectionModal } from "common/modal/collections";
 import { CollectionsSideBar } from "./collection-side-bar";
 
 import { listenMarket, updatePrice } from "slices/crypto-market/slice";
-import { safeMint } from "wallet/mint";
+import MobileFooter from "./mobileFooter";
 
 const Layout = (props: any) => {
   const location = useLocation();
@@ -131,6 +131,7 @@ const Layout = (props: any) => {
           }}
         />
       )}
+      <MobileFooter openSideBar={openSideBar}/>
     </React.Fragment>
   );
 };

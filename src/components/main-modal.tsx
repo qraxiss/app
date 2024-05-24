@@ -16,8 +16,6 @@ import SimpleBar from "simplebar-react";
 import modalImg from "assets/images/subscribe.png";
 import logodark from "assets/images/logo-dark.png";
 import logolight from "assets/images/logo-light.png";
-import avatar1 from "assets/images/users/avatar-1.jpg";
-import avatar7 from "assets/images/users/avatar-7.jpg";
 
 //component
 import { productData } from "common/data";
@@ -749,7 +747,7 @@ export const CardModal = ({ show, handleClose }: any) => {
                 // target="_blank"
                 className="btn btn-info w-100"
               >
-                Continue to Checkout
+                Checkout
               </Link>
             </Col>
           </Row>
