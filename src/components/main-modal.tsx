@@ -737,8 +737,8 @@ export const CardModal = ({ show, handleClose }: any) => {
           </div>
           <Row className="g-2">
             <Col xs={6}>
-              <Button variant="light" className="btn w-100" id="reset-layout">
-                View Cart
+              <Button onClick={handleClose} variant="light" className="btn w-100" id="reset-layout">
+                Close Cart
               </Button>
             </Col>
             <Col xs={6}>
