@@ -59,10 +59,9 @@ export const purchaseItemAsync = createAsyncThunk(
         return;
       }
 
-      await Promise.all([
-        dispatch(fetchOrdersAsync()),
-        dispatch(fetchCartAsync()),
-      ]);
+      dispatch(fetchOrdersAsync());
+      dispatch(fetchCartAsync());
+
       dispatch(purchaseItemSuccess(data));
     } catch (error: any) {
       dispatch(purchaseItemFailure(error));

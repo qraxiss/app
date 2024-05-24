@@ -2,9 +2,11 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState: {
   data: any;
   open: boolean;
+  error: Error | null;
 } = {
-  data: {},
+  data: { BNBUSDT: 600 },
   open: false,
+  error: null,
 };
 
 const cryptoMarketSlice = createSlice({
@@ -26,13 +28,17 @@ const cryptoMarketSlice = createSlice({
       if (state.open) {
         return;
       }
-      const ws = new WebSocket(
-        "wss://stream.binance.com:9443/ws/!miniTicker@arr"
-      );
-      ws.addEventListener("message", (event: any) => {
-        onMessage(event.data);
-      });
-      state.open = true;
+      try {
+        const ws = new WebSocket(
+          "wss://stream.binance.com:9443/ws/!miniTicker@arr"
+        );
+        ws.addEventListener("message", (event: any) => {
+          onMessage(event.data);
+        });
+        state.open = true;
+      } catch (error: any) {
+        state.error = error.message;
+      }
     },
   },
 });

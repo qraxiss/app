@@ -6,6 +6,8 @@ export const ORDERS = gql`
       count
       price
       error
+      createdAt
+      id
     }
   }
 `;

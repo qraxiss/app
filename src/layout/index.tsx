@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Button } from "react-bootstrap";
@@ -16,6 +15,7 @@ import {
   fetchNewArrivalsAsync,
   fetchWishlistAsync,
   fetchCartAsync,
+  fetchOrdersAsync,
 } from "slices/thunk";
 import { AppDispatch } from "store";
 import { CollectionModal } from "common/modal/collections";
@@ -40,6 +40,7 @@ const Layout = (props: any) => {
     dispatch(fetchSideBarAsync());
     dispatch(fetchNewArrivalsAsync());
     dispatch(fetchHotDealsAsync());
+    dispatch(fetchOrdersAsync());
     dispatch(
       listenMarket({
         onMessage: (data: any) => {
@@ -131,7 +132,7 @@ const Layout = (props: any) => {
           }}
         />
       )}
-      <MobileFooter openSideBar={openSideBar}/>
+      <MobileFooter openSideBar={openSideBar} />
     </React.Fragment>
   );
 };

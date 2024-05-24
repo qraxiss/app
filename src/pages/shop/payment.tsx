@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   Card,
   Col,
@@ -25,6 +25,14 @@ const Payment = () => {
   const { loading } = useSelector((state: any) => state.order.purchase);
 
   const dispatch: AppDispatch = useDispatch();
+
+  const [isNewOrder, setIsNewOrder] = useState(false);
+
+  useEffect(() => {
+    if (isNewOrder && !loading) {
+      console.log(loading);
+    }
+  }, [loading]);
 
   return (
     <React.Fragment>
@@ -119,8 +127,8 @@ const Payment = () => {
                         <div className="hstack gap-2 justify-content-end pt-3">
                           {status !== "connected" ? (
                             <>
-                              "Wallet connection has expired, you need
-                              re-connect wallet.
+                              Wallet connection has expired, you need re-connect
+                              wallet.
                               <ConnectWallet />
                             </>
                           ) : (
@@ -128,6 +136,7 @@ const Payment = () => {
                               type="button"
                               className="btn btn-hover w-md btn-primary"
                               onClick={() => {
+                                setIsNewOrder(true);
                                 dispatch(purchaseItemAsync());
                               }}
                               disabled={loading}
