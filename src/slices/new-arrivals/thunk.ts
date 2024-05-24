@@ -4,7 +4,7 @@ import {
   fetchNewArrivalsStart,
   fetchNewArrivalsSuccess,
   fetchNewArrivalsFailure,
-} from "./slice";
+} from "slices/new-arrivals/slice";
 import { GET_NEW_ARRIVALS } from "graphql/new-arrivals/queries";
 
 export const fetchNewArrivalsAsync = createAsyncThunk(

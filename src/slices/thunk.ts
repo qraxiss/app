@@ -1,16 +1,16 @@
-export { changeLayoutMood, changeThemeMood } from "./layouts/thunk";
-export { fetchCategoriesAsync } from "./category/thunk";
-export { fetchSideBarAsync } from "./sidebar/thunk";
-export { fetchNewArrivalsAsync } from "./new-arrivals/thunk";
-export { fetchHotDealsAsync } from "./hot-deals/thunk";
-export { logoutAsync } from "./user/thunk";
-export { verifySignatureAsync, disconnectWalletAsync } from "./wallet/thunk";
+export { changeLayoutMood, changeThemeMood } from "slices/layouts/thunk";
+export { fetchCategoriesAsync } from "slices/category/thunk";
+export { fetchSideBarAsync } from "slices/sidebar/thunk";
+export { fetchNewArrivalsAsync } from "slices/new-arrivals/thunk";
+export { fetchHotDealsAsync } from "slices/hot-deals/thunk";
+export { logoutAsync } from "slices/user/thunk";
+export { verifySignatureAsync, disconnectWalletAsync } from "slices/wallet/thunk";
 
 export {
   fetchWishlistAsync,
   removeFromWishlistAsync,
   addToWishlistAsync,
-} from "./wishlist/thunk";
+} from "slices/wishlist/thunk";
 
 export {
   fetchCartAsync,
@@ -18,6 +18,6 @@ export {
   emptyAsync,
   deleteCartItem,
   updateItemAsync,
-} from "./cart/thunk";
+} from "slices/cart/thunk";
 
-export { fetchOrdersAsync, purchaseItemAsync } from "./order/thunk";
+export { fetchOrdersAsync, purchaseItemAsync } from "slices/order/thunk";

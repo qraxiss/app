@@ -1,6 +1,6 @@
 import { FC } from "react";
 
-import logo from "../assets/images/icon.svg";
+import logo from "assets/images/icon.svg";
 import { useSelector } from "react-redux";
 
 interface CollectionsSideBarProps {

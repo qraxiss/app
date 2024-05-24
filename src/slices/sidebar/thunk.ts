@@ -5,7 +5,7 @@ import {
   fetchSideBarFailure,
   fetchSideBarStart,
   fetchSideBarSuccess,
-} from "./slice";
+} from "slices/sidebar/slice";
 import { GET_SideBar } from "graphql/sidebar/queries";
 
 export const fetchSideBarAsync = createAsyncThunk(

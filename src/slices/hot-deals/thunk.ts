@@ -4,7 +4,7 @@ import {
   fetchHotDealsStart,
   fetchHotDealsSuccess,
   fetchHotDealsFailure,
-} from "./slice";
+} from "slices/hot-deals/slice";
 import { GET_HOT_DEALS } from "graphql/hot-deals/queries";
 
 export const fetchHotDealsAsync = createAsyncThunk(

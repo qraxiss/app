@@ -1,7 +1,7 @@
 import React from "react";
-import Clothing from "./clothing";
-import Deals from "./deals";
-import EmailClothe from "./email-clothe";
+import Clothing from "pages/catalog/clothing";
+import Deals from "pages/catalog/deals";
+import EmailClothe from "pages/catalog/email-clothe";
 import { CommonService } from "components/common-service";
 
 const Catalog = () => {

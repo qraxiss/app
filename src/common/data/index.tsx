@@ -4,29 +4,29 @@ import {
   Location,
   storeLocation,
   invioceRecod,
-} from "./about-data";
-import { filterProduct, catlogDeals, shopProducDetails } from "./catalog-data";
+} from "common/data/about-data";
+import { filterProduct, catlogDeals, shopProducDetails } from "common/data/catalog-data";
 import {
   catagoriesData,
   ellipsCategories,
   sliderCategories,
-} from "./categories-data";
-import { contactdetails } from "./contact-data";
-import { faqquetion } from "./faq-data";
-// import { productData } from "./ProductData";
+} from "common/data/categories-data";
+import { contactdetails } from "common/data/contact-data";
+import { faqquetion } from "common/data/faq-data";
+// import { productData } from "common/data/ProductData";
 import {
   sliderProduct,
   descriptionData,
   productInterestedCard,
   productprogress,
-} from "./product-detail-data";
+} from "common/data/product-detail-data";
 import {
   service,
   product,
   latestProduct,
   slider,
   shopingsCollection,
-} from "./service";
+} from "common/data/service";
 import {
   recentlyOrder,
   shopReviews,
@@ -35,13 +35,13 @@ import {
   wishlishProduct,
   wishListCard,
   selectAddressData,
-} from "./shop-data";
+} from "common/data/shop-data";
 import {
   cardData,
   featuredProducts,
   trendingOutfit,
   trendingProducts,
-} from "./modern-Fashion";
+} from "common/data/modern-Fashion";
 
 export {
   trendingProducts,

@@ -2,19 +2,19 @@ import { Form, Button, Image } from "react-bootstrap";
 // import { ConnectButton } from '@rainbow-me/rainbowkit'
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
 
-import length3 from "../../assets/images/earn/domain/3.png";
-import length4 from "../../assets/images/earn/domain/4.png";
-import length5 from "../../assets/images/earn/domain/5.png";
-import length6 from "../../assets/images/earn/domain/6.png";
-import length7 from "../../assets/images/earn/domain/7.png";
-import length8 from "../../assets/images/earn/domain/8.png";
-import length9 from "../../assets/images/earn/domain/9.png";
-import bitcoin from "../../assets/images/earn/domain/bitcoin.png";
+import length3 from "assets/images/earn/domain/3.png";
+import length4 from "assets/images/earn/domain/4.png";
+import length5 from "assets/images/earn/domain/5.png";
+import length6 from "assets/images/earn/domain/6.png";
+import length7 from "assets/images/earn/domain/7.png";
+import length8 from "assets/images/earn/domain/8.png";
+import length9 from "assets/images/earn/domain/9.png";
+import bitcoin from "assets/images/earn/domain/bitcoin.png";
 
 // import { BinanceProvider, useBinance } from 'context/binance'
 // import { buyWithWallet } from 'lib/rainbow'
 
-// import { useEarn, EarnProvider } from '../../context/earn'
+// import { useEarn, EarnProvider } from 'context/earn'
 
 import { useNavigate } from "react-router-dom";
 import { ConnectWallet } from "components/connect-wallet";

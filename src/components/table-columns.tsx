@@ -1,6 +1,6 @@
 import React, { useMemo } from "react";
 import { Dropdown, Image } from "react-bootstrap";
-import ReactTable from "./reacttable";
+import ReactTable from "components/reacttable";
 
 const TableColumns = ({ data }: any) => {
   const columns: any = useMemo(

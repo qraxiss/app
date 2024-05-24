@@ -18,8 +18,8 @@ import features1 from "assets/images/ecommerce/features/img-1.jpg";
 import features2 from "assets/images/ecommerce/features/img-2.jpg";
 import features3 from "assets/images/ecommerce/features/img-3.jpg";
 import profileBg from "assets/images/profile-bg.jpg";
-import Pagination from "./pagination";
-import { ProductNoui } from "./home-page";
+import Pagination from "components/pagination";
+import { ProductNoui } from "components/home-page";
 
 export const ProductSide = ({
   cid,

@@ -1,7 +1,7 @@
 import React, { useState, useMemo, useEffect } from "react";
 import { Card, Col, Form, Image, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import Pagination from "./pagination";
+import Pagination from "components/pagination";
 
 const ListProductData = ({ listnoslider }: any) => {
   const pagination = true;

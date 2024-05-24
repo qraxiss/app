@@ -11,7 +11,7 @@ import {
 } from "react-bootstrap";
 import { Shoporder, Shoptopbar } from "components/shop-top-bar";
 import { Link } from "react-router-dom";
-import { ShopingAddress } from "./shopping-Address";
+import { ShopingAddress } from "pages/shop/shopping-Address";
 import EmailClothe from "pages/catalog/email-clothe";
 import { CommonService } from "components/common-service";
 

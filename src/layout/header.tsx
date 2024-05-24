@@ -14,7 +14,7 @@ import shopcekLogo from "assets/images/svg/Shopcek_Official.png";
 import logodark from "assets/images/logo-dark.png";
 import logolight from "assets/images/logo-light.png";
 import avtar1 from "assets/images/users/avatar-1.jpg";
-import logo from '../assets/images/icon.svg';
+import logo from 'assets/images/icon.svg';
 import { CardModal, SearchModal } from "components/main-modal";
 import { withTranslation } from "react-i18next";
 import withRouter from "components/with-router";

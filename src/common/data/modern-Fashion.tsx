@@ -1,16 +1,16 @@
-import fashionImg1 from "../../assets/images/fashion/product/img-01.png";
-import fashionImg2 from "../../assets/images/fashion/product/img-02.png";
-import fashionImg3 from "../../assets/images/fashion/product/img-03.png";
-import fashionImg5 from "../../assets/images/fashion/product/img-05.png";
-import fashionImg8 from "../../assets/images/fashion/product/img-08.png";
-import fashionImg9 from "../../assets/images/fashion/product/img-09.png";
-import fashionImg11 from "../../assets/images/fashion/product/img-11.png";
-import fashionImg12 from "../../assets/images/fashion/product/img-12.png";
-import fashionImg13 from "../../assets/images/fashion/product/img-13.png";
-import fashionImg14 from "../../assets/images/fashion/product/img-14.png";
-import fashionImg15 from "../../assets/images/fashion/product/img-15.png";
-import fashionImg17 from "../../assets/images/fashion/product/img-17.png";
-import fashionImg18 from "../../assets/images/fashion/product/img-18.png";
+import fashionImg1 from "assets/images/fashion/product/img-01.png";
+import fashionImg2 from "assets/images/fashion/product/img-02.png";
+import fashionImg3 from "assets/images/fashion/product/img-03.png";
+import fashionImg5 from "assets/images/fashion/product/img-05.png";
+import fashionImg8 from "assets/images/fashion/product/img-08.png";
+import fashionImg9 from "assets/images/fashion/product/img-09.png";
+import fashionImg11 from "assets/images/fashion/product/img-11.png";
+import fashionImg12 from "assets/images/fashion/product/img-12.png";
+import fashionImg13 from "assets/images/fashion/product/img-13.png";
+import fashionImg14 from "assets/images/fashion/product/img-14.png";
+import fashionImg15 from "assets/images/fashion/product/img-15.png";
+import fashionImg17 from "assets/images/fashion/product/img-17.png";
+import fashionImg18 from "assets/images/fashion/product/img-18.png";
 
 export const trendingProducts = [
   {

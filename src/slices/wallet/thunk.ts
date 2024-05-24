@@ -7,7 +7,7 @@ import {
   disconnectWalletFailure,
   disconnectWalletStart,
   disconnectWalletSuccess,
-} from "./slice";
+} from "slices/wallet/slice";
 
 import { VERIFY } from "graphql/wallet/mutations";
 import { VERIFY as VERIFY_INPUT } from "types/wallet";

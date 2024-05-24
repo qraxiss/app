@@ -1,6 +1,6 @@
 import React from "react";
 import EmailClothe from "pages/catalog/email-clothe";
-import Payment from "./payment";
+import Payment from "pages/shop/payment";
 import { BrandedProduct, Shoptopbar } from "components/shop-top-bar";
 import { CommonService } from "components/common-service";
 

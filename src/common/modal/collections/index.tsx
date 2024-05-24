@@ -3,10 +3,10 @@ import React, { FC, useEffect, useState } from "react";
 import { Offcanvas, Tab, Tabs } from "react-bootstrap";
 import SimpleBar from "simplebar-react";
 
-import { DetailsModal } from "./details";
+import { DetailsModal } from "common/modal/collections/details";
 import { Link, useNavigate } from "react-router-dom";
-import icon from "../../../assets/images/icon.svg";
-import dropdown from "../../../assets/images/dropdown.png";
+import icon from "assets/images/icon.svg";
+import dropdown from "assets/images/dropdown.png";
 import { useSelector } from "react-redux";
 
 interface ICategory {

@@ -11,7 +11,7 @@ import {
   removeFromWishlistError,
   removeFromWishlistStart,
   removeFromWishlistSuccess,
-} from "./slice";
+} from "slices/wishlist/slice";
 
 import { WISHLIST } from "graphql/wishlist/queries";
 import {

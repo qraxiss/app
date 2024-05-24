@@ -8,7 +8,7 @@ import {
   purchaseItemFailure,
   purchaseItemStart,
   purchaseItemSuccess,
-} from "./slice";
+} from "slices/order/slice";
 
 import { fetchCartAsync } from "slices/thunk";
 

@@ -1,5 +1,5 @@
 import { defaultWagmiConfig } from "@web3modal/wagmi/react/config";
-import chains from "./chains";
+import chains from "wallet/chains";
 
 import icon from "assets/images/icon.svg";
 

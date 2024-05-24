@@ -1,7 +1,7 @@
 /* eslint-disable prefer-const */
 import { GQL_STATUS } from "types/gql";
-import { handle } from "./helpers";
-import { simplifyResponse } from "./simplify-response";
+import { handle } from "graphql/apollo/helpers";
+import { simplifyResponse } from "graphql/apollo/simplify-response";
 import {
   DocumentNode,
   MutationHookOptions,
