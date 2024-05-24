@@ -3,13 +3,16 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Layout from "layout";
 
 //routes
-import { publicRoutes } from "./public-routes";
-import { authProtectedRoutes, PrivateRoutes } from "./private-routes";
+import { publicRoutes } from "routes/public-routes";
+import { authProtectedRoutes, PrivateRoutes } from "routes/private-routes";
+
+import OnPathChange from "routes/on-path-change";
 
 export const AppRouter = () => {
   return (
     <React.Fragment>
       <BrowserRouter>
+        <OnPathChange />
         <Routes>
           <Route>
             {publicRoutes.map((route, idx) => (
