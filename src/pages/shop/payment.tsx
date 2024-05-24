@@ -7,8 +7,12 @@ import { purchaseItemAsync } from "slices/thunk";
 import { useDispatch } from "react-redux";
 import { AppDispatch } from "store";
 
+import { useAccount } from "wagmi";
+import { ConnectWallet } from "components/connect-wallet";
+
 const Payment = () => {
   document.title = "Shopcek | Payment";
+  const { status } = useAccount();
 
   const dispatch: AppDispatch = useDispatch();
 
@@ -103,16 +107,24 @@ const Payment = () => {
                           </p>
                         </div>
                         <div className="hstack gap-2 justify-content-end pt-3">
-                          <button
-                            type="button"
-                            className="btn btn-hover w-md btn-primary"
-                            onClick={() => {
-                              dispatch(purchaseItemAsync());
-                            }}
-                          >
-                            Continue
-                            <i className="ri-logout-box-r-line align-bottom ms-2"></i>
-                          </button>
+                          {status !== "connected" ? (
+                            <>
+                              "Wallet connection has expired, you need
+                              re-connect wallet.
+                              <ConnectWallet />
+                            </>
+                          ) : (
+                            <button
+                              type="button"
+                              className="btn btn-hover w-md btn-primary"
+                              onClick={() => {
+                                dispatch(purchaseItemAsync());
+                              }}
+                            >
+                              Continue
+                              <i className="ri-logout-box-r-line align-bottom ms-2"></i>
+                            </button>
+                          )}
                         </div>
                       </Card.Body>
                     </Card>
