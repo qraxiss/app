@@ -1,10 +1,19 @@
 import React from "react";
-import { Card, Col, Container, Row, Tab, Alert, Nav } from "react-bootstrap";
+import {
+  Card,
+  Col,
+  Container,
+  Row,
+  Tab,
+  Alert,
+  Nav,
+  Spinner,
+} from "react-bootstrap";
 import { Shoporder } from "components/shop-top-bar";
 
 import { purchaseItemAsync } from "slices/thunk";
 
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch } from "store";
 
 import { useAccount } from "wagmi";
@@ -13,6 +22,7 @@ import { ConnectWallet } from "components/connect-wallet";
 const Payment = () => {
   document.title = "Shopcek | Payment";
   const { status } = useAccount();
+  const { loading } = useSelector((state: any) => state.order.purchase);
 
   const dispatch: AppDispatch = useDispatch();
 
@@ -120,9 +130,16 @@ const Payment = () => {
                               onClick={() => {
                                 dispatch(purchaseItemAsync());
                               }}
+                              disabled={loading}
                             >
-                              Continue
-                              <i className="ri-logout-box-r-line align-bottom ms-2"></i>
+                              {loading ? (
+                                <Spinner />
+                              ) : (
+                                <>
+                                  Continue
+                                  <i className="ri-logout-box-r-line align-bottom ms-2"></i>
+                                </>
+                              )}
                             </button>
                           )}
                         </div>
