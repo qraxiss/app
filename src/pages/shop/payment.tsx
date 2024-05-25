@@ -18,11 +18,13 @@ import { AppDispatch } from "store";
 
 import { useAccount } from "wagmi";
 import { ConnectWallet } from "components/connect-wallet";
+import { useNavigate } from "react-router-dom";
 
 const Payment = () => {
   document.title = "Shopcek | Payment";
   const { status } = useAccount();
-  const { loading } = useSelector((state: any) => state.order.purchase);
+  const { loading, data } = useSelector((state: any) => state.order.purchase);
+  const navigate = useNavigate();
 
   const dispatch: AppDispatch = useDispatch();
 
@@ -30,7 +32,7 @@ const Payment = () => {
 
   useEffect(() => {
     if (isNewOrder && !loading) {
-      console.log(loading);
+      navigate(`/invoice/${data}`);
     }
   }, [loading]);
 
