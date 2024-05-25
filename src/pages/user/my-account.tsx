@@ -196,7 +196,7 @@ const MyAccount = () => {
                                     <tr>
                                       <td>Email Address</td>
                                       <td className="fw-medium">
-                                        raque@toner.com
+                                        raque@Shopcek.com
                                       </td>
                                     </tr>
                                     <tr>
@@ -592,7 +592,7 @@ const MyAccount = () => {
                                         type="email"
                                         id="emailInput"
                                         placeholder="Enter your email"
-                                        defaultValue="raque@toner.com"
+                                        defaultValue="raque@Shopcek.com"
                                         name="email"
                                       />
                                     </div>

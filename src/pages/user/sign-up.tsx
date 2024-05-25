@@ -23,7 +23,7 @@ const SignUp = () => {
   const formik = useFormik({
     initialValues: {
       email: "",
-      username: "admin@themesbrand.com",
+      username: "admin@shopcek.com",
       password: "123456",
     },
     validationSchema: Yup.object({
@@ -116,14 +116,14 @@ const SignUp = () => {
                         </Col>
                         <Col lg={8} xs={9}>
                           <h1 className="text-white text-capitalize lh-base fw-lighter">
-                            Let's get started with Toner Store
+                            Let's get started with Shopcek Store
                           </h1>
                         </Col>
                       </Row>
                     </Card.Header>
                     <Card.Body>
                       <p className="text-muted fs-15">
-                        Get your free Toner account now
+                        Get your free Shopcek account now
                       </p>
                       <div className="p-2">
                         <Form
@@ -205,7 +205,7 @@ const SignUp = () => {
                           </div>
                           <div className="mb-4">
                             <p className="mb-0 fs-12 text-muted fst-italic">
-                              By registering you agree to the Toner
+                              By registering you agree to the Shopcek
                               <Link
                                 to="#"
                                 className="text-primary text-decoration-underline fst-normal fw-medium"
@@ -274,7 +274,7 @@ const SignUp = () => {
                 <Col lg={12}>
                   <div className="text-center">
                     <p className="mb-0 text-muted">
-                      ©{new Date().getFullYear()} Toner. Crafted with{" "}
+                      ©{new Date().getFullYear()} Shopcek. Crafted with{" "}
                       <i className="mdi mdi-heart text-danger" /> by Themesbrand
                     </p>
                   </div>

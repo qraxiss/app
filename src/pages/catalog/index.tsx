@@ -5,7 +5,7 @@ import EmailClothe from "pages/catalog/email-clothe";
 import { CommonService } from "components/common-service";
 
 const Catalog = () => {
-  document.title = "Product Sidebar with Banner | Toner - React FrontEnd";
+  document.title = "Product Sidebar with Banner | Shopcek";
 
   return (
     <React.Fragment>

@@ -8,7 +8,7 @@ import EmailClothe from "pages/catalog/email-clothe";
 import { CommonService } from "components/common-service";
 
 const Confirm = () => {
-  document.title = "Order Completed | Toner - React FrontEnd";
+  document.title = "Order Completed | Shopcek";
   return (
     <React.Fragment>
       <Shoptopbar title="Order Confirm" page="Confirmation" />

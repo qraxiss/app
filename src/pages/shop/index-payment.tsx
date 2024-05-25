@@ -5,7 +5,7 @@ import { BrandedProduct, Shoptopbar } from "components/shop-top-bar";
 import { CommonService } from "components/common-service";
 
 const PaymentIndex = () => {
-  document.title = "Shop  | Toner - React FrontEnd";
+  document.title = "Shop  | Shopcek";
 
   return (
     <React.Fragment>

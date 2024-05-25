@@ -43,7 +43,7 @@ export const ProductSide = ({
   const indexOfFirst = indexOfLast - perPageData;
   const currentdata = useMemo(
     () => product.slice(indexOfFirst, indexOfLast),
-    [indexOfFirst, indexOfLast],
+    [indexOfFirst, indexOfLast]
   );
   useEffect(() => {
     setCurrentpages(currentdata);
@@ -485,7 +485,8 @@ export const DefauilOffer = () => {
                 Don't miss out on special offers
               </h1>
               <p className="text-white-75 fs-15 mb-4 pb-2">
-                Never Miss Anything From Toner By Signing Up To Our Newsletter.
+                Never Miss Anything From Shopcek By Signing Up To Our
+                Newsletter.
               </p>
               <Form action="#">
                 <div className="position-relative ecommerce-subscript">

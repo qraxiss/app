@@ -7,7 +7,7 @@ import EmailClothe from "pages/catalog/email-clothe";
 import { CommonService } from "components/common-service";
 
 const Shopingcard = () => {
-  document.title = "Shop Cart | Toner - React Frontend";
+  document.title = "Shop Cart | Shopcek";
   return (
     <React.Fragment>
       <Shoptopbar title="Shopping Cart" page="Shopping Cart" />

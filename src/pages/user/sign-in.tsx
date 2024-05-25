@@ -22,7 +22,7 @@ const Signin = () => {
   const [password, setPassword] = useState("");
   const formik = useFormik({
     initialValues: {
-      username: "admin@themesbrand.com",
+      username: "admin@shopcek.com",
       password: "123456",
     },
     validationSchema: Yup.object({
@@ -116,14 +116,14 @@ const Signin = () => {
                         </Col>
                         <Col lg={8} xs={9}>
                           <h1 className="text-white lh-base fw-lighter">
-                            Join Our Toner Store
+                            Join Our Shopcek Store
                           </h1>
                         </Col>
                       </Row>
                     </Card.Header>
                     <Card.Body>
                       <p className="text-muted fs-15">
-                        Sign in to continue to Toner.
+                        Sign in to continue to Shopcek.
                       </p>
                       <div className="p-2">
                         <Form action="#" onSubmit={formik.handleSubmit}>
@@ -242,7 +242,7 @@ const Signin = () => {
                 <Col lg={12}>
                   <div className="text-center">
                     <p className="mb-0 text-muted">
-                      ©{new Date().getFullYear()} Toner. Crafted with{" "}
+                      ©{new Date().getFullYear()} Shopcek. Crafted with{" "}
                       <i className="mdi mdi-heart text-danger" /> by Themesbrand
                     </p>
                   </div>

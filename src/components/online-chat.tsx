@@ -95,8 +95,8 @@ const OnlineChat = () => {
                                   <p className="mb-0 ctext-content">
                                     Welcome to Themesbrand. We are here to help
                                     you. You can also directly email us at
-                                    Support@themesbrand.com to schedule a
-                                    meeting with our Technology Consultant.
+                                    Support@shopcek.com to schedule a meeting
+                                    with our Technology Consultant.
                                   </p>
                                 </div>
                                 <CommondDropdown />
