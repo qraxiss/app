@@ -426,8 +426,11 @@ const MyAccount = () => {
                                   return (
                                     <tr key={inx}>
                                       <td>
-                                        <Link to="#" className="text-body">
-                                          TBT{25000 + Number(item.id)}
+                                        <Link
+                                          to={`/invoice/${item.id}`}
+                                          className="text-body"
+                                        >
+                                          #SHPC{25000 + Number(item.id)}
                                         </Link>
                                       </td>
                                       <td>
