@@ -4,7 +4,7 @@ import {
   fetchCategoriesStart,
   fetchCategoriesSuccess,
   fetchCategoriesFailure,
-} from "./slice";
+} from "slices/category/slice";
 import { GET_CATEGORIES } from "graphql/category/queries";
 import { shopcekQuery } from "graphql/apollo/helpers";
 

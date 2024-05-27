@@ -157,17 +157,17 @@ export const InvoiceModal = ({ modal, handleClose }: any) => {
                       </h6>
                       <h6>
                         <span className="text-muted fw-normal">Email:</span>{" "}
-                        <span id="email">toner@themesbrand.com</span>
+                        <span id="email">Shopcek@shopcek.com</span>
                       </h6>
                       <h6>
                         <span className="text-muted fw-normal">Website:</span>{" "}
                         <Link
-                          to="https://themesbrand.com/"
+                          to="https://shopcek.com/"
                           className="link-primary"
                           target="_blank"
                           id="website"
                         >
-                          www.themesbrand.com
+                          www.shopcek.com
                         </Link>
                       </h6>
                       <h6 className="mb-0">
@@ -369,7 +369,7 @@ export const InvoiceModal = ({ modal, handleClose }: any) => {
                           <tr>
                             <td>
                               Discount{" "}
-                              <small className="text-muted">(TONER50)</small>
+                              <small className="text-muted">(Shopcek50)</small>
                             </td>
                             <td className="text-end">- $206.45</td>
                           </tr>
@@ -707,7 +707,7 @@ export const CardModal = ({ show, handleClose }: any) => {
                   </tr>
                   <tr>
                     <td>
-                      Discount <span className="text-muted">(Toner15)</span>:
+                      Discount <span className="text-muted">(Shopcek15)</span>:
                     </td>
                     <td className="text-end cart-discount">
                       -${dis || "0.00"}
@@ -737,8 +737,13 @@ export const CardModal = ({ show, handleClose }: any) => {
           </div>
           <Row className="g-2">
             <Col xs={6}>
-              <Button variant="light" className="btn w-100" id="reset-layout">
-                View Cart
+              <Button
+                onClick={handleClose}
+                variant="light"
+                className="btn w-100"
+                id="reset-layout"
+              >
+                Close Cart
               </Button>
             </Col>
             <Col xs={6}>

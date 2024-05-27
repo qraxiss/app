@@ -1,13 +1,13 @@
 import React from "react";
 import { Row, Col, Alert, Container } from "react-bootstrap";
-import Cardshop from "./card-shop";
+import Cardshop from "pages/shop/card-shop";
 
 import { BrandedProduct, Shoptopbar } from "components/shop-top-bar";
 import EmailClothe from "pages/catalog/email-clothe";
 import { CommonService } from "components/common-service";
 
 const Shopingcard = () => {
-  document.title = "Shop Cart | Toner - React Frontend";
+  document.title = "Shop Cart | Shopcek";
   return (
     <React.Fragment>
       <Shoptopbar title="Shopping Cart" page="Shopping Cart" />

@@ -57,7 +57,7 @@ export const Shoporder = ({ dic, subtotal, charge, tax, total }: any) => {
               className="me-auto"
               type="text"
               placeholder="Enter coupon code"
-              defaultValue="Toner15"
+              defaultValue="Shopcek15"
               aria-label="Add Promo Code here..."
             />
             <button type="button" className="btn btn-primary w-xs">
@@ -80,7 +80,7 @@ export const Shoporder = ({ dic, subtotal, charge, tax, total }: any) => {
                 </tr>
                 <tr>
                   <td>
-                    Discount <span className="text-muted">(Toner15)</span>:
+                    Discount <span className="text-muted">(Shopcek15)</span>:
                   </td>
                   <td className="text-end cart-discount">-${dic || "0.00"}</td>
                 </tr>

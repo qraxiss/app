@@ -112,7 +112,7 @@ const PasswordReset = () => {
                     </Card.Header>
                     <Card.Body>
                       <p className="text-muted fs-15">
-                        Reset password with Toner.
+                        Reset password with Shopcek.
                       </p>
                       <Alert
                         className="alert-borderless alert-warning text-center mb-2 mx-2"
@@ -179,7 +179,7 @@ const PasswordReset = () => {
                 <Col lg={12}>
                   <div className="text-center">
                     <p className="mb-0 text-muted">
-                      ©{new Date().getFullYear()} Toner. Crafted with{" "}
+                      ©{new Date().getFullYear()} Shopcek. Crafted with{" "}
                       <i className="mdi mdi-heart text-danger" /> by Themesbrand
                     </p>
                   </div>

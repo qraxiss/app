@@ -17,7 +17,7 @@ import {
   updateItemFailure,
   updateItemStart,
   updateItemSuccess,
-} from "./slice";
+} from "slices/cart/slice";
 
 import {
   ADD_ITEM_TO_CART,

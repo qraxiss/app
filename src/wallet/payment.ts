@@ -1,4 +1,4 @@
-import config from "./config";
+import config from "wallet/config";
 import { sendTransaction } from "@wagmi/core";
 import { parseEther } from "viem";
 

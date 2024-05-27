@@ -31,7 +31,7 @@ const EmailClothe = () => {
                 <p className="fs-15 mb-4 pb-2">
                   Start You'r Daily Shopping with{" "}
                   <Link to="#" className="link-primary fw-medium">
-                    Toner
+                    Shopcek
                   </Link>
                 </p>
                 <Form action="#">

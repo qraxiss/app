@@ -7,12 +7,12 @@ import {
 } from "@web3modal/siwe";
 
 import { store } from "store";
-import config from "./config";
+import config from "wallet/config";
 import { getAccount } from "@wagmi/core";
 import { verifySignatureAsync, disconnectWalletAsync } from "slices/thunk";
-import chains from "./chains";
+import chains from "wallet/chains";
 
-import { getSigner } from "./helpers";
+import { getSigner } from "wallet/helpers";
 
 function createMessage({ nonce, address, chainId }: SIWECreateMessageArgs) {
   const message = new SiweMessage({

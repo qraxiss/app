@@ -1,16 +1,40 @@
-import React from "react";
-import { Card, Col, Container, Row, Tab, Alert, Nav } from "react-bootstrap";
+import React, { useEffect, useState } from "react";
+import {
+  Card,
+  Col,
+  Container,
+  Row,
+  Tab,
+  Alert,
+  Nav,
+  Spinner,
+} from "react-bootstrap";
 import { Shoporder } from "components/shop-top-bar";
 
 import { purchaseItemAsync } from "slices/thunk";
 
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch } from "store";
+
+import { useAccount } from "wagmi";
+import { ConnectWallet } from "components/connect-wallet";
+import { useNavigate } from "react-router-dom";
 
 const Payment = () => {
   document.title = "Shopcek | Payment";
+  const { status } = useAccount();
+  const { loading, data } = useSelector((state: any) => state.order.purchase);
+  const navigate = useNavigate();
 
   const dispatch: AppDispatch = useDispatch();
+
+  const [isNewOrder, setIsNewOrder] = useState(false);
+
+  useEffect(() => {
+    if (isNewOrder && !loading) {
+      navigate(`/invoice/${data}`);
+    }
+  }, [loading]);
 
   return (
     <React.Fragment>
@@ -103,16 +127,32 @@ const Payment = () => {
                           </p>
                         </div>
                         <div className="hstack gap-2 justify-content-end pt-3">
-                          <button
-                            type="button"
-                            className="btn btn-hover w-md btn-primary"
-                            onClick={() => {
-                              dispatch(purchaseItemAsync());
-                            }}
-                          >
-                            Continue
-                            <i className="ri-logout-box-r-line align-bottom ms-2"></i>
-                          </button>
+                          {status !== "connected" ? (
+                            <>
+                              Wallet connection has expired, you need re-connect
+                              wallet.
+                              <ConnectWallet />
+                            </>
+                          ) : (
+                            <button
+                              type="button"
+                              className="btn btn-hover w-md btn-primary"
+                              onClick={() => {
+                                setIsNewOrder(true);
+                                dispatch(purchaseItemAsync());
+                              }}
+                              disabled={loading}
+                            >
+                              {loading ? (
+                                <Spinner />
+                              ) : (
+                                <>
+                                  Continue
+                                  <i className="ri-logout-box-r-line align-bottom ms-2"></i>
+                                </>
+                              )}
+                            </button>
+                          )}
                         </div>
                       </Card.Body>
                     </Card>

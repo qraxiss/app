@@ -1,5 +1,8 @@
-import { changeLayoutModeAction, changeLayoutThemeModeAction } from "./reducer";
-import { changeHTMLAttribute } from "./utils";
+import {
+  changeLayoutModeAction,
+  changeLayoutThemeModeAction,
+} from "slices/layouts/reducer";
+import { changeHTMLAttribute } from "slices/layouts/utils";
 
 //footer mood
 export const changeLayoutMood = (footerMode: any) => async (dispatch: any) => {

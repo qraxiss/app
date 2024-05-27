@@ -7,10 +7,10 @@ import {
   QueryHookOptions,
   ApolloError,
 } from "@apollo/client";
-import { simplifyResponse } from "./simplify-response";
+import { simplifyResponse } from "graphql/apollo/simplify-response";
 
 import { useState } from "react";
-import { handle } from "./helpers";
+import { handle } from "graphql/apollo/helpers";
 import { GQL_STATUS } from "types/gql";
 
 export function useShopcekQuery<DType>(

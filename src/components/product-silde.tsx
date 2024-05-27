@@ -18,8 +18,8 @@ import features1 from "assets/images/ecommerce/features/img-1.jpg";
 import features2 from "assets/images/ecommerce/features/img-2.jpg";
 import features3 from "assets/images/ecommerce/features/img-3.jpg";
 import profileBg from "assets/images/profile-bg.jpg";
-import Pagination from "./pagination";
-import { ProductNoui } from "./home-page";
+import Pagination from "components/pagination";
+import { ProductNoui } from "components/home-page";
 
 export const ProductSide = ({
   cid,
@@ -43,7 +43,7 @@ export const ProductSide = ({
   const indexOfFirst = indexOfLast - perPageData;
   const currentdata = useMemo(
     () => product.slice(indexOfFirst, indexOfLast),
-    [indexOfFirst, indexOfLast],
+    [indexOfFirst, indexOfLast]
   );
   useEffect(() => {
     setCurrentpages(currentdata);
@@ -485,7 +485,8 @@ export const DefauilOffer = () => {
                 Don't miss out on special offers
               </h1>
               <p className="text-white-75 fs-15 mb-4 pb-2">
-                Never Miss Anything From Toner By Signing Up To Our Newsletter.
+                Never Miss Anything From Shopcek By Signing Up To Our
+                Newsletter.
               </p>
               <Form action="#">
                 <div className="position-relative ecommerce-subscript">

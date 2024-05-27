@@ -30,9 +30,10 @@ const MyAccount = () => {
   const navigate = useNavigate();
   const wishlist = useSelector((state: any) => state.wishlist.data.items);
   const userData = useSelector((state: any) => state.user.data);
+  const orders = useSelector((state: any) => state.order.orders.data);
 
   const location = useLocation();
-  const [activeKey, setActiveKey] = useState(location.state || 'profile');
+  const [activeKey, setActiveKey] = useState(location.state || "profile");
 
   useEffect(() => {
     if (location.state) {
@@ -83,7 +84,11 @@ const MyAccount = () => {
       </section>
       <section className="py-5">
         <Container>
-          <Tab.Container id="left-tabs-example" activeKey={activeKey} onSelect={(k) => setActiveKey(k)}>
+          <Tab.Container
+            id="left-tabs-example"
+            activeKey={activeKey}
+            onSelect={(k) => setActiveKey(k)}
+          >
             <Row>
               <Col lg={3}>
                 <Card>
@@ -191,7 +196,7 @@ const MyAccount = () => {
                                     <tr>
                                       <td>Email Address</td>
                                       <td className="fw-medium">
-                                        raque@toner.com
+                                        raque@Shopcek.com
                                       </td>
                                     </tr>
                                     <tr>
@@ -357,8 +362,8 @@ const MyAccount = () => {
                                                     onClick={() => {
                                                       dispatch(
                                                         removeFromWishlistAsync(
-                                                          item,
-                                                        ),
+                                                          item
+                                                        )
                                                       );
                                                     }}
                                                     className="btn btn-soft-danger btn-icon btn-sm"
@@ -370,7 +375,7 @@ const MyAccount = () => {
                                             </td>
                                           </tr>
                                         );
-                                      },
+                                      }
                                     )}
                                   </tbody>
                                 </Table>
@@ -410,7 +415,6 @@ const MyAccount = () => {
                               <thead>
                                 <tr>
                                   <th scope="col">Order ID</th>
-                                  <th scope="col">Product</th>
                                   <th scope="col">Date</th>
                                   <th scope="col">Total Amount</th>
                                   <th scope="col">Status</th>
@@ -418,47 +422,60 @@ const MyAccount = () => {
                                 </tr>
                               </thead>
                               <tbody>
-                                {(orderHistorys || [])?.map((item, inx) => {
+                                {orders.map((item: any, inx: number) => {
                                   return (
                                     <tr key={inx}>
                                       <td>
-                                        <Link to="#" className="text-body">
-                                          {item.orderId}
+                                        <Link
+                                          to={`/invoice/${item.id}`}
+                                          className="text-body"
+                                        >
+                                          #SHPC{25000 + Number(item.id)}
                                         </Link>
-                                      </td>
-                                      <td>
-                                        <Link to={`/product-details/`}>
-                                          <h6 className="fs-15 mb-1">
-                                            {item.title}
-                                          </h6>
-                                        </Link>
-                                        <p className="mb-0 text-muted fs-13">
-                                          {item.text}
-                                        </p>
                                       </td>
                                       <td>
                                         <span className="text-muted">
-                                          {item.data}
+                                          {new Date(
+                                            item.createdAt
+                                          ).toLocaleDateString()}
                                         </span>
                                       </td>
                                       <td className="fw-medium">
-                                        ${item.amount}
+                                        ${item.count}
                                       </td>
                                       <td>
-                                        <span
-                                          className={`badge bg-${item.bg}-subtle text-${item.bg}`}
-                                        >
-                                          {item.status}
-                                        </span>
+                                        {item.error ? (
+                                          <span
+                                            className={`badge bg-danger-subtle text-danger`}
+                                          >
+                                            Failed
+                                          </span>
+                                        ) : (
+                                          <span
+                                            className={`badge bg-secondary-subtle text-secondary`}
+                                          >
+                                            Shipping
+                                          </span>
+                                        )}
                                       </td>
                                       <td>
-                                        <Link
-                                          to="/invoice"
-                                          data-bs-toggle="modal"
-                                          className="btn btn-secondary btn-sm"
-                                        >
-                                          Invoice
-                                        </Link>
+                                        {item.error ? (
+                                          <Link
+                                            to={`/invoice/${item.id}`}
+                                            data-bs-toggle="modal"
+                                            className="btn btn-danger btn-sm"
+                                          >
+                                            Details
+                                          </Link>
+                                        ) : (
+                                          <Link
+                                            to={`/invoice/${item.id}`}
+                                            data-bs-toggle="modal"
+                                            className="btn btn-secondary btn-sm"
+                                          >
+                                            Invoice
+                                          </Link>
+                                        )}
                                       </td>
                                     </tr>
                                   );
@@ -578,7 +595,7 @@ const MyAccount = () => {
                                         type="email"
                                         id="emailInput"
                                         placeholder="Enter your email"
-                                        defaultValue="raque@toner.com"
+                                        defaultValue="raque@Shopcek.com"
                                         name="email"
                                       />
                                     </div>

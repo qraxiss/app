@@ -25,6 +25,6 @@ export const contactdetails = [
     color: "danger",
     icon: "bi bi-envelope-fill",
     title: "Email",
-    describe: "support@themesbrand.com",
+    describe: "support@shopcek.com",
   },
 ];

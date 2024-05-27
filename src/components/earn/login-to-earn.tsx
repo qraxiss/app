@@ -1,9 +1,9 @@
 import { Image, Button, Container } from "react-bootstrap";
 
-import smallReward from "../../assets/images/earn/small-reward.png";
-import mediumReward from "../../assets/images/earn/medium-reward.png";
-import largeReward from "../../assets/images/earn/large-reward.png";
-import check from "../../assets/images/earn/check.png";
+import smallReward from "assets/images/earn/small-reward.png";
+import mediumReward from "assets/images/earn/medium-reward.png";
+import largeReward from "assets/images/earn/large-reward.png";
+import check from "assets/images/earn/check.png";
 
 import { useState, useEffect } from "react";
 

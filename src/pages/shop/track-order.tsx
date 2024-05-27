@@ -8,14 +8,25 @@ import {
   Table,
   Image,
 } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { Shoptopbar } from "components/shop-top-bar";
 import { shopProducDetails } from "common/data";
 import EmailClothe from "pages/catalog/email-clothe";
 import { CommonService } from "components/common-service";
 
+import { ORDER } from "graphql/order/queries";
+import { useShopcekQuery } from "graphql/apollo/query-wrapper";
+
 const Trackorder = () => {
-  document.title = "Track Order | Toner - React FrontEnd";
+  const { id } = useParams();
+  const { data, loading, error } = useShopcekQuery<any>(ORDER, {
+    variables: {
+      id,
+    },
+  });
+
+  console.log(data, loading, error);
+  document.title = "Track Order | Shopcek";
   return (
     <React.Fragment>
       <Shoptopbar title="Track Order" page="Track Order" />
@@ -25,7 +36,7 @@ const Trackorder = () => {
             <Col lg={12}>
               <div className="mb-4 pb-2">
                 <h5 className="mb-0 text-decoration-underline                                                                                                                                                                                                                                                                   ">
-                  Order ID <b>#HY1452451452</b>
+                  Order ID <b>#SHPC{25000 + Number(data?.id)}</b>
                 </h5>
               </div>
             </Col>
@@ -75,10 +86,21 @@ const Trackorder = () => {
               <Row className="g-3">
                 <Col lg={3} xs={6}>
                   <p className="text-muted mb-2 text-uppercase fw-medium fs-12">
-                    Invoice ID
+                    Transaction TX
                   </p>
                   <h5 className="fs-14 mb-0">
-                    #HYP<span id="invoice-no">14567513010120</span>
+                    <Link
+                      to={`https://testnet.bscscan.com/tx/${data?.transaction}`}
+                      target="_blank"
+                    >
+                      <span id="invoice-no">
+                        {data?.transaction.substring(0, 6)}...
+                        {data?.transaction.substring(
+                          data?.transaction.length - 6,
+                          data?.transaction.length
+                        )}
+                      </span>
+                    </Link>
                   </h5>
                 </Col>
                 <Col lg={3} xs={6}>
@@ -86,9 +108,11 @@ const Trackorder = () => {
                     Date
                   </p>
                   <h5 className="fs-14 mb-0">
-                    <span id="invoice-date">23 Nov, 2021</span>{" "}
+                    <span id="invoice-date">
+                      {new Date(data?.createdAt).toLocaleDateString()}
+                    </span>{" "}
                     <small className="text-muted" id="invoice-time">
-                      02:36PM
+                      {new Date(data?.createdAt).toTimeString().substring(0, 5)}
                     </small>
                   </h5>
                 </Col>
@@ -108,7 +132,7 @@ const Trackorder = () => {
                     Total Amount
                   </p>
                   <h5 className="fs-14 mb-0">
-                    $<span id="total-amount">1218.98</span>
+                    $<span id="total-amount">{data?.cart.price}</span>
                   </h5>
                 </Col>
               </Row>
@@ -156,7 +180,7 @@ const Trackorder = () => {
                         #
                       </th>
                       <th scope="col">Product Details</th>
-                      <th scope="col">Rate</th>
+                      <th scope="col">Price</th>
                       <th scope="col">Quantity</th>
                       <th scope="col" className="text-end">
                         Amount
@@ -164,7 +188,7 @@ const Trackorder = () => {
                     </tr>
                   </thead>
                   <tbody id="products-list">
-                    {(shopProducDetails || [])?.map((item, index) => {
+                    {data?.cart.items.map((item: any, index: number) => {
                       return (
                         <tr key={index}>
                           <th scope="row">0{item.id}</th>
@@ -172,26 +196,29 @@ const Trackorder = () => {
                             <div className="d-flex align-items-center gap-2">
                               <div className="avatar-sm flex-shrink-0">
                                 <div
-                                  className={`avatar-title bg-${item.bg}-subtle rounded-3`}
+                                  className={`avatar-title bg-success-subtle rounded-3`}
                                 >
                                   <Image
-                                    src={item.img}
+                                    src={item.variant.image}
                                     alt=""
                                     className="avatar-xs"
                                   />
                                 </div>
                               </div>
                               <div className="flex-grow-1">
-                                <h6>{item.title}</h6>
+                                <h6>{item.variant.product.name}</h6>
                                 <p className="text-muted mb-0">
-                                  {item.discription}
+                                  Lorem ipsum dolor, sit amet consectetur
+                                  adipisicing elit. Enim, amet?
                                 </p>
                               </div>
                             </div>
                           </td>
-                          <td>${item.rate}</td>
-                          <td>{item.quantity}</td>
-                          <td className="text-end">${item.amount}</td>
+                          <td>${item.variant.price}</td>
+                          <td>{item.count}</td>
+                          <td className="text-end">
+                            ${item.count * item.variant.price}
+                          </td>
                         </tr>
                       );
                     })}
@@ -206,17 +233,22 @@ const Trackorder = () => {
                   <tbody>
                     <tr>
                       <td>Sub Total</td>
-                      <td className="text-end">$1183.57</td>
+                      <td className="text-end">${data?.cart.price}</td>
                     </tr>
                     <tr>
                       <td>Estimated Tax (12.5%)</td>
-                      <td className="text-end">$147.95</td>
+                      <td className="text-end">
+                        ${(data?.cart.price * 12.5) / 100}
+                      </td>
                     </tr>
                     <tr>
                       <td>
-                        Discount <small className="text-muted">(Toner15)</small>
+                        Discount{" "}
+                        <small className="text-muted">(Shopcek15)</small>
                       </td>
-                      <td className="text-end">- $177.54</td>
+                      <td className="text-end">
+                        - ${(data?.cart.price * 15) / 100}
+                      </td>
                     </tr>
                     <tr>
                       <td>Shipping Charge</td>
@@ -224,7 +256,13 @@ const Trackorder = () => {
                     </tr>
                     <tr className="border-top border-top-dashed fs-15">
                       <th scope="row">Total Amount</th>
-                      <th className="text-end">$1218.98</th>
+                      <th className="text-end">
+                        $
+                        {-((data?.cart.price * 15) / 100) +
+                          (data?.cart.price * 12.5) / 100 +
+                          data?.cart.price +
+                          65}
+                      </th>
                     </tr>
                   </tbody>
                 </Table>

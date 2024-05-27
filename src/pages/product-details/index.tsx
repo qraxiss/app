@@ -367,7 +367,7 @@ const ProductDetails = () => {
                     className="btn button-buy-now w-100 px-2"
                     onClick={async () => {
                       await handleAddToCart();
-                      navigate("/shop/checkout");
+                      navigate("/checkout");
                     }}
                     disabled={disabled}
                   >

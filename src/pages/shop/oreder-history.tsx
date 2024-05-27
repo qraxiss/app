@@ -8,7 +8,7 @@ import { CommonService } from "components/common-service";
 import { InvoiceModal } from "components/main-modal";
 
 const Orderhistory = () => {
-  document.title = "Order History | Toner - React FrontEnd";
+  document.title = "Order History | Shopcek";
   //modal
   const [modal, setModal] = useState(false);
   const handleInvoice = () => setModal(true);

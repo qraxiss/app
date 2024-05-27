@@ -8,7 +8,7 @@ import { CommonService } from "components/common-service";
 import HotDeals from "components/hot-deals";
 
 const WishList = () => {
-  document.title = "Wishlist | Toner - React Frontend";
+  document.title = "Wishlist | Shopcek";
   return (
     <React.Fragment>
       <Shoptopbar title="Wishlist" page="Wishlist" />

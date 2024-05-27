@@ -11,7 +11,7 @@ import {
 } from "react-bootstrap";
 import { Shoporder, Shoptopbar } from "components/shop-top-bar";
 import { Link } from "react-router-dom";
-import { ShopingAddress } from "./shopping-Address";
+import { ShopingAddress } from "pages/shop/shopping-Address";
 import EmailClothe from "pages/catalog/email-clothe";
 import { CommonService } from "components/common-service";
 
@@ -121,11 +121,8 @@ const Checkout = () => {
                   total="630.25"
                 />
                 <div className="hstack gap-2 justify-content-between justify-content-end">
-                  <Link
-                    to="/shop/shopingcard"
-                    className="btn btn-hover btn-soft-info w-100"
-                  >
-                    Back To Cart{" "}
+                  <Link to="/" className="btn btn-hover btn-soft-info w-100">
+                    Back To Shopping{" "}
                     <i className="ri-arrow-right-line label-icon align-middle ms-1"></i>
                   </Link>
                   <Link

@@ -20,7 +20,7 @@ export const Instagram = () => {
               <div className="section-content text-center mb-5">
                 <h2 className="fw-normal mb-3">
                   <span>Instagram Shop by </span>{" "}
-                  <span className="fw-semibold"> @toner</span>
+                  <span className="fw-semibold"> @Shopcek</span>
                 </h2>
                 <p className="text-muted fs-16 mb-0">
                   Shop your favorites styles from Instagram.

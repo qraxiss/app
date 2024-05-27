@@ -1,10 +1,9 @@
-
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Button } from "react-bootstrap";
 import { useLocation } from "react-router-dom";
-import Footer from "./footer";
-import Header from "./header";
+import Footer from "layout/footer";
+import Header from "layout/header";
 import { MainModal } from "components/main-modal";
 import { createSelector } from "reselect";
 import {
@@ -16,13 +15,14 @@ import {
   fetchNewArrivalsAsync,
   fetchWishlistAsync,
   fetchCartAsync,
+  fetchOrdersAsync,
 } from "slices/thunk";
 import { AppDispatch } from "store";
 import { CollectionModal } from "common/modal/collections";
-import { CollectionsSideBar } from "./collection-side-bar";
+import { CollectionsSideBar } from "layout/collection-side-bar";
 
 import { listenMarket, updatePrice } from "slices/crypto-market/slice";
-import MobileFooter from "./mobileFooter";
+import MobileFooter from "layout/mobileFooter";
 
 const Layout = (props: any) => {
   const location = useLocation();
@@ -40,13 +40,14 @@ const Layout = (props: any) => {
     dispatch(fetchSideBarAsync());
     dispatch(fetchNewArrivalsAsync());
     dispatch(fetchHotDealsAsync());
-    // dispatch(
-    //   listenMarket({
-    //     onMessage: (data: any) => {
-    //       dispatch(updatePrice(data));
-    //     },
-    //   })
-    // );
+    dispatch(fetchOrdersAsync());
+    dispatch(
+      listenMarket({
+        onMessage: (data: any) => {
+          dispatch(updatePrice(data));
+        },
+      })
+    );
 
     if (logged) {
       dispatch(fetchWishlistAsync());
@@ -131,7 +132,7 @@ const Layout = (props: any) => {
           }}
         />
       )}
-      <MobileFooter openSideBar={openSideBar}/>
+      <MobileFooter openSideBar={openSideBar} />
     </React.Fragment>
   );
 };

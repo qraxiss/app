@@ -1,6 +1,4 @@
-import { empty } from "@apollo/client";
 import { createSlice } from "@reduxjs/toolkit";
-import { act } from "react-dom/test-utils";
 
 const initialState: {
   loading: boolean;

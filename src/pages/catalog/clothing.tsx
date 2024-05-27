@@ -1,7 +1,7 @@
 import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import Adevertise from "./adevertise";
+import Adevertise from "pages/catalog/adevertise";
 import Index from "components";
 
 //img

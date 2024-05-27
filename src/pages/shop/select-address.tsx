@@ -6,7 +6,7 @@ import DeleteModal, { ModalAdd } from "components/delete-modal";
 import { selectAddressData } from "common/data";
 
 const Selectaddress = () => {
-  document.title = "Shop | Select address | Toner - React FrontEnd";
+  document.title = "Shop | Select address | Shopcek";
 
   const [addressData, setAddressData] = useState(selectAddressData);
   //delete id

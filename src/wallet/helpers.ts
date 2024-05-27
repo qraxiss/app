@@ -3,7 +3,7 @@ import { getWalletClient } from "@wagmi/core";
 import { ethers, BrowserProvider } from "ethers";
 
 import UniversalProvider from "@walletconnect/universal-provider";
-import config, { metadata, projectId } from "./config";
+import config, { metadata, projectId } from "wallet/config";
 
 import { ABI, ADDRESS } from "constants/mint";
 

@@ -6,7 +6,7 @@ import { Shoptopbar } from "components/shop-top-bar";
 import { shopReviews } from "common/data";
 
 const Review = () => {
-  document.title = "Customer Review | Toner - React FrontEnd";
+  document.title = "Customer Review | Shopcek";
   return (
     <React.Fragment>
       <Shoptopbar title="Product Reviews" page="Review" />

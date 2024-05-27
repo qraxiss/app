@@ -1,5 +1,5 @@
-import { simplifyResponse } from "./simplify-response";
-import { client } from "./provider";
+import { simplifyResponse } from "graphql/apollo/simplify-response";
+import { client } from "graphql/apollo/provider";
 import {
   GQL_STATUS,
   SHOPCECK_RESPONSE,

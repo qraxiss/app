@@ -96,7 +96,7 @@ const Logout = () => {
                       </div>
                       <p className="text-muted fs-15">
                         Thank you for using{" "}
-                        <span className="fw-semibold">Toner</span> admin
+                        <span className="fw-semibold">Shopcek</span> admin
                         template
                       </p>
                       <div>
@@ -122,7 +122,7 @@ const Logout = () => {
                 <Col lg={12}>
                   <div className="text-center">
                     <p className="mb-0 text-muted">
-                      ©{new Date().getFullYear()} Toner. Crafted with{" "}
+                      ©{new Date().getFullYear()} Shopcek. Crafted with{" "}
                       <i className="mdi mdi-heart text-danger" /> by Themesbrand
                     </p>
                   </div>

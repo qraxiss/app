@@ -5,7 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 import config, { projectId } from "wallet/config";
 
-import { siweConfig } from "./siwe";
+import { siweConfig } from "wallet/siwe";
 
 const queryClient = new QueryClient();
 

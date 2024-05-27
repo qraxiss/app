@@ -97,7 +97,7 @@ const Error404 = () => {
                 <Col lg={12}>
                   <div className="text-center">
                     <p className="mb-0 text-muted">
-                      ©{new Date().getFullYear()} Toner. Crafted with{" "}
+                      ©{new Date().getFullYear()} Shopcek. Crafted with{" "}
                       <i className="mdi mdi-heart text-danger" /> by Themesbrand
                     </p>
                   </div>
