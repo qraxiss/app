@@ -1,8 +1,6 @@
 import React, { FC, useEffect, useState } from "react";
-
 import { Offcanvas, Tab, Tabs } from "react-bootstrap";
 import SimpleBar from "simplebar-react";
-
 import { DetailsModal } from "common/modal/collections/details";
 import { Link, useNavigate } from "react-router-dom";
 import icon from "assets/images/icon.svg";
@@ -49,6 +47,22 @@ export const CollectionModal: FC<CollectionModalProps> = ({
   const navigate = useNavigate();
 
   const [extended, setExtended] = useState<string | undefined>(undefined);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 800);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 800);
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const [expandedCategory, setExpandedCategory] = useState<string | null>(null);
+
+  const toggleExpand = (slug: string) => {
+    setExpandedCategory((prev) => (prev === slug ? null : slug));
+  };
+
   useEffect(() => {
     if (card) {
       setExtended("extended");
@@ -61,31 +75,27 @@ export const CollectionModal: FC<CollectionModalProps> = ({
   const [header, setHeader] = useState<any>();
 
   function setNewContent(slug: string) {
-    const contents = data.find((item) => {
-      return item.slug === slug;
-    })!;
+    const contents = data.find((item) => item.slug === slug)!;
 
     setContent(
       <div className={slug}>
         <div className="items">
-          {contents.sub_categories.map((item) => {
-            return (
-              <div
-                className="item"
-                onClick={() => {
-                  navigate(`/products/${item.slug}`);
-                  handleClose();
-                }}
-              >
-                <img
-                  src={`${process.env.REACT_APP_API_URL}${item.icon?.url}`}
-                  alt=""
-                  style={{ height: "auto", maxWidth: "150px" }}
-                />
-                <div>{item.name}</div>
-              </div>
-            );
-          })}
+          {contents.sub_categories.map((item) => (
+            <div
+              className="item"
+              onClick={() => {
+                navigate(`/products/${item.slug}`);
+                handleClose();
+              }}
+            >
+              <img
+                src={`${process.env.REACT_APP_API_URL}${item.icon?.url}`}
+                alt=""
+               style={{ height: "auto", maxWidth: "150px" }}
+              />
+              <div>{item.name}</div>
+            </div>
+          ))}
         </div>
       </div>
     );
@@ -130,25 +140,29 @@ export const CollectionModal: FC<CollectionModalProps> = ({
           <div className="body h-100">
             {currentModule === "collections" && (
               <>
-                {[...data].sort((a, b) => {
-                    if (a.name < b.name) return 1; 
+                {[...data]
+                  .sort((a, b) => {
+                    if (a.name < b.name) return 1;
                     if (a.name > b.name) return -1;
                     return 0;
                   })
-                  .map((item, idx) => {
-                    return (
+                  .map((item, idx) => (
+                    <div key={idx}>
                       <div
-                        key={idx}
                         className="item"
                         onClick={() => {
-                          if (item.slug !== "blockchain-boutique") {
-                            setNewContent(item.slug);
-                            handleCardShow();
+                          if (isMobile) {
+                            toggleExpand(item.slug);
                           } else {
-                            handleClose();
-                            navigate(
-                              "/products/collection/blockchain-boutique"
-                            );
+                            if (item.slug !== "blockchain-boutique") {
+                              setNewContent(item.slug);
+                              handleCardShow();
+                            } else {
+                              handleClose();
+                              navigate(
+                                "/products/collection/blockchain-boutique"
+                              );
+                            }
                           }
                         }}
                       >
@@ -157,16 +171,37 @@ export const CollectionModal: FC<CollectionModalProps> = ({
                           alt=""
                         />
                         {item.name}
-                        {item.slug !== "blockchain-boutique" ? (
+                        {item.slug !== "blockchain-boutique" && (
                           <img
                             src={dropdown}
                             alt=""
                             className="dropdown ${animation}"
                           />
-                        ) : undefined}
+                        )}
                       </div>
-                    );
-                  })}
+                      {isMobile && expandedCategory === item.slug && (
+                        <div className="sub-items">
+                          {item.sub_categories.map((subItem) => (
+                            <div
+                              key={subItem.slug}
+                              className="d-flex gap-2 align-items-center p-2"
+                              onClick={() => {
+                                navigate(`/products/${subItem.slug}`);
+                                handleClose();
+                              }}
+                            >
+                              <img
+                                src={`${process.env.REACT_APP_API_URL}${subItem.icon?.url}`}
+                                alt=""
+                                style={{ height: "auto", maxWidth: "150px" }}
+                              />
+                              <div>{subItem.name}</div>
+                            </div>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  ))}
               </>
             )}
             {currentModule === "menu" && (
@@ -178,7 +213,6 @@ export const CollectionModal: FC<CollectionModalProps> = ({
                       to={`/products/${item.slug}`}
                       data-key="t-slug"
                     >
-                      {/* <img src={`${process.env.REACT_APP_API_URL}/${item.icon.url}`} alt={item.name} width={20} height={20} />{' '} */}
                       {item.name}
                     </Link>
                   </div>

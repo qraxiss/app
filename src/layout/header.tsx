@@ -14,7 +14,6 @@ import shopcekLogo from "assets/images/svg/Shopcek_Official.png";
 import logodark from "assets/images/logo-dark.png";
 import logolight from "assets/images/logo-light.png";
 import avtar1 from "assets/images/users/avatar-1.jpg";
-import logo from 'assets/images/icon.svg';
 import { CardModal, SearchModal } from "components/main-modal";
 import { withTranslation } from "react-i18next";
 import withRouter from "components/with-router";
@@ -72,12 +71,7 @@ const Header = (props: any) => {
               </div>
             </Link>
           </Navbar.Brand>
-          <Button
-            className="btn btn-soft-primary btn-icon d-lg-none collapsed"
-            aria-controls="navbarSupportedContent"
-          >
-            <Image src={logo} alt='logo' height='35'/>
-          </Button>
+            <Image src={shopcekLogo} alt='logo' height='35' className="d-lg-none collapsed"/>
 
             <Nav
               as="ul"
@@ -204,14 +198,10 @@ const Header = (props: any) => {
                 <Dropdown.Toggle
                   id="page-header-user-dropdown"
                   bsPrefix="btn"
-                  className="btn btn-icon btn-topbar btn-link rounded-circle"
+                  className="btn btn-icon btn-topbar btn-link rounded-circle coin"
                   as="a"
                 >
-                  <Image
-                    className="rounded-circle header-profile-user"
-                    src={avtar1}
-                    alt="Header Avatar"
-                  />
+                    <i className="bi bi-person fs-24 m-0 text-black-50"></i>
                 </Dropdown.Toggle>
 
                 <Dropdown.Menu style={{left: "-80px"}}>
@@ -248,7 +238,7 @@ const Header = (props: any) => {
                 </Dropdown.Menu>
               </Dropdown>
             ) : (
-              <ConnectWallet />
+                <ConnectWallet />
             )}
           </div>
         </div>

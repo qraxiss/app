@@ -264,15 +264,21 @@
 
 .trend-fashion-home {
   position: relative;
-  padding: 105px 0 60px;
+  padding: 10px 0 60px;
 }
-
 .home-widgets {
   min-height: 85vh;
   height: 400px;
 }
 
 
+
+@media (min-width: 1000px) {
+  .img-fluid{
+    width: 100% !important;
+  }
+  
+}
 @media (max-width: 400px) {
   .subscribe-input {
     input {
