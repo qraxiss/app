@@ -97,7 +97,7 @@ export const CollectionModal: FC<CollectionModalProps> = ({
             </div>
           ))}
         </div>
-      </div>
+      </div>,
     );
 
     setHeader([
@@ -160,7 +160,7 @@ export const CollectionModal: FC<CollectionModalProps> = ({
                             } else {
                               handleClose();
                               navigate(
-                                "/products/collection/blockchain-boutique"
+                                "/products/collection/blockchain-boutique",
                               );
                             }
                           }

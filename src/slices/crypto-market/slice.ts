@@ -30,7 +30,7 @@ const cryptoMarketSlice = createSlice({
       }
       try {
         const ws = new WebSocket(
-          "wss://stream.binance.com:9443/ws/!miniTicker@arr"
+          "wss://stream.binance.com:9443/ws/!miniTicker@arr",
         );
         ws.addEventListener("message", (event: any) => {
           onMessage(event.data);

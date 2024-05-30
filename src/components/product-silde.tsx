@@ -43,7 +43,7 @@ export const ProductSide = ({
   const indexOfFirst = indexOfLast - perPageData;
   const currentdata = useMemo(
     () => product.slice(indexOfFirst, indexOfLast),
-    [indexOfFirst, indexOfLast]
+    [indexOfFirst, indexOfLast],
   );
   useEffect(() => {
     setCurrentpages(currentdata);

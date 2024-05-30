@@ -362,8 +362,8 @@ const MyAccount = () => {
                                                     onClick={() => {
                                                       dispatch(
                                                         removeFromWishlistAsync(
-                                                          item
-                                                        )
+                                                          item,
+                                                        ),
                                                       );
                                                     }}
                                                     className="btn btn-soft-danger btn-icon btn-sm"
@@ -375,7 +375,7 @@ const MyAccount = () => {
                                             </td>
                                           </tr>
                                         );
-                                      }
+                                      },
                                     )}
                                   </tbody>
                                 </Table>
@@ -436,7 +436,7 @@ const MyAccount = () => {
                                       <td>
                                         <span className="text-muted">
                                           {new Date(
-                                            item.createdAt
+                                            item.createdAt,
                                           ).toLocaleDateString()}
                                         </span>
                                       </td>
