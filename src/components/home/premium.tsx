@@ -48,7 +48,7 @@ export const Premium: FC = () => {
                     <div className="category-widgets-main card border-0 shadow-none bg-light">
                       <div className="effect">
                         <img
-                          src={`${process.env.REACT_APP_API_URL}${category.cover?.url}`}
+                          src={`${process.env.REACT_APP_API_URL}${category.cover.url}`}
                           alt=""
                           className="img-fluid"
                         />

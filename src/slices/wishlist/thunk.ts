@@ -26,16 +26,13 @@ export const fetchWishlistAsync = createAsyncThunk(
       dispatch(fetchWishlistStart());
       const { data } = await shopcekQuery<any[]>({
         query: WISHLIST,
-        options: {
-          fetchPolicy: "no-cache",
-        } as any,
       });
 
       dispatch(fetchWishlistSuccess(data));
     } catch (error: any) {
       dispatch(fetchWishlistError(error.message));
     }
-  }
+  },
 );
 
 export const addToWishlistAsync = createAsyncThunk(
@@ -57,7 +54,7 @@ export const addToWishlistAsync = createAsyncThunk(
     } catch (error: any) {
       dispatch(addToWishlistError(error.message));
     }
-  }
+  },
 );
 
 export const removeFromWishlistAsync = createAsyncThunk(
@@ -79,5 +76,5 @@ export const removeFromWishlistAsync = createAsyncThunk(
     } catch (error: any) {
       dispatch(removeFromWishlistError(error.message));
     }
-  }
+  },
 );

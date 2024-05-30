@@ -19,6 +19,7 @@
     align-items: center; 
     min-width: 90%; 
     max-width: 95%;
+    margin-left: 3.5%;
   }
 
   .navbar-nav {
@@ -222,6 +223,9 @@
       }
     }
 
+    .ecommerce-navbar-container{
+      margin-left: 0px;
+    }
     .navbar-nav {
       .nav-item {
         .nav-link {

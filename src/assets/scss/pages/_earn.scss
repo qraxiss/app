@@ -487,7 +487,17 @@
  .countdown {
   justify-content: space-around;
 }
-
+.coin{
+  display: none !important;
+}
+.profile-container{
+  display: flex;
+  flex-direction: column;
+  padding-top: 16px;
+}
+.heading{
+  color: black;
+}
   .payment{
     justify-content: center;
     flex-wrap: wrap !important;

@@ -37,7 +37,7 @@ export const ConnectWallet: FC<ConnectWalletProps> = ({ buttonText }) => {
       ) : (
         <Button
           type="button"
-          className="btn btn-icon btn-topbar btn-ghost-dark rounded-circle text-muted"
+          className="btn btn-icon btn-topbar coin btn-ghost-dark rounded-circle text-muted"
           onClick={handleConnect}
         >
           <i className="bi bi-coin fs-20"></i>

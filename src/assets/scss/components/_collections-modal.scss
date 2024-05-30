@@ -173,11 +173,8 @@ li.nav-item {
   }
 }
 @media (max-width: 500px) {
-  .mobile {
-    font-size: 10px !important;
-  }
   .collections-modal {
-    width: 11em !important;
+    width: 18em !important;
     padding: 0 5px !important;
 
     .body {
@@ -185,9 +182,6 @@ li.nav-item {
         padding: 0.75em 0px !important;
       }
     }
-  }
-  .offcanvas-body {
-    font-size: 14px !important;
   }
   .details-modal {
     left: 11em !important;
