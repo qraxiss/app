@@ -51,16 +51,16 @@ export const MobileFooter: FC<CollectionsSideBarProps> = ({ openSideBar }) => {
           <i className="bi bi-cart3 fs-24 m-0"></i>
         </Navbar.Brand>
         <Navbar.Brand
-          href="/earn"
-          className="d-flex flex-column align-items-center p-0 m-0"
-        >
-           <i className="bi bi-coin fs-24 m-0"></i>
-        </Navbar.Brand>
-        <Navbar.Brand
           href="#favorites"
           className="d-flex flex-column align-items-center p-0 m-0"
         >
           <i className="bi bi-heart fs-24 m-0"></i>
+        </Navbar.Brand>
+        <Navbar.Brand
+          href="/earn"
+          className="d-flex flex-column align-items-center p-0 m-0"
+        >
+           <i className="bi bi-coin fs-24 m-0"></i>
         </Navbar.Brand>
         {logged ? (
           <Dropdown drop="up">

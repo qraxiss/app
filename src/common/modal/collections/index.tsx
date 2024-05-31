@@ -112,7 +112,7 @@ export const CollectionModal: FC<CollectionModalProps> = ({
                           {item.sub_categories.map((subItem) => (
                             <div
                               key={subItem.slug}
-                              className="d-flex gap-2 align-items-center p-2"
+                              className="d-flex gap-2 align-items-center p-2 cursor-pointer"
                               onClick={() => {
                                 navigate(`/products/${subItem.slug}`);
                                 handleClose();
