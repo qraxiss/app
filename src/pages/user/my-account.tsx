@@ -879,7 +879,6 @@ const MyAccount = () => {
         </Container>
       </section>
       <EmailClothe />
-      <CommonService />
     </React.Fragment>
   );
 };

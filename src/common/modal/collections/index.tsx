@@ -1,7 +1,5 @@
 import React, { FC, useEffect, useState } from "react";
-import { Offcanvas, Tab, Tabs } from "react-bootstrap";
-import SimpleBar from "simplebar-react";
-import { DetailsModal } from "common/modal/collections/details";
+import { Offcanvas } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import icon from "assets/images/icon.svg";
 import dropdown from "assets/images/dropdown.png";
@@ -35,79 +33,14 @@ export const CollectionModal: FC<CollectionModalProps> = ({
   data,
 }) => {
   const categories = useSelector((state: any) => state.categories.data);
-
-  const [card, setCard] = useState(false);
   const [currentModule, setCurrentModule] = useState("collections");
-  const handlecardClose = () => {
-    setCard(false);
-    handleClose();
-  };
-  const handleCardShow = () => setCard(true);
+  const [expandedCategory, setExpandedCategory] = useState<string | null>(null);
 
   const navigate = useNavigate();
-
-  const [extended, setExtended] = useState<string | undefined>(undefined);
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 800);
-
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth <= 800);
-    };
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
-  const [expandedCategory, setExpandedCategory] = useState<string | null>(null);
 
   const toggleExpand = (slug: string) => {
     setExpandedCategory((prev) => (prev === slug ? null : slug));
   };
-
-  useEffect(() => {
-    if (card) {
-      setExtended("extended");
-    } else {
-      setExtended(undefined);
-    }
-  }, [card]);
-
-  const [content, setContent] = useState<any>();
-  const [header, setHeader] = useState<any>();
-
-  function setNewContent(slug: string) {
-    const contents = data.find((item) => item.slug === slug)!;
-
-    setContent(
-      <div className={slug}>
-        <div className="items">
-          {contents.sub_categories.map((item) => (
-            <div
-              className="item"
-              onClick={() => {
-                navigate(`/products/${item.slug}`);
-                handleClose();
-              }}
-            >
-              <img
-                src={`${process.env.REACT_APP_API_URL}${item.icon?.url}`}
-                alt=""
-               style={{ height: "auto", maxWidth: "150px" }}
-              />
-              <div>{item.name}</div>
-            </div>
-          ))}
-        </div>
-      </div>,
-    );
-
-    setHeader([
-      <img
-        src={`${process.env.REACT_APP_API_URL}${contents.icon?.url}`}
-        alt=""
-      />,
-      contents.name,
-    ]);
-  }
 
   return (
     <React.Fragment>
@@ -151,18 +84,13 @@ export const CollectionModal: FC<CollectionModalProps> = ({
                       <div
                         className="item"
                         onClick={() => {
-                          if (isMobile) {
+                          if (item.slug !== "blockchain-boutique") {
                             toggleExpand(item.slug);
                           } else {
-                            if (item.slug !== "blockchain-boutique") {
-                              setNewContent(item.slug);
-                              handleCardShow();
-                            } else {
-                              handleClose();
-                              navigate(
-                                "/products/collection/blockchain-boutique",
-                              );
-                            }
+                            handleClose();
+                            navigate(
+                              "/products/collection/blockchain-boutique"
+                            );
                           }
                         }}
                       >
@@ -179,7 +107,7 @@ export const CollectionModal: FC<CollectionModalProps> = ({
                           />
                         )}
                       </div>
-                      {isMobile && expandedCategory === item.slug && (
+                      {expandedCategory === item.slug && (
                         <div className="sub-items">
                           {item.sub_categories.map((subItem) => (
                             <div
@@ -226,13 +154,6 @@ export const CollectionModal: FC<CollectionModalProps> = ({
             )}
           </div>
         </Offcanvas.Body>
-
-        <DetailsModal
-          show={card}
-          handlecardClose={handlecardClose}
-          content={content}
-          header={header}
-        ></DetailsModal>
       </Offcanvas>
     </React.Fragment>
   );

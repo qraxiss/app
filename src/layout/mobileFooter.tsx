@@ -42,7 +42,6 @@ export const MobileFooter: FC<CollectionsSideBarProps> = ({ openSideBar }) => {
           className="d-flex flex-column align-items-center p-0 m-0"
         >
           <i className="bi bi-list fs-24 m-0"></i>
-          <p className="m-0 fs-14">Menu</p>
         </Navbar.Brand>
         <Navbar.Brand
           onClick={handleCardShow}
@@ -50,14 +49,18 @@ export const MobileFooter: FC<CollectionsSideBarProps> = ({ openSideBar }) => {
           className="d-flex flex-column align-items-center p-0 m-0"
         >
           <i className="bi bi-cart3 fs-24 m-0"></i>
-          <p className="m-0 fs-14">Cart</p>
+        </Navbar.Brand>
+        <Navbar.Brand
+          href="/earn"
+          className="d-flex flex-column align-items-center p-0 m-0"
+        >
+           <i className="bi bi-coin fs-24 m-0"></i>
         </Navbar.Brand>
         <Navbar.Brand
           href="#favorites"
           className="d-flex flex-column align-items-center p-0 m-0"
         >
           <i className="bi bi-heart fs-24 m-0"></i>
-          <p className="m-0 fs-14">Wishlist</p>
         </Navbar.Brand>
         {logged ? (
           <Dropdown drop="up">
@@ -71,7 +74,6 @@ export const MobileFooter: FC<CollectionsSideBarProps> = ({ openSideBar }) => {
                 className="bi bi-person m-0 heading"
                 style={{ fontSize: "28px" }}
               ></i>
-              <p className="m-0 fs-14 heading">Account</p>
             </Dropdown.Toggle>
             <Dropdown.Menu style={{ left: "-80px" }}>
               <Dropdown.Item
@@ -124,8 +126,10 @@ export const MobileFooter: FC<CollectionsSideBarProps> = ({ openSideBar }) => {
             href="#profile"
             className="d-flex flex-column align-items-center p-0 m-0"
           >
-            <i className="bi bi-coin fs-24"></i>
-            <p className="m-0 fs-14">Account</p>
+            <i
+                className="bi bi-person m-0 p-0 heading"
+                style={{ fontSize: "28px" }}
+              ></i>
           </Navbar.Brand>
         )}
       </Container>

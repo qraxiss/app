@@ -12,7 +12,6 @@ const Catalog = () => {
       <Clothing />
       <Deals />
       <EmailClothe />
-      <CommonService />
     </React.Fragment>
   );
 };
