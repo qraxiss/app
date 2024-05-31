@@ -162,7 +162,7 @@ const Footer = () => {
                         ))}
                       </ul>
                     </div>
-                    <div className="mt-3 d-flex justify-content-start">
+                    <div className="mt-3 d-flex justify-content-end">
                       <Image
                         src={microsoft_banner}
                         alt=""

@@ -113,17 +113,17 @@ const Filters = ({ name, setFilterlist }: any) => {
             <Card.Body className="border-bottom">
               <div>
                 <p className="text-muted text-uppercase fs-12 fw-medium mb-3">
-                  Products
+                  Categories
                 </p>
                 <ul className="list-unstyled mb-0 filter-list">
                   <li>
                     <Link
                       to="#"
                       className="d-flex py-1 align-items-center"
-                      onClick={() => handleProduct("Grocery")}
+                      onClick={() => handleProduct("Tshirt")}
                     >
                       <div className="flex-grow-1">
-                        <h5 className="fs-13 mb-0 listname">Grocery</h5>
+                        <h5 className="fs-13 mb-0 listname">T-Shirt</h5>
                       </div>
                     </Link>
                   </li>
@@ -131,10 +131,10 @@ const Filters = ({ name, setFilterlist }: any) => {
                     <Link
                       to="#"
                       className="d-flex py-1 align-items-center"
-                      onClick={() => handleProduct("Fashion")}
+                      onClick={() => handleProduct("Hoodie")}
                     >
                       <div className="flex-grow-1">
-                        <h5 className="fs-13 mb-0 listname">Fashion</h5>
+                        <h5 className="fs-13 mb-0 listname">Hoodie</h5>
                       </div>
                       <div className="flex-shrink-0 ms-2">
                         <span className="badge bg-light text-muted">5</span>
@@ -145,10 +145,10 @@ const Filters = ({ name, setFilterlist }: any) => {
                     <Link
                       to="#"
                       className="d-flex py-1 align-items-center"
-                      onClick={() => handleProduct("Watches")}
+                      onClick={() => handleProduct("Sweatshirt")}
                     >
                       <div className="flex-grow-1">
-                        <h5 className="fs-13 mb-0 listname">Watches</h5>
+                        <h5 className="fs-13 mb-0 listname">Sweat-shirt</h5>
                       </div>
                     </Link>
                   </li>
@@ -156,10 +156,10 @@ const Filters = ({ name, setFilterlist }: any) => {
                     <Link
                       to="#"
                       className="d-flex py-1 align-items-center"
-                      onClick={() => handleProduct("Electronics")}
+                      onClick={() => handleProduct("Hat")}
                     >
                       <div className="flex-grow-1">
-                        <h5 className="fs-13 mb-0 listname">Electronics</h5>
+                        <h5 className="fs-13 mb-0 listname">Hat</h5>
                       </div>
                       <div className="flex-shrink-0 ms-2">
                         <span className="badge bg-light text-muted">5</span>
@@ -170,52 +170,13 @@ const Filters = ({ name, setFilterlist }: any) => {
                     <Link
                       to="#"
                       className="d-flex py-1 align-items-center"
-                      onClick={() => handleProduct("Furniture")}
+                      onClick={() => handleProduct("Ecofriendly")}
                     >
                       <div className="flex-grow-1">
-                        <h5 className="fs-13 mb-0 listname">Furniture</h5>
+                        <h5 className="fs-13 mb-0 listname">Eco-Friendly</h5>
                       </div>
                       <div className="flex-shrink-0 ms-2">
                         <span className="badge bg-light text-muted">6</span>
-                      </div>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      to="#"
-                      className="d-flex py-1 align-items-center"
-                      onClick={() => handleProduct("Automotive")}
-                    >
-                      <div className="flex-grow-1">
-                        <h5 className="fs-13 mb-0 listname">
-                          Automotive Accessories
-                        </h5>
-                      </div>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      to="#"
-                      className="d-flex py-1 align-items-center"
-                      onClick={() => handleProduct("Appliances")}
-                    >
-                      <div className="flex-grow-1">
-                        <h5 className="fs-13 mb-0 listname">Appliances</h5>
-                      </div>
-                      <div className="flex-shrink-0 ms-2">
-                        <span className="badge bg-light text-muted">7</span>
-                      </div>
-                    </Link>
-                  </li>
-
-                  <li>
-                    <Link
-                      to="#"
-                      className="d-flex py-1 align-items-center"
-                      onClick={() => handleProduct("Kids")}
-                    >
-                      <div className="flex-grow-1">
-                        <h5 className="fs-13 mb-0 listname">Kids</h5>
                       </div>
                     </Link>
                   </li>
@@ -572,69 +533,55 @@ const Filters = ({ name, setFilterlist }: any) => {
                         <div className="form-check">
                           <Form.Check
                             type="checkbox"
-                            value="Boat"
+                            value="Bitcoin"
                             id="productBrandRadio5"
                           />
                           <Form.Label
                             className="form-check-label"
                             htmlFor="productBrandRadio5"
                           >
-                            Boat
+                            Bitcoin
                           </Form.Label>
                         </div>
                         <div className="form-check">
                           <Form.Check
                             type="checkbox"
-                            value="OnePlus"
+                            value="Ethereum"
                             id="productBrandRadio4"
                           />
                           <Form.Label
                             className="form-check-label"
                             htmlFor="productBrandRadio4"
                           >
-                            OnePlus
+                            Ethereum
                           </Form.Label>
                         </div>
                         <div className="form-check">
                           <Form.Check
                             type="checkbox"
-                            value="Realme"
+                            value="Skale"
                             id="productBrandRadio3"
                           />
                           <Form.Label
                             className="form-check-label"
                             htmlFor="productBrandRadio3"
                           >
-                            Realme
+                            Skale
                           </Form.Label>
                         </div>
                         <div className="form-check">
                           <Form.Check
                             type="checkbox"
-                            value="Sony"
+                            value="Zetachain "
                             id="productBrandRadio2"
                           />
                           <Form.Label
                             className="form-check-label"
                             htmlFor="productBrandRadio2"
                           >
-                            Sony
+                            Zetachain 
                           </Form.Label>
                         </div>
-                        <div className="form-check">
-                          <Form.Check
-                            type="checkbox"
-                            value="JBL"
-                            id="productBrandRadio1"
-                          />
-                          <Form.Label
-                            className="form-check-label"
-                            htmlFor="productBrandRadio1"
-                          >
-                            JBL
-                          </Form.Label>
-                        </div>
-
                         <div>
                           <Button className="btn btn-link text-decoration-none text-uppercase fw-medium p-0">
                             1,235 More

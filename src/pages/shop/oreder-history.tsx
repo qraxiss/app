@@ -16,7 +16,6 @@ const Orderhistory = () => {
 
   return (
     <React.Fragment>
-      <Shoptopbar title="Order History" page="Order History" />
       <section className="section">
         <Container>
           <Row>
@@ -106,7 +105,6 @@ const Orderhistory = () => {
         </Container>
       </section>
       <EmailClothe />
-      <CommonService />
     </React.Fragment>
   );
 };

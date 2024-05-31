@@ -11,7 +11,6 @@ const Confirm = () => {
   document.title = "Order Completed | Shopcek";
   return (
     <React.Fragment>
-      <Shoptopbar title="Order Confirm" page="Confirmation" />
       <section className="section">
         <Container>
           <Row className="justify-content-center">
@@ -56,7 +55,6 @@ const Confirm = () => {
         </Container>
       </section>
       <EmailClothe />
-      <CommonService />
     </React.Fragment>
   );
 };

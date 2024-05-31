@@ -11,7 +11,6 @@ const WishList = () => {
   document.title = "Wishlist | Shopcek";
   return (
     <React.Fragment>
-      <Shoptopbar title="Wishlist" page="Wishlist" />
       <section className="section">
         <Container>
           <Row>
@@ -102,7 +101,6 @@ const WishList = () => {
       </section>
       <HotDeals />
       <EmailClothe />
-      <CommonService />
     </React.Fragment>
   );
 };

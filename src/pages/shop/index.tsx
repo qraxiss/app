@@ -8,10 +8,8 @@ const Shopindex = () => {
   document.title = "Address | Shopcek";
   return (
     <React.Fragment>
-      <Shoptopbar title="Shipping Address" page="Address" />
       <Selectaddress />
       <EmailClothe />
-      <CommonService />
     </React.Fragment>
   );
 };

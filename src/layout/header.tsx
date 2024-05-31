@@ -71,8 +71,9 @@ const Header = (props: any) => {
               </div>
             </Link>
           </Navbar.Brand>
+          <Link to="/">
             <Image src={shopcekLogo} alt='logo' height='35' className="d-lg-none collapsed"/>
-
+          </Link>
             <Nav
               as="ul"
               className="mb-2 mb-lg-0 desktop-navbar"

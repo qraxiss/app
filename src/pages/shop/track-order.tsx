@@ -29,7 +29,6 @@ const Trackorder = () => {
   document.title = "Track Order | Shopcek";
   return (
     <React.Fragment>
-      <Shoptopbar title="Track Order" page="Track Order" />
       <section className="section">
         <Container>
           <Row>
@@ -323,7 +322,6 @@ const Trackorder = () => {
         </Container>
       </section>
       <EmailClothe />
-      <CommonService />
     </React.Fragment>
   );
 };

@@ -10,7 +10,6 @@ const Shopingcard = () => {
   document.title = "Shop Cart | Shopcek";
   return (
     <React.Fragment>
-      <Shoptopbar title="Shopping Cart" page="Shopping Cart" />
       <section className="section">
         <Container>
           <Row>
@@ -28,7 +27,6 @@ const Shopingcard = () => {
       </section>
       <BrandedProduct title="New Branded Products" />
       <EmailClothe />
-      <CommonService />
     </React.Fragment>
   );
 };

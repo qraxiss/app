@@ -9,7 +9,6 @@ const Review = () => {
   document.title = "Customer Review | Shopcek";
   return (
     <React.Fragment>
-      <Shoptopbar title="Product Reviews" page="Review" />
       <section className="section">
         <Container>
           <Row

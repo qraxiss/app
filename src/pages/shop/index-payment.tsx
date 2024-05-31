@@ -9,11 +9,9 @@ const PaymentIndex = () => {
 
   return (
     <React.Fragment>
-      <Shoptopbar title="Payment" page="Payment" />
       <Payment />
       <BrandedProduct title="Recently Viewed" />
       <EmailClothe />
-      <CommonService />
     </React.Fragment>
   );
 };

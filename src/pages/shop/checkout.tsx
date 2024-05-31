@@ -28,7 +28,6 @@ const Checkout = () => {
 
   return (
     <React.Fragment>
-      <Shoptopbar title="Checkout" page="Checkout" />
       <section className="section">
         <Container>
           <Row>
@@ -138,7 +137,6 @@ const Checkout = () => {
         </Container>
       </section>
       <EmailClothe />
-      <CommonService />
     </React.Fragment>
   );
 };

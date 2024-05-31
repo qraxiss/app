@@ -64,7 +64,6 @@ const Products = () => {
         </Container>
       </section>
       <EmailClothe />
-      <CommonService />
     </React.Fragment>
   );
 };

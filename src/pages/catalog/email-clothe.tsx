@@ -1,9 +1,5 @@
 import React from "react";
-import { Button, Col, Container, Form, Row, Image } from "react-bootstrap";
-
-//img
-import EbgEffect from "assets/images/ecommerce/bg-effect.png";
-import subscribe from "assets/images/ecommerce/subscribe.png";
+import { Button, Col, Container, Form, Row} from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 const EmailClothe = () => {
@@ -11,11 +7,6 @@ const EmailClothe = () => {
     <React.Fragment>
       <section
         className="section bg-light bg-opacity-25"
-        style={{
-          backgroundImage: `url(${EbgEffect})`,
-          backgroundPosition: "center",
-          backgroundSize: "cover",
-        }}
       >
         <Container>
           <Row className="align-items-center justify-content-between">
@@ -51,11 +42,6 @@ const EmailClothe = () => {
                     </Button>
                   </div>
                 </Form>
-              </div>
-            </Col>
-            <Col lg={4}>
-              <div className="mt-5 mt-lg-0">
-                <Image fluid src={subscribe} alt="" />
               </div>
             </Col>
           </Row>
