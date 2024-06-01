@@ -38,26 +38,28 @@ export const MobileFooter: FC<CollectionsSideBarProps> = ({ openSideBar }) => {
       <Container className="justify-content-between">
         <Navbar.Brand
           onClick={openSideBar}
-          href="#home"
+          href=""
           className="d-flex flex-column align-items-center p-0 m-0"
         >
           <i className="bi bi-list fs-24 m-0"></i>
         </Navbar.Brand>
         <Navbar.Brand
           onClick={handleCardShow}
-          href="#cart"
+          href=""
           className="d-flex flex-column align-items-center p-0 m-0"
         >
           <i className="bi bi-cart3 fs-24 m-0"></i>
         </Navbar.Brand>
         <Navbar.Brand
-          href="#favorites"
+          href=""
+          onClick={() => navigate("/account", { state: "list"})}
           className="d-flex flex-column align-items-center p-0 m-0"
         >
           <i className="bi bi-heart fs-24 m-0"></i>
         </Navbar.Brand>
         <Navbar.Brand
-          href="/earn"
+          href=""
+          onClick={() => navigate("/earn")}
           className="d-flex flex-column align-items-center p-0 m-0"
         >
            <i className="bi bi-coin fs-24 m-0"></i>

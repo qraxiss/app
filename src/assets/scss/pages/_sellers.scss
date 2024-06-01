@@ -96,3 +96,9 @@
     right: -104%;
   }
 }
+
+@media (max-width: 767.98px) {
+  .order-tracking::before {
+    display: none;
+  }
+}
