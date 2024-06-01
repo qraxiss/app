@@ -25,10 +25,32 @@ const addressSlice = createSlice({
       state.error = error;
       state.loading = false;
     },
+
+    updateAddressStart(state) {
+      state.loading = true;
+      state.error = null;
+    },
+
+    updateAddressSuccess(state, { payload: address }) {
+      state.data = address;
+      state.loading = false;
+      state.error = null;
+    },
+
+    updateAddressFailure(state, { payload: error }) {
+      state.error = error;
+      state.loading = false;
+    },
   },
 });
 
-export const { fetchAddressFailure, fetchAddressStart, fetchAddressSuccess } =
-  addressSlice.actions;
+export const {
+  fetchAddressFailure,
+  fetchAddressStart,
+  fetchAddressSuccess,
+  updateAddressFailure,
+  updateAddressStart,
+  updateAddressSuccess,
+} = addressSlice.actions;
 
 export default addressSlice.reducer;
