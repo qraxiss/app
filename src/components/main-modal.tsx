@@ -646,7 +646,7 @@ export const CardModal = ({ show, handleClose }: any) => {
                             className={`avatar-title bg-${item.bg}-subtle rounded-3`}
                           >
                             <Image
-                              src={item.variant.image}
+                              src={item?.variant?.image}
                               alt=""
                               className="avatar-sm"
                             />
@@ -655,13 +655,13 @@ export const CardModal = ({ show, handleClose }: any) => {
                       </div>
                       <div className="flex-grow-1">
                         <Link to="#">
-                          <h5 className="fs-15">{item.variant.product.name}</h5>
+                          <h5 className="fs-15">{item?.variant?.product?.name}</h5>
                         </Link>
                         <div className="d-flex mb-3 gap-2">
                           <div className="text-muted fw-medium mb-0">
                             $
                             <span className="product-price">
-                              {item.variant.price}
+                              {item?.variant?.price}
                             </span>
                           </div>
                           <div className="vr"></div>
