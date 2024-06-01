@@ -4,6 +4,8 @@ import "nouislider/distribute/nouislider.css";
 import { Collapse, Button, Card, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { filterProduct } from "common/data";
+import { useSelector} from "react-redux";
+
 
 const Filters = ({ name, setFilterlist }: any) => {
   const newList: any = [];
@@ -20,6 +22,8 @@ const Filters = ({ name, setFilterlist }: any) => {
   const [discount, setDiscount] = useState(false);
   //Rating
   const [rating, setRating] = useState(false);
+  const categories = useSelector((state: any) => state.categories.data);
+
 
   //colors
   const handleColor = (value: any) => {
@@ -115,8 +119,21 @@ const Filters = ({ name, setFilterlist }: any) => {
                 <p className="text-muted text-uppercase fs-12 fw-medium mb-3">
                   Categories
                 </p>
+                
                 <ul className="list-unstyled mb-0 filter-list">
-                  <li>
+                {categories?.map((item: any, index: number) => (
+                <li className="nav-item" key={`category-${index + 1}`}>
+                  <Link
+                    className="nav-link"
+                    to={`/products/${item.slug}`}
+                    data-key="t-slug"
+                  >
+                    {/* <img src={`${process.env.REACT_APP_API_URL}/${item.icon.url}`} alt={item.name} width={20} height={20} />{' '} */}
+                    {item.name}
+                  </Link>
+                </li>
+              ))}
+                  {/* <li>
                     <Link
                       to="#"
                       className="d-flex py-1 align-items-center"
@@ -179,7 +196,7 @@ const Filters = ({ name, setFilterlist }: any) => {
                         <span className="badge bg-light text-muted">6</span>
                       </div>
                     </Link>
-                  </li>
+                  </li> */}
                 </ul>
               </div>
             </Card.Body>
@@ -581,11 +598,6 @@ const Filters = ({ name, setFilterlist }: any) => {
                           >
                             Zetachain 
                           </Form.Label>
-                        </div>
-                        <div>
-                          <Button className="btn btn-link text-decoration-none text-uppercase fw-medium p-0">
-                            1,235 More
-                          </Button>
                         </div>
                       </div>
                     </div>

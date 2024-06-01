@@ -538,7 +538,20 @@ export const SearchModal = ({ show, handleClose }: any) => {
                       className="list-group-item dropdown-item notify-item"
                       key={inx}
                     >
-                      <span>{item.name}</span>
+
+                      <div className="d-flex justify-content-between align-items-center">
+                        <div>
+                       <Image
+                         src={item.image}
+                         alt=""
+                         className="avatar-sm"
+                         />
+                        <span className="px-2">{item.name}</span>
+                        </div>
+                      <div>
+                      <span>${item.price}</span>
+                      </div>
+                      </div>
                     </Link>
                   ))}
               </div>
