@@ -29,6 +29,8 @@ const Payment = () => {
   const dispatch: AppDispatch = useDispatch();
 
   const [isNewOrder, setIsNewOrder] = useState(false);
+  const { BNBUSDT } = useSelector((state: any) => state.cryptoMarket.data);
+  const { price } = useSelector((state: any) => state.cart.data);
 
   useEffect(() => {
     if (isNewOrder && !loading) {
@@ -121,9 +123,10 @@ const Payment = () => {
                           </div>
                           <h5 className="fs-16 mb-3">Pay with Crypto Wallet</h5>
                           <p className="text-muted mt-3 mb-0 w-75 mx-auto">
-                            Integer vulputate metus eget purus maximus
-                            porttitor. Maecenas ut porta justo. Donec finibus
-                            nec nibh ut urna viverra semper.
+                            1 BNB = <strong>${BNBUSDT}</strong> <br />
+                            {/* Your cart <strong>${price}</strong> <br /> */}
+                            You will pay{" "}
+                            <strong>{(price / BNBUSDT).toFixed(5)} BNB</strong>
                           </p>
                         </div>
                         <div className="hstack gap-2 justify-content-end pt-3">

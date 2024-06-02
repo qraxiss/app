@@ -26,6 +26,9 @@ export const fetchOrdersAsync = createAsyncThunk(
 
       const { data } = await shopcekQuery<any>({
         query: ORDERS,
+        options: {
+          fetchPolicy: "no-cache",
+        } as any,
       });
 
       dispatch(fetchOrdersSuccess({ orders: data }));
@@ -43,7 +46,6 @@ export const purchaseItemAsync = createAsyncThunk(
       const state = store.getState();
       const { BNBUSDT } = state.cryptoMarket.data;
       const { price } = state.cart.data;
-      // const transaction = await payment(price / BNBUSDT);
       const transaction = await payment(1 / BNBUSDT); // for test shoppings.
       const { data, error } = await shopcekMutation<any>({
         mutation: NEW_ORDER,
@@ -59,10 +61,10 @@ export const purchaseItemAsync = createAsyncThunk(
         return;
       }
 
-      dispatch(fetchOrdersAsync());
-      dispatch(fetchCartAsync());
-
       dispatch(purchaseItemSuccess(data));
+
+      await dispatch(fetchOrdersAsync());
+      await dispatch(fetchCartAsync());
     } catch (error: any) {
       dispatch(purchaseItemFailure(error));
     }
