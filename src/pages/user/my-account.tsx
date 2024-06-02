@@ -56,8 +56,8 @@ const MyAccount = () => {
                 <div className="mt-n5 d-flex gap-3 flex-wrap align-items-end">
                   <div>
                     <div className="d-flex">
-                    <h5 className="fs-16">Wallet Address : </h5>
-                     <h5 className="px-2 cursor-pointer">{`${userData.address.substring(0, 6)}...${userData.address.substring(userData.address.length - 6)}`}</h5>
+                      <h5 className="fs-16">Wallet Address : </h5>
+                      <h5 className="px-2 cursor-pointer">{`${userData.address.substring(0, 6)}...${userData.address.substring(userData.address.length - 6)}`}</h5>
                     </div>
                   </div>
                   <div className="ms-md-auto">
@@ -218,7 +218,7 @@ const MyAccount = () => {
                                       <div className="float-end clearfix">
                                         {" "}
                                         <Link
-                                          to="/shop/address"
+                                          to="/address"
                                           className="badge bg-primary-subtle text-primary"
                                         >
                                           <i className="ri-pencil-fill align-bottom me-1"></i>{" "}
@@ -249,7 +249,7 @@ const MyAccount = () => {
                                       <div className="float-end clearfix">
                                         {" "}
                                         <Link
-                                          to="/shop/address"
+                                          to="/address"
                                           className="badge bg-primary-subtle text-primary"
                                         >
                                           <i className="ri-pencil-fill align-bottom me-1"></i>{" "}
@@ -302,64 +302,80 @@ const MyAccount = () => {
                                   </thead>
                                   <tbody>
                                     {wishlist && wishlist.length > 0 ? (
-  wishlist.map((item: any, inx: number) => (
-    <tr key={inx}>
-      <td>
-        <div className="d-flex gap-3">
-          <div className="avatar-sm flex-shrink-0">
-            <div className={`avatar-title bg-${item.bg}-subtle rounded`}>
-              <Image
-                src={item.image}
-                alt=""
-                className="avatar-xs"
-              />
-            </div>
-          </div>
-          <div className="flex-grow-1">
-            <Link to={`/product-details/${item.slug}`}>
-              <h6 className="fs-16">{item.name}</h6>
-            </Link>
-            <p className="mb-0 text-muted fs-13">{item.text}</p>
-          </div>
-        </div>
-      </td>
-      <td>${item.price}</td>
-      <td>
-        <span className={`badge bg-success-subtle text-success`}>
-          {"In Stock"}
-        </span>
-      </td>
-      <td>
-        <ul className="list-unstyled d-flex gap-3 mb-0">
-          <li>
-            <Link to="/shop/shopingcard" className="btn btn-soft-info btn-icon btn-sm">
-              <i className="ri-shopping-cart-2-line fs-13"></i>
-            </Link>
-          </li>
-          <li>
-            <Button
-              onClick={() => {
-                dispatch(removeFromWishlistAsync(item));
-              }}
-              className="btn btn-soft-danger btn-icon btn-sm"
-            >
-              <i className="ri-close-line fs-13"></i>
-            </Button>
-          </li>
-        </ul>
-      </td>
-    </tr>
-  ))
-) : (
-  <tr>
-  <td colSpan={4}>
-    <div className="text-center">
-      <p>No products</p>
-    </div>
-  </td>
-</tr>
-)}
-
+                                      wishlist.map((item: any, inx: number) => (
+                                        <tr key={inx}>
+                                          <td>
+                                            <div className="d-flex gap-3">
+                                              <div className="avatar-sm flex-shrink-0">
+                                                <div
+                                                  className={`avatar-title bg-${item.bg}-subtle rounded`}
+                                                >
+                                                  <Image
+                                                    src={item.image}
+                                                    alt=""
+                                                    className="avatar-xs"
+                                                  />
+                                                </div>
+                                              </div>
+                                              <div className="flex-grow-1">
+                                                <Link
+                                                  to={`/product-details/${item.slug}`}
+                                                >
+                                                  <h6 className="fs-16">
+                                                    {item.name}
+                                                  </h6>
+                                                </Link>
+                                                <p className="mb-0 text-muted fs-13">
+                                                  {item.text}
+                                                </p>
+                                              </div>
+                                            </div>
+                                          </td>
+                                          <td>${item.price}</td>
+                                          <td>
+                                            <span
+                                              className={`badge bg-success-subtle text-success`}
+                                            >
+                                              {"In Stock"}
+                                            </span>
+                                          </td>
+                                          <td>
+                                            <ul className="list-unstyled d-flex gap-3 mb-0">
+                                              <li>
+                                                <Link
+                                                  to="/shop/shopingcard"
+                                                  className="btn btn-soft-info btn-icon btn-sm"
+                                                >
+                                                  <i className="ri-shopping-cart-2-line fs-13"></i>
+                                                </Link>
+                                              </li>
+                                              <li>
+                                                <Button
+                                                  onClick={() => {
+                                                    dispatch(
+                                                      removeFromWishlistAsync(
+                                                        item
+                                                      )
+                                                    );
+                                                  }}
+                                                  className="btn btn-soft-danger btn-icon btn-sm"
+                                                >
+                                                  <i className="ri-close-line fs-13"></i>
+                                                </Button>
+                                              </li>
+                                            </ul>
+                                          </td>
+                                        </tr>
+                                      ))
+                                    ) : (
+                                      <tr>
+                                        <td colSpan={4}>
+                                          <div className="text-center">
+                                            <p>No products</p>
+                                          </div>
+                                        </td>
+                                      </tr>
+                                    )}
                                   </tbody>
                                 </Table>
                               </div>
@@ -419,7 +435,7 @@ const MyAccount = () => {
                                       <td>
                                         <span className="text-muted">
                                           {new Date(
-                                            item.createdAt,
+                                            item.createdAt
                                           ).toLocaleDateString()}
                                         </span>
                                       </td>
