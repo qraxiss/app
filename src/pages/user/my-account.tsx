@@ -155,7 +155,7 @@ const MyAccount = () => {
                     >
                       <Row>
                         <Col lg={12}>
-                          <Card className="mb-0">
+                          <Card>
                             <Card.Body>
                               <div className="d-flex mb-4">
                                 <h6 className="fs-16 text-decoration-underline flex-grow-1 mb-0">
@@ -288,7 +288,7 @@ const MyAccount = () => {
                     >
                       <Row>
                         <Col lg={12}>
-                          <Card className="overflow-hidden mb-0">
+                          <Card className="overflow-hidden">
                             <Card.Body>
                               <div className="table-responsive table-card">
                                 <Table className="fs-15 align-middle">
