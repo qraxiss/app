@@ -16,6 +16,7 @@ import {
   fetchWishlistAsync,
   fetchCartAsync,
   fetchOrdersAsync,
+  fetchAddressAsync,
 } from "slices/thunk";
 import { AppDispatch } from "store";
 import { CollectionModal } from "common/modal/collections";
@@ -46,12 +47,13 @@ const Layout = (props: any) => {
         onMessage: (data: any) => {
           dispatch(updatePrice(data));
         },
-      }),
+      })
     );
 
     if (logged) {
       dispatch(fetchWishlistAsync());
       dispatch(fetchCartAsync());
+      dispatch(fetchAddressAsync());
     }
   }, [dispatch]);
 
@@ -60,7 +62,7 @@ const Layout = (props: any) => {
     (layout) => ({
       footerModeType: layout.footerModeType,
       layoutThemeMode: layout.layoutThemeMode,
-    }),
+    })
   );
 
   const { footerModeType, layoutThemeMode } = useSelector(selectProperties);
