@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  data: {},
+  data: [],
   loading: false,
   error: null,
 };
@@ -10,18 +10,18 @@ const addressSlice = createSlice({
   name: "address",
   initialState,
   reducers: {
-    fetchAddressStart(state) {
+    fetchAddressesStart(state) {
       state.loading = true;
       state.error = null;
     },
 
-    fetchAddressSuccess(state, { payload: address }) {
+    fetchAddressesSuccess(state, { payload: address }) {
       state.data = address;
       state.loading = false;
       state.error = null;
     },
 
-    fetchAddressFailure(state, { payload: error }) {
+    fetchAddressesFailure(state, { payload: error }) {
       state.error = error;
       state.loading = false;
     },
@@ -45,9 +45,9 @@ const addressSlice = createSlice({
 });
 
 export const {
-  fetchAddressFailure,
-  fetchAddressStart,
-  fetchAddressSuccess,
+  fetchAddressesFailure,
+  fetchAddressesStart,
+  fetchAddressesSuccess,
   updateAddressFailure,
   updateAddressStart,
   updateAddressSuccess,

@@ -1,13 +1,13 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { shopcekQuery, shopcekMutation } from "graphql/apollo/helpers";
 
-import { GET_ADDRESS } from "graphql/address/queries";
+import { GET_ADDRESSES } from "graphql/address/queries";
 import { UPDATE_ADDRESS } from "graphql/address/mutations";
 
 import {
-  fetchAddressFailure,
-  fetchAddressStart,
-  fetchAddressSuccess,
+  fetchAddressesFailure,
+  fetchAddressesStart,
+  fetchAddressesSuccess,
   updateAddressFailure,
   updateAddressStart,
   updateAddressSuccess,
@@ -15,17 +15,22 @@ import {
 
 export const fetchAddressAsync = createAsyncThunk(
   "address/fetchAddress",
-  async (_, { dispatch }) => {
+  async (title, { dispatch }) => {
     try {
-      dispatch(fetchAddressStart());
+      dispatch(fetchAddressesStart());
 
       const { data } = await shopcekQuery({
-        query: GET_ADDRESS,
+        query: GET_ADDRESSES,
+        // options: {
+        //   variables: {
+        //     title,
+        //   },
+        // } as any,
       });
 
-      dispatch(fetchAddressSuccess(data));
+      dispatch(fetchAddressesSuccess(data));
     } catch (error: any) {
-      dispatch(fetchAddressFailure(error.message));
+      dispatch(fetchAddressesFailure(error.message));
     }
   }
 );
