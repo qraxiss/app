@@ -47,7 +47,7 @@ export const CollectionModal: FC<CollectionModalProps> = ({
       <Offcanvas
         show={show}
         onHide={handleClose}
-        placement="bottom"
+        placement="start"
         className={`collections-modal`}
       >
         <Offcanvas.Header className="header">

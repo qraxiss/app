@@ -104,7 +104,6 @@ const Orderhistory = () => {
           <InvoiceModal modal={modal} handleClose={handleClose} />
         </Container>
       </section>
-      <EmailClothe />
     </React.Fragment>
   );
 };

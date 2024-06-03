@@ -9,7 +9,6 @@ const Shopindex = () => {
   return (
     <React.Fragment>
       <Selectaddress />
-      <EmailClothe />
     </React.Fragment>
   );
 };

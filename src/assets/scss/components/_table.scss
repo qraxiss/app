@@ -92,3 +92,8 @@
   --#{$prefix}table-color: var(--#{$prefix}secondary-color);
   --#{$prefix}table-border-color: var(--#{$prefix}border-color-translucent);
 }
+@media (max-width: 768px) {
+  .stock-status {
+    display: none;
+  }
+}

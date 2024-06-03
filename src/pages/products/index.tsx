@@ -63,7 +63,6 @@ const Products = () => {
           </div>
         </Container>
       </section>
-      <EmailClothe />
     </React.Fragment>
   );
 };

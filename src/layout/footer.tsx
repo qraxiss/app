@@ -43,7 +43,7 @@ const Footer = () => {
           <Row>
             <Col lg={4}>
               <div className="footer-info">
-                <div style={{ paddingRight: "40px" }}>
+                <div>
                   <Image
                     style={{ margin: "auto" }}
                     src={logo}
@@ -162,7 +162,7 @@ const Footer = () => {
                         ))}
                       </ul>
                     </div>
-                    <div className="mt-3 d-flex justify-content-end">
+                    <div className="mt-3 d-flex justify-content-xs-start justify-content-lg-end">
                       <Image
                         src={microsoft_banner}
                         alt=""

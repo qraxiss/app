@@ -5,3 +5,4 @@ export * from "components/home/new-arrival";
 export * from "components/home/premium";
 export * from "components/home/top-picks";
 export * from "components/home/why-choose";
+export * from "components/home/similar-products";
