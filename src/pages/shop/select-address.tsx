@@ -1,12 +1,16 @@
 import React, { useState } from "react";
-import { Col, Container, Row, Button, Form } from "react-bootstrap";
+import { Col, Container, Row, Button, Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { Shoporder } from "components/shop-top-bar";
 import DeleteModal, { ModalAdd } from "components/delete-modal";
 import { selectAddressData } from "common/data";
+import { useSelector } from "react-redux";
 
 const Selectaddress = () => {
   document.title = "Shop | Select address | Shopcek";
+
+  const addresses = useSelector((state: any) => state.address.data);
+  const [title, setTitle] = useState("");
 
   const [addressData, setAddressData] = useState(selectAddressData);
   //delete id
@@ -37,7 +41,7 @@ const Selectaddress = () => {
               <div>
                 <h4 className="fs-18 mb-4">Select or add an address</h4>
                 <Row className="g-4" id="address-list">
-                  {(addressData || [])?.map((item: any) => {
+                  {/* {(addressData || [])?.map((item: any) => {
                     return (
                       <Col lg={6} key={item.id}>
                         <div>
@@ -97,7 +101,47 @@ const Selectaddress = () => {
                         </div>
                       </Col>
                     );
-                  })}
+                  })} */}
+                  {addresses.map((address: any) => (
+                    <Col md={6}>
+                      <Card className="mb-md-0">
+                        <Card.Body>
+                          <div className="float-end clearfix">
+                            {" "}
+                            <Button
+                              // to="/address"
+                              onClick={() => {
+                                setTitle(address.title);
+                                handleShow();
+                              }}
+                              className="badge bg-primary-subtle text-primary"
+                            >
+                              <i className="ri-pencil-fill align-bottom me-1"></i>{" "}
+                              Edit
+                            </Button>{" "}
+                          </div>
+                          <div>
+                            <p className="mb-3 fw-semibold fs-12 d-block text-muted text-uppercase">
+                              {address.title}
+                            </p>
+                            <h6 className="fs-14 mb-2 d-block">
+                              {address.name}
+                            </h6>
+                            <span className="text-muted fw-normal text-wrap mb-1 d-block">
+                              {address.country_name} / {address.state_name}
+                              <br />
+                              {`${address.address1} ${address.address2 ? address.address2 : ""}`}
+                              <br />
+                              {address.zip}
+                            </span>
+                            <span className="text-muted fw-normal d-block">
+                              {address.phone}
+                            </span>
+                          </div>
+                        </Card.Body>
+                      </Card>
+                    </Col>
+                  ))}
                 </Row>
                 <Row className="mt-4">
                   <Col lg={6}>
@@ -138,7 +182,11 @@ const Selectaddress = () => {
             hideModal={RemoveModel}
             deleteData={deleteData}
           />
-          <ModalAdd addressModal={addressModal} handleClose={handleClose} />
+          <ModalAdd
+            addressModal={addressModal}
+            title={title}
+            handleClose={handleClose}
+          />
         </Container>
       </section>
     </React.Fragment>
