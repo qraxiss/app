@@ -154,7 +154,6 @@ export const ModalAdd = ({ addressModal, handleClose, title }: any) => {
                   <span className="text-danger">{formik.errors.name}</span>
                 ) : null}
               </div>
-
               {/*country*/}
               <div className="mb-3">
                 <Form.Label htmlFor="country">Country</Form.Label>
@@ -165,9 +164,11 @@ export const ModalAdd = ({ addressModal, handleClose, title }: any) => {
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
                 >
-                  {ADDRESS.filter((item) => !!item.states).map((item) => (
-                    <option>{item.name}</option>
-                  ))}
+                  {ADDRESS.filter((item) => item.states.length !== 0).map(
+                    (item) => (
+                      <option>{item.name}</option>
+                    )
+                  )}
                 </Form.Select>
                 {formik.errors.country && formik.touched.country ? (
                   //eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -175,7 +176,6 @@ export const ModalAdd = ({ addressModal, handleClose, title }: any) => {
                   <span className="text-danger">{formik.errors.country}</span>
                 ) : null}
               </div>
-
               {/*state*/}
               <div className="mb-3">
                 <Form.Label htmlFor="state">State</Form.Label>
@@ -197,7 +197,6 @@ export const ModalAdd = ({ addressModal, handleClose, title }: any) => {
                   <span className="text-danger">{formik.errors.state}</span>
                 ) : null}
               </div>
-
               {/*city*/}
               <div className="mb-3">
                 <Form.Label htmlFor="city">City</Form.Label>
@@ -221,7 +220,7 @@ export const ModalAdd = ({ addressModal, handleClose, title }: any) => {
                   <span className="text-danger">{formik.errors.city}</span>
                 ) : null}
               </div>
-
+              {/*address text area*/}
               <div className="mb-3">
                 <Form.Label htmlFor="addaddress-textarea">Address</Form.Label>
                 <Form.Control
@@ -241,7 +240,27 @@ export const ModalAdd = ({ addressModal, handleClose, title }: any) => {
                   <span className="text-danger">{formik.errors.address}</span>
                 ) : null}
               </div>
+              {/*zip code*/}
+              <div className="mb-3">
+                <Form.Label htmlFor="zip">Zip Code</Form.Label>
+                <Form.Control
+                  as="textarea"
+                  id="zip"
+                  placeholder="Enter zip code"
+                  rows={2}
+                  name="zip"
+                  value={formik.values.zip}
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                ></Form.Control>
+                {formik.errors.zip && formik.touched.zip ? (
+                  //eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                  //@ts-ignore
 
+                  <span className="text-danger">{formik.errors.zip}</span>
+                ) : null}
+              </div>
+              {/*phone*/}
               <div className="mb-3">
                 <Form.Label htmlFor="addaddress-phone">Phone</Form.Label>
                 <Form.Control
@@ -258,6 +277,25 @@ export const ModalAdd = ({ addressModal, handleClose, title }: any) => {
                   //@ts-ignore
 
                   <span className="text-danger">{formik.errors.phone}</span>
+                ) : null}
+              </div>
+              {/*e-mail*/}
+              <div className="mb-3">
+                <Form.Label htmlFor="email">E-Mail</Form.Label>
+                <Form.Control
+                  type="text"
+                  id="email"
+                  placeholder="Enter your email"
+                  name="email"
+                  value={formik.values.email}
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                />
+                {formik.errors.email && formik.touched.email ? (
+                  //eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                  //@ts-ignore
+
+                  <span className="text-danger">{formik.errors.email}</span>
                 ) : null}
               </div>
             </div>
