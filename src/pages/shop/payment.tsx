@@ -43,12 +43,12 @@ const Payment = () => {
       <section className="section pb-4">
         <Container>
           <Row>
-            <Col lg={12}>
+            {/* <Col lg={12}>
               <Alert className="alert-danger text-center text-capitalize mb-4 fs-14">
                 save up to <b>30%</b> to <b>40%</b> off omg! just look at the{" "}
                 <b>great deals</b>!
               </Alert>
-            </Col>
+            </Col> */}
           </Row>
           <Row className="product-list">
             <Col xl={8}>
@@ -346,7 +346,7 @@ const Payment = () => {
                             type="button"
                             className="btn btn-hover w-md btn-primary"
                           >
-                            Continue
+                            Pay
                             <i className="ri-logout-box-r-line align-bottom ms-2"></i>
                           </button>
                         </div>

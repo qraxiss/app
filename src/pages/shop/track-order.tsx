@@ -321,7 +321,6 @@ const Trackorder = () => {
           </Card>
         </Container>
       </section>
-      <EmailClothe />
     </React.Fragment>
   );
 };

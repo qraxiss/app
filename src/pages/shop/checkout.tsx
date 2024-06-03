@@ -31,7 +31,7 @@ const Checkout = () => {
       <section className="section">
         <Container>
           <Row>
-            <Col lg={12}>
+            {/* <Col lg={12}>
               <Alert
                 className="alert-danger alert-modern alert-dismissible fade show"
                 role="alert"
@@ -47,7 +47,7 @@ const Checkout = () => {
                   aria-label="Close"
                 ></Button>
               </Alert>
-            </Col>
+            </Col> */}
           </Row>
           <Row>
             <Col lg={8}>
@@ -76,16 +76,15 @@ const Checkout = () => {
                                       <Image
                                         src={item.variant.image}
                                         alt=""
-                                        className="avatar-xs"
+                                        className="avatar-sm"
                                       />
                                     </div>
                                   </div>
                                   <div className="flex-grow-1">
-                                    <h6>{item.variant.product.name}</h6>
+                                    <h6>{item?.variant?.product?.name}</h6>
                                     <p className="text-muted mb-0">
                                       {/*description*/}
-                                      Lorem ipsum dolor, sit amet consectetur
-                                      adipisicing elit. Eos, ipsam!
+                                      {item?.variant?.product?.description}
                                     </p>
                                   </div>
                                 </div>
@@ -136,7 +135,6 @@ const Checkout = () => {
           </Row>
         </Container>
       </section>
-      <EmailClothe />
     </React.Fragment>
   );
 };

@@ -26,7 +26,6 @@ const Shopingcard = () => {
         </Container>
       </section>
       <BrandedProduct title="New Branded Products" />
-      <EmailClothe />
     </React.Fragment>
   );
 };

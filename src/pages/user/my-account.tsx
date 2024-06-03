@@ -57,8 +57,7 @@ const MyAccount = () => {
                 <div className="mt-n5 d-flex gap-3 flex-wrap align-items-end">
                   <div>
                     <div className="d-flex">
-                      <h5 className="fs-16">Wallet Address : </h5>
-                      <h5 className="px-2 cursor-pointer">{`${userData.address.substring(0, 6)}...${userData.address.substring(userData.address.length - 6)}`}</h5>
+                         <h5 className="px-2 cursor-pointer">{`${userData.address.substring(0, 6)}...${userData.address.substring(userData.address.length - 6)}`}</h5>
                     </div>
                   </div>
                   <div className="ms-md-auto">
@@ -156,7 +155,7 @@ const MyAccount = () => {
                     >
                       <Row>
                         <Col lg={12}>
-                          <Card>
+                          <Card className='mb-0'>
                             <Card.Body>
                               <div className="d-flex mb-4">
                                 <h6 className="fs-16 text-decoration-underline flex-grow-1 mb-0">
@@ -265,7 +264,7 @@ const MyAccount = () => {
                     >
                       <Row>
                         <Col lg={12}>
-                          <Card className="overflow-hidden">
+                          <Card className="overflow-hidden mb-0">
                             <Card.Body>
                               <div className="table-responsive table-card">
                                 <Table className="fs-15 align-middle">
@@ -273,7 +272,9 @@ const MyAccount = () => {
                                     <tr>
                                       <th scope="col">Product</th>
                                       <th scope="col">Price</th>
-                                      <th scope="col">Stock Status</th>
+                                      <th scope="col" className="stock-status">
+                                        Stock Status
+                                      </th>
                                       <th scope="col">Action</th>
                                     </tr>
                                   </thead>
@@ -309,7 +310,7 @@ const MyAccount = () => {
                                             </div>
                                           </td>
                                           <td>${item.price}</td>
-                                          <td>
+                                          <td className="stock-status">
                                             <span
                                               className={`badge bg-success-subtle text-success`}
                                             >
@@ -384,7 +385,7 @@ const MyAccount = () => {
                       id="custom-v-pills-order"
                       role="tabpanel"
                     >
-                      <Card>
+                      <Card className='mb-0'>
                         <Card.Body>
                           <div className="table-responsive table-card">
                             <Table className="fs-15 align-middle table-nowrap">
@@ -478,7 +479,7 @@ const MyAccount = () => {
                       id="custom-v-pills-order"
                       role="tabpanel"
                     >
-                      <Card>
+                      <Card className='mb-0'>
                         <CardBody>
                           <div
                             style={{
@@ -854,7 +855,6 @@ const MyAccount = () => {
           </Tab.Container>
         </Container>
       </section>
-      <EmailClothe />
     </React.Fragment>
   );
 };

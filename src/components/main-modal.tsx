@@ -643,12 +643,12 @@ export const CardModal = ({ show, handleClose }: any) => {
                           style={{ height: "100%" }}
                         >
                           <div
-                            className={`avatar-title bg-${item.bg}-subtle rounded-3`}
+                           className={`cart-background rounded-3`}
                           >
                             <Image
                               src={item?.variant?.image}
                               alt=""
-                              className="avatar-sm"
+                              className="avatar-lg"
                             />
                           </div>
                         </div>

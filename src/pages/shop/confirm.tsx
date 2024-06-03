@@ -54,7 +54,6 @@ const Confirm = () => {
           </Row>
         </Container>
       </section>
-      <EmailClothe />
     </React.Fragment>
   );
 };

@@ -100,7 +100,6 @@ const WishList = () => {
         </Container>
       </section>
       <HotDeals />
-      <EmailClothe />
     </React.Fragment>
   );
 };
