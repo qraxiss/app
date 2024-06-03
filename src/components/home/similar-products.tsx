@@ -19,8 +19,11 @@ export const SimilarProducts = () => {
           <Row className="justify-content-center">
             <Col lg={12}>
               <div className="d-flex justify-content-between align-items-center">
-                  <h4 className="fw-semibold"> Similar Products</h4>
-                  <span className="cursor-pointer"> All Products <i className="bi bi-arrow-right"></i></span>
+                <h4 className="fw-semibold"> Similar Products</h4>
+                <span className="cursor-pointer">
+                  {" "}
+                  All Products <i className="bi bi-arrow-right"></i>
+                </span>
               </div>
             </Col>
           </Row>
@@ -76,22 +79,22 @@ export const SimilarProducts = () => {
                 ></div>
                 <div className="swiper-wrapper">
                   {(products || [])?.map((item: any, index: any) => (
-					  <SwiperSlide key={index}>
+                    <SwiperSlide key={index}>
                       <Card className="product-widget border-0 card-animate cursor-pointer">
                         <Card.Body className="p-2">
-						<Link to={`/product-details/${item?.slug}`}>
-                          <div className="position-relative p-4">
-                            <Image
-                              src={item.image}
-                              alt=""
-                              className="img-fluid product-img-main"
-                            />
-                            <Image
-                              src={item.image}
-                              alt=""
-                              className="img-fluid product-img-2"
-                            />
-                            {/* <ul className="product-menu list-unstyled">
+                          <Link to={`/product-details/${item?.slug}`}>
+                            <div className="position-relative p-4">
+                              <Image
+                                src={item.image}
+                                alt=""
+                                className="img-fluid product-img-main"
+                              />
+                              <Image
+                                src={item.image}
+                                alt=""
+                                className="img-fluid product-img-2"
+                              />
+                              {/* <ul className="product-menu list-unstyled">
                               <li className="mb-2">
                                 <Link
                                   to="/#"
@@ -181,21 +184,21 @@ export const SimilarProducts = () => {
                                 </div>
                               </div>
                             </div> */}
-                          </div>
-                          <div className="mt-3">
+                            </div>
+                            <div className="mt-3">
                               <h6 className="text-capitalize fs-16 text-truncate">
                                 {item.name}
                               </h6>
-                            <h6 className="fw-normal mb-3 fs-16">
-                              ${item.price}
-                              {item.discount && (
-                                <small className="text-decoration-line-through fs-14 text-muted">
-                                  {item.discount}
-                                </small>
-                              )}
-                            </h6>
-                          </div>
-                            </Link>
+                              <h6 className="fw-normal mb-3 fs-16">
+                                ${item.price}
+                                {item.discount && (
+                                  <small className="text-decoration-line-through fs-14 text-muted">
+                                    {item.discount}
+                                  </small>
+                                )}
+                              </h6>
+                            </div>
+                          </Link>
                         </Card.Body>
                       </Card>
                     </SwiperSlide>
