@@ -13,9 +13,10 @@ import EmailClothe from "pages/catalog/email-clothe";
 
 import { GET_Products_Details } from "graphql/product-details/queries";
 import { useShopcekQuery } from "graphql/apollo/query-wrapper";
-
 import { useSelector, useDispatch } from "react-redux";
-
+import {
+SimilarProducts
+} from "components/home";
 import {
   addToWishlistAsync,
   removeFromWishlistAsync,
@@ -398,8 +399,7 @@ const ProductDetails = () => {
         {/*end container*/}
       </section>
       <p className="text-muted px-5 ms-2 fs-15">{data?.product?.description}</p>
-
-      <EmailClothe />
+      <SimilarProducts/>
     </React.Fragment>
   );
 };

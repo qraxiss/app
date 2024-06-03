@@ -4,8 +4,7 @@ import "nouislider/distribute/nouislider.css";
 import { Collapse, Button, Card, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { filterProduct } from "common/data";
-import { useSelector} from "react-redux";
-
+import { useSelector } from "react-redux";
 
 const Filters = ({ name, setFilterlist }: any) => {
   const newList: any = [];
@@ -23,7 +22,6 @@ const Filters = ({ name, setFilterlist }: any) => {
   //Rating
   const [rating, setRating] = useState(false);
   const categories = useSelector((state: any) => state.categories.data);
-
 
   //colors
   const handleColor = (value: any) => {
@@ -54,14 +52,14 @@ const Filters = ({ name, setFilterlist }: any) => {
   // products
   const handleProduct = (value: any) => {
     setFilterlist(
-      filterProduct?.filter((product: any) => product.products === value),
+      filterProduct?.filter((product: any) => product.products === value)
     );
   };
 
   //dicount
   const handleDic = (e: any) => {
     setFilterlist(
-      filterProduct?.filter((discount: any) => discount.dic === e.value),
+      filterProduct?.filter((discount: any) => discount.dic === e.value)
     );
   };
 
@@ -69,8 +67,8 @@ const Filters = ({ name, setFilterlist }: any) => {
   const hanleRat = (value: any) => {
     setFilterlist(
       filterProduct?.filter((rat: any) =>
-        rat.ratting.toString().startsWith(value),
-      ),
+        rat.ratting.toString().startsWith(value)
+      )
     );
   };
 
@@ -119,20 +117,20 @@ const Filters = ({ name, setFilterlist }: any) => {
                 <p className="text-muted text-uppercase fs-12 fw-medium mb-3">
                   Categories
                 </p>
-                
+
                 <ul className="list-unstyled mb-0 filter-list">
-                {categories?.map((item: any, index: number) => (
-                <li className="nav-item" key={`category-${index + 1}`}>
-                  <Link
-                    className="nav-link"
-                    to={`/products/${item.slug}`}
-                    data-key="t-slug"
-                  >
-                    {/* <img src={`${process.env.REACT_APP_API_URL}/${item.icon.url}`} alt={item.name} width={20} height={20} />{' '} */}
-                    {item.name}
-                  </Link>
-                </li>
-              ))}
+                  {categories?.map((item: any, index: number) => (
+                    <li className="nav-item" key={`category-${index + 1}`}>
+                      <Link
+                        className="nav-link"
+                        to={`/products/${item.slug}`}
+                        data-key="t-slug"
+                      >
+                        {/* <img src={`${process.env.REACT_APP_API_URL}/${item.icon.url}`} alt={item.name} width={20} height={20} />{' '} */}
+                        {item.name}
+                      </Link>
+                    </li>
+                  ))}
                   {/* <li>
                     <Link
                       to="#"
@@ -218,15 +216,23 @@ const Filters = ({ name, setFilterlist }: any) => {
                   className="form-control-sm"
                   id="MinCost"
                   value={`$ ${mincost}`}
-                  onChange={(e: any) => setMincost(e.target.value)}
+                  onChange={(e: any) =>
+                    setMincost(
+                      parseInt(e.target.value.replace(/[^0-9]/g, ""), 10) || 0
+                    )
+                  }
                 />
                 <span className="fw-semibold text-muted">to</span>
                 <Form.Control
-                  className=" form-control-sm"
+                  className="form-control-sm"
                   type="text"
                   id="maxCost"
                   value={`$ ${maxcost}`}
-                  onChange={(e: any) => setMaxcost(e.target.value)}
+                  onChange={(e: any) =>
+                    setMaxcost(
+                      parseInt(e.target.value.replace(/[^0-9]/g, ""), 10) || 0
+                    )
+                  }
                 />
               </div>
             </Card.Body>
@@ -596,7 +602,7 @@ const Filters = ({ name, setFilterlist }: any) => {
                             className="form-check-label"
                             htmlFor="productBrandRadio2"
                           >
-                            Zetachain 
+                            Zetachain
                           </Form.Label>
                         </div>
                       </div>

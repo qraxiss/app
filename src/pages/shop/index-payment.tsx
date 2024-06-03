@@ -11,7 +11,6 @@ const PaymentIndex = () => {
     <React.Fragment>
       <Payment />
       <BrandedProduct title="Recently Viewed" />
-      <EmailClothe />
     </React.Fragment>
   );
 };
