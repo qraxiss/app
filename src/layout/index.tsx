@@ -16,7 +16,7 @@ import {
   fetchWishlistAsync,
   fetchCartAsync,
   fetchOrdersAsync,
-  fetchAddressAsync,
+  fetchAddressesAsync,
 } from "slices/thunk";
 import { AppDispatch } from "store";
 import { CollectionModal } from "common/modal/collections";
@@ -42,18 +42,18 @@ const Layout = (props: any) => {
     dispatch(fetchNewArrivalsAsync());
     dispatch(fetchHotDealsAsync());
     dispatch(fetchOrdersAsync());
-    dispatch(
-      listenMarket({
-        onMessage: (data: any) => {
-          dispatch(updatePrice(data));
-        },
-      })
-    );
+    // dispatch(
+    //   listenMarket({
+    //     onMessage: (data: any) => {
+    //       dispatch(updatePrice(data));
+    //     },
+    //   })
+    // );
 
     if (logged) {
       dispatch(fetchWishlistAsync());
       dispatch(fetchCartAsync());
-      dispatch(fetchAddressAsync());
+      dispatch(fetchAddressesAsync());
     }
   }, [dispatch]);
 

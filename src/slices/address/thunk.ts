@@ -13,19 +13,17 @@ import {
   updateAddressSuccess,
 } from "slices/address/slice";
 
-export const fetchAddressAsync = createAsyncThunk(
+export const fetchAddressesAsync = createAsyncThunk(
   "address/fetchAddress",
-  async (title, { dispatch }) => {
+  async (_, { dispatch }) => {
     try {
       dispatch(fetchAddressesStart());
 
       const { data } = await shopcekQuery({
         query: GET_ADDRESSES,
-        // options: {
-        //   variables: {
-        //     title,
-        //   },
-        // } as any,
+        options: {
+          fetchPolicy: "no-cache",
+        } as any,
       });
 
       dispatch(fetchAddressesSuccess(data));
@@ -37,20 +35,27 @@ export const fetchAddressAsync = createAsyncThunk(
 
 export const updateAddressAsync = createAsyncThunk(
   "address/updateAddress",
-  async (recipient, { dispatch }) => {
+  async ({ recipient, title }: any, { dispatch }) => {
     try {
       dispatch(updateAddressStart());
 
-      const { data } = await shopcekMutation({
+      const { data, error } = await shopcekMutation({
         mutation: UPDATE_ADDRESS,
         options: {
           variables: {
             recipient,
+            title,
           },
         } as any,
       });
 
+      if (error) {
+        dispatch(updateAddressFailure(error.message));
+        return;
+      }
+
       dispatch(updateAddressSuccess(data));
+      await dispatch(fetchAddressesAsync());
     } catch (error: any) {
       dispatch(updateAddressFailure(error.message));
     }

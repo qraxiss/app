@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 import { Col, Container, Row, Button, Card } from "react-bootstrap";
-import { Link } from "react-router-dom";
 import { Shoporder } from "components/shop-top-bar";
 import DeleteModal, { ModalAdd } from "components/delete-modal";
-import { selectAddressData } from "common/data";
 import { useSelector } from "react-redux";
 
 const Selectaddress = () => {
@@ -12,25 +10,61 @@ const Selectaddress = () => {
   const addresses = useSelector((state: any) => state.address.data);
   const [title, setTitle] = useState("");
 
-  const [addressData, setAddressData] = useState(selectAddressData);
+  // const [addressData, setAddressData] = useState(selectAddressData);
   //delete id
-  const [id, setId] = useState("");
+  // const [id, setId] = useState("");
 
   //Home Address
   const [removeModel, setRemovemodel] = useState(false);
   const RemoveModel = (id: any) => {
-    setRemovemodel(!removeModel);
-    setId(id);
+    // setRemovemodel(!removeModel);
+    // setId(id);
   };
 
   const deleteData = () => {
-    setAddressData(selectAddressData?.filter((delet: any) => delet.id !== id));
+    // setAddressData(selectAddressData?.filter((delet: any) => delet.id !== id));
   };
 
   //Add address
   const [addressModal, setAddressModal] = useState(false);
   const handleClose = () => setAddressModal(false);
   const handleShow = () => setAddressModal(true);
+
+  const emptyValues = {
+    name: "",
+    country: "",
+    state: "",
+    address: "",
+    phone: "",
+    zip: "",
+    title: "",
+    city: "",
+    email: "",
+  };
+
+  const localAddress = useSelector((state: any) => state.address.data).find(
+    (item: any) => item.title === title
+  );
+
+  const values = () => {
+    console.log(localAddress);
+
+    if (localAddress) {
+      return {
+        country: localAddress.country_name,
+        state: localAddress.state_name,
+        city: localAddress.city,
+        zip: localAddress.zip,
+        email: localAddress.email,
+        phone: localAddress.phone,
+        address: localAddress.address1 + localAddress.address2,
+        name: localAddress.name,
+        title: localAddress.title,
+      };
+    } else {
+      return emptyValues;
+    }
+  };
 
   return (
     <React.Fragment>
@@ -41,67 +75,6 @@ const Selectaddress = () => {
               <div>
                 <h4 className="fs-18 mb-4">Select or add an address</h4>
                 <Row className="g-4" id="address-list">
-                  {/* {(addressData || [])?.map((item: any) => {
-                    return (
-                      <Col lg={6} key={item.id}>
-                        <div>
-                          <div className="form-check card-radio">
-                            <Form.Control
-                              id="shippingAddress1"
-                              name="shippingAddress"
-                              type="radio"
-                              className="form-check-input"
-                            />
-                            <Form.Label
-                              className="form-check-label"
-                              htmlFor="shippingAddress1"
-                            >
-                              <span className="mb-4 fw-semibold fs-12 d-block text-muted text-uppercase">
-                                {item.address}
-                              </span>
-                              <span className="fs-14 mb-2 fw-semibold  d-block">
-                                {item.addressname}
-                              </span>
-                              <span className="text-muted fw-normal text-wrap mb-1 d-block">
-                                {item.addressdetails}
-                              </span>
-                              <span className="text-muted fw-normal d-block">
-                                Mo. {item.phonenumber}
-                              </span>
-                            </Form.Label>
-                          </div>
-                          <div className="d-flex flex-wrap p-2 py-1 bg-light rounded-bottom border mt-n1 fs-13">
-                            <div>
-                              <Link
-                                to="#"
-                                className="d-block text-body p-1 px-2 edit-list"
-                                data-edit-id="1"
-                                data-bs-toggle="modal"
-                                data-bs-target="#addAddressModal"
-                                onClick={handleShow}
-                              >
-                                <i className="ri-pencil-fill text-muted align-bottom me-1"></i>
-                                Edit
-                              </Link>
-                            </div>
-                            <div>
-                              <Link
-                                to="#"
-                                className="d-block text-body p-1 px-2 remove-list"
-                                data-remove-id="1"
-                                data-bs-toggle="modal"
-                                data-bs-target="#removeAddressModal"
-                                onClick={() => RemoveModel(item.id)}
-                              >
-                                <i className="ri-delete-bin-fill text-muted align-bottom me-1"></i>{" "}
-                                Remove
-                              </Link>
-                            </div>
-                          </div>
-                        </div>
-                      </Col>
-                    );
-                  })} */}
                   {addresses.map((address: any) => (
                     <Col md={6}>
                       <Card className="mb-md-0">
@@ -157,7 +130,10 @@ const Selectaddress = () => {
                         className="btn-sm w-xs stretched-link addAddress-modal"
                         data-bs-toggle="modal"
                         data-bs-target="#addAddressModal"
-                        onClick={handleShow}
+                        onClick={() => {
+                          setTitle("");
+                          handleShow();
+                        }}
                       >
                         Add
                       </Button>
@@ -184,6 +160,7 @@ const Selectaddress = () => {
           />
           <ModalAdd
             addressModal={addressModal}
+            initialValues={values()}
             title={title}
             handleClose={handleClose}
           />

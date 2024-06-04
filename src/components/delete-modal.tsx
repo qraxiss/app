@@ -1,11 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Modal, Button, Form } from "react-bootstrap";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 
 import { ADDRESS } from "constants/address";
-import { useSelector } from "react-redux";
-
+import { useSelector, useDispatch } from "react-redux";
+import { AppDispatch } from "store";
+import { updateAddressAsync } from "slices/thunk";
 //delete modal
 const DeleteModal = ({ removeModel, hideModal, deleteData }: any) => {
   const handleDelete = () => {
@@ -58,28 +59,16 @@ export default DeleteModal;
 //=================================================================
 
 //add addres modal
-export const ModalAdd = ({ addressModal, handleClose, title }: any) => {
-  const emptyValues = {
-    name: "",
-    country: "",
-    state: "",
-    address: "",
-    phone: "",
-    zip: "",
-    title: "",
-    city: "",
-    email: "",
-  };
-
-  console.log(title);
-  const localAddress = useSelector((state: any) => state.address.data).find(
-    (item: any) => item.title === title
-  );
-
-  console.log(localAddress);
+export const ModalAdd = ({
+  addressModal,
+  handleClose,
+  initialValues,
+  title,
+}: any) => {
+  const dispatch: AppDispatch = useDispatch();
 
   const formik = useFormik({
-    initialValues: localAddress || emptyValues,
+    initialValues,
     validationSchema: Yup.object({
       name: Yup.string().required("Please Enter Your Name"),
       country: Yup.string().required("Please Enter Your Country"),
@@ -93,8 +82,9 @@ export const ModalAdd = ({ addressModal, handleClose, title }: any) => {
       title: Yup.string().required("Please Enter Address Title"),
       email: Yup.string().email().required(),
     }),
+    enableReinitialize: true,
     onSubmit: (values) => {
-      // console.log("value", values);
+      dispatch(updateAddressAsync({ recipient: values, title }));
     },
   });
 
@@ -313,7 +303,7 @@ export const ModalAdd = ({ addressModal, handleClose, title }: any) => {
                 id="addNewAddress"
                 className="btn btn-primary"
               >
-                Add
+                {title !== "" ? "Update" : "Add"}
               </Button>
             </div>
           </Form>

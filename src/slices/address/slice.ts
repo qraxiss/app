@@ -32,7 +32,7 @@ const addressSlice = createSlice({
     },
 
     updateAddressSuccess(state, { payload: address }) {
-      state.data = address;
+      console.log(address);
       state.loading = false;
       state.error = null;
     },
