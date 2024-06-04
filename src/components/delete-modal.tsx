@@ -6,7 +6,11 @@ import * as Yup from "yup";
 import { ADDRESS } from "constants/address";
 import { useSelector, useDispatch } from "react-redux";
 import { AppDispatch } from "store";
-import { updateAddressAsync } from "slices/thunk";
+import {
+  updateAddressAsync,
+  createAddressAsync,
+  deleteAddressAsync,
+} from "slices/thunk";
 //delete modal
 const DeleteModal = ({ removeModel, hideModal, deleteData }: any) => {
   const handleDelete = () => {
@@ -84,7 +88,11 @@ export const ModalAdd = ({
     }),
     enableReinitialize: true,
     onSubmit: (values) => {
-      dispatch(updateAddressAsync({ recipient: values, title }));
+      if (title !== "") {
+        dispatch(updateAddressAsync({ recipient: values, title }));
+      } else {
+        dispatch(createAddressAsync({ recipient: values }));
+      }
     },
   });
 

@@ -2,7 +2,10 @@ import React, { useState } from "react";
 import { Col, Container, Row, Button, Card } from "react-bootstrap";
 import { Shoporder } from "components/shop-top-bar";
 import DeleteModal, { ModalAdd } from "components/delete-modal";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch } from "store";
+
+import { deleteAddressAsync } from "slices/thunk";
 
 const Selectaddress = () => {
   document.title = "Shop | Select address | Shopcek";
@@ -10,19 +13,12 @@ const Selectaddress = () => {
   const addresses = useSelector((state: any) => state.address.data);
   const [title, setTitle] = useState("");
 
-  // const [addressData, setAddressData] = useState(selectAddressData);
-  //delete id
-  // const [id, setId] = useState("");
+  const dispatch: AppDispatch = useDispatch();
 
   //Home Address
   const [removeModel, setRemovemodel] = useState(false);
-  const RemoveModel = (id: any) => {
-    // setRemovemodel(!removeModel);
-    // setId(id);
-  };
-
-  const deleteData = () => {
-    // setAddressData(selectAddressData?.filter((delet: any) => delet.id !== id));
+  const RemoveModel = () => {
+    setRemovemodel(!removeModel);
   };
 
   //Add address
@@ -81,6 +77,18 @@ const Selectaddress = () => {
                         <Card.Body>
                           <div className="float-end clearfix">
                             {" "}
+                            <Button
+                              // to="/address"
+                              onClick={() => {
+                                setTitle(address.title);
+                                setRemovemodel(true);
+                              }}
+                              className="badge bg-danger-subtle text-danger"
+                              variant="danger"
+                            >
+                              <i className="ri-delete-bin-6-line align-bottom me-1"></i>{" "}
+                              Remove
+                            </Button>{" "}
                             <Button
                               // to="/address"
                               onClick={() => {
@@ -156,7 +164,9 @@ const Selectaddress = () => {
           <DeleteModal
             removeModel={removeModel}
             hideModal={RemoveModel}
-            deleteData={deleteData}
+            deleteData={() => {
+              dispatch(deleteAddressAsync({ title }));
+            }}
           />
           <ModalAdd
             addressModal={addressModal}

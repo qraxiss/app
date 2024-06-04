@@ -41,6 +41,36 @@ const addressSlice = createSlice({
       state.error = error;
       state.loading = false;
     },
+
+    createAddressStart(state) {
+      state.error = null;
+      state.loading = true;
+    },
+
+    createAddressSuccess(state) {
+      state.error = null;
+      state.loading = false;
+    },
+
+    createAdddressFailure(state, { payload: error }) {
+      state.error = error;
+      state.loading = false;
+    },
+
+    deleteAddressStart(state) {
+      state.error = null;
+      state.loading = true;
+    },
+
+    deleteAddressSuccess(state) {
+      state.error = null;
+      state.loading = false;
+    },
+
+    deleteAdddressFailure(state, { payload: error }) {
+      state.error = error;
+      state.loading = false;
+    },
   },
 });
 
@@ -51,6 +81,12 @@ export const {
   updateAddressFailure,
   updateAddressStart,
   updateAddressSuccess,
+  createAdddressFailure,
+  createAddressStart,
+  createAddressSuccess,
+  deleteAdddressFailure,
+  deleteAddressStart,
+  deleteAddressSuccess,
 } = addressSlice.actions;
 
 export default addressSlice.reducer;

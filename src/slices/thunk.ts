@@ -25,4 +25,9 @@ export {
 
 export { fetchOrdersAsync, purchaseItemAsync } from "slices/order/thunk";
 
-export { fetchAddressesAsync, updateAddressAsync } from "slices/address/thunk";
+export {
+  fetchAddressesAsync,
+  updateAddressAsync,
+  deleteAddressAsync,
+  createAddressAsync,
+} from "slices/address/thunk";
