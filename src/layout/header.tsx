@@ -51,7 +51,6 @@ const Header = (props: any) => {
   const [showSubMenu, setShowSubMenu] = useState<any>("");
   const [showPageSubMenu, setShowPageSubMenu] = useState<any>("");
 
-
   return (
     <React.Fragment>
       <Navbar
@@ -71,59 +70,64 @@ const Header = (props: any) => {
               </div>
             </Link>
           </Navbar.Brand>
-          <Link to="/">
-            <Image src={shopcekLogo} alt='logo' height='35' className="d-lg-none collapsed"/>
+          <Link to="/" className="hide-on-lg">
+            <Image
+              src={shopcekLogo}
+              alt="logo"
+              height="35"
+              className="d-lg-none collapsed"
+            />
           </Link>
-            <Nav
-              as="ul"
-              className="mb-2 mb-lg-0 desktop-navbar"
-              id="navigation-menu"
-            >
-              <li className="nav-item d-block d-lg-none">
-                <Link to="/#" className="d-block p-3 h-auto text-center">
-                  <Image
-                    src={logodark}
-                    alt=""
-                    height="25"
-                    className="card-logo-dark mx-auto"
-                  />
-                </Link>
-                <Link to="/#" className="d-block p-3 h-auto text-center">
-                  <Image
-                    src={logolight}
-                    alt=""
-                    height="25"
-                    className="card-logo-light mx-auto"
-                  />
-                </Link>
-              </li>
+          <Nav
+            as="ul"
+            className="mb-2 mb-lg-0 desktop-navbar"
+            id="navigation-menu"
+          >
+            <li className="nav-item d-block d-lg-none">
+              <Link to="/#" className="d-block p-3 h-auto text-center">
+                <Image
+                  src={logodark}
+                  alt=""
+                  height="25"
+                  className="card-logo-dark mx-auto"
+                />
+              </Link>
+              <Link to="/#" className="d-block p-3 h-auto text-center">
+                <Image
+                  src={logolight}
+                  alt=""
+                  height="25"
+                  className="card-logo-light mx-auto"
+                />
+              </Link>
+            </li>
 
-              <li className="nav-item" key={`category-0`}>
-                <span className="nav-link" onClick={() => props.openSideBar()}>
-                  {/* <i className="bi bi-list fs-20"></i> */}
-                  Collections
-                </span>
-              </li>
+            <li className="nav-item" key={`category-0`}>
+              <span className="nav-link" onClick={() => props.openSideBar()}>
+                {/* <i className="bi bi-list fs-20"></i> */}
+                Collections
+              </span>
+            </li>
 
-              {categories?.map((item: any, index: number) => (
-                <li className="nav-item" key={`category-${index + 1}`}>
-                  <Link
-                    className="nav-link"
-                    to={`/products/${item.slug}`}
-                    data-key="t-slug"
-                  >
-                    {/* <img src={`${process.env.REACT_APP_API_URL}/${item.icon.url}`} alt={item.name} width={20} height={20} />{' '} */}
-                    {item.name}
-                  </Link>
-                </li>
-              ))}
-              <li className="nav-item">
-                <Link className="nav-link" to={`/earn`} data-key="t-slug">
+            {categories?.map((item: any, index: number) => (
+              <li className="nav-item" key={`category-${index + 1}`}>
+                <Link
+                  className="nav-link"
+                  to={`/products/${item.slug}`}
+                  data-key="t-slug"
+                >
                   {/* <img src={`${process.env.REACT_APP_API_URL}/${item.icon.url}`} alt={item.name} width={20} height={20} />{' '} */}
-                  EARN
+                  {item.name}
                 </Link>
               </li>
-            </Nav>
+            ))}
+            <li className="nav-item">
+              <Link className="nav-link" to={`/earn`} data-key="t-slug">
+                {/* <img src={`${process.env.REACT_APP_API_URL}/${item.icon.url}`} alt={item.name} width={20} height={20} />{' '} */}
+                EARN
+              </Link>
+            </li>
+          </Nav>
           {/* <Navbar.Collapse className="desktop-navbar">
           </Navbar.Collapse> */}
 
@@ -153,7 +157,12 @@ const Header = (props: any) => {
                 onClick={handleCardShow}
               >
                 <i className="ph-shopping-cart fs-18"></i>
-                {cart?.count > 0 && <span className="position-absolute topbar-badge cartitem-badge fs-10 translate-middle badge rounded-pill bg-danger"> {cart?.count} </span>}
+                {cart?.count > 0 && (
+                  <span className="position-absolute topbar-badge cartitem-badge fs-10 translate-middle badge rounded-pill bg-danger">
+                    {" "}
+                    {cart?.count}{" "}
+                  </span>
+                )}
               </Button>
             </div>
 
@@ -202,27 +211,35 @@ const Header = (props: any) => {
                   className="btn btn-icon btn-topbar btn-link rounded-circle coin"
                   as="a"
                 >
-                    <i className="bi bi-person fs-24 m-0 text-black-50"></i>
+                  <i className="bi bi-person fs-24 m-0 text-black-50"></i>
                 </Dropdown.Toggle>
 
-                <Dropdown.Menu style={{left: "-80px"}}>
-                  <Dropdown.Item onClick={() => navigate("/account", { state: "profile"})}>
+                <Dropdown.Menu style={{ left: "-80px" }}>
+                  <Dropdown.Item
+                    onClick={() => navigate("/account", { state: "profile" })}
+                  >
                     <i className="bi bi-person text-muted fs-16 align-middle me-1"></i>{" "}
                     <span className="align-middle">My Account</span>
                   </Dropdown.Item>
-                  <Dropdown.Item onClick={() => navigate("/account", { state: "order"})}>
+                  <Dropdown.Item
+                    onClick={() => navigate("/account", { state: "order" })}
+                  >
                     <i className="bi bi-truck text-muted fs-16 align-middle me-1"></i>{" "}
                     <span className="align-middle">My Orders</span>
                   </Dropdown.Item>
-                  <Dropdown.Item onClick={() => navigate("/account", { state: "list"})}>
+                  <Dropdown.Item
+                    onClick={() => navigate("/account", { state: "list" })}
+                  >
                     <i className="bi bi-bookmark-check text-muted fs-16 align-middle me-1"></i>{" "}
                     <span className="align-middle">Wishlist</span>
                   </Dropdown.Item>
-                  <Dropdown.Item onClick={() => navigate("/account", { state: "XP"})}>
+                  <Dropdown.Item
+                    onClick={() => navigate("/account", { state: "XP" })}
+                  >
                     <i className="bi bi-coin text-muted fs-16 align-middle me-1"></i>{" "}
                     <span className="align-middle">XP Points</span>
                   </Dropdown.Item>
-                  <Dropdown.Item >
+                  <Dropdown.Item>
                     <i className="bi bi-gear text-muted fs-16 align-middle me-1"></i>{" "}
                     <span className="align-middle">Settings</span>
                   </Dropdown.Item>
@@ -239,7 +256,7 @@ const Header = (props: any) => {
                 </Dropdown.Menu>
               </Dropdown>
             ) : (
-                <ConnectWallet />
+              <ConnectWallet />
             )}
           </div>
         </div>

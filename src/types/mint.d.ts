@@ -32,5 +32,3 @@ export interface Order {
   shopcekDomainNFT: string;
   signature: string;
 }
-
-

@@ -208,14 +208,14 @@
     display: flex;
     flex-direction: column;
     width: 45%;
-    .bitcoin{
+    .bitcoin {
       display: flex;
       gap: 5px;
       align-items: center;
-      p{
+      p {
         margin: 0 !important;
       }
-      img{
+      img {
         width: 40px;
         height: auto;
       }
@@ -454,11 +454,11 @@
   align-items: center;
   justify-content: space-between;
   text-align: center;
-  img{
+  img {
     width: 85%;
   }
 }
-.active{
+.actived {
   background-color: #ffeef8 !important;
 }
 .day-30xp {
@@ -473,47 +473,47 @@
 .days:hover {
   background-color: #ffeef8;
 }
-.countdown-container{
+.countdown-container {
   width: 200px;
 }
-.countdown{
+.countdown {
   justify-content: space-between;
   flex-wrap: wrap;
 }
 @media (max-width: 800px) {
- .days-container{
-  justify-content: space-around;
- }
- .countdown {
-  justify-content: space-around;
-}
-.coin{
-  display: none !important;
-}
-.profile-container{
- margin-right : -8px;
-}
-.heading{
-  color: black;
-}
-  .payment{
+  .days-container {
+    justify-content: space-around;
+  }
+  .countdown {
+    justify-content: space-around;
+  }
+  .coin {
+    display: none !important;
+  }
+  .profile-container {
+    margin-right: -8px;
+  }
+  .heading {
+    color: black;
+  }
+  .payment {
     justify-content: center;
     flex-wrap: wrap !important;
     font-size: 20px !important;
   }
-  .vl{
+  .vl {
     display: none;
   }
-  .method{
+  .method {
     align-items: center;
   }
   .countdown-container {
     width: 110px;
   }
-  .blue-box{
+  .blue-box {
     font-size: 80px !important;
   }
-  .clock{
+  .clock {
     font-size: 10px !important;
   }
   .task-rewards {
@@ -523,11 +523,10 @@
       }
     }
   }
-  .dots{
+  .dots {
     display: none !important;
   }
-  .countdown-container{
+  .countdown-container {
     margin: 10px !important;
   }
 }
-

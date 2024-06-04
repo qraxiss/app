@@ -1,6 +1,16 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { Button, Col, Container, Row, Form, Image, Modal } from "react-bootstrap";
+import {
+  Button,
+  Col,
+  Container,
+  Row,
+  Form,
+  Image,
+  Modal,
+  Tabs,
+  Tab,
+} from "react-bootstrap";
 import { Swiper, SwiperRef, SwiperSlide } from "swiper/react";
 import { FreeMode, Navigation, Thumbs } from "swiper/modules";
 //scss
@@ -8,15 +18,10 @@ import "swiper/css";
 import "swiper/css/thumbs";
 import "swiper/css/navigation";
 
-import { CommonService } from "components/common-service";
-import EmailClothe from "pages/catalog/email-clothe";
-
 import { GET_Products_Details } from "graphql/product-details/queries";
 import { useShopcekQuery } from "graphql/apollo/query-wrapper";
 import { useSelector, useDispatch } from "react-redux";
-import {
-SimilarProducts
-} from "components/home";
+import { SimilarProducts, RatingsReviews } from "components/home";
 import {
   addToWishlistAsync,
   removeFromWishlistAsync,
@@ -50,6 +55,7 @@ const ProductDetails = () => {
   const [size, setSize] = useState<Option | null>(null);
   const [color, setColor] = useState<Option | null>(null);
   const [disabled, setDisabled] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const cart = useSelector((state: any) => state.cart);
 
   useEffect(() => {
@@ -102,6 +108,36 @@ const ProductDetails = () => {
       event.closest("button").classList.add("active");
     }
   };
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 767);
+    };
+
+    handleResize(); // Set initial value
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
+  const handleSizeChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    const selectedSize = data.product.sizes.find(
+      (size: Option) => size.value === event.target.value,
+    );
+    setSize(selectedSize || null);
+  };
+
+  const handleScrollUp = () => {
+    const swiperContainer = document.querySelector(".swiper.hide-scrollbar");
+    swiperContainer?.scrollBy({ top: -100, behavior: "smooth" });
+  };
+
+  const handleScrollDown = () => {
+    const swiperContainer = document.querySelector(".swiper.hide-scrollbar");
+    swiperContainer?.scrollBy({ top: 100, behavior: "smooth" });
+  };
   return (
     <React.Fragment>
       <Modal
@@ -112,136 +148,254 @@ const ProductDetails = () => {
         className="zoomIn"
       >
         <div>
-          <Image src={data?.variants[swiperRef?.current?.swiper?.activeIndex || 0]?.variant?.image} alt="" fluid />
+          <Image
+            src={
+              data?.variants[swiperRef?.current?.swiper?.activeIndex || 0]
+                ?.variant?.image
+            }
+            alt=""
+            fluid
+          />
         </div>
       </Modal>
       <section className="section" style={{ paddingTop: "140px" }}>
-        <Container>
+        <Container fluid className="container-custom">
           <Row className="gx-2">
             <Col lg={6}>
-              <Row>
-                <Col md={2} sm={2} xs={3}>
+         {isMobile ? (
+                <Row>
+                  <Col md={10} sm={10} xs={12}>
+                    <div className="rounded-2 position-relative ribbon-box overflow-hidden">
+                      <div className="ribbon ribbon-danger ribbon-shape trending-ribbon">
+                        <span className="trending-ribbon-text">Trending</span>
+                        <i className="ri-flashlight-fill text-white align-bottom float-end ms-1" />
+                      </div>
+
+                      <Swiper
+                        ref={swiperRef}
+                        rewind={true}
+                        navigation={true}
+                        modules={[FreeMode, Navigation, Thumbs]}
+                        className="swiper productSwiper2 swiper-backface-hidden"
+                      >
+                        {(data?.variants || [])?.map((item: any) => {
+                          return (
+                            <SwiperSlide key={item.id}>
+                              <div
+                                className="swiper-slide swiper-slide-duplicate"
+                                data-swiper-slide-index={item.id}
+                                role="group"
+                                aria-label={`${item.id} / 5`}
+                                style={{
+                                  width: "100%",
+                                  marginRight: "10px",
+                                  cursor: "pointer",
+                                }}
+                                onClick={() => setShowModal(true)}
+                              >
+                                <Image
+                                  className="product-image"
+                                  src={item?.variant?.image}
+                                  alt=""
+                                  fluid
+                                />
+                              </div>
+                            </SwiperSlide>
+                          );
+                        })}
+                      </Swiper>
+                    </div>
+                  </Col>
+                  {/*end col*/}
+                  <Col xs={12}>
+              <div className="position-relative">
+                <Swiper
+                  ref={swiperRef}
+                  slidesPerView={4}
+                  spaceBetween={10}
+                  freeMode={true}
+                  navigation={{
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                  }}
+                  modules={[FreeMode, Navigation, Thumbs]}
+                  className="swiper hide-scrollbar productSwiper swiper-initialized swiper-horizontal swiper-pointer-events swiper-free-mode swiper-watch-progress swiper-backface-hidden swiper-thumbs"
+                  style={{
+                    overflowX: "auto",
+                    padding: "2px",
+                    maxWidth: "90%",
+                    margin: "0 auto", // Center the swiper container
+                  }}
+                >
                   <div
-                    className="swiper hide-scrollbar productSwiper mb-3 mb-lg-0 swiper-initialized swiper-vertical swiper-pointer-events swiper-free-mode swiper-watch-progress swiper-backface-hidden swiper-thumbs"
+                    className="swiper-wrapper"
+                    id="swiper-wrapper-6100bf53c3db1675b"
+                    aria-live="polite"
                     style={{
-                      maxHeight: "450px",
-                      overflowY: "auto",
-                      padding: "2px",
+                      transform: "translate3d(0px, 0px, 0px)",
+                      transitionDuration: "0ms",
+                      display: "flex",
+                      justifyContent: "center", // Center the images
                     }}
                   >
-                    
+                     {(data?.variants || [])?.map(
+                          (item: any, idx: number) => {
+                            return (
+                              <SwiperSlide 
+                                key={idx}
+                                className="swiper-slide swiper-slide-thumb-active swiper-slide-visible swiper-slide-next"
+                                role="group"
+                                aria-label={`${item.id} / 5 `}
+                                style={{ height: "105px", marginBottom: "10px" }}
+                              >
+                                <div className="product-thumb rounded cursor-pointer">
+                                  <Image
+                                    src={item?.variant?.image}
+                                    alt=""
+                                    fluid
+                                    onClick={() => handleImgSelect(idx)}
+                                  />
+                                </div>
+                              </SwiperSlide>
+                            );
+                          },
+                        )}
+                  </div>
+                </Swiper>
+                <span
+                        className="swiper-notification"
+                        aria-live="assertive"
+                        aria-atomic="true"
+                      />
+                <div
+                  className="swiper-button-prev"
+                  style={{
+                    top: "50%", // Center vertically
+                    transform: "translateY(-50%)",
+                  }}
+                ></div>
+                <div
+                  className="swiper-button-next"
+                  style={{
+                    top: "50%", // Center vertically
+                    transform: "translateY(-50%)",
+                  }}
+                ></div>
+              </div>
+            </Col>
+                  {/*end col*/}
+                </Row>
+              ) : (
+                <Row>
+                  <Col md={2} sm={2} xs={3}>
                     <div
-                      className="swiper-wrapper"
-                      id="swiper-wrapper-6100bf53c3db1675b"
-                      aria-live="polite"
+                      className="swiper hide-scrollbar productSwiper mb-3 mb-lg-0 swiper-initialized swiper-vertical swiper-pointer-events swiper-free-mode swiper-watch-progress swiper-backface-hidden swiper-thumbs"
                       style={{
-                        transform: "translate3d(0px, 0px, 0px)",
-                        transitionDuration: "0ms",
+                        maxHeight: "450px",
+                        overflow: "auto",
+                        padding: "2px",
+                        width: "100%",
                       }}
                     >
-                      {/* {(sliderProduct || [])?.map((item, idx) => {
-                        return (
-                          <div
-                            key={idx}
-                            className="swiper-slide swiper-slide-thumb-active swiper-slide-visible swiper-slide-next"
-                            role="group"
-                            aria-label={`${item.id} / 5 `}
-                            style={{ height: "105px", marginBottom: "10px" }}
-                          >
-                            <div className="product-thumb rounded cursor-pointer">
-                              <Image
-                                src={item.img}
-                                alt=""
-                                fluid
-                                onClick={() => handleSetImg(item.id)}
-                              />
-                            </div>
-                          </div>
-                        );
-                      })} */}
-                      {(data?.variants || [])?.map((item: any, idx: number) => {
-                        return (
-                          <div
-                            key={idx}
-                            className="swiper-slide swiper-slide-thumb-active swiper-slide-visible swiper-slide-next"
-                            role="group"
-                            aria-label={`${item.id} / 5 `}
-                            style={{ height: "105px", marginBottom: "10px" }}
-                          >
-                            <div className="product-thumb rounded cursor-pointer">
-                              <Image
-                                src={item?.variant?.image}
-                                alt=""
-                                fluid
-                                onClick={() => handleImgSelect(idx)}
-                              />
-                            </div>
-                          </div>
-                        );
-                      })}
+                      <div
+                        className="swiper-wrapper"
+                        id="swiper-wrapper-6100bf53c3db1675b"
+                        aria-live="polite"
+                        style={{
+                          transform: "translate3d(0px, 0px, 0px)",
+                          transitionDuration: "0ms",
+                        }}
+                      >
+                        {(data?.variants || [])?.map(
+                          (item: any, idx: number) => {
+                            return (
+                              <div
+                                key={idx}
+                                className="swiper-slide swiper-slide-thumb-active swiper-slide-visible swiper-slide-next"
+                                role="group"
+                                aria-label={`${item.id} / 5 `}
+                                style={{ height: "105px", marginBottom: "10px" }}
+                              >
+                                <div className="product-thumb rounded cursor-pointer">
+                                  <Image
+                                    src={item?.variant?.image}
+                                    alt=""
+                                    fluid
+                                    onClick={() => handleImgSelect(idx)}
+                                  />
+                                </div>
+                              </div>
+                            );
+                          },
+                        )}
+                      </div>
+                      <span
+                        className="swiper-notification"
+                        aria-live="assertive"
+                        aria-atomic="true"
+                      />
                     </div>
+                    <div className="d-flex align-items-center gap-2 cursor-pointer">
                     <span
-                      className="swiper-notification"
-                      aria-live="assertive"
-                      aria-atomic="true"
-                    />
-                  </div>
-                </Col>
-                {/*end col*/}
-                <Col md={10} sm={10} xs={9}>
-                  <div className="bg-light rounded-2 position-relative ribbon-box overflow-hidden">
-                    <div className="ribbon ribbon-danger ribbon-shape trending-ribbon">
-                      <span className="trending-ribbon-text">Trending</span>
-                      <i className="ri-flashlight-fill text-white align-bottom float-end ms-1" />
-                    </div>
-
-                    <Swiper
-                      ref={swiperRef}
-                      rewind={true}
-                      navigation={true}
-                      modules={[FreeMode, Navigation, Thumbs]}
-                      className="swiper productSwiper2 swiper-backface-hidden"
+                      className="swiper-button-up d-flex justify-content-center"
+                      onClick={handleScrollUp}
                     >
-                      {/* <SwiperSlide>
-                        <div
-                          className="swiper-slide swiper-slide-duplicate"
-                          data-swiper-slide-index={4}
-                          role="group"
-                          aria-label={`item.id / 5`}
-                          style={{ width: "458px", marginRight: "10px" }}
-                        >
-                          <video controls autoPlay loop style={{ width: "100%" }}>
-                            <source
-                              src={`${process.env.REACT_APP_API_URL}/${data?.product?.video?.url}`}
-                              type="video/mp4"
-                            />
-                            Your browser does not support the video tag.
-                          </video>
-                          <Image src={`${process.env.REACT_APP_API_URL}/${data?.product?.video?.url}`} alt="" fluid /> 
-                        </div>
-                      </SwiperSlide> */}
-                      {(data?.variants || [])?.map((item: any) => {
-                        return (
-                          <SwiperSlide key={item.id}>
-                            <div
-                              className="swiper-slide swiper-slide-duplicate"
-                              data-swiper-slide-index={item.id}
-                              role="group"
-                              aria-label={`${item.id} / 5`}
-                              style={{ width: "100%", marginRight: "10px", cursor: "pointer" }}
-                              onClick={() => setShowModal(true)}
-                            >
-                              <Image className="product-image" src={item?.variant?.image} alt="" fluid />
-                            </div>
-                          </SwiperSlide>
-                        );
-                      })}
-                    </Swiper>
+                      <i className="bi bi-chevron-compact-up fs-24 p-0 m-0"></i>
+                    </span>
+                    <span
+                      className="swiper-button-down d-flex justify-content-center"
+                      onClick={handleScrollDown}
+                    >
+                      <i className="bi bi-chevron-compact-down fs-24 p-0 m-0"></i>
+                    </span>
                   </div>
-                </Col>
-                {/*end col*/}
-              </Row>
-              {/*end row*/}
+                  </Col>
+                  {/*end col*/}
+                  <Col md={10} sm={10} xs={12}>
+                    <div className="rounded-2 position-relative ribbon-box overflow-hidden">
+                      <div className="ribbon ribbon-danger ribbon-shape trending-ribbon">
+                        <span className="trending-ribbon-text">Trending</span>
+                        <i className="ri-flashlight-fill text-white align-bottom float-end ms-1" />
+                      </div>
+
+                      <Swiper
+                        ref={swiperRef}
+                        rewind={true}
+                        navigation={true}
+                        modules={[FreeMode, Navigation, Thumbs]}
+                        className="swiper productSwiper2 swiper-backface-hidden"
+                      >
+                        {(data?.variants || [])?.map((item: any) => {
+                          return (
+                            <SwiperSlide key={item.id}>
+                              <div
+                                className="swiper-slide swiper-slide-duplicate"
+                                data-swiper-slide-index={item.id}
+                                role="group"
+                                aria-label={`${item.id} / 5`}
+                                style={{
+                                  width: "100%",
+                                  marginRight: "10px",
+                                  cursor: "pointer",
+                                }}
+                                onClick={() => setShowModal(true)}
+                              >
+                                <Image
+                                  className="product-image"
+                                  src={item?.variant?.image}
+                                  alt=""
+                                  fluid
+                                />
+                              </div>
+                            </SwiperSlide>
+                          );
+                        })}
+                      </Swiper>
+                    </div>
+                  </Col>
+                  {/*end col*/}
+                </Row>
+              )}
             </Col>
             {/*end col*/}
             <Col lg={5} className="ms-auto">
@@ -252,20 +406,72 @@ const ProductDetails = () => {
                   <p className="text-muted mb-4">
                     {data?.product?.description}
                   </p>
-                  <h5 className="fs-24 mb-4">${data?.product?.price}</h5>
-                  <ul className="list-unstyled vstack gap-2">
-                    <li>
-                      <i className="bi bi-check2-circle me-2 align-middle text-success" />
-                      In stock
-                    </li>
-                    <li>
-                      <i className="bi bi-check2-circle me-2 align-middle text-success" />
-                      Free delivery available
-                    </li>
-                  </ul>
+                  <h5 className="fs-24 mb-4 text-primary">
+                    ${data?.product?.price}
+                  </h5>
                 </div>
-                <div className="d-flex align-items-center mb-4">
-                  <h5 className="fs-15 mb-0">Quantity:</h5>
+                <Col md={12}>
+      <div className="d-flex align-items-center py-3">
+        <h6 className="fs-16 mb-0 fw-medium text-muted">Sizes: </h6>
+        <div className="px-2 w-50 custom-select-wrapper cursor-pointer">
+          {data?.product?.sizes && data?.product?.sizes.length > 0 && (
+            <Form.Select
+              aria-label="Select Size"
+              value={size?.value || ""}
+              onChange={handleSizeChange}
+              className="custom-select"
+            >
+              <option value="">Select a size</option>
+              {data.product.sizes.map((size: any, index: number) => (
+                <option key={index} value={size.value}>
+                  {size.value}
+                </option>
+              ))}
+            </Form.Select>
+          )}
+          <span className="custom-select-icon swiper-button-down d-flex justify-content-center">
+            <i className="bi bi-chevron-compact-down fs-24 p-0 m-0"></i>
+          </span>
+        </div>
+      </div>
+    </Col>
+                <Row className="gy-3 py-3">
+                  <Col md={12}>
+                    {data?.product?.colors &&
+                      data?.product?.colors.length > 0 && (
+                        <div className="d-flex align-items-center">
+                          <h6 className="fs-16 fw-medium text-muted">
+                            Colors :
+                          </h6>
+                          <ul className="clothe-colors list-unstyled hstack gap-1 mb-0 flex-wrap ms-2">
+                            {data?.product?.colors.map(
+                              (color: any, index: number) => (
+                                <li
+                                  key={index}
+                                  onClick={() => {
+                                    setColor(color);
+                                  }}
+                                >
+                                  <Form.Control
+                                    type="radio"
+                                    name="colors"
+                                    id={`product-color-${index}`}
+                                  />
+                                  <Form.Label
+                                    style={{ background: color.hex }}
+                                    className="btn p-2 d-flex align-items-center justify-content-center rounded-circle"
+                                    htmlFor={`product-color-${index}`}
+                                  />
+                                </li>
+                              ),
+                            )}
+                          </ul>
+                        </div>
+                      )}
+                  </Col>
+                </Row>
+                <div className="d-flex align-items-center py-2">
+                  <h6 className="fs-16 mb-0 fw-medium text-muted">Quantity:</h6>
                   <div className="input-step ms-2">
                     <Button
                       className="minus"
@@ -289,72 +495,6 @@ const ProductDetails = () => {
                     </Button>
                   </div>
                 </div>
-                <Row className="gy-3">
-                  <Col md={12}>
-                    <div>
-                      <h6 className="fs-14 fw-medium text-muted">Sizes:</h6>
-                      <ul className="clothe-size list-unstyled hstack gap-2 mb-0 flex-wrap">
-                        {data?.product?.sizes &&
-                          data?.product?.sizes.length > 0 &&
-                          data?.product?.sizes.map(
-                            (size: any, index: number) => (
-                              <li
-                                key={index}
-                                onClick={() => {
-                                  setSize(size);
-                                }}
-                              >
-                                <Form.Control
-                                  type="radio"
-                                  name="sizes7"
-                                  id={`product-size-${index}`}
-                                />
-                                <Form.Label
-                                  className="avatar-xs btn btn-soft-primary text-uppercase p-0 fs-12 d-flex align-items-center justify-content-center rounded-circle"
-                                  htmlFor={`product-size-${index}`}
-                                >
-                                  {size.value}
-                                </Form.Label>
-                              </li>
-                            ),
-                          )}
-                      </ul>
-                    </div>
-                  </Col>
-                  <Col md={12}>
-                    {data?.product?.colors &&
-                      data?.product?.colors.length > 0 && (
-                        <>
-                          <h6 className="fs-14 fw-medium text-muted">
-                            Colors:{" "}
-                          </h6>
-                          <ul className="clothe-colors list-unstyled hstack gap-1 mb-0 flex-wrap ms-2">
-                            {data?.product?.colors.map(
-                              (color: any, index: number) => (
-                                <li
-                                  key={index}
-                                  onClick={() => {
-                                    setColor(color);
-                                  }}
-                                >
-                                  <Form.Control
-                                    type="radio"
-                                    name="colors"
-                                    id={`product-color-${index}`}
-                                  />
-                                  <Form.Label
-                                    style={{ background: color.hex }}
-                                    className="avatar-xs btn p-0 d-flex align-items-center justify-content-center rounded-circle"
-                                    htmlFor={`product-color-${index}`}
-                                  />
-                                </li>
-                              ),
-                            )}
-                          </ul>
-                        </>
-                      )}
-                  </Col>
-                </Row>
                 <div className="hstack gap-1">
                   <Button
                     className="btn button-add-cart w-100 px-2"
@@ -390,6 +530,26 @@ const ProductDetails = () => {
                     </span>
                   </Button>
                 </div>
+                <ul className="list-unstyled vstack gap-2 mt-2">
+                  <li className="d-flex align-items-center">
+                    <h6 className="fs-16 mb-0 fw-medium text-muted">
+                      Category :{" "}
+                    </h6>
+                    <span className="px-2">Hoodies & Bitcoin</span>
+                  </li>
+                  <li className="d-flex align-items-center">
+                    <h6 className="fs-16 mb-0 fw-medium text-muted">
+                      Share :{" "}
+                    </h6>
+                    <span className="d-flex align-items-center px-2 text-muted gap-2 cursor-pointer">
+                      <i className="bi bi-facebook"></i>{" "}
+                      <i className="bi bi-twitter"></i>{" "}
+                      <i className="bi bi-linkedin"></i>{" "}
+                      <i className="bi bi-pinterest"></i>{" "}
+                      <i className="bi bi-telegram"></i>
+                    </span>
+                  </li>
+                </ul>
               </div>
             </Col>
             {/*end col*/}
@@ -398,8 +558,8 @@ const ProductDetails = () => {
         </Container>
         {/*end container*/}
       </section>
-      <p className="text-muted px-5 ms-2 fs-15">{data?.product?.description}</p>
-      <SimilarProducts/>
+      <RatingsReviews />
+      <SimilarProducts />
     </React.Fragment>
   );
 };

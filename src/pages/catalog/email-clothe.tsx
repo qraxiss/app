@@ -1,13 +1,11 @@
 import React from "react";
-import { Button, Col, Container, Form, Row} from "react-bootstrap";
+import { Button, Col, Container, Form, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 const EmailClothe = () => {
   return (
     <React.Fragment>
-      <section
-        className="section bg-light bg-opacity-25"
-      >
+      <section className="section bg-light bg-opacity-25">
         <Container>
           <Row className="align-items-center justify-content-between">
             <Col lg={6}>

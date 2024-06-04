@@ -1,6 +1,11 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
-import { logout, logoutFailure, logoutStart, logoutSuccess } from "slices/user/slice";
+import {
+  logout,
+  logoutFailure,
+  logoutStart,
+  logoutSuccess,
+} from "slices/user/slice";
 import { disconnectWalletAsync } from "slices/thunk";
 
 export const logoutAsync = createAsyncThunk(

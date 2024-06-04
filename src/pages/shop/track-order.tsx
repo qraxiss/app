@@ -41,41 +41,45 @@ const Trackorder = () => {
             </Col>
           </Row>
           <div className="track-orders">
-    <Row className="justify-content-between gy-4 gy-md-0">
-      <Col
-        xs={6} md={3}
-        className="order-tracking text-center ps-4 ps-md-0 completed"
-      >
-        <span className="is-complete"></span>
-        <h6 className="fs-15 mt-3 mt-md-4">Order Process</h6>
-        <p className="text-muted fs-14 mb-0">Mon, 23 Nov</p>
-      </Col>
-      <Col
-        xs={6} md={3}
-        className="order-tracking text-center ps-4 ps-md-0 completed"
-      >
-        <span className="is-complete"></span>
-        <h6 className="fs-15 mt-3 mt-md-4">Order Shipped</h6>
-        <p className="text-muted fs-14 mb-0">Mon, 23 Nov</p>
-      </Col>
-      <Col
-        xs={6} md={3}
-        className="order-tracking text-center ps-4 ps-md-0"
-      >
-        <span className="is-complete"></span>
-        <h6 className="fs-15 mt-3 mt-md-4">Out Of Delivery</h6>
-        <p className="text-muted fs-14 mb-0">Mon, 23 Nov</p>
-      </Col>
-      <Col
-        xs={6} md={3}
-        className="order-tracking text-center ps-4 ps-md-0"
-      >
-        <span className="is-complete"></span>
-        <h6 className="fs-15 mt-3 mt-md-4">Delivered</h6>
-        <p className="text-muted fs-14 mb-0">Mon, 23 Nov</p>
-      </Col>
-      </Row>
-    </div>
+            <Row className="justify-content-between gy-4 gy-md-0">
+              <Col
+                xs={6}
+                md={3}
+                className="order-tracking text-center ps-4 ps-md-0 completed"
+              >
+                <span className="is-complete"></span>
+                <h6 className="fs-15 mt-3 mt-md-4">Order Process</h6>
+                <p className="text-muted fs-14 mb-0">Mon, 23 Nov</p>
+              </Col>
+              <Col
+                xs={6}
+                md={3}
+                className="order-tracking text-center ps-4 ps-md-0 completed"
+              >
+                <span className="is-complete"></span>
+                <h6 className="fs-15 mt-3 mt-md-4">Order Shipped</h6>
+                <p className="text-muted fs-14 mb-0">Mon, 23 Nov</p>
+              </Col>
+              <Col
+                xs={6}
+                md={3}
+                className="order-tracking text-center ps-4 ps-md-0"
+              >
+                <span className="is-complete"></span>
+                <h6 className="fs-15 mt-3 mt-md-4">Out Of Delivery</h6>
+                <p className="text-muted fs-14 mb-0">Mon, 23 Nov</p>
+              </Col>
+              <Col
+                xs={6}
+                md={3}
+                className="order-tracking text-center ps-4 ps-md-0"
+              >
+                <span className="is-complete"></span>
+                <h6 className="fs-15 mt-3 mt-md-4">Delivered</h6>
+                <p className="text-muted fs-14 mb-0">Mon, 23 Nov</p>
+              </Col>
+            </Row>
+          </div>
         </Container>
       </section>
       <section className="section pt-0">

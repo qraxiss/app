@@ -62,9 +62,7 @@ export const WhyChoose = () => {
                       dynamic e-commerce store, enriched with tools and services
                       tailored to enhance your brand.
                     </p>
-                    <p className="text-white-50 mb-0 fs-18 pb-2">
-                      Apply Now
-                    </p>
+                    <p className="text-white-50 mb-0 fs-18 pb-2">Apply Now</p>
                     <Row>
                       <Col lg={7}>
                         <Form action="#">

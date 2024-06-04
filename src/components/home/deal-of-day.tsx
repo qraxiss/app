@@ -23,9 +23,7 @@ export const DealOfDay = () => {
             <span className="fs-36 fw-medium" id="days">
               {days}
             </span>{" "}
-            <span >
-              Days
-            </span>
+            <span>Days</span>
           </li>
           <li className="px-3">
             <span className="fs-36 fw-medium" id="days">

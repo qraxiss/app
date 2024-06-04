@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Container, Row, Col, Image, Form, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
@@ -39,7 +38,7 @@ const Footer = () => {
   return (
     <React.Fragment>
       <section className="section footer-landing pb-0">
-      <div className="container-fluid container-custom">
+        <div className="container-fluid container-custom">
           <Row>
             <Col lg={4}>
               <div className="footer-info">

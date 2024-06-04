@@ -162,7 +162,7 @@ export const LoginToEarn = () => {
         </div>
         <div className="purple-box-container">
           <div className="days-container">
-            <div className="days day-30xp active">
+            <div className="days day-30xp actived">
               <h5>day 1</h5>
               <img src={smallReward} alt="" />
               <h5>+30 XP</h5>

@@ -13,11 +13,11 @@
   padding: 0;
   justify-content: center;
 
-  .ecommerce-navbar-container{
-    display: flex; 
-    justify-content: space-between; 
-    align-items: center; 
-    min-width: 90%; 
+  .ecommerce-navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-width: 90%;
     max-width: 95%;
     margin-left: 3.5%;
   }
@@ -28,7 +28,7 @@
         color: #637790;
         font-size: 15px;
         font-weight: 500;
-        padding: 0px 14px;
+        padding: 0px 20px;
         height: 70px;
         display: flex;
         align-items: center;
@@ -223,7 +223,7 @@
       }
     }
 
-    .ecommerce-navbar-container{
+    .ecommerce-navbar-container {
       margin-left: 0px;
     }
     .navbar-nav {
