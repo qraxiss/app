@@ -6,11 +6,30 @@
 .swiper-button-prev {
   height: 48px !important;
   width: 32px !important;
-  background-color: #F6F6F6;
+  background-color: #f6f6f6;
   // background-color: rgba(var(--#{$prefix}primary-rgb), 0.2);
   // backdrop-filter: blur(2px);
   border-radius: 8px;
-  i{
+  i {
+    color: #7a7979;
+  }
+  &::after {
+    font-family: remixicon !important;
+    font-size: 28px !important;
+    color: rgba(var(--#{$prefix}primary-rgb), 1);
+    transition: all 0.3s ease;
+  }
+}
+
+.swiper-button-up,
+.swiper-button-down {
+  height: 32px !important;
+  width: 48px !important;
+  background-color: #f6f6f6;
+  // background-color: rgba(var(--#{$prefix}primary-rgb), 0.2);
+  // backdrop-filter: blur(2px);
+  border-radius: 8px;
+  i {
     color: #7a7979;
   }
   &::after {
@@ -25,11 +44,11 @@
   &::after {
     content: "" !important;
     background-image: url(../../images/chevron-compact-left.svg);
-    background-size: 100% 100%; 
-    background-position: center; 
-    background-repeat: no-repeat; 
-    display: block; 
-    width: 100% !important; 
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: block;
+    width: 100% !important;
     height: 100% !important;
   }
 }
@@ -37,11 +56,11 @@
   &::after {
     content: "" !important ;
     background-image: url(../../images/chevron-compact-right.svg);
-    background-size: 100% 100%; 
-    background-position: center; 
-    background-repeat: no-repeat; 
-    display: block; 
-    width: 100% !important; 
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: block;
+    width: 100% !important;
     height: 100% !important;
   }
 }
@@ -132,4 +151,25 @@
   &.swiper-scrollbar {
     background-color: rgba($dark, 0.35);
   }
+}
+
+.custom-select-wrapper {
+  position: relative;
+}
+
+.custom-select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background: transparent;
+  border: 1px solid #ced4da;
+  // padding-right: 30px;
+}
+
+.custom-select-icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
 }

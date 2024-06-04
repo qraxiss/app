@@ -30,7 +30,7 @@ const Products = () => {
   return (
     <React.Fragment>
       <section className="section pb-0">
-        <Container fluid>
+        <Container fluid className="container-custom">
           <Row className="g-2">
             <Col lg={12}>
               <Link

@@ -538,19 +538,18 @@ export const SearchModal = ({ show, handleClose }: any) => {
                       className="list-group-item dropdown-item notify-item"
                       key={inx}
                     >
-
                       <div className="d-flex justify-content-between align-items-center">
                         <div>
-                       <Image
-                         src={item.image}
-                         alt=""
-                         className="avatar-sm"
-                         />
-                        <span className="px-2">{item.name}</span>
+                          <Image
+                            src={item.image}
+                            alt=""
+                            className="avatar-sm"
+                          />
+                          <span className="px-2">{item.name}</span>
                         </div>
-                      <div>
-                      <span>${item.price}</span>
-                      </div>
+                        <div>
+                          <span>${item.price}</span>
+                        </div>
                       </div>
                     </Link>
                   ))}
@@ -642,9 +641,7 @@ export const CardModal = ({ show, handleClose }: any) => {
                           className={`avatar-md ${item.bg}-subtle `}
                           style={{ height: "100%" }}
                         >
-                          <div
-                           className={`cart-background rounded-3`}
-                          >
+                          <div className={`cart-background rounded-3`}>
                             <Image
                               src={item?.variant?.image}
                               alt=""
@@ -655,7 +652,9 @@ export const CardModal = ({ show, handleClose }: any) => {
                       </div>
                       <div className="flex-grow-1">
                         <Link to="#">
-                          <h5 className="fs-15">{item?.variant?.product?.name}</h5>
+                          <h5 className="fs-15">
+                            {item?.variant?.product?.name}
+                          </h5>
                         </Link>
                         <div className="d-flex mb-3 gap-2">
                           <div className="text-muted fw-medium mb-0">

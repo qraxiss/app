@@ -52,7 +52,7 @@ export const MobileFooter: FC<CollectionsSideBarProps> = ({ openSideBar }) => {
         </Navbar.Brand>
         <Navbar.Brand
           href=""
-          onClick={() => navigate("/account", { state: "list"})}
+          onClick={() => navigate("/account", { state: "list" })}
           className="d-flex flex-column align-items-center p-0 m-0"
         >
           <i className="bi bi-heart fs-24 m-0"></i>
@@ -62,7 +62,7 @@ export const MobileFooter: FC<CollectionsSideBarProps> = ({ openSideBar }) => {
           onClick={() => navigate("/earn")}
           className="d-flex flex-column align-items-center p-0 m-0"
         >
-           <i className="bi bi-coin fs-24 m-0"></i>
+          <i className="bi bi-coin fs-24 m-0"></i>
         </Navbar.Brand>
         {logged ? (
           <Dropdown drop="up">
@@ -129,9 +129,9 @@ export const MobileFooter: FC<CollectionsSideBarProps> = ({ openSideBar }) => {
             className="d-flex flex-column align-items-center p-0 m-0"
           >
             <i
-                className="bi bi-person m-0 p-0 heading"
-                style={{ fontSize: "28px" }}
-              ></i>
+              className="bi bi-person m-0 p-0 heading"
+              style={{ fontSize: "28px" }}
+            ></i>
           </Navbar.Brand>
         )}
       </Container>

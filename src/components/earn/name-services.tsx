@@ -251,7 +251,7 @@ export const NameService = () => {
           </div>
           <Button
             className="btn button-secondary fs-36"
-            style={{background: "#FF5BC0"}}
+            style={{ background: "#FF5BC0" }}
             onClick={() => {
               setClose(false);
             }}
@@ -281,10 +281,10 @@ export const NameService = () => {
 
             <div className="vl" />
 
-            <div className="method" style={{flexGrow: 1}}>
+            <div className="method" style={{ flexGrow: 1 }}>
               <h3>Payment Method</h3>
               <div className="bitcoin">
-                <Image src={bitcoin} alt='bitcoin' />
+                <Image src={bitcoin} alt="bitcoin" />
                 <p>BNB ( BSC Chain)</p>
               </div>
               <ConnectWallet buttonText="Connect Wallet" />

@@ -5,7 +5,11 @@ import {
   storeLocation,
   invioceRecod,
 } from "common/data/about-data";
-import { filterProduct, catlogDeals, shopProducDetails } from "common/data/catalog-data";
+import {
+  filterProduct,
+  catlogDeals,
+  shopProducDetails,
+} from "common/data/catalog-data";
 import {
   catagoriesData,
   ellipsCategories,

@@ -74,7 +74,7 @@ const Pagination = ({
           </Col>
         </Row>
       )}
-      {!currentpages.length && (
+      {/* {!currentpages.length && (
         <Row id="search-result-elem">
           <Col lg={12}>
             <div className="text-center py-5">
@@ -87,7 +87,7 @@ const Pagination = ({
             </div>
           </Col>
         </Row>
-      )}
+      )} */}
     </React.Fragment>
   );
 };

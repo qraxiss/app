@@ -6,3 +6,4 @@ export * from "components/home/premium";
 export * from "components/home/top-picks";
 export * from "components/home/why-choose";
 export * from "components/home/similar-products";
+export * from "components/home/ratings-reviews";

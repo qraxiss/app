@@ -55,8 +55,18 @@ const MyAccount = () => {
               <div className="pt-3">
                 <div className="mt-n5 d-flex gap-3 flex-wrap align-items-end">
                   <div>
-                    <div className="d-flex">
-                      <h5 className="px-2 cursor-pointer">{`${userData.address.substring(0, 6)}...${userData.address.substring(userData.address.length - 6)}`}</h5>
+                    <div className="d-flex align-items-center">
+                      <h5 className="px-2 cursor-pointer mb-0">{`${userData.address.substring(0, 6)}...${userData.address.substring(userData.address.length - 6)}`}</h5>
+                      <div className="float-end clearfix">
+                        {" "}
+                        <Link
+                          to="#"
+                          className="badge bg-primary-subtle text-primary"
+                        >
+                          <i className="ri-pencil-fill align-bottom me-1"></i>{" "}
+                          Edit
+                        </Link>{" "}
+                      </div>
                     </div>
                   </div>
                   <div className="ms-md-auto">
@@ -154,19 +164,21 @@ const MyAccount = () => {
                     >
                       <Row>
                         <Col lg={12}>
-                          <Card className='mb-0'>
+                          <Card className="mb-0">
                             <Card.Body>
                               <div className="d-flex mb-4">
                                 <h6 className="fs-16 text-decoration-underline flex-grow-1 mb-0">
                                   Personal Info
                                 </h6>
-                                <div className="flex-shrink-0">
+                                <div className="float-end clearfix">
+                                  {" "}
                                   <Link
                                     to="#"
-                                    className="badge bg-dark-subtle text-body"
+                                    className="badge bg-primary-subtle text-primary"
                                   >
+                                    <i className="ri-pencil-fill align-bottom me-1"></i>{" "}
                                     Edit
-                                  </Link>
+                                  </Link>{" "}
                                 </div>
                               </div>
 
@@ -217,7 +229,7 @@ const MyAccount = () => {
                                       <div className="float-end clearfix">
                                         {" "}
                                         <Link
-                                          to="/shop/address"
+                                          to="#"
                                           className="badge bg-primary-subtle text-primary"
                                         >
                                           <i className="ri-pencil-fill align-bottom me-1"></i>{" "}
@@ -248,7 +260,7 @@ const MyAccount = () => {
                                       <div className="float-end clearfix">
                                         {" "}
                                         <Link
-                                          to="/shop/address"
+                                          to="#"
                                           className="badge bg-primary-subtle text-primary"
                                         >
                                           <i className="ri-pencil-fill align-bottom me-1"></i>{" "}
@@ -355,8 +367,8 @@ const MyAccount = () => {
                                                   onClick={() => {
                                                     dispatch(
                                                       removeFromWishlistAsync(
-                                                        item
-                                                      )
+                                                        item,
+                                                      ),
                                                     );
                                                   }}
                                                   className="btn btn-soft-danger btn-icon btn-sm"
@@ -408,7 +420,7 @@ const MyAccount = () => {
                       id="custom-v-pills-order"
                       role="tabpanel"
                     >
-                      <Card className='mb-0'>
+                      <Card className="mb-0">
                         <Card.Body>
                           <div className="table-responsive table-card">
                             <Table className="fs-15 align-middle table-nowrap">
@@ -436,7 +448,7 @@ const MyAccount = () => {
                                       <td>
                                         <span className="text-muted">
                                           {new Date(
-                                            item.createdAt
+                                            item.createdAt,
                                           ).toLocaleDateString()}
                                         </span>
                                       </td>
@@ -502,7 +514,7 @@ const MyAccount = () => {
                       id="custom-v-pills-order"
                       role="tabpanel"
                     >
-                      <Card className='mb-0'>
+                      <Card className="mb-0">
                         <CardBody>
                           <div
                             style={{

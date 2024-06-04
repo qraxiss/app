@@ -63,7 +63,9 @@ export const CollectionModal: FC<CollectionModalProps> = ({
             onClick={() => setCurrentModule("collections")}
             id="ecommerceCartLabel"
             as="h5"
-            className={currentModule === "collections" ? "active mobile" : " mobile"}
+            className={
+              currentModule === "collections" ? "active mobile" : " mobile"
+            }
           >
             <span>Collections</span>
           </Offcanvas.Title>
@@ -89,7 +91,7 @@ export const CollectionModal: FC<CollectionModalProps> = ({
                           } else {
                             handleClose();
                             navigate(
-                              "/products/collection/blockchain-boutique"
+                              "/products/collection/blockchain-boutique",
                             );
                           }
                         }}

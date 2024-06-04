@@ -20,7 +20,7 @@ export const SimilarProducts = () => {
             <Col lg={12}>
               <div className="d-flex justify-content-between align-items-center">
                 <h4 className="fw-semibold"> Similar Products</h4>
-                <span className="cursor-pointer">
+                <span className="cursor-pointer text-primary">
                   {" "}
                   All Products <i className="bi bi-arrow-right"></i>
                 </span>
