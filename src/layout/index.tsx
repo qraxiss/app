@@ -42,13 +42,13 @@ const Layout = (props: any) => {
     dispatch(fetchNewArrivalsAsync());
     dispatch(fetchHotDealsAsync());
     dispatch(fetchOrdersAsync());
-    // dispatch(
-    //   listenMarket({
-    //     onMessage: (data: any) => {
-    //       dispatch(updatePrice(data));
-    //     },
-    //   })
-    // );
+    dispatch(
+      listenMarket({
+        onMessage: (data: any) => {
+          dispatch(updatePrice(data));
+        },
+      })
+    );
 
     if (logged) {
       dispatch(fetchWishlistAsync());
