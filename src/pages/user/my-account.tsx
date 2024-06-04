@@ -210,49 +210,10 @@ const MyAccount = () => {
 
                               <div className="mt-4">
                                 <h6 className="fs-16 text-decoration-underline">
-                                  Billing &amp; Shipping Address
+                                  Billing &amp; Shipping Addresses
                                 </h6>
                               </div>
                               <Selectaddress></Selectaddress>
-                              {/* <Row className="g-4">
-                                {addresses.map((address: any) => (
-                                  <Col md={6}>
-                                    <Card className="mb-md-0">
-                                      <Card.Body>
-                                        <div className="float-end clearfix">
-                                          {" "}
-                                          <Link
-                                            to="/address"
-                                            className="badge bg-primary-subtle text-primary"
-                                          >
-                                            <i className="ri-pencil-fill align-bottom me-1"></i>{" "}
-                                            Edit
-                                          </Link>{" "}
-                                        </div>
-                                        <div>
-                                          <p className="mb-3 fw-semibold fs-12 d-block text-muted text-uppercase">
-                                            {address.title}
-                                          </p>
-                                          <h6 className="fs-14 mb-2 d-block">
-                                            {address.name}
-                                          </h6>
-                                          <span className="text-muted fw-normal text-wrap mb-1 d-block">
-                                            {address.country_name} /{" "}
-                                            {address.state_name}
-                                            <br />
-                                            {`${address.address1} ${address.address2 ? address.address2 : ""}`}
-                                            <br />
-                                            {address.zip}
-                                          </span>
-                                          <span className="text-muted fw-normal d-block">
-                                            {address.phone}
-                                          </span>
-                                        </div>
-                                      </Card.Body>
-                                    </Card>
-                                  </Col>
-                                ))}
-                              </Row> */}
                             </Card.Body>
                           </Card>
                         </Col>

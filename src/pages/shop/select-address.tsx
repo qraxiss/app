@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Col, Container, Row, Button, Card } from "react-bootstrap";
-import { Shoporder } from "components/shop-top-bar";
 import DeleteModal, { ModalAdd } from "components/delete-modal";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch } from "store";
@@ -97,6 +96,18 @@ const Selectaddress = () => {
                           >
                             <i className="ri-pencil-fill align-bottom me-1"></i>{" "}
                             Edit
+                          </Button>{" "}
+                          <Button
+                            // to="/address"
+                            onClick={() => {
+                              setTitle(address.title);
+                              // handleShow();
+                            }}
+                            className="badge bg-success-subtle text-success"
+                            variant="success"
+                          >
+                            <i className="ri-check-fill align-bottom me-1"></i>{" "}
+                            Use
                           </Button>{" "}
                         </div>
                         <div>
