@@ -14,6 +14,8 @@ import {
 } from "react-bootstrap";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 
+import Selectaddress from "pages/shop/select-address";
+
 //img
 import usersavatar1 from "assets/images/users/avatar-1.jpg";
 
@@ -57,7 +59,7 @@ const MyAccount = () => {
                 <div className="mt-n5 d-flex gap-3 flex-wrap align-items-end">
                   <div>
                     <div className="d-flex">
-                         <h5 className="px-2 cursor-pointer">{`${userData.address.substring(0, 6)}...${userData.address.substring(userData.address.length - 6)}`}</h5>
+                      <h5 className="px-2 cursor-pointer">{`${userData.address.substring(0, 6)}...${userData.address.substring(userData.address.length - 6)}`}</h5>
                     </div>
                   </div>
                   <div className="ms-md-auto">
@@ -155,7 +157,7 @@ const MyAccount = () => {
                     >
                       <Row>
                         <Col lg={12}>
-                          <Card className='mb-0'>
+                          <Card className="mb-0">
                             <Card.Body>
                               <div className="d-flex mb-4">
                                 <h6 className="fs-16 text-decoration-underline flex-grow-1 mb-0">
@@ -211,7 +213,8 @@ const MyAccount = () => {
                                   Billing &amp; Shipping Address
                                 </h6>
                               </div>
-                              <Row className="g-4">
+                              <Selectaddress></Selectaddress>
+                              {/* <Row className="g-4">
                                 {addresses.map((address: any) => (
                                   <Col md={6}>
                                     <Card className="mb-md-0">
@@ -249,7 +252,7 @@ const MyAccount = () => {
                                     </Card>
                                   </Col>
                                 ))}
-                              </Row>
+                              </Row> */}
                             </Card.Body>
                           </Card>
                         </Col>
@@ -385,7 +388,7 @@ const MyAccount = () => {
                       id="custom-v-pills-order"
                       role="tabpanel"
                     >
-                      <Card className='mb-0'>
+                      <Card className="mb-0">
                         <Card.Body>
                           <div className="table-responsive table-card">
                             <Table className="fs-15 align-middle table-nowrap">
@@ -479,7 +482,7 @@ const MyAccount = () => {
                       id="custom-v-pills-order"
                       role="tabpanel"
                     >
-                      <Card className='mb-0'>
+                      <Card className="mb-0">
                         <CardBody>
                           <div
                             style={{
