@@ -185,41 +185,6 @@ const MyAccount = () => {
                                 </div>
                               </div>
 
-                              <div className="table-responsive table-card px-1">
-                                <Table className="table-borderless table-sm">
-                                  <tbody>
-                                    <tr>
-                                      <td>Customer Name</td>
-                                      <td className="fw-medium">
-                                        Raquel Murillo
-                                      </td>
-                                    </tr>
-                                    <tr>
-                                      <td>Mobile / Phone Number</td>
-                                      <td className="fw-medium">
-                                        +(253) 01234 5678
-                                      </td>
-                                    </tr>
-                                    <tr>
-                                      <td>Email Address</td>
-                                      <td className="fw-medium">
-                                        raque@Shopcek.com
-                                      </td>
-                                    </tr>
-                                    <tr>
-                                      <td>Location</td>
-                                      <td className="fw-medium">
-                                        Phoenix, USA
-                                      </td>
-                                    </tr>
-                                    <tr>
-                                      <td>Since Member</td>
-                                      <td className="fw-medium">Aug, 2022</td>
-                                    </tr>
-                                  </tbody>
-                                </Table>
-                              </div>
-
                               <div className="mt-4">
                                 <h6 className="fs-16 text-decoration-underline">
                                   Billing &amp; Shipping Addresses
