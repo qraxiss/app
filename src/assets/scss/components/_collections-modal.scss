@@ -12,7 +12,6 @@
   .offcanvas-title {
     width: 100%;
     background-color: #f5f5f5;
-    border-bottom: 1px solid grey;
     text-align: center;
     padding: 16px 16px;
     cursor: pointer;
@@ -81,9 +80,8 @@
       cursor: pointer;
       display: flex;
       align-items: center;
-      padding: 0.75em 20px;
+      padding: 0.35em 20px;
       gap: 0.55em;
-      border-bottom: 1px solid grey;
 
       img {
         width: calc(100vw * 0.04 * 0.5);
@@ -181,6 +179,10 @@ li.nav-item {
       .item {
         padding: 0.75em 0px !important;
       }
+      .item img {
+        width: 6vw;
+    }
+
     }
   }
   .details-modal {
@@ -196,3 +198,7 @@ li.nav-item {
     justify-content: center !important;
   }
 }
+.fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+

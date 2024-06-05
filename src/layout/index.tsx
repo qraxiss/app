@@ -16,7 +16,6 @@ import {
   fetchWishlistAsync,
   fetchCartAsync,
   fetchOrdersAsync,
-  fetchAddressesAsync,
 } from "slices/thunk";
 import { AppDispatch } from "store";
 import { CollectionModal } from "common/modal/collections";
@@ -47,13 +46,12 @@ const Layout = (props: any) => {
         onMessage: (data: any) => {
           dispatch(updatePrice(data));
         },
-      })
+      }),
     );
 
     if (logged) {
       dispatch(fetchWishlistAsync());
       dispatch(fetchCartAsync());
-      dispatch(fetchAddressesAsync());
     }
   }, [dispatch]);
 
@@ -62,7 +60,7 @@ const Layout = (props: any) => {
     (layout) => ({
       footerModeType: layout.footerModeType,
       layoutThemeMode: layout.layoutThemeMode,
-    })
+    }),
   );
 
   const { footerModeType, layoutThemeMode } = useSelector(selectProperties);
@@ -110,7 +108,7 @@ const Layout = (props: any) => {
   return (
     <React.Fragment>
       {location.pathname && <MainModal location={location.pathname} />}
-      <CollectionsSideBar openSideBar={openSideBar} />
+      <CollectionsSideBar openSideBar={openSideBar} isSideBar={sideBarOpen} />
       <div>
         <Header handleMood={handleThemeMood} openSideBar={openSideBar} />
         {props.children}

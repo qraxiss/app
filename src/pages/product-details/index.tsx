@@ -210,7 +210,6 @@ const ProductDetails = () => {
                   <Col xs={12}>
               <div className="position-relative">
                 <Swiper
-                  ref={swiperRef}
                   slidesPerView={4}
                   spaceBetween={10}
                   freeMode={true}
@@ -269,6 +268,7 @@ const ProductDetails = () => {
                       />
                 <div
                   className="swiper-button-prev"
+                  onClick={handleScrollUp}
                   style={{
                     top: "50%", // Center vertically
                     transform: "translateY(-50%)",
@@ -276,6 +276,7 @@ const ProductDetails = () => {
                 ></div>
                 <div
                   className="swiper-button-next"
+                  onClick={handleScrollDown}
                   style={{
                     top: "50%", // Center vertically
                     transform: "translateY(-50%)",
