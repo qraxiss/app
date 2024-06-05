@@ -73,7 +73,9 @@ const Selectaddress = () => {
               <Row className="g-4" id="address-list">
                 {addresses.map((address: any) => (
                   <Col md={6}>
-                    <Card className="mb-md-0">
+                    <Card
+                      className={`mb-md-0 ${address.isActive ? "bg-success-subtle" : ""}`}
+                    >
                       <Card.Body>
                         <div className="float-end clearfix">
                           {" "}
@@ -100,18 +102,20 @@ const Selectaddress = () => {
                             <i className="ri-pencil-fill align-bottom me-1"></i>{" "}
                             Edit
                           </Button>{" "}
-                          <Button
-                            // to="/address"
-                            onClick={() => {
-                              setId(address.id);
-                              dispatch(selectAddressAsync({ id }));
-                            }}
-                            className="badge bg-success-subtle text-success"
-                            variant="success"
-                          >
-                            <i className="ri-check-fill align-bottom me-1"></i>{" "}
-                            Use
-                          </Button>{" "}
+                          {address.isActive ? null : (
+                            <Button
+                              // to="/address"
+                              onClick={async () => {
+                                setId(address.id);
+                                await dispatch(selectAddressAsync({ id }));
+                              }}
+                              className="badge bg-success-subtle text-success"
+                              variant="success"
+                            >
+                              <i className="ri-check-fill align-bottom me-1"></i>{" "}
+                              Use
+                            </Button>
+                          )}{" "}
                         </div>
                         <div>
                           <p className="mb-3 fw-semibold fs-12 d-block text-muted text-uppercase">
