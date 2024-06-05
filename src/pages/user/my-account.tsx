@@ -14,6 +14,8 @@ import {
 } from "react-bootstrap";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 
+import Selectaddress from "components/select-address";
+
 //img
 import usersavatar1 from "assets/images/users/avatar-1.jpg";
 
@@ -31,6 +33,7 @@ const MyAccount = () => {
   const wishlist = useSelector((state: any) => state.wishlist.data.items);
   const userData = useSelector((state: any) => state.user.data);
   const orders = useSelector((state: any) => state.order.orders.data);
+  const addresses = useSelector((state: any) => state.address.data);
 
   const location = useLocation();
   const [activeKey, setActiveKey] = useState(location.state || "profile");
@@ -219,72 +222,10 @@ const MyAccount = () => {
 
                               <div className="mt-4">
                                 <h6 className="fs-16 text-decoration-underline">
-                                  Billing &amp; Shipping Address
+                                  Billing &amp; Shipping Addresses
                                 </h6>
                               </div>
-                              <Row className="mt-4">
-                                <Col md={6}>
-                                  <Card className="mb-md-0">
-                                    <Card.Body>
-                                      <div className="float-end clearfix">
-                                        {" "}
-                                        <Link
-                                          to="#"
-                                          className="badge bg-primary-subtle text-primary"
-                                        >
-                                          <i className="ri-pencil-fill align-bottom me-1"></i>{" "}
-                                          Edit
-                                        </Link>{" "}
-                                      </div>
-                                      <div>
-                                        <p className="mb-3 fw-semibold fs-12 d-block text-muted text-uppercase">
-                                          Home Address
-                                        </p>
-                                        <h6 className="fs-14 mb-2 d-block">
-                                          Raquel Murillo
-                                        </h6>
-                                        <span className="text-muted fw-normal text-wrap mb-1 d-block">
-                                          144 Cavendish Avenue, Indianapolis, IN
-                                          46251
-                                        </span>
-                                        <span className="text-muted fw-normal d-block">
-                                          Mo. +(253) 01234 5678
-                                        </span>
-                                      </div>
-                                    </Card.Body>
-                                  </Card>
-                                </Col>
-                                <Col md={6}>
-                                  <Card className="mb-0">
-                                    <Card.Body>
-                                      <div className="float-end clearfix">
-                                        {" "}
-                                        <Link
-                                          to="#"
-                                          className="badge bg-primary-subtle text-primary"
-                                        >
-                                          <i className="ri-pencil-fill align-bottom me-1"></i>{" "}
-                                          Edit
-                                        </Link>{" "}
-                                      </div>
-                                      <div>
-                                        <p className="mb-3 fw-semibold fs-12 d-block text-muted text-uppercase">
-                                          Shipping Address
-                                        </p>
-                                        <h6 className="fs-14 mb-2 d-block">
-                                          James Honda
-                                        </h6>
-                                        <span className="text-muted fw-normal text-wrap mb-1 d-block">
-                                          1246 Virgil Street Pensacola, FL 32501
-                                        </span>
-                                        <span className="text-muted fw-normal d-block">
-                                          Mo. +(253) 01234 5678
-                                        </span>
-                                      </div>
-                                    </Card.Body>
-                                  </Card>
-                                </Col>
-                              </Row>
+                              <Selectaddress></Selectaddress>
                             </Card.Body>
                           </Card>
                         </Col>

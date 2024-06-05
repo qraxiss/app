@@ -9,6 +9,7 @@ import PasswordReset from "pages/user/password-reset";
 import SignIn from "pages/user/sign-in";
 import SignUp from "pages/user/sign-up";
 import VerifyEmail from "pages/user/verify-email";
+import Shopindex from "pages/shop";
 
 export const publicRoutes = [
   // Home
@@ -17,6 +18,8 @@ export const publicRoutes = [
   { path: "/products/:slug", component: <Products /> },
   // product details
   { path: "/product-details/:slug", component: <ProductDetails /> },
+  //address
+  { path: "/address", component: <Shopindex /> },
   //Signin
   { path: "/auth/signin", component: <SignIn /> },
   //SignUp

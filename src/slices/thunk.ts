@@ -24,3 +24,10 @@ export {
 } from "slices/cart/thunk";
 
 export { fetchOrdersAsync, purchaseItemAsync } from "slices/order/thunk";
+
+export {
+  fetchAddressesAsync,
+  updateAddressAsync,
+  deleteAddressAsync,
+  createAddressAsync,
+} from "slices/address/thunk";

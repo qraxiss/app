@@ -1,8 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Modal, Button, Form } from "react-bootstrap";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 
+import { ADDRESS } from "constants/address";
+import { useSelector, useDispatch } from "react-redux";
+import { AppDispatch } from "store";
+import {
+  updateAddressAsync,
+  createAddressAsync,
+  deleteAddressAsync,
+} from "slices/thunk";
 //delete modal
 const DeleteModal = ({ removeModel, hideModal, deleteData }: any) => {
   const handleDelete = () => {
@@ -55,24 +63,38 @@ export default DeleteModal;
 //=================================================================
 
 //add addres modal
-export const ModalAdd = ({ addressModal, handleClose }: any) => {
+export const ModalAdd = ({
+  addressModal,
+  handleClose,
+  initialValues,
+  title,
+}: any) => {
+  const dispatch: AppDispatch = useDispatch();
+
   const formik = useFormik({
-    initialValues: {
-      name: "Witney Blessington",
-      address: "144 Cavendish Avenue, Indianapolis, IN 46251",
-      phone: "012-345-6789",
-      addressType: "Home (7am to 10pm)",
-    },
+    initialValues,
     validationSchema: Yup.object({
       name: Yup.string().required("Please Enter Your Name"),
+      country: Yup.string().required("Please Enter Your Country"),
+      state: Yup.string().required("Please Enter Your State"),
+      city: Yup.string().required("Please Enter Your City"),
       address: Yup.string().required("Please Enter Your Address"),
       phone: Yup.string()
         .matches(RegExp("[0-9]{7}"))
         .required("Please Enter Your Phone"),
-      addressType: Yup.string().required("Please Enter Your Type"),
+      zip: Yup.string().required("Please Enter Your Zip"),
+      title: Yup.string().required("Please Enter Address Title"),
+      email: Yup.string().email().required(),
     }),
-    onSubmit: (values) => {
-      // console.log("value", values);
+    enableReinitialize: true,
+    onSubmit: async (values) => {
+      if (title !== "") {
+        await dispatch(updateAddressAsync({ recipient: values, id: initialValues }));
+      } else {
+        await dispatch(createAddressAsync({ recipient: values }));
+      }
+
+      handleClose();
     },
   });
 
@@ -96,6 +118,25 @@ export const ModalAdd = ({ addressModal, handleClose }: any) => {
               defaultValue=""
             />
             <div>
+              {/*address title*/}
+              <div className="mb-3">
+                <Form.Label htmlFor="title">Address Title</Form.Label>
+                <Form.Control
+                  type="text"
+                  id="title"
+                  placeholder="Enter Address Title"
+                  name="title"
+                  value={formik.values.title}
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                />
+                {formik.errors.title && formik.touched.title ? (
+                  //eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                  //@ts-ignore
+                  <span className="text-danger">{formik.errors.title}</span>
+                ) : null}
+              </div>
+              {/*name*/}
               <div className="mb-3">
                 <Form.Label htmlFor="addaddress-Name">Name</Form.Label>
                 <Form.Control
@@ -108,10 +149,78 @@ export const ModalAdd = ({ addressModal, handleClose }: any) => {
                   onBlur={formik.handleBlur}
                 />
                 {formik.errors.name && formik.touched.name ? (
+                  //eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                  //@ts-ignore
                   <span className="text-danger">{formik.errors.name}</span>
                 ) : null}
               </div>
+              {/*country*/}
+              <div className="mb-3">
+                <Form.Label htmlFor="country">Country</Form.Label>
+                <Form.Select
+                  id="country"
+                  name="country"
+                  value={formik.values.country}
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                >
+                  {ADDRESS.filter((item) => item.states.length !== 0).map(
+                    (item) => (
+                      <option>{item.name}</option>
+                    )
+                  )}
+                </Form.Select>
+                {formik.errors.country && formik.touched.country ? (
+                  //eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                  //@ts-ignore
+                  <span className="text-danger">{formik.errors.country}</span>
+                ) : null}
+              </div>
+              {/*state*/}
+              <div className="mb-3">
+                <Form.Label htmlFor="state">State</Form.Label>
+                <Form.Select
+                  id="state"
+                  name="state"
+                  value={formik.values.state}
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                >
+                  {ADDRESS.find((item) => item.name === formik.values.country)
+                    ?.states?.filter((state) => state.cities.length !== 0)
+                    .map((state) => <option>{state.name}</option>)}
+                </Form.Select>
+                {formik.errors.state && formik.touched.state ? (
+                  //eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                  //@ts-ignore
 
+                  <span className="text-danger">{formik.errors.state}</span>
+                ) : null}
+              </div>
+              {/*city*/}
+              <div className="mb-3">
+                <Form.Label htmlFor="city">City</Form.Label>
+                <Form.Select
+                  id="city"
+                  name="city"
+                  value={formik.values.city}
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                >
+                  {ADDRESS.find((item) => item.name === formik.values.country)
+                    ?.states?.find(
+                      (state) => state.name === formik.values.state
+                    )
+                    ?.cities.map((city) => <option>{city}</option>)}
+                </Form.Select>
+                {formik.errors.city && formik.touched.city ? (
+                  //eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                  //@ts-ignore
+
+                  <span className="text-danger">{formik.errors.city}</span>
+                ) : null}
+              </div>
+              {/*address text area*/}
               <div className="mb-3">
                 <Form.Label htmlFor="addaddress-textarea">Address</Form.Label>
                 <Form.Control
@@ -125,10 +234,33 @@ export const ModalAdd = ({ addressModal, handleClose }: any) => {
                   onBlur={formik.handleBlur}
                 ></Form.Control>
                 {formik.errors.address && formik.touched.address ? (
+                  //eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                  //@ts-ignore
+
                   <span className="text-danger">{formik.errors.address}</span>
                 ) : null}
               </div>
+              {/*zip code*/}
+              <div className="mb-3">
+                <Form.Label htmlFor="zip">Zip Code</Form.Label>
+                <Form.Control
+                  as="textarea"
+                  id="zip"
+                  placeholder="Enter zip code"
+                  rows={2}
+                  name="zip"
+                  value={formik.values.zip}
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                ></Form.Control>
+                {formik.errors.zip && formik.touched.zip ? (
+                  //eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                  //@ts-ignore
 
+                  <span className="text-danger">{formik.errors.zip}</span>
+                ) : null}
+              </div>
+              {/*phone*/}
               <div className="mb-3">
                 <Form.Label htmlFor="addaddress-phone">Phone</Form.Label>
                 <Form.Control
@@ -141,26 +273,29 @@ export const ModalAdd = ({ addressModal, handleClose }: any) => {
                   onBlur={formik.handleBlur}
                 />
                 {formik.errors.phone && formik.touched.phone ? (
+                  //eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                  //@ts-ignore
+
                   <span className="text-danger">{formik.errors.phone}</span>
                 ) : null}
               </div>
-
+              {/*e-mail*/}
               <div className="mb-3">
-                <Form.Label htmlFor="state">Address Type</Form.Label>
-                <Form.Select
-                  id="state"
-                  name="addressType"
-                  value={formik.values.addressType}
+                <Form.Label htmlFor="email">E-Mail</Form.Label>
+                <Form.Control
+                  type="text"
+                  id="email"
+                  placeholder="Enter your email"
+                  name="email"
+                  value={formik.values.email}
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
-                >
-                  <option value="Home">Home (7am to 10pm)</option>
-                  <option value="Office">Office (11am to 7pm)</option>
-                </Form.Select>
-                {formik.errors.addressType && formik.touched.addressType ? (
-                  <span className="text-danger">
-                    {formik.errors.addressType}
-                  </span>
+                />
+                {formik.errors.email && formik.touched.email ? (
+                  //eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                  //@ts-ignore
+
+                  <span className="text-danger">{formik.errors.email}</span>
                 ) : null}
               </div>
             </div>
@@ -178,7 +313,7 @@ export const ModalAdd = ({ addressModal, handleClose }: any) => {
                 id="addNewAddress"
                 className="btn btn-primary"
               >
-                Add
+                {title !== "" ? "Update" : "Add"}
               </Button>
             </div>
           </Form>
@@ -187,3 +322,16 @@ export const ModalAdd = ({ addressModal, handleClose }: any) => {
     </React.Fragment>
   );
 };
+
+{
+  /* <Form.Select
+id="state"
+name="addressType"
+value={formik.values.addressType}
+onChange={formik.handleChange}
+onBlur={formik.handleBlur}
+>
+<option value="Home">Home (7am to 10pm)</option>
+<option value="Office">Office (11am to 7pm)</option>
+</Form.Select> */
+}

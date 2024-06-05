@@ -20,6 +20,7 @@ function getRandomInt(max: number) {
 }
 
 import { useSelector } from "react-redux";
+import Selectaddress from "../../components/select-address";
 
 const Checkout = () => {
   document.title = "Shopcek | Checkout";
@@ -102,12 +103,7 @@ const Checkout = () => {
                   </div>
                 </Card.Body>
               </Card>
-              <ShopingAddress
-                title="Select or add an address"
-                HomeAdd="Home Address"
-                officeAdd="Office Address"
-              />
-              <ShopingAddress title="Billing Address" />
+              <Selectaddress></Selectaddress>
             </Col>
             <Col lg={4}>
               <div className="sticky-side-div">

@@ -20,7 +20,7 @@ export const ShopingAddress = ({ title, HomeAdd, officeAdd }: any) => {
           </div>
           <div className="flex-shrink-0">
             <Link
-              to={"/shop/address"}
+              to={"/address"}
               className="badge bg-secondary-subtle text-secondary link-secondary"
             >
               Add Address
@@ -58,7 +58,7 @@ export const ShopingAddress = ({ title, HomeAdd, officeAdd }: any) => {
             </div>
             <div className="d-flex flex-wrap p-2 py-1 bg-light rounded-bottom border mt-n1">
               <div>
-                <Link to="/shop/address" className="d-block text-body p-1 px-2">
+                <Link to="/address" className="d-block text-body p-1 px-2">
                   <i className="ri-pencil-fill text-muted align-bottom me-1"></i>{" "}
                   Edit
                 </Link>
@@ -106,7 +106,7 @@ export const ShopingAddress = ({ title, HomeAdd, officeAdd }: any) => {
             </div>
             <div className="d-flex flex-wrap p-2 py-1 bg-light rounded-bottom border mt-n1">
               <div>
-                <Link to="/shop/address" className="d-block text-body p-1 px-2">
+                <Link to="/address" className="d-block text-body p-1 px-2">
                   <i className="ri-pencil-fill text-muted align-bottom me-1"></i>{" "}
                   Edit
                 </Link>
