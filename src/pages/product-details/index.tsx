@@ -115,16 +115,16 @@ const ProductDetails = () => {
     };
 
     handleResize(); // Set initial value
-    window.addEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
 
     return () => {
-      window.removeEventListener('resize', handleResize);
+      window.removeEventListener("resize", handleResize);
     };
   }, []);
 
   const handleSizeChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const selectedSize = data.product.sizes.find(
-      (size: Option) => size.value === event.target.value,
+      (size: Option) => size.value === event.target.value
     );
     setSize(selectedSize || null);
   };
@@ -162,7 +162,7 @@ const ProductDetails = () => {
         <Container fluid className="container-custom">
           <Row className="gx-2">
             <Col lg={6}>
-         {isMobile ? (
+              {isMobile ? (
                 <Row>
                   <Col md={10} sm={10} xs={12}>
                     <div className="rounded-2 position-relative ribbon-box overflow-hidden">
@@ -208,82 +208,85 @@ const ProductDetails = () => {
                   </Col>
                   {/*end col*/}
                   <Col xs={12}>
-              <div className="position-relative">
-                <Swiper
-                  slidesPerView={4}
-                  spaceBetween={10}
-                  freeMode={true}
-                  navigation={{
-                    nextEl: '.swiper-button-next',
-                    prevEl: '.swiper-button-prev',
-                  }}
-                  modules={[FreeMode, Navigation, Thumbs]}
-                  className="swiper hide-scrollbar productSwiper swiper-initialized swiper-horizontal swiper-pointer-events swiper-free-mode swiper-watch-progress swiper-backface-hidden swiper-thumbs"
-                  style={{
-                    overflowX: "auto",
-                    padding: "2px",
-                    maxWidth: "90%",
-                    margin: "0 auto", // Center the swiper container
-                  }}
-                >
-                  <div
-                    className="swiper-wrapper"
-                    id="swiper-wrapper-6100bf53c3db1675b"
-                    aria-live="polite"
-                    style={{
-                      transform: "translate3d(0px, 0px, 0px)",
-                      transitionDuration: "0ms",
-                      display: "flex",
-                      justifyContent: "center", // Center the images
-                    }}
-                  >
-                     {(data?.variants || [])?.map(
-                          (item: any, idx: number) => {
-                            return (
-                              <SwiperSlide 
-                                key={idx}
-                                className="swiper-slide swiper-slide-thumb-active swiper-slide-visible swiper-slide-next"
-                                role="group"
-                                aria-label={`${item.id} / 5 `}
-                                style={{ height: "105px", marginBottom: "10px" }}
-                              >
-                                <div className="product-thumb rounded cursor-pointer">
-                                  <Image
-                                    src={item?.variant?.image}
-                                    alt=""
-                                    fluid
-                                    onClick={() => handleImgSelect(idx)}
-                                  />
-                                </div>
-                              </SwiperSlide>
-                            );
-                          },
-                        )}
-                  </div>
-                </Swiper>
-                <span
+                    <div className="position-relative">
+                      <Swiper
+                        slidesPerView={4}
+                        spaceBetween={10}
+                        freeMode={true}
+                        navigation={{
+                          nextEl: ".swiper-button-next",
+                          prevEl: ".swiper-button-prev",
+                        }}
+                        modules={[FreeMode, Navigation, Thumbs]}
+                        className="swiper hide-scrollbar productSwiper swiper-initialized swiper-horizontal swiper-pointer-events swiper-free-mode swiper-watch-progress swiper-backface-hidden swiper-thumbs"
+                        style={{
+                          overflowX: "auto",
+                          padding: "2px",
+                          maxWidth: "90%",
+                          margin: "0 auto", // Center the swiper container
+                        }}
+                      >
+                        <div
+                          className="swiper-wrapper"
+                          id="swiper-wrapper-6100bf53c3db1675b"
+                          aria-live="polite"
+                          style={{
+                            transform: "translate3d(0px, 0px, 0px)",
+                            transitionDuration: "0ms",
+                            display: "flex",
+                            justifyContent: "center", // Center the images
+                          }}
+                        >
+                          {(data?.variants || [])?.map(
+                            (item: any, idx: number) => {
+                              return (
+                                <SwiperSlide
+                                  key={idx}
+                                  className="swiper-slide swiper-slide-thumb-active swiper-slide-visible swiper-slide-next"
+                                  role="group"
+                                  aria-label={`${item.id} / 5 `}
+                                  style={{
+                                    height: "105px",
+                                    marginBottom: "10px",
+                                  }}
+                                >
+                                  <div className="product-thumb rounded cursor-pointer">
+                                    <Image
+                                      src={item?.variant?.image}
+                                      alt=""
+                                      fluid
+                                      onClick={() => handleImgSelect(idx)}
+                                    />
+                                  </div>
+                                </SwiperSlide>
+                              );
+                            }
+                          )}
+                        </div>
+                      </Swiper>
+                      <span
                         className="swiper-notification"
                         aria-live="assertive"
                         aria-atomic="true"
                       />
-                <div
-                  className="swiper-button-prev"
-                  onClick={handleScrollUp}
-                  style={{
-                    top: "50%", // Center vertically
-                    transform: "translateY(-50%)",
-                  }}
-                ></div>
-                <div
-                  className="swiper-button-next"
-                  onClick={handleScrollDown}
-                  style={{
-                    top: "50%", // Center vertically
-                    transform: "translateY(-50%)",
-                  }}
-                ></div>
-              </div>
-            </Col>
+                      <div
+                        className="swiper-button-prev"
+                        onClick={handleScrollUp}
+                        style={{
+                          top: "50%", // Center vertically
+                          transform: "translateY(-50%)",
+                        }}
+                      ></div>
+                      <div
+                        className="swiper-button-next"
+                        onClick={handleScrollDown}
+                        style={{
+                          top: "50%", // Center vertically
+                          transform: "translateY(-50%)",
+                        }}
+                      ></div>
+                    </div>
+                  </Col>
                   {/*end col*/}
                 </Row>
               ) : (
@@ -315,7 +318,10 @@ const ProductDetails = () => {
                                 className="swiper-slide swiper-slide-thumb-active swiper-slide-visible swiper-slide-next"
                                 role="group"
                                 aria-label={`${item.id} / 5 `}
-                                style={{ height: "105px", marginBottom: "10px" }}
+                                style={{
+                                  height: "105px",
+                                  marginBottom: "10px",
+                                }}
                               >
                                 <div className="product-thumb rounded cursor-pointer">
                                   <Image
@@ -327,7 +333,7 @@ const ProductDetails = () => {
                                 </div>
                               </div>
                             );
-                          },
+                          }
                         )}
                       </div>
                       <span
@@ -337,19 +343,19 @@ const ProductDetails = () => {
                       />
                     </div>
                     <div className="d-flex align-items-center gap-2 cursor-pointer">
-                    <span
-                      className="swiper-button-up d-flex justify-content-center"
-                      onClick={handleScrollUp}
-                    >
-                      <i className="bi bi-chevron-compact-up fs-24 p-0 m-0"></i>
-                    </span>
-                    <span
-                      className="swiper-button-down d-flex justify-content-center"
-                      onClick={handleScrollDown}
-                    >
-                      <i className="bi bi-chevron-compact-down fs-24 p-0 m-0"></i>
-                    </span>
-                  </div>
+                      <span
+                        className="swiper-button-up d-flex justify-content-center"
+                        onClick={handleScrollUp}
+                      >
+                        <i className="bi bi-chevron-compact-up fs-24 p-0 m-0"></i>
+                      </span>
+                      <span
+                        className="swiper-button-down d-flex justify-content-center"
+                        onClick={handleScrollDown}
+                      >
+                        <i className="bi bi-chevron-compact-down fs-24 p-0 m-0"></i>
+                      </span>
+                    </div>
                   </Col>
                   {/*end col*/}
                   <Col md={10} sm={10} xs={12}>
@@ -412,30 +418,33 @@ const ProductDetails = () => {
                   </h5>
                 </div>
                 <Col md={12}>
-      <div className="d-flex align-items-center py-3">
-        <h6 className="fs-16 mb-0 fw-medium text-muted">Sizes: </h6>
-        <div className="px-2 w-50 custom-select-wrapper cursor-pointer">
-          {data?.product?.sizes && data?.product?.sizes.length > 0 && (
-            <Form.Select
-              aria-label="Select Size"
-              value={size?.value || ""}
-              onChange={handleSizeChange}
-              className="custom-select"
-            >
-              <option value="">Select a size</option>
-              {data.product.sizes.map((size: any, index: number) => (
-                <option key={index} value={size.value}>
-                  {size.value}
-                </option>
-              ))}
-            </Form.Select>
-          )}
-          <span className="custom-select-icon swiper-button-down d-flex justify-content-center">
-            <i className="bi bi-chevron-compact-down fs-24 p-0 m-0"></i>
-          </span>
-        </div>
-      </div>
-    </Col>
+                  <div className="d-flex align-items-center py-3">
+                    <h6 className="fs-16 mb-0 fw-medium text-muted">Sizes: </h6>
+                    <div className="px-2 w-50 custom-select-wrapper cursor-pointer">
+                      {data?.product?.sizes &&
+                        data?.product?.sizes.length > 0 && (
+                          <Form.Select
+                            aria-label="Select Size"
+                            value={size?.value || ""}
+                            onChange={handleSizeChange}
+                            className="custom-select"
+                          >
+                            <option value="">Select a size</option>
+                            {data.product.sizes.map(
+                              (size: any, index: number) => (
+                                <option key={index} value={size.value}>
+                                  {size.value}
+                                </option>
+                              )
+                            )}
+                          </Form.Select>
+                        )}
+                      <span className="custom-select-icon swiper-button-down d-flex justify-content-center">
+                        <i className="bi bi-chevron-compact-down fs-24 p-0 m-0"></i>
+                      </span>
+                    </div>
+                  </div>
+                </Col>
                 <Row className="gy-3 py-3">
                   <Col md={12}>
                     {data?.product?.colors &&
@@ -464,7 +473,7 @@ const ProductDetails = () => {
                                     htmlFor={`product-color-${index}`}
                                   />
                                 </li>
-                              ),
+                              )
                             )}
                           </ul>
                         </div>
