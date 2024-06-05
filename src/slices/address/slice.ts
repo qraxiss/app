@@ -16,7 +16,7 @@ const addressSlice = createSlice({
     },
 
     fetchAddressesSuccess(state, { payload: address }) {
-      state.data = address;
+      state.data = address.sort((a: any, b: any) => (a.isActive ? -1 : 1));
       state.loading = false;
       state.error = null;
     },
@@ -71,6 +71,20 @@ const addressSlice = createSlice({
       state.error = error;
       state.loading = false;
     },
+    selectAddressStart(state) {
+      state.error = null;
+      state.loading = true;
+    },
+
+    selectAddressSuccess(state) {
+      state.error = null;
+      state.loading = false;
+    },
+
+    selectAdddressFailure(state, { payload: error }) {
+      state.error = error;
+      state.loading = false;
+    },
   },
 });
 
@@ -87,6 +101,9 @@ export const {
   deleteAdddressFailure,
   deleteAddressStart,
   deleteAddressSuccess,
+  selectAdddressFailure,
+  selectAddressStart,
+  selectAddressSuccess,
 } = addressSlice.actions;
 
 export default addressSlice.reducer;

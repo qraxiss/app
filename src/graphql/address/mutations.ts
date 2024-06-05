@@ -17,3 +17,9 @@ export const DELETE_ADDRESS = gql`
     deleteRecipientByUser(id: $id)
   }
 `;
+
+export const SELECT_ADDRESS = gql`
+  mutation SELECT_ADDRESS($id: ID!) {
+    selectRecipientByUser(id: $id)
+  }
+`;

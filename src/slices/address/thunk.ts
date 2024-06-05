@@ -6,6 +6,7 @@ import {
   UPDATE_ADDRESS,
   CREATE_ADDRESS,
   DELETE_ADDRESS,
+  SELECT_ADDRESS,
 } from "graphql/address/mutations";
 
 import {
@@ -21,6 +22,9 @@ import {
   deleteAdddressFailure,
   deleteAddressStart,
   deleteAddressSuccess,
+  selectAdddressFailure,
+  selectAddressStart,
+  selectAddressSuccess,
 } from "slices/address/slice";
 
 export const fetchAddressesAsync = createAsyncThunk(
@@ -126,6 +130,34 @@ export const deleteAddressAsync = createAsyncThunk(
       await dispatch(fetchAddressesAsync());
     } catch (error: any) {
       dispatch(deleteAdddressFailure(error.message));
+    }
+  }
+);
+
+export const selectAddressAsync = createAsyncThunk(
+  "address/selectAddress",
+  async ({ id }: any, { dispatch }) => {
+    try {
+      dispatch(selectAddressStart());
+
+      const { data, error } = await shopcekMutation({
+        mutation: SELECT_ADDRESS,
+        options: {
+          variables: {
+            id,
+          },
+        } as any,
+      });
+
+      if (error) {
+        dispatch(selectAdddressFailure(error.message));
+        return;
+      }
+
+      dispatch(selectAddressSuccess());
+      await dispatch(fetchAddressesAsync());
+    } catch (error: any) {
+      dispatch(selectAdddressFailure(error.message));
     }
   }
 );

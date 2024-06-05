@@ -5,12 +5,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch } from "store";
 
 import { deleteAddressAsync } from "slices/thunk";
+import { selectAddressAsync } from "slices/address/thunk";
 
 const Selectaddress = () => {
   document.title = "Shop | Select address | Shopcek";
 
   const addresses = useSelector((state: any) => state.address.data);
-  const [title, setTitle] = useState("");
+  const [id, setId] = useState("");
 
   const dispatch: AppDispatch = useDispatch();
 
@@ -39,7 +40,7 @@ const Selectaddress = () => {
   };
 
   const localAddress = useSelector((state: any) => state.address.data).find(
-    (item: any) => item.title === title
+    (item: any) => item.id === id
   );
 
   const values = () => {
@@ -79,7 +80,7 @@ const Selectaddress = () => {
                           <Button
                             // to="/address"
                             onClick={() => {
-                              setTitle(address.title);
+                              setId(address.id);
                               setRemovemodel(true);
                             }}
                             className="badge bg-danger-subtle text-danger"
@@ -91,7 +92,7 @@ const Selectaddress = () => {
                           <Button
                             // to="/address"
                             onClick={() => {
-                              setTitle(address.title);
+                              setId(address.id);
                               handleShow();
                             }}
                             className="badge bg-primary-subtle text-primary"
@@ -102,8 +103,8 @@ const Selectaddress = () => {
                           <Button
                             // to="/address"
                             onClick={() => {
-                              setTitle(address.title);
-                              // handleShow();
+                              setId(address.id);
+                              dispatch(selectAddressAsync({ id }));
                             }}
                             className="badge bg-success-subtle text-success"
                             variant="success"
@@ -146,7 +147,7 @@ const Selectaddress = () => {
                       data-bs-toggle="modal"
                       data-bs-target="#addAddressModal"
                       onClick={() => {
-                        setTitle("");
+                        setId("");
                         handleShow();
                       }}
                     >
@@ -168,7 +169,7 @@ const Selectaddress = () => {
         <ModalAdd
           addressModal={addressModal}
           initialValues={values()}
-          title={title}
+          title={id}
           handleClose={handleClose}
         />
       </Container>
