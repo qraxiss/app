@@ -28,8 +28,10 @@ const Selectaddress = () => {
 
   const emptyValues = {
     name: "",
-    country: "",
-    state: "",
+    country_name: "",
+    country_code: "",
+    state_name: "",
+    state_code: "",
     address: "",
     phone: "",
     zip: "",
@@ -44,12 +46,13 @@ const Selectaddress = () => {
   );
 
   const values = () => {
-    console.log(localAddress);
 
     if (localAddress) {
       return {
-        country: localAddress.country_name,
-        state: localAddress.state_name,
+        country_name: localAddress.country_name,
+        country_code: localAddress.country_code,
+        state_name: localAddress.state_name,
+        state_code: localAddress.state_code,
         city: localAddress.city,
         zip: localAddress.zip,
         email: localAddress.email,
@@ -173,7 +176,7 @@ const Selectaddress = () => {
         <ModalAdd
           addressModal={addressModal}
           initialValues={values()}
-          title={id}
+          id={id}
           handleClose={handleClose}
         />
       </Container>

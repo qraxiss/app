@@ -67,7 +67,7 @@ export const ModalAdd = ({
   addressModal,
   handleClose,
   initialValues,
-  title,
+  id,
 }: any) => {
   const dispatch: AppDispatch = useDispatch();
 
@@ -75,8 +75,8 @@ export const ModalAdd = ({
     initialValues,
     validationSchema: Yup.object({
       name: Yup.string().required("Please Enter Your Name"),
-      country: Yup.string().required("Please Enter Your Country"),
-      state: Yup.string().required("Please Enter Your State"),
+      country_name: Yup.string().required("Please Enter Your Country"),
+      state_name: Yup.string().required("Please Enter Your State"),
       city: Yup.string().required("Please Enter Your City"),
       address: Yup.string().required("Please Enter Your Address"),
       phone: Yup.string()
@@ -88,8 +88,25 @@ export const ModalAdd = ({
     }),
     enableReinitialize: true,
     onSubmit: async (values) => {
-      if (title !== "") {
-        await dispatch(updateAddressAsync({ recipient: values, id: initialValues }));
+      const country = ADDRESS.find(
+        (country: any) => country.name === values.country_name
+      )!;
+
+      const country_code = country.code;
+
+      const state_code = country.states.find(
+        (state: any) => values.state_name === state.name
+      )!.code;
+
+      values = {
+        state_code,
+        country_code,
+        address1: values.address,
+        ...values,
+      };
+
+      if (id) {
+        await dispatch(updateAddressAsync({ recipient: values, id }));
       } else {
         await dispatch(createAddressAsync({ recipient: values }));
       }
@@ -156,11 +173,11 @@ export const ModalAdd = ({
               </div>
               {/*country*/}
               <div className="mb-3">
-                <Form.Label htmlFor="country">Country</Form.Label>
+                <Form.Label htmlFor="country_name">Country</Form.Label>
                 <Form.Select
-                  id="country"
-                  name="country"
-                  value={formik.values.country}
+                  id="country_name"
+                  name="country_name"
+                  value={formik.values.country_name}
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
                 >
@@ -170,23 +187,27 @@ export const ModalAdd = ({
                     )
                   )}
                 </Form.Select>
-                {formik.errors.country && formik.touched.country ? (
+                {formik.errors.country_name && formik.touched.country_name ? (
                   //eslint-disable-next-line @typescript-eslint/ban-ts-comment
                   //@ts-ignore
-                  <span className="text-danger">{formik.errors.country}</span>
+                  <span className="text-danger">
+                    {formik.errors.country_name as any}
+                  </span>
                 ) : null}
               </div>
               {/*state*/}
               <div className="mb-3">
-                <Form.Label htmlFor="state">State</Form.Label>
+                <Form.Label htmlFor="state_name">State</Form.Label>
                 <Form.Select
-                  id="state"
-                  name="state"
-                  value={formik.values.state}
+                  id="state_name"
+                  name="state_name"
+                  value={formik.values.state_name}
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
                 >
-                  {ADDRESS.find((item) => item.name === formik.values.country)
+                  {ADDRESS.find(
+                    (item) => item.name === formik.values.country_name
+                  )
                     ?.states?.filter((state) => state.cities.length !== 0)
                     .map((state) => <option>{state.name}</option>)}
                 </Form.Select>
@@ -194,7 +215,9 @@ export const ModalAdd = ({
                   //eslint-disable-next-line @typescript-eslint/ban-ts-comment
                   //@ts-ignore
 
-                  <span className="text-danger">{formik.errors.state}</span>
+                  <span className="text-danger">
+                    {formik.errors.state_name as any}
+                  </span>
                 ) : null}
               </div>
               {/*city*/}
@@ -207,9 +230,11 @@ export const ModalAdd = ({
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
                 >
-                  {ADDRESS.find((item) => item.name === formik.values.country)
+                  {ADDRESS.find(
+                    (item) => item.name === formik.values.country_name
+                  )
                     ?.states?.find(
-                      (state) => state.name === formik.values.state
+                      (state) => state.name === formik.values.state_name
                     )
                     ?.cities.map((city) => <option>{city}</option>)}
                 </Form.Select>
@@ -313,7 +338,7 @@ export const ModalAdd = ({
                 id="addNewAddress"
                 className="btn btn-primary"
               >
-                {title !== "" ? "Update" : "Add"}
+                {id ? "Update" : "Add"}
               </Button>
             </div>
           </Form>
