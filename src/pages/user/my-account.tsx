@@ -169,22 +169,6 @@ const MyAccount = () => {
                         <Col lg={12}>
                           <Card className="mb-0">
                             <Card.Body>
-                              <div className="d-flex mb-4">
-                                <h6 className="fs-16 text-decoration-underline flex-grow-1 mb-0">
-                                  Personal Info
-                                </h6>
-                                <div className="float-end clearfix">
-                                  {" "}
-                                  <Link
-                                    to="#"
-                                    className="badge bg-primary-subtle text-primary"
-                                  >
-                                    <i className="ri-pencil-fill align-bottom me-1"></i>{" "}
-                                    Edit
-                                  </Link>{" "}
-                                </div>
-                              </div>
-
                               <div className="mt-4">
                                 <h6 className="fs-16 text-decoration-underline">
                                   Billing &amp; Shipping Addresses
@@ -273,8 +257,8 @@ const MyAccount = () => {
                                                   onClick={() => {
                                                     dispatch(
                                                       removeFromWishlistAsync(
-                                                        item,
-                                                      ),
+                                                        item
+                                                      )
                                                     );
                                                   }}
                                                   className="btn btn-soft-danger btn-icon btn-sm"
@@ -354,7 +338,7 @@ const MyAccount = () => {
                                       <td>
                                         <span className="text-muted">
                                           {new Date(
-                                            item.createdAt,
+                                            item.createdAt
                                           ).toLocaleDateString()}
                                         </span>
                                       </td>
