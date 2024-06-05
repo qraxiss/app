@@ -45,7 +45,7 @@ export const fetchAddressesAsync = createAsyncThunk(
 
 export const updateAddressAsync = createAsyncThunk(
   "address/updateAddress",
-  async ({ recipient, title }: any, { dispatch }) => {
+  async ({ recipient, id }: any, { dispatch }) => {
     try {
       dispatch(updateAddressStart());
 
@@ -54,7 +54,7 @@ export const updateAddressAsync = createAsyncThunk(
         options: {
           variables: {
             recipient,
-            title,
+            id,
           },
         } as any,
       });
@@ -103,7 +103,7 @@ export const createAddressAsync = createAsyncThunk(
 
 export const deleteAddressAsync = createAsyncThunk(
   "address/deleteAddress",
-  async ({ title }: any, { dispatch }) => {
+  async ({ id }: any, { dispatch }) => {
     try {
       dispatch(deleteAddressStart());
 
@@ -111,7 +111,7 @@ export const deleteAddressAsync = createAsyncThunk(
         mutation: DELETE_ADDRESS,
         options: {
           variables: {
-            title,
+            id,
           },
         } as any,
       });

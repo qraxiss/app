@@ -1,8 +1,8 @@
 import { gql } from "@apollo/client";
 
 export const GET_ADDRESS = gql`
-  query GET_ADDRESS($title: String!) {
-    recipientByUser(title: $title)
+  query GET_ADDRESS($id: ID!) {
+    recipientByUser(id: $id)
   }
 `;
 

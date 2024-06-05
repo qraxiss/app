@@ -87,12 +87,14 @@ export const ModalAdd = ({
       email: Yup.string().email().required(),
     }),
     enableReinitialize: true,
-    onSubmit: (values) => {
+    onSubmit: async (values) => {
       if (title !== "") {
-        dispatch(updateAddressAsync({ recipient: values, title }));
+        await dispatch(updateAddressAsync({ recipient: values, id: initialValues }));
       } else {
-        dispatch(createAddressAsync({ recipient: values }));
+        await dispatch(createAddressAsync({ recipient: values }));
       }
+
+      handleClose();
     },
   });
 

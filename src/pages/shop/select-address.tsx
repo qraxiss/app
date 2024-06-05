@@ -35,6 +35,7 @@ const Selectaddress = () => {
     title: "",
     city: "",
     email: "",
+    id: null,
   };
 
   const localAddress = useSelector((state: any) => state.address.data).find(
@@ -55,6 +56,7 @@ const Selectaddress = () => {
         address: localAddress.address1 + localAddress.address2,
         name: localAddress.name,
         title: localAddress.title,
+        id: localAddress.id,
       };
     } else {
       return emptyValues;
@@ -160,7 +162,7 @@ const Selectaddress = () => {
           removeModel={removeModel}
           hideModal={RemoveModel}
           deleteData={() => {
-            dispatch(deleteAddressAsync({ title }));
+            dispatch(deleteAddressAsync({ id: values().id }));
           }}
         />
         <ModalAdd

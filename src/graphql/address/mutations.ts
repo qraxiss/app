@@ -1,8 +1,8 @@
 import { gql } from "@apollo/client";
 
 export const UPDATE_ADDRESS = gql`
-  mutation UPDATE_RECIPIENT($recipient: JSON!, $title: String!) {
-    recipientByUser(recipient: $recipient, title: $title)
+  mutation UPDATE_RECIPIENT($recipient: JSON!, $id: ID!) {
+    recipientByUser(recipient: $recipient, id: $id)
   }
 `;
 
@@ -13,7 +13,7 @@ export const CREATE_ADDRESS = gql`
 `;
 
 export const DELETE_ADDRESS = gql`
-  mutation DELETE_ADDRESS($title: String!) {
-    deleteRecipientByUser(title: $title)
+  mutation DELETE_ADDRESS($id: ID!) {
+    deleteRecipientByUser(id: $id)
   }
 `;
