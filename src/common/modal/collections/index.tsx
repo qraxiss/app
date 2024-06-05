@@ -1,5 +1,5 @@
 import React, { FC, useEffect, useState } from "react";
-import { Offcanvas } from "react-bootstrap";
+import { Offcanvas , Image} from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import icon from "assets/images/icon.svg";
 import dropdown from "assets/images/dropdown.png";
@@ -48,7 +48,7 @@ export const CollectionModal: FC<CollectionModalProps> = ({
         show={show}
         onHide={handleClose}
         placement="start"
-        className={`collections-modal`}
+        className={`collections-modal fade-in`}
       >
         <Offcanvas.Header className="header">
           <Offcanvas.Title
@@ -72,7 +72,12 @@ export const CollectionModal: FC<CollectionModalProps> = ({
         </Offcanvas.Header>
 
         <Offcanvas.Body className="p-0">
-          <div className="body h-100">
+          <div className="body hide-scrollbar">
+          <div className="d-none d-lg-flex gap-2 align-items-center mt-2 p-2 cursor-pointer">
+    <Image src={icon} alt="Shopcek Logo" style={{marginLeft: '11px'}} />
+    <h5 className="mb-0">Collections </h5>
+</div>
+
             {currentModule === "collections" && (
               <>
                 {[...data]
@@ -114,6 +119,7 @@ export const CollectionModal: FC<CollectionModalProps> = ({
                           {item.sub_categories.map((subItem) => (
                             <div
                               key={subItem.slug}
+                              style={{marginLeft: '15px'}}
                               className="d-flex gap-2 align-items-center p-2 cursor-pointer"
                               onClick={() => {
                                 navigate(`/products/${subItem.slug}`);

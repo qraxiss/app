@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from "react";
 import Nouislider from "nouislider-react";
 import "nouislider/distribute/nouislider.css";
-import { Collapse, Button, Card, Form } from "react-bootstrap";
+import { Collapse, Button, Card, Form, Image } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { filterProduct } from "common/data";
 import { useSelector } from "react-redux";
+import { SEARCH_QUERY } from "graphql/search/queries";
+import SimpleBar from "simplebar-react";
+import { useShopcekQuery } from "graphql/apollo/query-wrapper";
 
 const Filters = ({ name, setFilterlist }: any) => {
   const newList: any = [];
@@ -52,14 +55,14 @@ const Filters = ({ name, setFilterlist }: any) => {
   // products
   const handleProduct = (value: any) => {
     setFilterlist(
-      filterProduct?.filter((product: any) => product.products === value),
+      filterProduct?.filter((product: any) => product.products === value)
     );
   };
 
   //dicount
   const handleDic = (e: any) => {
     setFilterlist(
-      filterProduct?.filter((discount: any) => discount.dic === e.value),
+      filterProduct?.filter((discount: any) => discount.dic === e.value)
     );
   };
 
@@ -67,8 +70,8 @@ const Filters = ({ name, setFilterlist }: any) => {
   const hanleRat = (value: any) => {
     setFilterlist(
       filterProduct?.filter((rat: any) =>
-        rat.ratting.toString().startsWith(value),
-      ),
+        rat.ratting.toString().startsWith(value)
+      )
     );
   };
 
@@ -82,35 +85,116 @@ const Filters = ({ name, setFilterlist }: any) => {
     onUpDate([mincost, maxcost]);
   }, [mincost, maxcost]);
 
+  const [value, setValue] = useState("");
+  // console.log(value);
+  const handlesearch = (event: any) => {
+    setValue(event.value);
+  };
+
+  const searchGQL = useShopcekQuery<any>(SEARCH_QUERY(value), {
+    nextFetchPolicy: "no-cache",
+    fetchPolicy: "no-cache",
+  });
+
+  // console.log(searchGQL.data);
+
+  useEffect(() => {
+    const searchOption = document.getElementById("search-close-options");
+    const dropdown = document.getElementById("search-dropdown");
+    const searchInput: any = document.getElementById("search-options");
+
+    searchInput?.addEventListener("keyup", function () {
+      if (searchInput?.value.length > 0) {
+        dropdown?.classList.add("show");
+        searchOption?.classList.remove("d-none");
+      } else {
+        dropdown?.classList.remove("show");
+        searchOption?.classList.add("d-none");
+      }
+    });
+
+    searchOption?.addEventListener("click", function () {
+      searchInput.value = "";
+      dropdown?.classList.remove("show");
+      searchOption?.classList.add("d-none");
+      setValue("");
+    });
+  }, [value]);
+
   return (
     <React.Fragment>
       <div className={`${name}`}>
         <Card className="overflow-hidden">
           <Card.Header>
-            <div className="d-flex mb-3">
-              <div className="flex-grow-1">
-                <h5 className="fs-16">Filters</h5>
-              </div>
-              <div className="flex-shrink-0">
-                <Link
-                  to="#"
-                  className="text-decoration-underline"
-                  id="clearall"
-                >
-                  Clear All
-                </Link>
-              </div>
-            </div>
-            <div className="search-box">
+            <div className="position-relative w-100">
               <Form.Control
-                className=""
-                id="searchProductList"
-                autoComplete="off"
-                placeholder="Search Products..."
+                type="text"
+                className="form-control-lg border-2"
+                placeholder="Search for Products..."
+                id="search-options"
+                value={value}
+                onChange={(e: any) => handlesearch(e.target)}
               />
-              <i className="ri-search-line search-icon"></i>
+              {value && (
+                <Link
+                  to=""
+                  onClick={() => setValue("")}
+                  className="search-widget-icon fs-14 link-secondary text-decoration-underline search-widget-icon-close"
+                  id="search-close-options"
+                  style={{
+                    position: "absolute",
+                    top: "50%",
+                    right: "10px",
+                    transform: "translateY(-50%)",
+                  }}
+                >
+                  Clear
+                </Link>
+              )}
             </div>
           </Card.Header>
+          <div className="d-flex justify-content-center" style={{width: "100%" , top : '70px'}}>
+          <div
+            className="dropdown-menu dropdown-menu-lg dropdown-menu-end p-0 overflowY-auto w-100"
+            id="search-dropdown"
+          >
+            <SimpleBar
+              className="pe-2 ps-3 mt-3"
+              style={{ maxHeight: "250px" }}
+            >
+              <div className="list-group list-group-flush border-dashed">
+                <div className="notification-group-list">
+                  <h5 className="text-overflow text-muted fs-12 mb-2 mt-3 text-uppercase notification-title">
+                    Products
+                  </h5>
+                  {searchGQL.data &&
+                    searchGQL.data.length > 0 &&
+                    searchGQL.data.map((item: any, inx: number) => (
+                      <Link
+                        to={`/product-details/${item.slug}`}
+                        className="list-group-item dropdown-item notify-item"
+                        key={inx}
+                      >
+                        <div className="d-flex align-items-center">
+                          <div>
+                            <Image
+                              src={item.image}
+                              alt=""
+                              className="avatar-sm"
+                            />
+                          </div>
+                          <div className="d-flex px-2 flex-column gap-2">
+                            <span className="px-2 fs-12 text-wrap">{item.name}</span>
+                            <span className=" px-2 fs-12">${item.price}</span>
+                          </div>
+                        </div>
+                      </Link>
+                    ))}
+                </div>
+              </div>
+            </SimpleBar>
+          </div>
+          </div>
           <div className="accordion accordion-flush filter-accordion">
             <Card.Body className="border-bottom">
               <div>
@@ -218,7 +302,7 @@ const Filters = ({ name, setFilterlist }: any) => {
                   value={`$ ${mincost}`}
                   onChange={(e: any) =>
                     setMincost(
-                      parseInt(e.target.value.replace(/[^0-9]/g, ""), 10) || 0,
+                      parseInt(e.target.value.replace(/[^0-9]/g, ""), 10) || 0
                     )
                   }
                 />
@@ -230,7 +314,7 @@ const Filters = ({ name, setFilterlist }: any) => {
                   value={`$ ${maxcost}`}
                   onChange={(e: any) =>
                     setMaxcost(
-                      parseInt(e.target.value.replace(/[^0-9]/g, ""), 10) || 0,
+                      parseInt(e.target.value.replace(/[^0-9]/g, ""), 10) || 0
                     )
                   }
                 />

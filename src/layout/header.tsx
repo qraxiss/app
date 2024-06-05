@@ -59,7 +59,7 @@ const Header = (props: any) => {
         expanded={false}
       >
         <div className="ecommerce-navbar-container">
-          <Navbar.Brand className="d-none d-lg-block">
+          <Navbar.Brand className="d-none d-lg-block " style={{marginLeft : '6px'}} >
             <Link to="/">
               <div className="logo-dark">
                 <Image src={shopcekLogo} alt="" height="35" />

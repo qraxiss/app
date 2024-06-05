@@ -63,6 +63,9 @@ a {
   &:hover {
     background: #ff39b2;
   }
+  &:disabled{
+    background: #f556b7;
+  }
 }
 
 .btn.show,

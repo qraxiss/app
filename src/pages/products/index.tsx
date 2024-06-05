@@ -50,7 +50,7 @@ const Products = () => {
         </Container>
       </section>
       <section className="position-relative section">
-        <Container>
+        <Container fluid className="container-custom">
           <div className="ecommerce-product gap-4">
             <Index
               products={data?.products}
