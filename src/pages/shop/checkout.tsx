@@ -3,17 +3,12 @@ import {
   Col,
   Container,
   Row,
-  Alert,
   Card,
-  Button,
   Table,
   Image,
 } from "react-bootstrap";
-import { Shoporder, Shoptopbar } from "components/shop-top-bar";
+import { Shoporder, } from "components/shop-top-bar";
 import { Link } from "react-router-dom";
-import { ShopingAddress } from "pages/shop/shopping-Address";
-import EmailClothe from "pages/catalog/email-clothe";
-import { CommonService } from "components/common-service";
 
 function getRandomInt(max: number) {
   return Math.floor(Math.random() * max) + 1;
@@ -75,7 +70,7 @@ const Checkout = () => {
                                       className={`avatar-title bg-success-subtle rounded-3`}
                                     >
                                       <Image
-                                        src={item.variant.image}
+                                        src={item?.variant?.image}
                                         alt=""
                                         className="avatar-sm"
                                       />
