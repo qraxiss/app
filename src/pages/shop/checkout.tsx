@@ -20,7 +20,7 @@ function getRandomInt(max: number) {
 }
 
 import { useSelector } from "react-redux";
-import Selectaddress from "./select-address";
+import Selectaddress from "../../components/select-address";
 
 const Checkout = () => {
   document.title = "Shopcek | Checkout";

@@ -14,7 +14,7 @@ import {
 } from "react-bootstrap";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 
-import Selectaddress from "pages/shop/select-address";
+import Selectaddress from "components/select-address";
 
 //img
 import usersavatar1 from "assets/images/users/avatar-1.jpg";

@@ -8,7 +8,7 @@ import { deleteAddressAsync } from "slices/thunk";
 import { selectAddressAsync } from "slices/address/thunk";
 
 const Selectaddress = () => {
-  document.title = "Shop | Select address | Shopcek";
+  // document.title = "Shop | Select address | Shopcek";
 
   const addresses = useSelector((state: any) => state.address.data);
   const [id, setId] = useState("");
