@@ -42,7 +42,7 @@ const Selectaddress = () => {
   };
 
   const localAddress = useSelector((state: any) => state.address.data).find(
-    (item: any) => item.id === id
+    (item: any) => item.id === id,
   );
 
   const values = () => {

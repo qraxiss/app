@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 
 interface CollectionsSideBarProps {
   openSideBar: () => void;
-  isSideBar:Boolean
+  isSideBar:boolean
 }
 
 export const CollectionsSideBar: FC<CollectionsSideBarProps> = ({ openSideBar ,isSideBar}) => {

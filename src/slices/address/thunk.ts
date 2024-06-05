@@ -44,7 +44,7 @@ export const fetchAddressesAsync = createAsyncThunk(
     } catch (error: any) {
       dispatch(fetchAddressesFailure(error.message));
     }
-  }
+  },
 );
 
 export const updateAddressAsync = createAsyncThunk(
@@ -73,7 +73,7 @@ export const updateAddressAsync = createAsyncThunk(
     } catch (error: any) {
       dispatch(updateAddressFailure(error.message));
     }
-  }
+  },
 );
 
 export const createAddressAsync = createAsyncThunk(
@@ -102,7 +102,7 @@ export const createAddressAsync = createAsyncThunk(
     } catch (error: any) {
       dispatch(createAdddressFailure(error.message));
     }
-  }
+  },
 );
 
 export const deleteAddressAsync = createAsyncThunk(
@@ -131,7 +131,7 @@ export const deleteAddressAsync = createAsyncThunk(
     } catch (error: any) {
       dispatch(deleteAdddressFailure(error.message));
     }
-  }
+  },
 );
 
 export const selectAddressAsync = createAsyncThunk(
@@ -159,5 +159,5 @@ export const selectAddressAsync = createAsyncThunk(
     } catch (error: any) {
       dispatch(selectAdddressFailure(error.message));
     }
-  }
+  },
 );

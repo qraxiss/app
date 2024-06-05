@@ -55,14 +55,14 @@ const Filters = ({ name, setFilterlist }: any) => {
   // products
   const handleProduct = (value: any) => {
     setFilterlist(
-      filterProduct?.filter((product: any) => product.products === value)
+      filterProduct?.filter((product: any) => product.products === value),
     );
   };
 
   //dicount
   const handleDic = (e: any) => {
     setFilterlist(
-      filterProduct?.filter((discount: any) => discount.dic === e.value)
+      filterProduct?.filter((discount: any) => discount.dic === e.value),
     );
   };
 
@@ -70,8 +70,8 @@ const Filters = ({ name, setFilterlist }: any) => {
   const hanleRat = (value: any) => {
     setFilterlist(
       filterProduct?.filter((rat: any) =>
-        rat.ratting.toString().startsWith(value)
-      )
+        rat.ratting.toString().startsWith(value),
+      ),
     );
   };
 
@@ -302,7 +302,7 @@ const Filters = ({ name, setFilterlist }: any) => {
                   value={`$ ${mincost}`}
                   onChange={(e: any) =>
                     setMincost(
-                      parseInt(e.target.value.replace(/[^0-9]/g, ""), 10) || 0
+                      parseInt(e.target.value.replace(/[^0-9]/g, ""), 10) || 0,
                     )
                   }
                 />
@@ -314,7 +314,7 @@ const Filters = ({ name, setFilterlist }: any) => {
                   value={`$ ${maxcost}`}
                   onChange={(e: any) =>
                     setMaxcost(
-                      parseInt(e.target.value.replace(/[^0-9]/g, ""), 10) || 0
+                      parseInt(e.target.value.replace(/[^0-9]/g, ""), 10) || 0,
                     )
                   }
                 />
