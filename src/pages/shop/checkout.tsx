@@ -86,9 +86,9 @@ const Checkout = () => {
                                 </div>
                               </td>
                               <td> {"⭐️".repeat(getRandomInt(5))}</td>
-                              <td> {item.variant.id}</td>
+                              <td> {item?.variant?.id}</td>
                               <td className="text-end">
-                                ${item.variant.price}
+                                ${item?.variant?.price}
                               </td>
                             </tr>
                           );
