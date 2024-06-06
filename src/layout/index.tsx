@@ -16,6 +16,7 @@ import {
   fetchWishlistAsync,
   fetchCartAsync,
   fetchOrdersAsync,
+  fetchAddressesAsync,
 } from "slices/thunk";
 import { AppDispatch } from "store";
 import { CollectionModal } from "common/modal/collections";
@@ -40,27 +41,28 @@ const Layout = (props: any) => {
     dispatch(fetchSideBarAsync());
     dispatch(fetchNewArrivalsAsync());
     dispatch(fetchHotDealsAsync());
-    dispatch(fetchOrdersAsync());
     dispatch(
       listenMarket({
         onMessage: (data: any) => {
           dispatch(updatePrice(data));
         },
-      }),
+      })
     );
 
     if (logged) {
       dispatch(fetchWishlistAsync());
       dispatch(fetchCartAsync());
+      dispatch(fetchOrdersAsync());
+      dispatch(fetchAddressesAsync());
     }
-  }, [dispatch]);
+  }, [dispatch, logged]);
 
   const selectProperties = createSelector(
     (state: any) => state.Layout,
     (layout) => ({
       footerModeType: layout.footerModeType,
       layoutThemeMode: layout.layoutThemeMode,
-    }),
+    })
   );
 
   const { footerModeType, layoutThemeMode } = useSelector(selectProperties);
