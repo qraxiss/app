@@ -59,7 +59,10 @@ const Header = (props: any) => {
         expanded={false}
       >
         <div className="ecommerce-navbar-container">
-          <Navbar.Brand className="d-none d-lg-block " style={{marginLeft : '6px'}} >
+          <Navbar.Brand
+            className="d-none d-lg-block "
+            style={{ marginLeft: "6px" }}
+          >
             <Link to="/">
               <div className="logo-dark">
                 <Image src={shopcekLogo} alt="" height="35" />
@@ -173,6 +176,7 @@ const Header = (props: any) => {
               <Dropdown.Toggle
                 className="btn btn-icon btn-topbar btn-ghost-dark rounded-circle text-muted"
                 bsPrefix="btn"
+                style={{ marginRight: "-5px" }}
               >
                 <i className="bi bi-sun align-middle fs-20"></i>
               </Dropdown.Toggle>

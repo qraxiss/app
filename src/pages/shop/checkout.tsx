@@ -1,13 +1,6 @@
 import React from "react";
-import {
-  Col,
-  Container,
-  Row,
-  Card,
-  Table,
-  Image,
-} from "react-bootstrap";
-import { Shoporder, } from "components/shop-top-bar";
+import { Col, Container, Row, Card, Table, Image } from "react-bootstrap";
+import { Shoporder } from "components/shop-top-bar";
 import { Link } from "react-router-dom";
 
 // function getRandomInt(max: number) {
@@ -25,7 +18,7 @@ const Checkout = () => {
   return (
     <React.Fragment>
       <section className="section">
-        <Container>
+        <Container fluid className="container-custom">
           <Row>
             {/* <Col lg={12}>
               <Alert
