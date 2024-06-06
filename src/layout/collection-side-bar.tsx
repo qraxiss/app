@@ -5,13 +5,19 @@ import { useSelector } from "react-redux";
 
 interface CollectionsSideBarProps {
   openSideBar: () => void;
-  isSideBar:boolean
+  isSideBar: boolean;
 }
 
-export const CollectionsSideBar: FC<CollectionsSideBarProps> = ({ openSideBar ,isSideBar}) => {
+export const CollectionsSideBar: FC<CollectionsSideBarProps> = ({
+  openSideBar,
+  isSideBar,
+}) => {
   const sideBarData = useSelector((state: any) => state.sideBar.data);
   return (
-    <div onMouseEnter={openSideBar} className={`collections-sidebar ${isSideBar ? 'border' : ''}`}>
+    <div
+      onMouseEnter={openSideBar}
+      className={`collections-sidebar ${isSideBar ? "border" : ""}`}
+    >
       <div className="header">
         <img src={logo} alt="" />
       </div>

@@ -153,47 +153,52 @@ const Filters = ({ name, setFilterlist }: any) => {
               )}
             </div>
           </Card.Header>
-          <div className="d-flex justify-content-center" style={{width: "100%" , top : '70px'}}>
           <div
-            className="dropdown-menu dropdown-menu-lg dropdown-menu-end p-0 overflowY-auto w-100"
-            id="search-dropdown"
+            className="d-flex justify-content-center"
+            style={{ width: "100%", top: "70px" }}
           >
-            <SimpleBar
-              className="pe-2 ps-3 mt-3"
-              style={{ maxHeight: "250px" }}
+            <div
+              className="dropdown-menu dropdown-menu-lg dropdown-menu-end p-0 overflowY-auto w-100"
+              id="search-dropdown"
             >
-              <div className="list-group list-group-flush border-dashed">
-                <div className="notification-group-list">
-                  <h5 className="text-overflow text-muted fs-12 mb-2 mt-3 text-uppercase notification-title">
-                    Products
-                  </h5>
-                  {searchGQL.data &&
-                    searchGQL.data.length > 0 &&
-                    searchGQL.data.map((item: any, inx: number) => (
-                      <Link
-                        to={`/product-details/${item.slug}`}
-                        className="list-group-item dropdown-item notify-item"
-                        key={inx}
-                      >
-                        <div className="d-flex align-items-center">
-                          <div>
-                            <Image
-                              src={item.image}
-                              alt=""
-                              className="avatar-sm"
-                            />
+              <SimpleBar
+                className="pe-2 ps-3 mt-3"
+                style={{ maxHeight: "250px" }}
+              >
+                <div className="list-group list-group-flush border-dashed">
+                  <div className="notification-group-list">
+                    <h5 className="text-overflow text-muted fs-12 mb-2 mt-3 text-uppercase notification-title">
+                      Products
+                    </h5>
+                    {searchGQL.data &&
+                      searchGQL.data.length > 0 &&
+                      searchGQL.data.map((item: any, inx: number) => (
+                        <Link
+                          to={`/product-details/${item.slug}`}
+                          className="list-group-item dropdown-item notify-item"
+                          key={inx}
+                        >
+                          <div className="d-flex align-items-center">
+                            <div>
+                              <Image
+                                src={item.image}
+                                alt=""
+                                className="avatar-sm"
+                              />
+                            </div>
+                            <div className="d-flex px-2 flex-column gap-2">
+                              <span className="px-2 fs-12 text-wrap">
+                                {item.name}
+                              </span>
+                              <span className=" px-2 fs-12">${item.price}</span>
+                            </div>
                           </div>
-                          <div className="d-flex px-2 flex-column gap-2">
-                            <span className="px-2 fs-12 text-wrap">{item.name}</span>
-                            <span className=" px-2 fs-12">${item.price}</span>
-                          </div>
-                        </div>
-                      </Link>
-                    ))}
+                        </Link>
+                      ))}
+                  </div>
                 </div>
-              </div>
-            </SimpleBar>
-          </div>
+              </SimpleBar>
+            </div>
           </div>
           <div className="accordion accordion-flush filter-accordion">
             <Card.Body className="border-bottom">

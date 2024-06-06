@@ -9,10 +9,6 @@ import {
   Image,
 } from "react-bootstrap";
 import { Link, useParams } from "react-router-dom";
-import { Shoptopbar } from "components/shop-top-bar";
-import { shopProducDetails } from "common/data";
-import EmailClothe from "pages/catalog/email-clothe";
-import { CommonService } from "components/common-service";
 
 import { ORDER } from "graphql/order/queries";
 import { useShopcekQuery } from "graphql/apollo/query-wrapper";
@@ -30,7 +26,7 @@ const Trackorder = () => {
   return (
     <React.Fragment>
       <section className="section">
-        <Container>
+        <Container fluid className="container-custom">
           <Row>
             <Col lg={12}>
               <div className="mb-4 pb-2">
@@ -83,7 +79,7 @@ const Trackorder = () => {
         </Container>
       </section>
       <section className="section pt-0">
-        <Container>
+        <Container fluid className="container-custom">
           <Card className="border-dashed">
             <Card.Body className="border-bottom border-bottom-dashed p-4">
               <Row className="g-3">

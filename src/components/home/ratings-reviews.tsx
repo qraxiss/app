@@ -50,7 +50,6 @@ export const RatingsReviews = () => {
                         id="profile1"
                         role="tabpanel"
                       >
-                        
                         <p className="text-muted fs-15">
                           Clothing serves many purposes: it can serve as
                           protection from the elements, rough surfaces, sharp
@@ -136,7 +135,7 @@ export const RatingsReviews = () => {
                                       </Col>
                                     </Row>
                                   );
-                                }
+                                },
                               )}
                             </div>
                           </div>

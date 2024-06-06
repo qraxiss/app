@@ -8,8 +8,7 @@ import {
   Form,
   Image,
   Modal,
-  Tabs,
-  Tab,
+  Breadcrumb,
 } from "react-bootstrap";
 import { Swiper, SwiperRef, SwiperSlide } from "swiper/react";
 import { FreeMode, Navigation, Thumbs } from "swiper/modules";
@@ -124,7 +123,7 @@ const ProductDetails = () => {
 
   const handleSizeChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const selectedSize = data.product.sizes.find(
-      (size: Option) => size.value === event.target.value
+      (size: Option) => size.value === event.target.value,
     );
     setSize(selectedSize || null);
   };
@@ -160,6 +159,19 @@ const ProductDetails = () => {
       </Modal>
       <section className="section" style={{ paddingTop: "140px" }}>
         <Container fluid className="container-custom">
+          <Row className="mb-3">
+            <Col>
+              <Breadcrumb>
+                <Breadcrumb.Item onClick={() => navigate("/")}>
+                  Home
+                </Breadcrumb.Item>
+                <Breadcrumb.Item active>
+                  {data?.product?.categories[0]?.name}
+                </Breadcrumb.Item>
+                <Breadcrumb.Item active>{data?.product?.name}</Breadcrumb.Item>
+              </Breadcrumb>
+            </Col>
+          </Row>
           <Row className="gx-2">
             <Col lg={6}>
               {isMobile ? (
@@ -260,7 +272,7 @@ const ProductDetails = () => {
                                   </div>
                                 </SwiperSlide>
                               );
-                            }
+                            },
                           )}
                         </div>
                       </Swiper>
@@ -295,7 +307,7 @@ const ProductDetails = () => {
                     <div
                       className="swiper hide-scrollbar productSwiper mb-3 mb-lg-0 swiper-initialized swiper-vertical swiper-pointer-events swiper-free-mode swiper-watch-progress swiper-backface-hidden swiper-thumbs"
                       style={{
-                        maxHeight: "450px",
+                        maxHeight: "350px",
                         overflow: "auto",
                         padding: "2px",
                         width: "100%",
@@ -333,7 +345,7 @@ const ProductDetails = () => {
                                 </div>
                               </div>
                             );
-                          }
+                          },
                         )}
                       </div>
                       <span
@@ -392,6 +404,7 @@ const ProductDetails = () => {
                                   src={item?.variant?.image}
                                   alt=""
                                   fluid
+                                  style={{ height: "390px" }}
                                 />
                               </div>
                             </SwiperSlide>
@@ -407,18 +420,15 @@ const ProductDetails = () => {
             {/*end col*/}
             <Col lg={5} className="ms-auto">
               <div className="ecommerce-product-widgets mt-4 mt-lg-0">
-                <div className="mb-4">
+                <div className="mb-2">
                   <div className="d-flex gap-3 mb-2"></div>
                   <h4 className="lh-base mb-1">{data?.product?.name}</h4>
-                  <p className="text-muted mb-4">
-                    {data?.product?.description}
-                  </p>
-                  <h5 className="fs-24 mb-4 text-primary">
+                  <h5 className="fs-24 mb-2 text-primary">
                     ${data?.product?.price}
                   </h5>
                 </div>
                 <Col md={12}>
-                  <div className="d-flex align-items-center py-3">
+                  <div className="d-flex align-items-center py-2">
                     <h6 className="fs-16 mb-0 fw-medium text-muted">Sizes: </h6>
                     <div className="px-2 w-50 custom-select-wrapper cursor-pointer">
                       {data?.product?.sizes &&
@@ -435,7 +445,7 @@ const ProductDetails = () => {
                                 <option key={index} value={size.value}>
                                   {size.value}
                                 </option>
-                              )
+                              ),
                             )}
                           </Form.Select>
                         )}
@@ -445,7 +455,7 @@ const ProductDetails = () => {
                     </div>
                   </div>
                 </Col>
-                <Row className="gy-3 py-3">
+                <Row className="gy-3 py-2">
                   <Col md={12}>
                     {data?.product?.colors &&
                       data?.product?.colors.length > 0 && (
@@ -473,7 +483,7 @@ const ProductDetails = () => {
                                     htmlFor={`product-color-${index}`}
                                   />
                                 </li>
-                              )
+                              ),
                             )}
                           </ul>
                         </div>
@@ -505,7 +515,7 @@ const ProductDetails = () => {
                     </Button>
                   </div>
                 </div>
-                <div className="hstack gap-1">
+                <div className="hstack gap-1 py-3 border-bottom">
                   <Button
                     className="btn button-add-cart w-100 px-2"
                     disabled={disabled}

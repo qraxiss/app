@@ -90,6 +90,10 @@
   }
 }
 
+.order-tracking:nth-last-child(2)::before {
+  display: none;
+}
+
 .track-orders {
   .order-tracking::before {
     width: 150%;

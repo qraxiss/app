@@ -64,7 +64,10 @@ const CatalogCollection = ({ cxxl, cxl, clg, cmd, filterList }: any) => {
 
   return (
     <React.Fragment>
-      <div className="flex-grow-1 d-flex flex-column" style={{ minHeight: '100vh' }} >
+      <div
+        className="flex-grow-1 d-flex flex-column"
+        style={{ minHeight: "100vh" }}
+      >
         <div className="d-flex align-items-center gap-2 mb-4">
           <p className="text-muted flex-grow-1 mb-0">
             Showing 1-12 of 84 results
@@ -342,24 +345,27 @@ const CatalogCollection = ({ cxxl, cxl, clg, cmd, filterList }: any) => {
               })
             ) : (
               <>
-                <Row id="search-result-elem" className="flex-grow-1 d-flex align-items-center justify-content-center">
-                <Col lg={12}>
-                  <div className="text-center py-5">
-                    <div className="avatar-lg mx-auto mb-4">
-                      <div className="avatar-title bg-primary-subtle text-primary rounded-circle fs-24">
-                        <i className="bi bi-search"></i>
+                <Row
+                  id="search-result-elem"
+                  className="flex-grow-1 d-flex align-items-center justify-content-center"
+                >
+                  <Col lg={12}>
+                    <div className="text-center py-5">
+                      <div className="avatar-lg mx-auto mb-4">
+                        <div className="avatar-title bg-primary-subtle text-primary rounded-circle fs-24">
+                          <i className="bi bi-search"></i>
+                        </div>
                       </div>
-                    </div>
 
-                    <h5>No matching records found</h5>
-                  </div>
-                </Col>
-              </Row>
+                      <h5>No matching records found</h5>
+                    </div>
+                  </Col>
+                </Row>
               </>
             ))}
         </Row>
 
-        <div className="mt-auto" style={{marginBottom: '70px'}}>
+        <div className="mt-auto" style={{ marginBottom: "70px" }}>
           <Pagination
             pagination={pagination}
             pageNumbers={pageNumbers}

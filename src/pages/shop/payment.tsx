@@ -29,6 +29,7 @@ const Payment = () => {
   const dispatch: AppDispatch = useDispatch();
 
   const [isNewOrder, setIsNewOrder] = useState(false);
+  const [showAlert, setShowAlert] = useState(false);
   const { BNBUSDT } = useSelector((state: any) => state.cryptoMarket.data);
   const { price } = useSelector((state: any) => state.cart.data);
 
@@ -41,14 +42,21 @@ const Payment = () => {
   return (
     <React.Fragment>
       <section className="section pb-4">
-        <Container>
+        <Container fluid className="container-custom">
           <Row>
-            {/* <Col lg={12}>
-              <Alert className="alert-danger text-center text-capitalize mb-4 fs-14">
-                save up to <b>30%</b> to <b>40%</b> off omg! just look at the{" "}
-                <b>great deals</b>!
-              </Alert>
-            </Col> */}
+            {showAlert && (
+              <Col lg={12}>
+                <Alert className="alert-danger d-flex justify-content-between align-items-center text-capitalize mb-4 fs-14">
+                  <span>Only crypto payment is possible</span>
+                  <span
+                    className="cursor-pointer"
+                    onClick={() => setShowAlert(false)}
+                  >
+                    <i className="bi bi-x-lg"></i>{" "}
+                  </span>
+                </Alert>
+              </Col>
+            )}
           </Row>
           <Row className="product-list">
             <Col xl={8}>
@@ -150,7 +158,7 @@ const Payment = () => {
                                 <Spinner />
                               ) : (
                                 <>
-                                  Continue
+                                  Pay
                                   <i className="ri-logout-box-r-line align-bottom ms-2"></i>
                                 </>
                               )}
@@ -244,6 +252,7 @@ const Payment = () => {
                           <button
                             type="button"
                             className="btn btn-hover btn-primary"
+                            onClick={() => setShowAlert(true)}
                           >
                             <i className="ri-paypal-fill align-bottom align-bottom pe-2"></i>{" "}
                             Log into my Paypal
@@ -316,6 +325,7 @@ const Payment = () => {
                           <button
                             type="button"
                             className="btn btn-hover w-md btn-primary"
+                            onClick={() => setShowAlert(true)}
                           >
                             Pay
                             <i className="ri-logout-box-r-line align-bottom ms-2"></i>
@@ -345,6 +355,7 @@ const Payment = () => {
                           <button
                             type="button"
                             className="btn btn-hover w-md btn-primary"
+                            onClick={() => setShowAlert(true)}
                           >
                             Pay
                             <i className="ri-logout-box-r-line align-bottom ms-2"></i>
