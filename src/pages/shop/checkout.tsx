@@ -10,12 +10,12 @@ import {
 import { Shoporder, } from "components/shop-top-bar";
 import { Link } from "react-router-dom";
 
-function getRandomInt(max: number) {
-  return Math.floor(Math.random() * max) + 1;
-}
+// function getRandomInt(max: number) {
+//   return Math.floor(Math.random() * max) + 1;
+// }
 
 import { useSelector } from "react-redux";
-import Selectaddress from "../../components/select-address";
+import Selectaddress from "components/select-address";
 
 const Checkout = () => {
   document.title = "Shopcek | Checkout";
@@ -54,7 +54,7 @@ const Checkout = () => {
                       <thead>
                         <tr>
                           <th scope="col">Product</th>
-                          <th scope="col">Rate</th>
+                          {/* <th scope="col">Rate</th> */}
                           <th scope="col">Order ID</th>
                           <th scope="col">Price</th>
                         </tr>
@@ -85,7 +85,7 @@ const Checkout = () => {
                                   </div>
                                 </div>
                               </td>
-                              <td> {"⭐️".repeat(getRandomInt(5))}</td>
+                              {/* <td> {"⭐️".repeat(getRandomInt(5))}</td> */}
                               <td> {item?.variant?.id}</td>
                               <td className="text-end">
                                 ${item?.variant?.price}
