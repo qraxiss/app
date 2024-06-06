@@ -100,7 +100,7 @@ const Trackorder = () => {
                         {data?.transaction.substring(0, 6)}...
                         {data?.transaction.substring(
                           data?.transaction.length - 6,
-                          data?.transaction.length,
+                          data?.transaction.length
                         )}
                       </span>
                     </Link>
@@ -141,38 +141,21 @@ const Trackorder = () => {
               </Row>
             </Card.Body>
             <Card.Body className="p-4">
-              <Row className="g-3">
-                <Col xs={6}>
-                  <h6 className="text-muted text-uppercase fs-12 mb-3">
-                    Billing Address
-                  </h6>
-                  <h6 id="billing-name">Diana Nichols</h6>
-                  <p className="text-muted mb-1" id="billing-address-line-1">
-                    305 S San Gabriel Blvd
-                  </p>
-                  <p className="text-muted mb-1">
-                    <span>Phone: +</span>
-                    <span id="billing-phone-no">(123) 456-7890</span>
-                  </p>
-                  <p className="text-muted mb-0">
-                    <span>Tax: </span>
-                    <span id="billing-tax-no">12-3456789</span>{" "}
-                  </p>
-                </Col>
-                <Col xs={6}>
-                  <h6 className="text-muted text-uppercase fs-12 mb-3">
-                    Shipping Address
-                  </h6>
-                  <h6 id="shipping-name">Diana Nichols</h6>
-                  <p className="text-muted mb-1" id="shipping-address-line-1">
-                    305 S San Gabriel Blvd
-                  </p>
-                  <p className="text-muted mb-1">
-                    <span>Phone: +</span>
-                    <span id="shipping-phone-no">(123) 456-7890</span>
-                  </p>
-                </Col>
-              </Row>
+              <h6 className="text-muted text-uppercase fs-12 mb-3">
+                Shipping Address
+              </h6>
+              <h6 id="billing-name">{data?.recipient.name}</h6>
+              <p className="text-muted mb-1" id="billing-address-line-1">
+                {data?.recipient.country_name} / {data?.recipient.state_name} /{" "}
+                {data?.recipient.city}
+              </p>
+              <p className="text-muted mb-1" id="billing-address-line-1">
+                {data?.recipient.address1}
+              </p>
+              <p className="text-muted mb-1">
+                <span>Phone: +</span>
+                <span id="billing-phone-no">{data?.recipient.phone}</span>
+              </p>
             </Card.Body>
             <Card.Body className="p-4">
               <div className="table-responsive">

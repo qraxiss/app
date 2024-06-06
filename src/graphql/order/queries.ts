@@ -59,6 +59,19 @@ export const ORDER = gql`
               }
             }
           }
+          recipient {
+            data {
+              attributes {
+                name
+                city
+                address1
+                country_name
+                state_name
+                city
+                phone
+              }
+            }
+          }
         }
       }
     }
