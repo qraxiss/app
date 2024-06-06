@@ -1,5 +1,7 @@
 import { type Chain } from "viem";
 
+import { bsc, xLayer, avalanche, mainnet } from "viem/chains";
+
 const chains: readonly [Chain, ...Chain[]] = [
   {
     id: 97,
@@ -27,6 +29,10 @@ const chains: readonly [Chain, ...Chain[]] = [
     },
     testnet: true,
   },
+  bsc,
+  xLayer,
+  avalanche,
+  mainnet,
 ];
 
 export default chains;
