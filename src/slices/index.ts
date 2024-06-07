@@ -12,6 +12,7 @@ import cartReducer from "slices/cart/slice";
 import orderReducer from "slices/order/slice";
 import cryptoMarketReducer from "slices/crypto-market/slice";
 import addressReducer from "slices/address/slice";
+import shippingReducer from "slices/shipping/slice";
 
 const rootReducer = combineReducers({
   Layout: LayoutReducer,
@@ -26,6 +27,7 @@ const rootReducer = combineReducers({
   order: orderReducer,
   cryptoMarket: cryptoMarketReducer,
   address: addressReducer,
+  shipping: shippingReducer,
 });
 
 export default rootReducer;

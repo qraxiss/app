@@ -97,19 +97,7 @@ const cartSlice = createSlice({
     emptyFailure(state, action) {
       state.loading = false;
       state.error = action.payload;
-    },
-    fetchShippingStart(state) {
-      state.loading = true;
-      state.error = null;
-    },
-    fetchShippingSuccess(state, { payload: options }) {
-      state.data.shipping_options = options;
-      state.loading = false;
-    },
-    fetchShippingFailure(state, action) {
-      state.loading = false;
-      state.error = action.payload;
-    },
+    }
   },
 });
 
@@ -131,9 +119,6 @@ export const {
   updateItemSuccess,
   closeModal,
   openModal,
-  fetchShippingFailure,
-  fetchShippingStart,
-  fetchShippingSuccess,
 } = cartSlice.actions;
 
 export default cartSlice.reducer;

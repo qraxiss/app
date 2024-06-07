@@ -17,9 +17,6 @@ import {
   updateItemFailure,
   updateItemStart,
   updateItemSuccess,
-  fetchShippingStart,
-  fetchShippingFailure,
-  fetchShippingSuccess,
 } from "slices/cart/slice";
 
 import {
@@ -28,7 +25,7 @@ import {
   UPDATE_CART_ITEM,
   EMPTY_CART,
 } from "graphql/cart/mutations";
-import { GET_CART, SHIPPING_RATES } from "graphql/cart/queries";
+import { GET_CART } from "graphql/cart/queries";
 
 export const fetchCartAsync = createAsyncThunk(
   "cart/fetchCart",
@@ -46,26 +43,6 @@ export const fetchCartAsync = createAsyncThunk(
       dispatch(fetchCartSuccess(data));
     } catch (error: any) {
       dispatch(fetchCartFailure(error.message));
-    }
-  }
-);
-
-export const fetchShippingAsync = createAsyncThunk(
-  "cart/fetchShipping",
-  async (_, { dispatch }) => {
-    try {
-      dispatch(fetchShippingStart());
-
-      const { data } = await shopcekQuery({
-        query: SHIPPING_RATES,
-        options: {
-          fetchPolicy: "no-cache",
-        } as any,
-      });
-
-      dispatch(fetchShippingSuccess(data));
-    } catch (error: any) {
-      dispatch(fetchShippingFailure(error.message));
     }
   }
 );
