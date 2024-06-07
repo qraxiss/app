@@ -41,8 +41,14 @@ export const Shoptopbar = ({ title, page }: any) => {
   );
 };
 
-export const Shoporder = ({ dic, subtotal, charge, tax, total }: any) => {
+export const Shoporder = ({ dic, subtotal, tax, total }: any) => {
   const { count, price } = useSelector((state: any) => state.cart.data);
+  const { options, selected } = useSelector(
+    (state: any) => state.shipping.data
+  );
+
+  const charge = options.find((option: any) => option.id === selected);
+
   return (
     <React.Fragment>
       <Card>
@@ -86,9 +92,7 @@ export const Shoporder = ({ dic, subtotal, charge, tax, total }: any) => {
                 </tr>
                 <tr>
                   <td>Shipping Charge :</td>
-                  <td className="text-end cart-shipping">
-                    ${charge || "0.00"}
-                  </td>
+                  <td className="text-end cart-shipping">${charge?.rate}</td>
                 </tr>
                 <tr>
                   <td>Estimated Tax (12.5%) : </td>

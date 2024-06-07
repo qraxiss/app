@@ -2,11 +2,17 @@ import { ShippingOption } from "types/shipping";
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState: {
-  data: ShippingOption[];
+  data: {
+    selected: string | null;
+    options: ShippingOption[];
+  };
   loading: boolean;
   error: Error | null;
 } = {
-  data: [],
+  data: {
+    selected: null,
+    options: [],
+  },
   loading: false,
   error: null,
 };
@@ -20,12 +26,15 @@ const shippingSlice = createSlice({
       state.error = null;
     },
     fetchShippingSuccess(state, { payload: options }) {
-      state.data = options;
+      state.data.options = options;
       state.loading = false;
     },
     fetchShippingFailure(state, action) {
       state.loading = false;
       state.error = action.payload;
+    },
+    select(state, { payload: id }) {
+      state.data.selected = id;
     },
   },
 });
@@ -34,6 +43,7 @@ export const {
   fetchShippingFailure,
   fetchShippingStart,
   fetchShippingSuccess,
+  select,
 } = shippingSlice.actions;
 
 export default shippingSlice.reducer;

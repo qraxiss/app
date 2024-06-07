@@ -186,7 +186,6 @@ const Cardshop = () => {
           <Shoporder
             subtotal={subtotal}
             dic={dis}
-            charge={charge}
             tax={tax}
             total={subtotal + charge + tax - dis}
           />
