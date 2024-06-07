@@ -1,5 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+import { ShippingOption } from "types/shipping";
+
 const initialState: {
   loading: boolean;
   error: Error | null;
@@ -8,6 +10,7 @@ const initialState: {
     price: number;
     count: number;
     isModalOpen: boolean;
+    shipping_options: ShippingOption[];
   };
 } = {
   loading: false,
@@ -17,6 +20,7 @@ const initialState: {
     price: 0,
     count: 0,
     isModalOpen: false,
+    shipping_options: [],
   },
 };
 
@@ -94,6 +98,18 @@ const cartSlice = createSlice({
       state.loading = false;
       state.error = action.payload;
     },
+    fetchShippingStart(state) {
+      state.loading = true;
+      state.error = null;
+    },
+    fetchShippingSuccess(state, { payload: options }) {
+      state.data.shipping_options = options;
+      state.loading = false;
+    },
+    fetchShippingFailure(state, action) {
+      state.loading = false;
+      state.error = action.payload;
+    },
   },
 });
 
@@ -115,6 +131,9 @@ export const {
   updateItemSuccess,
   closeModal,
   openModal,
+  fetchShippingFailure,
+  fetchShippingStart,
+  fetchShippingSuccess,
 } = cartSlice.actions;
 
 export default cartSlice.reducer;
