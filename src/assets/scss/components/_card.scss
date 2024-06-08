@@ -174,3 +174,9 @@
     }
   }
 }
+
+[data-bs-theme="dark"] {
+  .card-bg-gradient {
+    background-color: transparent;
+  }
+}

@@ -12,6 +12,18 @@ import {
 } from "react-bootstrap";
 import { Swiper, SwiperRef, SwiperSlide } from "swiper/react";
 import { FreeMode, Navigation, Thumbs } from "swiper/modules";
+import {
+  FacebookShareButton,
+  TwitterShareButton,
+  LinkedinShareButton,
+  PinterestShareButton,
+  TelegramShareButton,
+  FacebookIcon,
+  TwitterIcon,
+  LinkedinIcon,
+  PinterestIcon,
+  TelegramIcon,
+} from "react-share";
 //scss
 import "swiper/css";
 import "swiper/css/thumbs";
@@ -34,7 +46,8 @@ import { Option } from "types/product";
 const ProductDetails = () => {
   const logged = useSelector((state: any) => state.user.data.logged);
   const navigate = useNavigate();
-
+  const shareUrl = "https://shopcek.com"; // Replace with your URL
+  const title = "Check this out!"; // Replace with your title
   const { slug } = useParams();
   const dispatch: AppDispatch = useDispatch();
   const swiperRef = useRef<SwiperRef>(null);
@@ -157,18 +170,36 @@ const ProductDetails = () => {
           />
         </div>
       </Modal>
-      <section className="section" style={{ paddingTop: "140px" }}>
+      <section className="section">
         <Container fluid className="container-custom">
           <Row className="mb-3">
-            <Col>
+            <Col xs={12}>
               <Breadcrumb>
-                <Breadcrumb.Item onClick={() => navigate("/")}>
+                <Breadcrumb.Item
+                  onClick={() => navigate("/")}
+                  style={{ flexWrap: "nowrap" }}
+                >
                   Home
                 </Breadcrumb.Item>
-                <Breadcrumb.Item active>
+                <Breadcrumb.Item
+                  onClick={() =>
+                    navigate(
+                      `/products/${data?.product?.categories[0]?.slug}`,
+                      { replace: true },
+                    )
+                  }
+                >
                   {data?.product?.categories[0]?.name}
                 </Breadcrumb.Item>
-                <Breadcrumb.Item active>{data?.product?.name}</Breadcrumb.Item>
+                <Breadcrumb.Item
+                  active
+                  style={{
+                    overflow: "hidden !important",
+                    textOverflow: "ellipsis !important",
+                  }}
+                >
+                  {data?.product?.name}
+                </Breadcrumb.Item>
               </Breadcrumb>
             </Col>
           </Row>
@@ -234,7 +265,7 @@ const ProductDetails = () => {
                         style={{
                           overflowX: "auto",
                           padding: "2px",
-                          maxWidth: "90%",
+                          maxWidth: "80%",
                           margin: "0 auto", // Center the swiper container
                         }}
                       >
@@ -287,6 +318,7 @@ const ProductDetails = () => {
                         style={{
                           top: "50%", // Center vertically
                           transform: "translateY(-50%)",
+                          left: "0%",
                         }}
                       ></div>
                       <div
@@ -295,6 +327,7 @@ const ProductDetails = () => {
                         style={{
                           top: "50%", // Center vertically
                           transform: "translateY(-50%)",
+                          right: "0%",
                         }}
                       ></div>
                     </div>
@@ -309,7 +342,7 @@ const ProductDetails = () => {
                       style={{
                         maxHeight: "350px",
                         overflow: "auto",
-                        padding: "2px",
+                        padding: "5px",
                         width: "100%",
                       }}
                     >
@@ -354,7 +387,7 @@ const ProductDetails = () => {
                         aria-atomic="true"
                       />
                     </div>
-                    <div className="d-flex align-items-center gap-2 cursor-pointer">
+                    <div className="d-flex align-items-center gap-2 cursor-pointer mt-2">
                       <span
                         className="swiper-button-up d-flex justify-content-center"
                         onClick={handleScrollUp}
@@ -393,8 +426,8 @@ const ProductDetails = () => {
                                 role="group"
                                 aria-label={`${item.id} / 5`}
                                 style={{
-                                  width: "100%",
-                                  marginRight: "10px",
+                                  width: "80%",
+                                  marginLeft: "45px",
                                   cursor: "pointer",
                                 }}
                                 onClick={() => setShowModal(true)}
@@ -404,7 +437,6 @@ const ProductDetails = () => {
                                   src={item?.variant?.image}
                                   alt=""
                                   fluid
-                                  style={{ height: "390px" }}
                                 />
                               </div>
                             </SwiperSlide>
@@ -418,7 +450,7 @@ const ProductDetails = () => {
               )}
             </Col>
             {/*end col*/}
-            <Col lg={5} className="ms-auto">
+            <Col lg={6} className="ms-auto">
               <div className="ecommerce-product-widgets mt-4 mt-lg-0">
                 <div className="mb-2">
                   <div className="d-flex gap-3 mb-2"></div>
@@ -430,14 +462,14 @@ const ProductDetails = () => {
                 <Col md={12}>
                   <div className="d-flex align-items-center py-2">
                     <h6 className="fs-16 mb-0 fw-medium text-muted">Sizes: </h6>
-                    <div className="px-2 w-50 custom-select-wrapper cursor-pointer">
+                    <div className="px-2 w-50 custom-select-wrapper">
                       {data?.product?.sizes &&
                         data?.product?.sizes.length > 0 && (
                           <Form.Select
                             aria-label="Select Size"
                             value={size?.value || ""}
                             onChange={handleSizeChange}
-                            className="custom-select"
+                            className="custom-select cursor-pointer"
                           >
                             <option value="">Select a size</option>
                             {data.product.sizes.map(
@@ -450,7 +482,7 @@ const ProductDetails = () => {
                           </Form.Select>
                         )}
                       <span className="custom-select-icon swiper-button-down d-flex justify-content-center">
-                        <i className="bi bi-chevron-compact-down fs-24 p-0 m-0"></i>
+                        <i className="bi bi-chevron-compact-down fs-24 p-0 m-0 cursor-pointer"></i>
                       </span>
                     </div>
                   </div>
@@ -558,15 +590,26 @@ const ProductDetails = () => {
                     <span className="px-2">Hoodies & Bitcoin</span>
                   </li>
                   <li className="d-flex align-items-center">
-                    <h6 className="fs-16 mb-0 fw-medium text-muted">
-                      Share :{" "}
-                    </h6>
+                    <h6 className="fs-16 mb-0 fw-medium text-muted">Share :</h6>
                     <span className="d-flex align-items-center px-2 text-muted gap-2 cursor-pointer">
-                      <i className="bi bi-facebook"></i>{" "}
-                      <i className="bi bi-twitter"></i>{" "}
-                      <i className="bi bi-linkedin"></i>{" "}
-                      <i className="bi bi-pinterest"></i>{" "}
-                      <i className="bi bi-telegram"></i>
+                      <FacebookShareButton url={shareUrl} title={title}>
+                        <FacebookIcon size={24} round />
+                      </FacebookShareButton>
+                      <TwitterShareButton url={shareUrl} title={title}>
+                        <TwitterIcon size={24} round />
+                      </TwitterShareButton>
+                      <LinkedinShareButton url={shareUrl} title={title}>
+                        <LinkedinIcon size={24} round />
+                      </LinkedinShareButton>
+                      <PinterestShareButton
+                        url={shareUrl}
+                        media={`${shareUrl}/image.jpg`}
+                      >
+                        <PinterestIcon size={24} round />
+                      </PinterestShareButton>
+                      <TelegramShareButton url={shareUrl} title={title}>
+                        <TelegramIcon size={24} round />
+                      </TelegramShareButton>
                     </span>
                   </li>
                 </ul>

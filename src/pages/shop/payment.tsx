@@ -46,13 +46,15 @@ const Payment = () => {
           <Row>
             {showAlert && (
               <Col lg={12}>
-                <Alert className="alert-danger d-flex justify-content-between align-items-center text-capitalize mb-4 fs-14">
-                  <span>Only crypto payment is possible</span>
+                <Alert className="alert-danger d-flex align-items-center text-capitalize mb-4 fs-14">
+                  <span className="flex-grow-1 text-center">
+                    Only crypto payment is possible
+                  </span>
                   <span
-                    className="cursor-pointer"
+                    className="cursor-pointer d-flex align-items-center justify-content-end"
                     onClick={() => setShowAlert(false)}
                   >
-                    <i className="bi bi-x-lg"></i>{" "}
+                    <i className="bi bi-x-lg"></i>
                   </span>
                 </Alert>
               </Col>
