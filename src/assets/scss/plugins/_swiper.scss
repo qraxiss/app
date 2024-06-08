@@ -161,7 +161,6 @@
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
-  background: transparent;
   border: 1px solid #ced4da;
   // padding-right: 30px;
 }
@@ -185,5 +184,48 @@
 [data-bs-theme="dark"] {
   .custom-select-icon {
     color: #fff; /* Dark mode icon color */
+  }
+}
+
+.breadcrumbs {
+  display: flex;
+  align-items: center;
+}
+
+.breadcrumb-item {
+  white-space: nowrap; /* Prevent text from wrapping */
+  overflow: hidden; /* Hide overflow */
+  text-overflow: ellipsis; /* Show ellipsis for overflow text */
+}
+
+.breadcrumb-item:hover {
+  text-decoration: underline; /* Optional: Add underline on hover */
+}
+
+@media (max-width: 768px) {
+  .breadcrumb-item {
+    max-width: 180px; /* Adjust for mobile */
+  }
+}
+
+@media (min-width: 1400px) {
+  .col-xxl-8 {
+    margin-left: 100px !important;
+  }
+}
+
+@media (min-width: 1850px) {
+  .col-xxl-8 {
+    width: 50% !important;
+  }
+  .productSwiper .swiper-slide {
+    height: 150px !important;
+  }
+}
+
+@media (min-width: 2370px) {
+  .col-xxl-8 {
+    width: 40% !important;
+    margin-left: 200px !important;
   }
 }

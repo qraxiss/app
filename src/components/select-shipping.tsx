@@ -5,10 +5,10 @@ import { select } from "slices/shipping/slice";
 import { fetchShippingAsync } from "slices/thunk";
 import { AppDispatch } from "store";
 const ShippingRates = () => {
-  const {options: shipping_options, selected} = useSelector(
-    (state: any) => state.shipping.data
+  const { options: shipping_options, selected } = useSelector(
+    (state: any) => state.shipping.data,
   );
-  
+
   const dispatch: AppDispatch = useDispatch();
 
   useEffect(() => {
@@ -33,7 +33,10 @@ const ShippingRates = () => {
                     className="badge bg-primary-subtle text-primary"
                     variant="primary"
                   >
-                    <i className={`ri-ship${option.id === selected ? "-2" : ""}-line align-bottom me-1`}></i> Select{option.id === selected ? "ed" : ""}
+                    <i
+                      className={`ri-ship${option.id === selected ? "-2" : ""}-line align-bottom me-1`}
+                    ></i>{" "}
+                    Select{option.id === selected ? "ed" : ""}
                   </Button>{" "}
                 </div>
                 <div>

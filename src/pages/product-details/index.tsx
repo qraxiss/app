@@ -8,7 +8,6 @@ import {
   Form,
   Image,
   Modal,
-  Breadcrumb,
 } from "react-bootstrap";
 import { Swiper, SwiperRef, SwiperSlide } from "swiper/react";
 import { FreeMode, Navigation, Thumbs } from "swiper/modules";
@@ -174,14 +173,12 @@ const ProductDetails = () => {
         <Container fluid className="container-custom">
           <Row className="mb-3">
             <Col xs={12}>
-              <Breadcrumb>
-                <Breadcrumb.Item
-                  onClick={() => navigate("/")}
-                  style={{ flexWrap: "nowrap" }}
-                >
+              <div className="d-flex align-items-center cursor-pointer breadcrumbs">
+                <span className="breadcrumb-item" onClick={() => navigate("/")}>
                   Home
-                </Breadcrumb.Item>
-                <Breadcrumb.Item
+                </span>
+                <span
+                  className="breadcrumb-item"
                   onClick={() =>
                     navigate(
                       `/products/${data?.product?.categories[0]?.slug}`,
@@ -190,17 +187,11 @@ const ProductDetails = () => {
                   }
                 >
                   {data?.product?.categories[0]?.name}
-                </Breadcrumb.Item>
-                <Breadcrumb.Item
-                  active
-                  style={{
-                    overflow: "hidden !important",
-                    textOverflow: "ellipsis !important",
-                  }}
-                >
+                </span>
+                <span className="breadcrumb-item text-muted">
                   {data?.product?.name}
-                </Breadcrumb.Item>
-              </Breadcrumb>
+                </span>
+              </div>
             </Col>
           </Row>
           <Row className="gx-2">
@@ -403,7 +394,7 @@ const ProductDetails = () => {
                     </div>
                   </Col>
                   {/*end col*/}
-                  <Col md={10} sm={10} xs={12}>
+                  <Col md={10} sm={10} xs={12} xxl={8}>
                     <div className="rounded-2 position-relative ribbon-box overflow-hidden">
                       <div className="ribbon ribbon-danger ribbon-shape trending-ribbon">
                         <span className="trending-ribbon-text">Trending</span>
@@ -450,7 +441,7 @@ const ProductDetails = () => {
               )}
             </Col>
             {/*end col*/}
-            <Col lg={6} className="ms-auto">
+            <Col lg={5} className="ms-auto">
               <div className="ecommerce-product-widgets mt-4 mt-lg-0">
                 <div className="mb-2">
                   <div className="d-flex gap-3 mb-2"></div>
