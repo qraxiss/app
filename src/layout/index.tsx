@@ -46,7 +46,7 @@ const Layout = (props: any) => {
         onMessage: (data: any) => {
           dispatch(updatePrice(data));
         },
-      })
+      }),
     );
 
     if (logged) {
@@ -62,7 +62,7 @@ const Layout = (props: any) => {
     (layout) => ({
       footerModeType: layout.footerModeType,
       layoutThemeMode: layout.layoutThemeMode,
-    })
+    }),
   );
 
   const { footerModeType, layoutThemeMode } = useSelector(selectProperties);

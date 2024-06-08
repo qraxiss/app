@@ -1,9 +1,23 @@
 import React, { FC, useEffect, useState } from "react";
-import { Offcanvas, Image } from "react-bootstrap";
+import { Offcanvas, Tab, Tabs, Image } from "react-bootstrap";
+import SimpleBar from "simplebar-react";
+import { DetailsModal } from "./details";
 import { Link, useNavigate } from "react-router-dom";
-import icon from "assets/images/icon.svg";
-import dropdown from "assets/images/dropdown.png";
+import icon from "../../../assets/images/icon.svg";
+import dropdown from "../../../assets/images/dropdown.png";
 import { useSelector } from "react-redux";
+
+const useMediaQuery = (width: number) => {
+  const [isMobile, setIsMobile] = useState(window.innerWidth < width);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < width);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, [width]);
+
+  return isMobile;
+};
 
 interface ICategory {
   slug: string;
@@ -12,6 +26,7 @@ interface ICategory {
     url: string;
   };
 }
+
 interface ICollection {
   slug: string;
   name: string;
@@ -32,14 +47,85 @@ export const CollectionModal: FC<CollectionModalProps> = ({
   handleClose,
   data,
 }) => {
+  const isMobile = useMediaQuery(768); // Example mobile breakpoint at 768px
   const categories = useSelector((state: any) => state.categories.data);
-  const [currentModule, setCurrentModule] = useState("collections");
+  const [showContent, setShowContent] = useState(false);
   const [expandedCategory, setExpandedCategory] = useState<string | null>(null);
+  const [card, setCard] = useState(false);
+  const [currentModule, setCurrentModule] = useState("collections");
+  const handlecardClose = () => {
+    setCard(false);
+    handleClose();
+  };
+  const handleCardShow = () => setCard(true);
 
   const navigate = useNavigate();
 
   const toggleExpand = (slug: string) => {
     setExpandedCategory((prev) => (prev === slug ? null : slug));
+  };
+
+  const [extended, setExtended] = useState<string | undefined>(undefined);
+  useEffect(() => {
+    if (card) {
+      setExtended("extended");
+    } else {
+      setExtended(undefined);
+    }
+  }, [card]);
+
+  const [content, setContent] = useState<any>();
+  const [header, setHeader] = useState<any>();
+
+  const setNewContent = (slug: string) => {
+    const contents = data.find((item) => {
+      return item.slug === slug;
+    })!;
+
+    setContent(
+      <div className={slug}>
+        <div className="items">
+          {contents.sub_categories.map((item) => {
+            return (
+              <div
+                className="item"
+                onClick={() => {
+                  navigate(`/products/${item.slug}`);
+                  handleClose();
+                }}
+              >
+                <img
+                  src={`${process.env.REACT_APP_API_URL}${item.icon?.url}`}
+                  alt=""
+                  style={{ height: "auto", maxWidth: "150px" }}
+                />
+                <div>{item.name}</div>
+              </div>
+            );
+          })}
+        </div>
+      </div>,
+    );
+
+    setHeader([
+      <img
+        src={`${process.env.REACT_APP_API_URL}${contents.icon?.url}`}
+        alt=""
+      />,
+      contents.name,
+    ]);
+  };
+
+  const handleAction = (item: ICollection, isClickEvent: boolean) => {
+    if (item.slug !== "blockchain-boutique") {
+      setNewContent(item.slug);
+      handleCardShow();
+    } else {
+      if (isClickEvent) {
+        handleClose();
+        navigate("/products/collection/blockchain-boutique");
+      }
+    }
   };
 
   return (
@@ -48,106 +134,96 @@ export const CollectionModal: FC<CollectionModalProps> = ({
         show={show}
         onHide={handleClose}
         placement="start"
-        className={`collections-modal fade-in`}
+        className={`collections-modal`}
       >
-        <Offcanvas.Header className="header">
-          <Offcanvas.Title
-            onClick={() => setCurrentModule("menu")}
-            id="ecommerceCartLabel"
-            as="h5"
-            className={currentModule === "menu" ? "active mobile" : "mobile"}
-          >
-            <span>Menu</span>
-          </Offcanvas.Title>
-          <Offcanvas.Title
-            onClick={() => setCurrentModule("collections")}
-            id="ecommerceCartLabel"
-            as="h5"
-            className={
-              currentModule === "collections" ? "active mobile" : " mobile"
-            }
-          >
-            <span>Collections</span>
-          </Offcanvas.Title>
-        </Offcanvas.Header>
-
-        <Offcanvas.Body className="p-0">
-          <div className="body hide-scrollbar">
-            <div className="d-none d-lg-flex gap-2 align-items-center mt-2 p-2 cursor-pointer">
-              <Image
-                src={icon}
-                alt="Shopcek Logo"
-                style={{ marginLeft: "11px" }}
-              />
-              <h5 className="mb-0">Collections </h5>
-            </div>
-
-            {currentModule === "collections" && (
-              <>
-                {[...data]
-                  .sort((a, b) => {
-                    if (a.name < b.name) return 1;
-                    if (a.name > b.name) return -1;
-                    return 0;
-                  })
-                  .map((item, idx) => (
-                    <div key={idx}>
-                      <div
-                        className="item"
-                        onClick={() => {
-                          if (item.slug !== "blockchain-boutique") {
-                            toggleExpand(item.slug);
-                          } else {
-                            handleClose();
-                            navigate(
-                              "/products/collection/blockchain-boutique",
-                            );
-                          }
-                        }}
-                      >
-                        <img
-                          src={`${process.env.REACT_APP_API_URL}${item.icon?.url}`}
-                          alt=""
-                        />
-                        {item.name}
-                        {item.slug !== "blockchain-boutique" && (
-                          <img
-                            src={dropdown}
-                            alt=""
-                            className="dropdown ${animation}"
-                          />
-                        )}
-                      </div>
-                      {expandedCategory === item.slug && (
-                        <div className="sub-items">
-                          {item.sub_categories.map((subItem) => (
-                            <div
-                              key={subItem.slug}
-                              style={{ marginLeft: "15px" }}
-                              className="d-flex gap-2 align-items-center p-2 cursor-pointer"
-                              onClick={() => {
-                                navigate(`/products/${subItem.slug}`);
-                                handleClose();
-                              }}
-                            >
-                              <img
-                                src={`${process.env.REACT_APP_API_URL}${subItem.icon?.url}`}
-                                alt=""
-                                style={{ height: "auto", maxWidth: "150px" }}
-                              />
-                              <div>{subItem.name}</div>
-                            </div>
-                          ))}
-                        </div>
-                      )}
-                    </div>
-                  ))}
-              </>
-            )}
-            {currentModule === "menu" && (
+        {isMobile ? (
+          // Mobile View Content
+          <Offcanvas.Body className="p-0">
+            <div className="body">
               <div className="mobile">
+                <div
+                  className="mobile-header my-3 d-flex justify-content-between align-items-center cursor-pointer"
+                  onClick={() => setShowContent(!showContent)}
+                >
+                  <div className="d-flex align-items-center">
+                    <Image src={icon} alt="" className="mx-2" />
+                    <h5 className="m-0 p-0">Collections</h5>
+                  </div>
+                  <span>
+                    <i className="bi bi-chevron-right"></i>
+                  </span>
+                </div>
+                {showContent && (
+                  <>
+                    {[...data]
+                      .sort((a, b) => {
+                        if (a.name < b.name) return 1;
+                        if (a.name > b.name) return -1;
+                        return 0;
+                      })
+                      .map((item, idx) => (
+                        <div key={idx}>
+                          <div
+                            className="d-flex justify-content-between align-items-center p-2 my-3 cursor-pointer"
+                            onClick={() => {
+                              if (item.slug !== "blockchain-boutique") {
+                                toggleExpand(item.slug);
+                              } else {
+                                handleClose();
+                                navigate(
+                                  "/products/collection/blockchain-boutique",
+                                );
+                              }
+                            }}
+                          >
+                            <div className="d-flex align-items-center">
+                              <img
+                                src={`${process.env.REACT_APP_API_URL}${item.icon?.url}`}
+                                alt=""
+                                className="mx-2"
+                              />
+                              {item.name}
+                            </div>
+                            {item.slug !== "blockchain-boutique" && (
+                              <img
+                                src={dropdown}
+                                alt=""
+                                className="dropdown ${animation}"
+                              />
+                            )}
+                          </div>
+                          {expandedCategory === item.slug && (
+                            <div className="sub-items">
+                              {item.sub_categories.map((subItem) => (
+                                <div
+                                  key={subItem.slug}
+                                  style={{ marginLeft: "15px" }}
+                                  className="d-flex gap-2 align-items-center p-2 my-2 cursor-pointer"
+                                  onClick={() => {
+                                    navigate(`/products/${subItem.slug}`);
+                                    handleClose();
+                                  }}
+                                >
+                                  <img
+                                    src={`${process.env.REACT_APP_API_URL}${subItem.icon?.url}`}
+                                    alt=""
+                                    style={{
+                                      height: "auto",
+                                      maxWidth: "150px",
+                                    }}
+                                  />
+                                  <div>{subItem.name}</div>
+                                </div>
+                              ))}
+                            </div>
+                          )}
+                        </div>
+                      ))}
+                  </>
+                )}
+
                 {categories?.map((item: any, index: number) => (
-                  <div className="item" key={`category-${index + 1}`}>
+                  <div className="item mx-2" key={`category-${index + 1}`}>
                     <Link
                       className="nav-link"
                       to={`/products/${item.slug}`}
@@ -157,15 +233,108 @@ export const CollectionModal: FC<CollectionModalProps> = ({
                     </Link>
                   </div>
                 ))}
-                <div className="item">
+                <div className="item mx-2">
                   <Link className="nav-link" to={`/earn`} data-key="t-slug">
                     EARN
                   </Link>
                 </div>
               </div>
-            )}
-          </div>
-        </Offcanvas.Body>
+            </div>
+          </Offcanvas.Body>
+        ) : (
+          // Desktop View Content (Original Code)
+          <>
+            <Offcanvas.Header className="header">
+              <Offcanvas.Title
+                onClick={() => setCurrentModule("menu")}
+                id="ecommerceCartLabel"
+                as="h5"
+                className={
+                  currentModule === "menu" ? "active mobile" : "mobile"
+                }
+              >
+                <span>Menu</span>
+              </Offcanvas.Title>
+              <Offcanvas.Title
+                onClick={() => setCurrentModule("collections")}
+                id="ecommerceCartLabel"
+                as="h5"
+                className={currentModule === "collections" ? "active" : ""}
+              >
+                <Image src={icon} alt="" />
+                <span>Collections</span>
+              </Offcanvas.Title>
+            </Offcanvas.Header>
+
+            <Offcanvas.Body className="p-0">
+              <div className="body">
+                {currentModule === "collections" && (
+                  <>
+                    {[...data]
+                      .sort((a, b) => {
+                        if (a.name < b.name) return 1;
+                        if (a.name > b.name) return -1;
+                        return 0;
+                      })
+                      .map((item, idx) => {
+                        return (
+                          <div
+                            key={idx}
+                            className="item"
+                            onMouseEnter={() => handleAction(item, false)}
+                            onMouseLeave={() => setCard(false)}
+                          >
+                            <div onMouseEnter={() => handleAction(item, false)}>
+                              <img
+                                src={`${process.env.REACT_APP_API_URL}${item.icon?.url}`}
+                                alt=""
+                              />
+                              {item.name}
+                            </div>
+                            {item.slug !== "blockchain-boutique" ? (
+                              <img
+                                src={dropdown}
+                                alt=""
+                                className="dropdown ${animation}"
+                              />
+                            ) : undefined}
+                          </div>
+                        );
+                      })}
+                  </>
+                )}
+                {currentModule === "menu" && (
+                  <div className="mobile">
+                    {categories?.map((item: any, index: number) => (
+                      <div className="item" key={`category-${index + 1}`}>
+                        <Link
+                          className="nav-link"
+                          to={`/products/${item.slug}`}
+                          data-key="t-slug"
+                        >
+                          {item.name}
+                        </Link>
+                      </div>
+                    ))}
+                    <div className="item">
+                      <Link className="nav-link" to={`/earn`} data-key="t-slug">
+                        EARN
+                      </Link>
+                    </div>
+                  </div>
+                )}
+              </div>
+            </Offcanvas.Body>
+
+            <DetailsModal
+              show={card}
+              handlecardClose={handlecardClose}
+              content={content}
+              setCard={setCard}
+              header={header}
+            ></DetailsModal>
+          </>
+        )}
       </Offcanvas>
     </React.Fragment>
   );

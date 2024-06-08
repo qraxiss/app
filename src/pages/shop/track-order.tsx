@@ -96,7 +96,7 @@ const Trackorder = () => {
                         {data?.transaction.substring(0, 6)}...
                         {data?.transaction.substring(
                           data?.transaction.length - 6,
-                          data?.transaction.length
+                          data?.transaction.length,
                         )}
                       </span>
                     </Link>

@@ -2,13 +2,29 @@ import React from "react";
 import { Offcanvas } from "react-bootstrap";
 import SimpleBar from "simplebar-react";
 
-export const DetailsModal = ({ show, handleClose, content, header }: any) => {
+interface DetailsModalProps {
+  show: boolean;
+  handlecardClose: () => void;
+  content: any;
+  header: any;
+  setCard: (value: boolean) => void; // Ensure correct type for setCard function
+}
+
+export const DetailsModal: React.FC<DetailsModalProps> = ({
+  show,
+  handlecardClose,
+  content,
+  header,
+  setCard, // Receive setCard function as prop
+}) => {
   return (
     <React.Fragment>
       <Offcanvas
         show={show}
-        onHide={handleClose}
+        onHide={handlecardClose}
         placement="start"
+        onMouseEnter={() => setCard(true)}
+        onMouseLeave={() => setCard(false)}
         className="details-modal"
         backdrop={false}
       >
