@@ -173,3 +173,17 @@
   transform: translateY(-50%);
   pointer-events: none;
 }
+
+[data-bs-theme="dark"] {
+  .custom-select {
+    background-color: #333;
+    border-color: #555;
+    color: #fff; /* Dark mode text color */
+  }
+}
+
+[data-bs-theme="dark"] {
+  .custom-select-icon {
+    color: #fff; /* Dark mode icon color */
+  }
+}

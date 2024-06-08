@@ -89,11 +89,11 @@ export const ModalAdd = ({
     enableReinitialize: true,
     onSubmit: async (values) => {
       const country = ADDRESS.find(
-        (country: any) => country.name === values.country_name
+        (country: any) => country.name === values.country_name,
       )!;
 
       const state = country.states.find(
-        (state: any) => values.state_name === state.name
+        (state: any) => values.state_name === state.name,
       )!;
 
       console.log(country, state);
@@ -186,7 +186,7 @@ export const ModalAdd = ({
                   {ADDRESS.filter((item) => item.states.length !== 0).map(
                     (item) => (
                       <option>{item.name}</option>
-                    )
+                    ),
                   )}
                 </Form.Select>
                 {formik.errors.country_name && formik.touched.country_name ? (
@@ -208,7 +208,7 @@ export const ModalAdd = ({
                   onBlur={formik.handleBlur}
                 >
                   {ADDRESS.find(
-                    (item) => item.name === formik.values.country_name
+                    (item) => item.name === formik.values.country_name,
                   )
                     ?.states?.filter((state) => state.cities.length !== 0)
                     .map((state) => <option>{state.name}</option>)}
@@ -233,10 +233,10 @@ export const ModalAdd = ({
                   onBlur={formik.handleBlur}
                 >
                   {ADDRESS.find(
-                    (item) => item.name === formik.values.country_name
+                    (item) => item.name === formik.values.country_name,
                   )
                     ?.states?.find(
-                      (state) => state.name === formik.values.state_name
+                      (state) => state.name === formik.values.state_name,
                     )
                     ?.cities.map((city) => <option>{city}</option>)}
                 </Form.Select>
