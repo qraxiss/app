@@ -44,14 +44,14 @@ export const fetchCartAsync = createAsyncThunk(
     } catch (error: any) {
       dispatch(fetchCartFailure(error.message));
     }
-  },
+  }
 );
 
 export const addItemToCartAsync = createAsyncThunk(
   "cart/addItem",
   async (
     { variantId, count }: { variantId: string | number; count: number },
-    { dispatch },
+    { dispatch }
   ) => {
     try {
       dispatch(addItemStart());
@@ -74,7 +74,7 @@ export const addItemToCartAsync = createAsyncThunk(
     } catch (error: any) {
       dispatch(addItemFailure(error.message));
     }
-  },
+  }
 );
 
 export const emptyAsync = createAsyncThunk(
@@ -98,7 +98,7 @@ export const emptyAsync = createAsyncThunk(
     } catch (error: any) {
       dispatch(emptyFailure(error.message));
     }
-  },
+  }
 );
 
 export const deleteCartItem = createAsyncThunk(
@@ -127,14 +127,14 @@ export const deleteCartItem = createAsyncThunk(
     } catch (error: any) {
       dispatch(removeItemFailure(error.message));
     }
-  },
+  }
 );
 
 export const updateItemAsync = createAsyncThunk(
   "cart/updateItem",
   async (
     { itemId, count }: { itemId: number | string; count: number },
-    { dispatch },
+    { dispatch }
   ) => {
     try {
       dispatch(updateItemStart());
@@ -160,5 +160,5 @@ export const updateItemAsync = createAsyncThunk(
     } catch (error: any) {
       dispatch(updateItemFailure(error.message));
     }
-  },
+  }
 );

@@ -9,6 +9,7 @@ import { Link } from "react-router-dom";
 
 import { useSelector } from "react-redux";
 import Selectaddress from "components/select-address";
+import ShippingRates from "components/select-shipping";
 
 const Checkout = () => {
   document.title = "Shopcek | Checkout";
@@ -92,13 +93,13 @@ const Checkout = () => {
                 </Card.Body>
               </Card>
               <Selectaddress></Selectaddress>
+              <ShippingRates></ShippingRates>
             </Col>
             <Col lg={4}>
               <div className="sticky-side-div">
                 <Shoporder
                   subtotal="510.50"
                   dic="18.00"
-                  charge="2.4"
                   tax="1.6"
                   total="630.25"
                 />

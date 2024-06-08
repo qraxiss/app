@@ -49,3 +49,9 @@ export const GET_CART = gql`
     }
   }
 `;
+
+export const SHIPPING_RATES = gql`
+  query {
+    shippingRates
+  }
+`;

@@ -31,3 +31,5 @@ export {
   deleteAddressAsync,
   createAddressAsync,
 } from "slices/address/thunk";
+
+export { fetchShippingAsync } from "slices/shipping/thunk";
