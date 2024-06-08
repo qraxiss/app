@@ -97,7 +97,7 @@ const cartSlice = createSlice({
     emptyFailure(state, action) {
       state.loading = false;
       state.error = action.payload;
-    }
+    },
   },
 });
 

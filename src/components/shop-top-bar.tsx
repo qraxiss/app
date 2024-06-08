@@ -44,7 +44,7 @@ export const Shoptopbar = ({ title, page }: any) => {
 export const Shoporder = ({ dic, subtotal, tax, total }: any) => {
   const { count, price } = useSelector((state: any) => state.cart.data);
   const { options, selected } = useSelector(
-    (state: any) => state.shipping.data
+    (state: any) => state.shipping.data,
   );
 
   const charge = options.find((option: any) => option.id === selected);

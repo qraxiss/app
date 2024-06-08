@@ -278,3 +278,10 @@
     right: 20px !important;
   }
 }
+@media (min-width: 1500px) {
+  .ecommerce-navbar {
+    .ecommerce-navbar-container {
+      margin-left: 1.5%;
+    }
+  }
+}

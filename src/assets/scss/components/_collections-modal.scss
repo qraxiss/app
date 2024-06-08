@@ -3,10 +3,9 @@
     display: none !important; /* Hide on desktop */
   }
 }
-@media (max-width: 800px) {
-  .offcanvas-header {
-    display: none;
-  }
+
+.menu-border {
+  border-bottom: 1px solid lightgray;
 }
 .offcanvas-header {
   align-items: start;
@@ -15,9 +14,8 @@
 
   .offcanvas-title {
     width: 100%;
-    background-color: #f5f5f5;
     text-align: center;
-    padding: 16px 16px;
+    padding: 18px 20px;
     cursor: pointer;
     gap: 0.5em;
     display: flex;
@@ -25,19 +23,8 @@
     text-transform: uppercase;
     justify-content: flex-start;
 
-    &:last-child {
-      border-left: 1px solid grey;
-    }
-
-    &:hover {
-      span {
-        // transform: scale(1.1);
-      }
-    }
-
     &.active {
       background-color: #e8e8e8de;
-      // border-bottom: 2px solid #2ac1e6;
     }
   }
 
@@ -52,7 +39,6 @@
   width: 18em !important;
   z-index: 9999;
   height: 100% !important;
-  // border-right: 0px !important;
 
   .header {
     img {
@@ -64,7 +50,6 @@
 
   font-size: larger;
 
-  // padding: 2em;
   display: flex;
   flex-direction: column;
   img {
@@ -79,13 +64,13 @@
   .body {
     text-transform: uppercase;
     font-weight: 500;
-
+    margin-left: 30px;
     .item {
       cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0.75em 20px;
+      padding: 15px 25px;
       gap: 0.55em;
       img {
         width: calc(100vw * 0.04 * 0.5);
@@ -128,13 +113,9 @@ li.nav-item {
   }
   border-bottom-right-radius: 20px;
   border-top-right-radius: 20px;
-  backdrop-filter: blur(10px);
-  background-color: rgba(255, 255, 255, 0.75);
-
-  // border-radius: 0px 15px 0px 15px;
   width: 18em !important;
   position: fixed;
-  left: 18em !important;
+  left: 17.8em !important;
   border-left: 0px !important;
 
   font-size: larger;
@@ -176,11 +157,6 @@ li.nav-item {
       }
     }
   }
-  .ogs {
-  }
-
-  .exchanges {
-  }
 }
 @media (max-width: 500px) {
   .collections-modal {
@@ -188,8 +164,10 @@ li.nav-item {
     padding: 0 5px !important;
 
     .body {
+      margin-left: 0px;
       .item {
         padding: 0.75em 0px !important;
+        margin-left: 0px;
       }
       .item img {
         width: 6vw;

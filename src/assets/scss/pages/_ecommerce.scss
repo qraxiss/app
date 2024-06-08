@@ -622,4 +622,13 @@
   }
 }
 
-// Delivery page
+@media (min-width: 1500px) {
+  .productSwiper .swiper-slide {
+    height: 100px !important;
+  }
+}
+@media (min-width: 1800px) {
+  .productSwiper .swiper-slide {
+    width: 96px !important;
+  }
+}

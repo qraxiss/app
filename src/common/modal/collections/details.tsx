@@ -32,10 +32,9 @@ export const DetailsModal: React.FC<DetailsModalProps> = ({
           <Offcanvas.Title id="ecommerceCartLabel" as="h5">
             {header}
           </Offcanvas.Title>
-          <hr />
         </Offcanvas.Header>
 
-        <Offcanvas.Body className="px-0">
+        <Offcanvas.Body className="p-0">
           <SimpleBar className="body h-100">{content}</SimpleBar>
         </Offcanvas.Body>
       </Offcanvas>

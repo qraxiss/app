@@ -43,7 +43,7 @@ export const TopPicks = () => {
                     spaceBetween: 20,
                   },
                   400: {
-                    slidesPerView: 3,
+                    slidesPerView: 1,
                     spaceBetween: 20,
                   },
                   640: {

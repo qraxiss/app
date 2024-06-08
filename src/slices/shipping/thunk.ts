@@ -25,5 +25,5 @@ export const fetchShippingAsync = createAsyncThunk(
     } catch (error: any) {
       dispatch(fetchShippingFailure(error.message));
     }
-  }
+  },
 );

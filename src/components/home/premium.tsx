@@ -28,7 +28,7 @@ export const Premium: FC = () => {
                   <img
                     src={`${process.env.REACT_APP_API_URL}${categories[0]?.cover?.url}`}
                     alt=""
-                    className="img-fluid h-100 object-fit-cover"
+                    className="img-fluid h-100 object-fit-cover custom-image"
                   />
                   <div className="widgets-wrapper position-absolute text-center">
                     <Link
@@ -50,7 +50,7 @@ export const Premium: FC = () => {
                         <img
                           src={`${process.env.REACT_APP_API_URL}${category.cover?.url}`}
                           alt=""
-                          className="img-fluid"
+                          className="img-fluid custom-image"
                         />
                         <div className="widgets-wrapper position-absolute text-center">
                           <Link

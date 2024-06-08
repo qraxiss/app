@@ -1,12 +1,10 @@
-//
 // Font.scss
-//
 
 // Google font - Lobster Two
 @import url("https://fonts.googleapis.com/css2?family=Lobster+Two:wght@400;700&display=swap");
 
-// Google font - Montserrat Alternates Regular
-@import url("https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@400&display=swap");
+// Google font - Montserrat Alternates Regular and Bold
+@import url("https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@400;700&display=swap");
 
 // Font - Switzer
 @font-face {
@@ -64,7 +62,30 @@
   font-style: normal;
 }
 
-// Example usage of Montserrat Alternates Regular
+// Example usage of Montserrat Alternates Regular and Bold
 body {
   font-family: "Montserrat Alternates", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Montserrat Alternates", sans-serif;
+  font-weight: 700; // Use 400 for regular weight headings
+}
+
+// Example usage
+h1 {
+  font-weight: 700; // Bold
+}
+
+h2 {
+  font-weight: 700; // Bold
+}
+
+p {
+  font-weight: 400; // Regular
 }
