@@ -21,7 +21,11 @@ import avatar8 from "assets/images/users/avatar-8.jpg";
 export const RatingsReviews = () => {
   return (
     <React.Fragment>
-      <Container fluid className="container-custom">
+      <Container
+        fluid
+        className="container-custom"
+        style={{ marginTop: "-30px" }}
+      >
         <Row>
           <Col lg={12}>
             <Tab.Container

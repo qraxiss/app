@@ -19,7 +19,7 @@
     align-items: center;
     min-width: 90%;
     max-width: 95%;
-    margin-left: 3.5%;
+    margin-left: 4.5%;
   }
 
   .navbar-nav {
@@ -117,6 +117,9 @@
   right: 100%;
 }
 
+count-bg {
+  background-color: #f556b8;
+}
 @media (min-width: 992px) {
   .dropdown-hover {
     &:hover {
@@ -281,7 +284,7 @@
 @media (min-width: 1500px) {
   .ecommerce-navbar {
     .ecommerce-navbar-container {
-      margin-left: 1.5%;
+      margin-left: 2%;
     }
   }
 }

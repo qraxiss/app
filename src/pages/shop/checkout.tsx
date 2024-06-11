@@ -47,8 +47,9 @@ const Checkout = () => {
                     <Table className="align-middle table-borderless table-nowrap text-center mb-0">
                       <thead>
                         <tr>
-                          <th scope="col">Product</th>
-                          {/* <th scope="col">Rate</th> */}
+                          <th scope="col" className="product">
+                            Product
+                          </th>
                           <th scope="col">Order ID</th>
                           <th scope="col">Price</th>
                         </tr>
@@ -71,7 +72,9 @@ const Checkout = () => {
                                     </div>
                                   </div>
                                   <div className="flex-grow-1">
-                                    <h6>{item?.variant?.product?.name}</h6>
+                                    <h6 className="product-name">
+                                      {item?.variant?.product?.name}
+                                    </h6>
                                     <p className="text-muted mb-0">
                                       {/*description*/}
                                       {item?.variant?.product?.description}
@@ -92,7 +95,9 @@ const Checkout = () => {
                   </div>
                 </Card.Body>
               </Card>
-              <Selectaddress></Selectaddress>
+              <div style={{ marginBottom: "50px" }}>
+                <Selectaddress></Selectaddress>
+              </div>
               <ShippingRates></ShippingRates>
             </Col>
             <Col lg={4}>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, FC } from "react";
 import { Container, Row, Col, Image, Form, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import discordIcon from "assets/images/socials/dc.png";
@@ -32,15 +32,41 @@ const socials = [
   },
 ];
 
-const Footer = () => {
+type FooterProps = {
+  handleMood: any;
+};
+
+const Footer: FC<FooterProps> = ({ handleMood }) => {
+  const [isSwitchOn, setIsSwitchOn] = useState(false);
+  const handleSwitch = () => {
+    setIsSwitchOn((prevState) => !prevState);
+    if (!isSwitchOn) {
+      handleMood("dark");
+    } else {
+      handleMood("light");
+    }
+  };
+  const ThemeSwitch = () => (
+    <div className="d-flex align-items-center cursor-pointer">
+      <i className="bi bi-sun text-muted fs-16 align-middle me-1"></i>{" "}
+      <Form.Label className="mb-0 px-2 text-muted">Dark</Form.Label>
+      <Form.Check
+        type="switch"
+        id="custom-switch"
+        className="cursor-pointer"
+        checked={isSwitchOn}
+        onChange={handleSwitch}
+      />
+    </div>
+  );
   const categories = useSelector((state: any) => state.categories.data);
 
   return (
     <React.Fragment>
       <section className="section footer-landing pb-0">
-        <div className="container-fluid container-custom">
+        <Container fluid className="container-custom">
           <Row>
-            <Col lg={4}>
+            <Col lg={3} className="image-section">
               <div className="footer-info">
                 <div>
                   <Image
@@ -77,7 +103,7 @@ const Footer = () => {
               </div>
             </Col>
 
-            <Col lg={8}>
+            <Col lg={9} className="category-section">
               <Row className="pl-0 pl-lg-3">
                 <Col md={3} xs={6}>
                   <div className="mt-lg-0 mt-4">
@@ -108,6 +134,9 @@ const Footer = () => {
                           </Link>
                         </li>
                       ))}
+                      <li>
+                        <ThemeSwitch />
+                      </li>
                     </ul>
                   </div>
                 </Col>
@@ -176,7 +205,7 @@ const Footer = () => {
             </Col>
           </Row>
 
-          <Row className="footer-border-alt mt-4 align-items-center fs-15">
+          <Row className="footer-border-alt mt-4 align-items-center fs-15 image-section">
             <Col sm={6}>
               {new Date().getFullYear()} © SHOPCEK-All Rights Reserved
             </Col>
@@ -186,7 +215,7 @@ const Footer = () => {
               </div>
             </Col>
           </Row>
-        </div>
+        </Container>
       </section>
     </React.Fragment>
   );
