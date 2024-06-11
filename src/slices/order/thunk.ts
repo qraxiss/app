@@ -49,13 +49,14 @@ export const purchaseItemAsync = createAsyncThunk(
       const { BNBUSDT } = state.cryptoMarket.data;
       const { price } = state.cart.data;
       const transaction = await payment(1 / BNBUSDT); // for test shoppings.
-      const selected = selectors.selected(store.getState());
+      const shipping = selectors.selected(store.getState());
+
       const { data, error } = await shopcekMutation<any>({
         mutation: NEW_ORDER,
         options: {
           variables: {
             transaction,
-            selected,
+            shipping,
           },
         } as any,
       });
