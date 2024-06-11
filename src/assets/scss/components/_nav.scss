@@ -40,7 +40,6 @@
   .nav-link.active,
   .show > .nav-link {
     box-shadow: $element-shadow;
-    background-color: #f556b7 !important;
   }
 }
 
@@ -332,7 +331,6 @@
     .nav-link {
       &.active {
         color: $white !important;
-        background-color: $value !important;
       }
     }
 
@@ -354,16 +352,6 @@
 
           &::after {
             background-color: $value;
-          }
-        }
-      }
-    }
-
-    &.arrow-navtabs {
-      .nav-link {
-        &.active {
-          &::before {
-            border-top-color: $value;
           }
         }
       }
@@ -559,7 +547,7 @@
       &::before,
       &::after {
         display: block;
-        content: " ";
+        content: "";
         position: absolute;
         top: -1px;
         bottom: -1px;

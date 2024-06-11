@@ -1,10 +1,38 @@
-import React from "react";
-import { Card, Col, Image, Row } from "react-bootstrap";
-import { useSelector } from "react-redux";
+import React, { useEffect, useRef, useState } from "react";
+import { Card, Col, Image, Row, Button } from "react-bootstrap";
+import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import { addToWishlistAsync, removeFromWishlistAsync } from "slices/thunk";
+import { AppDispatch } from "store";
+import { Option } from "types/product";
 
 export const NewArrival = () => {
   const newArrivals = useSelector((state: any) => state.newArrivals.data);
+  const logged = useSelector((state: any) => state.user.data.logged);
+  const wishlist = useSelector((state: any) => state.wishlist) as any;
+  const dispatch: AppDispatch = useDispatch();
+
+  const handleWishlistToggle = async (product: any, event: any) => {
+    if (!logged) {
+      return;
+    }
+
+    const isInWishlist = !!wishlist?.data?.items.find(
+      (item: any) => item.slug === product.slug,
+    );
+
+    if (isInWishlist) {
+      await dispatch(removeFromWishlistAsync(product));
+      if (!wishlist.error) {
+        event.classList.remove("active");
+      }
+    } else {
+      await dispatch(addToWishlistAsync(product));
+      if (!wishlist.error) {
+        event.classList.add("active");
+      }
+    }
+  };
 
   return (
     <React.Fragment>
@@ -27,8 +55,8 @@ export const NewArrival = () => {
             id="productList"
           >
             {(newArrivals.products || [])?.map((item: any, idx: any) => (
-              <Col className=" item" key={idx}>
-                <Card className=" product-widget border-0 card-animate">
+              <Col className="item" key={idx}>
+                <Card className="product-widget border-0 card-animate">
                   <Card.Body className="p-2">
                     <div className="position-relative p-4">
                       <Link to={`/product-details/${item?.slug}`}>
@@ -46,13 +74,22 @@ export const NewArrival = () => {
 
                       <ul className="product-menu list-unstyled">
                         <li className="mb-2">
-                          <Link
-                            to="/#"
-                            className="rounded-circle bookmark"
+                          <Button
+                            className="btn btn-soft-danger custom-toggle btn-hover"
                             data-bs-toggle="button"
+                            aria-pressed="false"
+                            onClick={(e) => {
+                              e.preventDefault();
+                              handleWishlistToggle(item, e.currentTarget);
+                            }}
                           >
-                            <i className="bi bi-star"></i>
-                          </Link>
+                            <span className="icon-on">
+                              <i className="ri-heart-line" />
+                            </span>
+                            <span className="icon-off">
+                              <i className="ri-heart-fill" />
+                            </span>
+                          </Button>
                         </li>
                         <li>
                           <Link

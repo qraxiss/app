@@ -27,11 +27,7 @@ export const ConnectWallet: FC<ConnectWalletProps> = ({ buttonText }) => {
   return (
     <>
       {buttonText ? (
-        <Button
-          type="button"
-          className="btn btn-primary"
-          onClick={handleConnect}
-        >
+        <Button type="button" className="btn" onClick={handleConnect}>
           {buttonText}
         </Button>
       ) : (
@@ -40,7 +36,7 @@ export const ConnectWallet: FC<ConnectWalletProps> = ({ buttonText }) => {
           className="btn btn-icon btn-topbar coin btn-ghost-dark rounded-circle text-muted"
           onClick={handleConnect}
         >
-          <i className="bi bi-person fs-24 m-0"></i>
+          <i className="fas fa-regular fa-user fs-20 m-0"></i>
         </Button>
       )}
     </>

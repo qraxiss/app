@@ -16,7 +16,7 @@ export const CollectionsSideBar: FC<CollectionsSideBarProps> = ({
   return (
     <div
       onMouseEnter={openSideBar}
-      className={`collections-sidebar ${isSideBar ? "border" : ""}`}
+      className={`collections-sidebar cursor-pointer ${isSideBar ? "border" : ""}`}
     >
       <div className="header">
         <img src={logo} alt="" />

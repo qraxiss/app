@@ -615,6 +615,15 @@
   .productSwiper {
     max-height: 380px !important;
   }
+  .product-name {
+    width: 120px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .product {
+    text-align: start;
+  }
 }
 @media (max-width: 400px) {
   .productSwiper {

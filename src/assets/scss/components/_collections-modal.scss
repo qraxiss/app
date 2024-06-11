@@ -34,9 +34,11 @@
     }
   }
 }
-
+.count-bg {
+  background-color: #f556b8;
+}
 .collections-modal {
-  width: 18em !important;
+  width: 19em !important;
   z-index: 9999;
   height: 100% !important;
 
@@ -70,8 +72,10 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 15px 25px;
+      padding: 18px 15px;
       gap: 0.55em;
+      margin-top: 23px;
+      margin-left: 25px;
       img {
         width: calc(100vw * 0.04 * 0.5);
         margin-right: 10px;
@@ -115,7 +119,7 @@ li.nav-item {
   border-top-right-radius: 20px;
   width: 18em !important;
   position: fixed;
-  left: 17.8em !important;
+  left: 18.8em !important;
   border-left: 0px !important;
 
   font-size: larger;

@@ -232,21 +232,29 @@ export const CollectionModal: FC<CollectionModalProps> = ({
                       {categories?.map((item: any, index: number) => (
                         <div className="item" key={`category-${index + 1}`}>
                           <Link
-                            className="nav-link"
+                            className="nav-link d-flex align-items-center"
                             to={`/products/${item.slug}`}
                             data-key="t-slug"
                           >
-                            {item.name}
+                            <img
+                              src={`${process.env.REACT_APP_API_URL}${item?.icon?.url}`}
+                              alt={item.name}
+                              width={18}
+                              height={20}
+                              className="m-0"
+                            />{" "}
+                            <span className="px-2">{item.name}</span>
                           </Link>
                         </div>
                       ))}
-                      <div className="item">
+                      <div className="item d-flex">
                         <Link
-                          className="nav-link"
+                          className="nav-link d-flex align-items-center"
                           to={`/earn`}
                           data-key="t-slug"
                         >
-                          EARN
+                          <i className="fas fa-regular fa-sack-dollar m-0 text-muted"></i>
+                          <p className="px-2 py-0 m-0">EARN</p>
                         </Link>
                       </div>
                     </div>
@@ -259,7 +267,7 @@ export const CollectionModal: FC<CollectionModalProps> = ({
           // Desktop View Content (Original Code)
           <>
             <Offcanvas.Body className="p-0">
-              <h5 className="my-2 mt-4" style={{ marginLeft: "55px" }}>
+              <h5 className="my-2 mt-4" style={{ marginLeft: "70px" }}>
                 Collections
               </h5>
               <div className="body">

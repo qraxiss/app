@@ -114,7 +114,7 @@ const Layout = (props: any) => {
       <div>
         <Header handleMood={handleThemeMood} openSideBar={openSideBar} />
         {props.children}
-        <Footer />
+        <Footer handleMood={handleThemeMood} />
       </div>
       <Button
         onClick={() => ScrollbarTop()}
@@ -134,7 +134,7 @@ const Layout = (props: any) => {
           }}
         />
       )}
-      <MobileFooter openSideBar={openSideBar} />
+      <MobileFooter handleMood={handleThemeMood} openSideBar={openSideBar} />
     </React.Fragment>
   );
 };
