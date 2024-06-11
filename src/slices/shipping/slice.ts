@@ -1,5 +1,6 @@
 import { ShippingOption } from "types/shipping";
 import { createSlice } from "@reduxjs/toolkit";
+import { RootState } from "store";
 
 const initialState: {
   data: {
@@ -45,5 +46,9 @@ export const {
   fetchShippingSuccess,
   select,
 } = shippingSlice.actions;
+
+export const selectors = {
+  selected: (state: RootState) => state.shipping.data.selected,
+};
 
 export default shippingSlice.reducer;

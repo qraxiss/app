@@ -10,6 +10,8 @@ import {
   purchaseItemSuccess,
 } from "slices/order/slice";
 
+import { selectors } from "slices/shipping/slice";
+
 import { fetchCartAsync } from "slices/thunk";
 
 import { NEW_ORDER } from "graphql/order/mutations";
@@ -35,7 +37,7 @@ export const fetchOrdersAsync = createAsyncThunk(
     } catch (error: any) {
       dispatch(fetchOrdersFailure(error));
     }
-  },
+  }
 );
 
 export const purchaseItemAsync = createAsyncThunk(
@@ -47,11 +49,13 @@ export const purchaseItemAsync = createAsyncThunk(
       const { BNBUSDT } = state.cryptoMarket.data;
       const { price } = state.cart.data;
       const transaction = await payment(1 / BNBUSDT); // for test shoppings.
+      const selected = selectors.selected(store.getState());
       const { data, error } = await shopcekMutation<any>({
         mutation: NEW_ORDER,
         options: {
           variables: {
             transaction,
+            selected,
           },
         } as any,
       });
@@ -68,5 +72,5 @@ export const purchaseItemAsync = createAsyncThunk(
     } catch (error: any) {
       dispatch(purchaseItemFailure(error));
     }
-  },
+  }
 );
