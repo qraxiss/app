@@ -4,21 +4,17 @@ import {
   StayHereToEarn,
   TaskRewards,
 } from "components/earn";
+import { Container, Row, Col } from "react-bootstrap";
 
 export const Earn = () => {
   return (
     <section className="section pt-20">
-      <div className="container earn-page">
-        <LoginToEarn />
-        <hr />
-        <StayHereToEarn />
-        <hr />
+      <Container fluid className="container-custom section-background ">
         <NameService />
-        <hr />
+        <LoginToEarn />
+        <StayHereToEarn />
         <TaskRewards />
-        {/* <hr />
-            <SpinToEarn /> */}
-      </div>
+      </Container>
     </section>
   );
 };

@@ -417,8 +417,8 @@ const ProductDetails = () => {
                                 role="group"
                                 aria-label={`${item.id} / 5`}
                                 style={{
-                                  width: "80%",
-                                  marginLeft: "45px",
+                                  width: "90%",
+                                  marginLeft: "15px",
                                   cursor: "pointer",
                                 }}
                                 onClick={() => setShowModal(true)}

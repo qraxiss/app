@@ -42,7 +42,7 @@ const Header = (props: any) => {
       <Form.Check
         type="switch"
         id="custom-switch"
-        className="cursor-pointer"
+        className="custom-switch-pointer"
         checked={isSwitchOn}
         onChange={handleSwitch}
       />
@@ -111,7 +111,7 @@ const Header = (props: any) => {
                   data-bs-target="#searchModal"
                   onClick={handleShow}
                 >
-                  <i className="fas fa-regular fa-magnifying-glass fs-20"></i>
+                  <i className="fas fa-regular fa-magnifying-glass custom-icon"></i>
                 </Button>
                 <SearchModal show={show} handleClose={handleClose} />
               </div>
@@ -273,12 +273,6 @@ const Header = (props: any) => {
                       >
                         <i className="bi bi-coin text-muted fs-16 align-middle me-1"></i>{" "}
                         <span className="align-middle">XP Points</span>
-                      </Dropdown.Item>
-                      <Dropdown.Item
-                        onClick={() => navigate("/account/settings")}
-                      >
-                        <i className="bi bi-gear text-muted fs-16 align-middle me-1"></i>
-                        <span className="align-middle">Settings</span>
                       </Dropdown.Item>
                       <Dropdown.Item>
                         <ThemeSwitch />

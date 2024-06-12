@@ -37,7 +37,7 @@ export const fetchOrdersAsync = createAsyncThunk(
     } catch (error: any) {
       dispatch(fetchOrdersFailure(error));
     }
-  }
+  },
 );
 
 export const purchaseItemAsync = createAsyncThunk(
@@ -73,5 +73,5 @@ export const purchaseItemAsync = createAsyncThunk(
     } catch (error: any) {
       dispatch(purchaseItemFailure(error));
     }
-  }
+  },
 );
