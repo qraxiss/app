@@ -197,7 +197,7 @@ const Header = (props: any) => {
                       data-key="t-slug"
                     >
                       <img
-                        src={`${process.env.REACT_APP_API_URL}${item.icon.url}`}
+                        src={`${process.env.REACT_APP_API_URL}${item?.icon?.url}`}
                         alt={item.name}
                         width={18}
                         height={18}
