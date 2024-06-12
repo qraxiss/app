@@ -61,6 +61,17 @@ const ProductDetails = () => {
     }
   };
 
+  const uniqueColors: string[] = [];
+  const uniqueColorVariants = data?.variants.filter(({ variant }: any) => {
+    console.log(variant);
+    const isDuplicate = uniqueColors.includes(variant.color.hex);
+    if (isDuplicate) {
+      return false;
+    }
+    uniqueColors.push(variant.color.hex);
+    return true;
+  });
+
   // add to cart
   const [count, setCount] = useState(1);
   const [size, setSize] = useState<Option | null>(null);
@@ -88,7 +99,7 @@ const ProductDetails = () => {
   }
 
   const handleAddToCart = async () => {
-    const variantId = data?.variants?.find((variant: any) => {
+    const variantId = uniqueColorVariants?.find((variant: any) => {
       return (
         variant.variant.size.value === size!.value &&
         variant.variant.color.value === color!.value
@@ -135,7 +146,7 @@ const ProductDetails = () => {
 
   const handleSizeChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const selectedSize = data.product.sizes.find(
-      (size: Option) => size.value === event.target.value,
+      (size: Option) => size.value === event.target.value
     );
     setSize(selectedSize || null);
   };
@@ -161,8 +172,9 @@ const ProductDetails = () => {
         <div>
           <Image
             src={
-              data?.variants[swiperRef?.current?.swiper?.activeIndex || 0]
-                ?.variant?.image
+              (uniqueColorVariants || [])[
+                swiperRef?.current?.swiper?.activeIndex || 0
+              ]?.variant?.image
             }
             alt=""
             fluid
@@ -182,7 +194,7 @@ const ProductDetails = () => {
                   onClick={() =>
                     navigate(
                       `/products/${data?.product?.categories[0]?.slug}`,
-                      { replace: true },
+                      { replace: true }
                     )
                   }
                 >
@@ -212,7 +224,7 @@ const ProductDetails = () => {
                         modules={[FreeMode, Navigation, Thumbs]}
                         className="swiper productSwiper2 swiper-backface-hidden"
                       >
-                        {(data?.variants || [])?.map((item: any) => {
+                        {(uniqueColorVariants || [])?.map((item: any) => {
                           return (
                             <SwiperSlide key={item.id}>
                               <div
@@ -271,7 +283,7 @@ const ProductDetails = () => {
                             justifyContent: "center", // Center the images
                           }}
                         >
-                          {(data?.variants || [])?.map(
+                          {(uniqueColorVariants || [])?.map(
                             (item: any, idx: number) => {
                               return (
                                 <SwiperSlide
@@ -294,7 +306,7 @@ const ProductDetails = () => {
                                   </div>
                                 </SwiperSlide>
                               );
-                            },
+                            }
                           )}
                         </div>
                       </Swiper>
@@ -346,7 +358,7 @@ const ProductDetails = () => {
                           transitionDuration: "0ms",
                         }}
                       >
-                        {(data?.variants || [])?.map(
+                        {(uniqueColorVariants || [])?.map(
                           (item: any, idx: number) => {
                             return (
                               <div
@@ -369,7 +381,7 @@ const ProductDetails = () => {
                                 </div>
                               </div>
                             );
-                          },
+                          }
                         )}
                       </div>
                       <span
@@ -408,7 +420,7 @@ const ProductDetails = () => {
                         modules={[FreeMode, Navigation, Thumbs]}
                         className="swiper productSwiper2 swiper-backface-hidden"
                       >
-                        {(data?.variants || [])?.map((item: any) => {
+                        {(uniqueColorVariants || [])?.map((item: any) => {
                           return (
                             <SwiperSlide key={item.id}>
                               <div
@@ -468,7 +480,7 @@ const ProductDetails = () => {
                                 <option key={index} value={size.value}>
                                   {size.value}
                                 </option>
-                              ),
+                              )
                             )}
                           </Form.Select>
                         )}
@@ -506,7 +518,7 @@ const ProductDetails = () => {
                                     htmlFor={`product-color-${index}`}
                                   />
                                 </li>
-                              ),
+                              )
                             )}
                           </ul>
                         </div>
