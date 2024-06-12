@@ -99,7 +99,7 @@ const ProductDetails = () => {
   }
 
   const handleAddToCart = async () => {
-    const variantId = uniqueColorVariants?.find((variant: any) => {
+    const variantId = data?.variants?.find((variant: any) => {
       return (
         variant.variant.size.value === size!.value &&
         variant.variant.color.value === color!.value
