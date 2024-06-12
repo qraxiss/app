@@ -93,7 +93,7 @@ export const NewArrival = () => {
                         </li>
                         <li>
                           <Link
-                            to="/product-overview"
+                            to={`/product-details/${item?.slug}`}
                             className="rounded-circle"
                           >
                             <i className="bi bi-eye"></i>

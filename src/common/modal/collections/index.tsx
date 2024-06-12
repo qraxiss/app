@@ -253,7 +253,7 @@ export const CollectionModal: FC<CollectionModalProps> = ({
                           to={`/earn`}
                           data-key="t-slug"
                         >
-                          <i className="fas fa-regular fa-sack-dollar m-0 text-muted"></i>
+                          <i className="fas fa-regular fa-sack-dollar fs-20 m-0 text-muted"></i>
                           <p className="px-2 py-0 m-0">EARN</p>
                         </Link>
                       </div>

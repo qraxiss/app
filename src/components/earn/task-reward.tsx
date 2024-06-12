@@ -1,65 +1,64 @@
-import { Row, Col, Button } from "react-bootstrap";
+import { Row, Col } from "react-bootstrap";
 
 const data = [
   {
-    title: "Refer a friend",
+    title: "Refer a friend /// 100 xp",
     description: "Invite your frinends to join Shopcek.",
-    action: "Invite Now",
+    action: "Invite",
   },
   {
-    title: "Follow Twitter",
-    description: "Follow Shopcek X account.",
-    action: "Follow Now",
+    title: "Refer a friend /// 100 xp",
+    description: "Invite your frinends to join Shopcek.",
+    action: "Invite",
   },
   {
-    title: "Join Telegram",
-    description: "Join Shopcek Official Telegram",
-    action: "Join Now",
+    title: "Refer a friend /// 100 xp",
+    description: "Invite your frinends to join Shopcek.",
+    action: "Invite",
   },
   {
-    title: "Join Discord",
-    description: "Join Shopcek Official Discord",
-    action: "Join Now",
+    title: "Refer a friend /// 100 xp",
+    description: "Invite your frinends to join Shopcek.",
+    action: "Invite",
   },
   {
-    title: "Shop Volume",
-    description: "You can earn XP from your max 5 orders per day.",
-    action: "Shop Now",
+    title: "Refer a friend /// 100 xp",
+    description: "Invite your frinends to join Shopcek.",
+    action: "Invite",
   },
   {
-    title: "App Download",
-    description: "Download our app PlayStore or AppStore",
-    action: "Download",
+    title: "Refer a friend /// 100 xp",
+    description: "Invite your frinends to join Shopcek.",
+    action: "Invite",
   },
   {
-    title: "Fill out The Form",
-    description: "Fill out the form completly",
-    action: "Fill it Now",
+    title: "Refer a friend /// 100 xp",
+    description: "Invite your frinends to join Shopcek.",
+    action: "Invite",
   },
   {
-    title: "Share Your Product",
-    description: "Send us the picture of the product you purchased!",
-    action: "Share Now",
+    title: "Refer a friend /// 100 xp",
+    description: "Invite your frinends to join Shopcek.",
+    action: "Invite",
   },
 ];
 
-export function Task({
-  title,
-  description,
-  action,
-}: {
+interface TaskProps {
   title: string;
   description: string;
   action: string;
-}) {
-  return (
-    <div className="task" key={title}>
-      <div className="text">
-        <h5>{title}</h5>
-        <p>{description}</p>
-      </div>
+}
 
-      <Button className="btn btn btn-primary">{action}</Button>
+export function Task({ title, description, action }: TaskProps) {
+  return (
+    <div className="">
+      <div className="task">
+        <div className="text">
+          <h5 className="my-2">{title}</h5>
+          <p>{description}</p>
+        </div>
+        <button className="invite-button">{action}</button>
+      </div>
     </div>
   );
 }
@@ -67,16 +66,16 @@ export function Task({
 export const TaskRewards = () => {
   return (
     <section className="section pb-0 task-rewards">
-      <div className="top-container">
-        <h1>TASK REWARDS</h1>
+      <div className="top-container mx-2">
+        <h1 className="quests-heading">Quests</h1>
         <Row>
-          <Col>
+          <Col lg={6} xs={12}>
             {data.slice(0, 4).map((item) => {
               return <Row>{Task(item)}</Row>;
             })}
           </Col>
 
-          <Col>
+          <Col lg={6} xs={12}>
             {data.slice(4, 8).map((item) => {
               return <Row>{Task(item)}</Row>;
             })}

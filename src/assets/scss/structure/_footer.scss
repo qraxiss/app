@@ -147,6 +147,29 @@
   font-size: 26px;
 }
 
+.icon-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 12px;
+  margin: 0 5px;
+}
+
+.selected-icon {
+  background-color: lightgrey;
+  border-radius: 15px;
+}
+.menu-icon {
+  padding-left: 12px !important;
+}
+.menu {
+  padding-left: 0px;
+}
+
+.custom-switch-pointer input {
+  cursor: pointer;
+}
+
 //footer dark
 [data-footer="dark"] {
   .footer-landing {
@@ -212,6 +235,8 @@
   @media (max-width: 800px) {
     .footer-landing {
       margin-left: 0px;
+      border-top-left-radius: 35px;
+      border-top-right-radius: 35px;
       .logo-light {
         margin-top: 0px;
       }

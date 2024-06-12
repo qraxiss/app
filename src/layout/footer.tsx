@@ -53,7 +53,7 @@ const Footer: FC<FooterProps> = ({ handleMood }) => {
       <Form.Check
         type="switch"
         id="custom-switch"
-        className="cursor-pointer"
+        className="custom-switch-pointer"
         checked={isSwitchOn}
         onChange={handleSwitch}
       />

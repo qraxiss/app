@@ -1,296 +1,85 @@
 import { Form, Button, Image } from "react-bootstrap";
-// import { ConnectButton } from '@rainbow-me/rainbowkit'
-import { Dispatch, SetStateAction, useEffect, useState } from "react";
-
-import length3 from "assets/images/earn/domain/3.png";
-import length4 from "assets/images/earn/domain/4.png";
-import length5 from "assets/images/earn/domain/5.png";
-import length6 from "assets/images/earn/domain/6.png";
-import length7 from "assets/images/earn/domain/7.png";
-import length8 from "assets/images/earn/domain/8.png";
-import length9 from "assets/images/earn/domain/9.png";
-import bitcoin from "assets/images/earn/domain/bitcoin.png";
-
-// import { BinanceProvider, useBinance } from 'context/binance'
-// import { buyWithWallet } from 'lib/rainbow'
-
-// import { useEarn, EarnProvider } from 'context/earn'
-
-import { useNavigate } from "react-router-dom";
-import { ConnectWallet } from "components/connect-wallet";
-// import { useRefetch } from 'context/refetch'
-
-const images = {
-  1: length3,
-  2: length3,
-  3: length3,
-  4: length4,
-  5: length5,
-  6: length6,
-  7: length7,
-  8: length8,
-  9: length9,
-  10: length9,
-  11: length9,
-  12: length9,
-  13: length9,
-  14: length9,
-  15: length9,
-};
-
-export const prices = [
-  { min: 3, max: 4, price: 69.99, xp: 6000 },
-  { min: 5, max: 7, price: 39.99, xp: 4500 },
-  { min: 8, max: 15, price: 6.99, xp: 3000 },
-];
-
-export function DomainModal({
-  domain,
-  setClose,
-}: {
-  domain: string;
-  setClose: Dispatch<SetStateAction<boolean>>;
-}) {
-  const navigate = useNavigate();
-  // const { buyDomainGQL, checkDomainGQL } = useEarn()
-  const [checkDomain, setCheckDomain] = useState(false);
-  const [bnbPrice, setBnbPrice] = useState(0);
-  const [price, setPrice] = useState({ min: 0, max: 0, price: 0, xp: 0 });
-  // const { bnb } = useBinance()
-  // const { domains, xp } = useRefetch()
-
-  const [process, setProcess] = useState(false);
-
-  // useEffect(() => {
-  //     setPrice(
-  //         prices.find((price) => {
-  //             return price.min <= domain.length && price.max >= domain.length
-  //         }) || { min: 0, max: 0, price: 0, xp: 0 }
-  //     )
-
-  //     setBnbPrice(price.price / bnb)
-
-  //     checkDomainGQL.fn({
-  //         variables: {
-  //             username: domain
-  //         }
-  //     })
-  // }, [domain, bnb])
-
-  // useEffect(() => {
-  //     if (checkDomainGQL.status) {
-  //         switch (checkDomainGQL.status) {
-  //             case 'success': {
-  //                 setCheckDomain(checkDomainGQL.data)
-  //             }
-  //         }
-  //     }
-  // }, [checkDomainGQL.status])
-
-  const [buyButton, setBuyButton] = useState<any>();
-  // useEffect(() => {
-  //     if (bnbPrice == 0) {
-  //         setBuyButton(
-  //             <Button className="btn btn-primary" disabled>
-  //                 <div className="text">Price Calculating</div>
-  //             </Button>
-  //         )
-  //     } else if (process) {
-  //         setBuyButton(
-  //             <Button className="btn btn-primary" disabled>
-  //                 <div className="text">Payment process in progress</div>
-  //             </Button>
-  //         )
-  //     } else {
-  //         setBuyButton(
-  //             <Button
-  //                 className="btn btn-primary"
-  //                 onClick={() => {
-  //                     buyWithWallet(
-  //                         () => {
-  //                             setProcess(true)
-  //                         },
-  //                         ({ transaction }) => {
-  //                             buyDomainGQL
-  //                                 .fn({
-  //                                     variables: {
-  //                                         transaction,
-  //                                         username: domain
-  //                                     }
-  //                                 })
-  //                                 .then(() => {
-  //                                     setProcess(false)
-  //                                     domains.refetch()
-  //                                     xp.refetch()
-  //                                     navigate('/account/domains')
-  //                                 })
-  //                         },
-  //                         bnbPrice
-  //                     )
-  //                 }}
-  //             >
-  //                 <div className="text">Pay {bnbPrice.toFixed(5)} BNB</div>
-  //             </Button>
-  //         )
-  //     }
-
-  //     console.log(process, bnb, bnbPrice)
-  // }, [process, bnb, bnbPrice])
-
-  useEffect(() => {
-    if (domain.length < 3) {
-      setBuyButton(undefined);
-    }
-  }, [domain]);
-
-  return (
-    <div className="domain-modal">
-      <div className="payment">
-        <div className="prices">
-          <div className="top">
-            {/* <Image className="length" src={(images as any)[domain.length]} /> */}
-            <div className="text">
-              <div className="domain">
-                {domain}
-                <div
-                  className={`info ${checkDomain ? (domain.length < 3 ? "registered" : "available") : "registered"}`}
-                >
-                  {checkDomain
-                    ? domain.length < 3
-                      ? "Minimum lenght is 3!"
-                      : "Available"
-                    : "Registered"}
-                </div>
-              </div>
-              <div className="info">
-                {domain.length < 3
-                  ? undefined
-                  : "Username is " +
-                    (checkDomain
-                      ? "reserved. Please complete payment."
-                      : "already registered.")}
-              </div>
-            </div>
-          </div>
-
-          <div className="price">
-            <p>
-              {price!.min} - {price!.max} digits:
-            </p>
-            <p className="lined-text">00000000000</p>
-            <p>{price!.price} USD</p>
-          </div>
-        </div>
-
-        <div className="vl" />
-
-        <div className="method">
-          <p>Payment Method</p>
-          {/* <ConnectButton /> */}
-          <div className="actions">
-            <Button
-              className="btn btn-secondary"
-              onClick={() => {
-                setClose(true);
-              }}
-            >
-              <div className="text">Cancel</div>
-            </Button>
-            {buyButton}
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
+import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import border from "../../assets/images/earn/Profile.png";
 
 export const NameService = () => {
   const [close, setClose] = useState(true);
   const [domain, setDomain] = useState("");
+  const userData = useSelector((state: any) => state.user.data);
 
   return (
     <section className="section pb-0">
       <div className="name-services">
-        <div className="top-container">
-          <div className="claim">
-            <h1>USERNAME SERVICES</h1>
-            <p>Increase XP Gain multiplier</p>
-          </div>
-        </div>
-
-        <div className="input">
-          <div className="input-group">
-            <Form.Control
-              id="domain-handle-input"
-              size="lg"
-              type="text"
-              placeholder="Enter a Handle"
-              value={domain}
-              onChange={(e) => {
-                setDomain(e.target.value);
-              }}
-              onKeyDown={(e) => {
-                if (e.key === "Enter") setClose(false);
-              }}
-              maxLength={15}
-              minLength={3}
-            />
-            <span
-              className="input-group-append"
-              style={{
-                paddingRight: "6px",
-                display: "flex",
-                alignItems: "center",
-              }}
-            >
-              <i
-                className="bi bi-search search-icon"
-                style={{ fontSize: "48px" }}
-              ></i>
-            </span>
-          </div>
-          <Button
-            className="btn button-secondary fs-36"
-            style={{ background: "#FF5BC0" }}
-            onClick={() => {
-              setClose(false);
-            }}
-            // disabled={!(domain.length >= 3 && domain.length <= 15)}
-          >
-            Buy
-          </Button>
-        </div>
-
-        {!close ? (
-          <DomainModal domain={domain} setClose={setClose} />
-        ) : (
-          <div className="payment">
-            <div className="prices">
-              {prices.map((price) => {
-                return (
-                  <div className="price">
-                    <p>
-                      {price.min} - {price.max} digits:
-                    </p>
-                    <p className="lined-text">00000000000</p>
-                    <p>{price.price} USD</p>
-                  </div>
-                );
-              })}
+        <div className="name-header d-flex justify-content-between mx-3">
+          <h2 className="cursor-pointer claim-text">{`${userData?.address?.substring(
+            0,
+            6,
+          )}...${userData?.address?.substring(
+            userData?.address?.length - 6,
+          )}`}</h2>
+          <div className="d-flex justify-content-between align-items-center ">
+            <div className="d-flex align-items-center">
+              <i className="bi bi-file-earmark-text fs-24"></i>
+              <h5 className="docs ">How to earn</h5>
             </div>
+          </div>
+        </div>
 
-            <div className="vl" />
+        <div className="tier-header  image-container ">
+          <img src={border} alt="" />
 
-            <div className="method" style={{ flexGrow: 1 }}>
-              <h3>Payment Method</h3>
-              <div className="bitcoin">
-                <Image src={bitcoin} alt="bitcoin" />
-                <p>BNB ( BSC Chain)</p>
+          <div className=" tier d-flex justify-content-between">
+            <div className="d-flex flex-column align-items-start px-3">
+              <h5 className="claim-text">Tier 2</h5>
+              <ul className="text-muted px-3 text-start">
+                <li>1.3x xp multiplier</li>
+                <li>Extra 10% Discount on purchases</li>
+              </ul>
+            </div>
+            <div className="d-flex">
+              <div className=" px-3 d-flex flex-column justify-content-center">
+                <h4 className="text-light claim-text">Converted XP</h4>
+                <h4 className="claim-text">1550</h4>
               </div>
-              <ConnectWallet buttonText="Connect Wallet" />
+              <span className="line"></span>
+              <div className="px-3 d-flex flex-column justify-content-center">
+                <h4 className="text-light claim-text">XP to SHPC</h4>
+                <h4 className="claim-text">850</h4>
+              </div>
             </div>
           </div>
-        )}
+          <span className="tier-border" />
+        </div>
+        <div className="claim-section mt-3">
+          <p className="quests-heading">Claim Your Name,Start The Adventure</p>
+          <h4>INCREASE XP GAIN MULTIPLIER</h4>
+          <div className="input input-claim mt-3">
+            <div className="input-group input-group-claim">
+              <Form.Control
+                id="domain-handle-input"
+                size="lg"
+                type="text"
+                placeholder="FIND WHAT SUITS YOU"
+                value={domain}
+              />
+              <span
+                className="input-group-append"
+                style={{
+                  paddingRight: "6px",
+                  display: "flex",
+                  alignItems: "center",
+                }}
+              >
+                <i
+                  className="bi bi-search search-icon"
+                  style={{ fontSize: "32px" }}
+                ></i>
+              </span>
+            </div>
+          </div>
+          <button className="claim-button">Claim for 39.99 usd</button>
+        </div>
       </div>
     </section>
   );

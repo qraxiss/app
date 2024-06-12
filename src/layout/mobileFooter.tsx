@@ -30,21 +30,17 @@ export const MobileFooter: FC<CollectionsSideBarProps> = ({
 
   const handleSwitch = () => {
     setIsSwitchOn((prevState) => !prevState);
-    if (!isSwitchOn) {
-      handleMood("dark");
-    } else {
-      handleMood("light");
-    }
+    handleMood(isSwitchOn ? "light" : "dark");
   };
 
   const ThemeSwitch = () => (
     <div className="d-flex align-items-center cursor-pointer ">
-      <i className="bi bi-sun text-muted fs-16 align-middle me-1"></i>{" "}
+      <i className="bi bi-sun text-muted fs-16 align-middle me-1"></i>
       <Form.Label className="mb-0 px-2 text-muted">Dark</Form.Label>
       <Form.Check
         type="switch"
         id="custom-switch"
-        className="cursor-pointer"
+        className="custom-switch-pointer"
         checked={isSwitchOn}
         onChange={handleSwitch}
       />
@@ -59,16 +55,12 @@ export const MobileFooter: FC<CollectionsSideBarProps> = ({
   const selectedIcon = useSelector((state: any) => state.selectedIcon.icon);
   const isModalOpen = useSelector((state: any) => state.cart.data.isModalOpen);
 
-  const handleConnect = () => {
-    open({ view: "Connect" });
-  };
+  const handleConnect = () => open({ view: "Connect" });
 
-  const handleIconClick = (icon: string) => {
-    dispatch(setIcon(icon));
-  };
+  const handleIconClick = (icon: string) => dispatch(setIcon(icon));
 
   const handleCardShow = () => dispatch(openModal());
-  const handlecardClose = () => dispatch(closeModal());
+  const handleCardClose = () => dispatch(closeModal());
 
   return (
     <>
@@ -79,14 +71,18 @@ export const MobileFooter: FC<CollectionsSideBarProps> = ({
               openSideBar();
               handleIconClick("sidebar");
             }}
-            href=""
-            className={`d-flex flex-column align-items-center mobile-icons ${selectedIcon === "sidebar" ? "selectedIcon" : ""}`}
+            href="#"
+            className={`icon-container menu ${
+              selectedIcon === "sidebar" ? "selected-icon menu-icon " : ""
+            }`}
           >
-            <i className="fas fa-regular fa-bars m-0 custom-icon "></i>
+            <i className="fas fa-regular fa-bars m-0 custom-icon"></i>
           </Navbar.Brand>
           <Button
             type="button"
-            className={`btn btn-icon btn-topbar btn-ghost-dark ${selectedIcon === "cart" ? "selectedIcon" : ""}`}
+            className={`btn btn-icon btn-topbar btn-ghost-dark icon-container ${
+              selectedIcon === "cart" ? "selected-icon  " : ""
+            }`}
             data-bs-toggle="offcanvas"
             data-bs-target="#ecommerceCart"
             aria-controls="ecommerceCart"
@@ -98,28 +94,31 @@ export const MobileFooter: FC<CollectionsSideBarProps> = ({
             <i className="fas fa-regular fa-cart-shopping custom-icon"></i>
             {cart?.count > 0 && (
               <span className="position-absolute topbar-badge cartitem-badge fs-10 translate-middle badge rounded-pill count-bg">
-                {" "}
-                {cart?.count}{" "}
+                {cart?.count}
               </span>
             )}
           </Button>
           <Navbar.Brand
-            href=""
+            href="#"
             onClick={() => {
               handleIconClick("earn");
               navigate("/earn");
             }}
-            className={`d-flex flex-column align-items-center ${selectedIcon === "earn" ? "selectedIcon" : ""}`}
+            className={`icon-container ${
+              selectedIcon === "earn" ? "selected-icon  " : ""
+            }`}
           >
             <i className="fas fa-regular fa-sack-dollar m-0 custom-icon"></i>
           </Navbar.Brand>
           <Navbar.Brand
-            href=""
+            href="#"
             onClick={() => {
               handleIconClick("heart");
               navigate("/account", { state: "list" });
             }}
-            className={`d-flex flex-column align-items-center ${selectedIcon === "heart" ? "selectedIcon" : ""}`}
+            className={`icon-container ${
+              selectedIcon === "heart" ? "selected-icon  " : ""
+            }`}
           >
             <i className="fas fa-regular fa-heart m-0 custom-icon"></i>
           </Navbar.Brand>
@@ -166,10 +165,6 @@ export const MobileFooter: FC<CollectionsSideBarProps> = ({
                   <i className="bi bi-coin text-muted fs-16 align-middle me-1"></i>
                   <span className="align-middle">XP Points</span>
                 </Dropdown.Item>
-                <Dropdown.Item onClick={() => navigate("/account/settings")}>
-                  <i className="bi bi-gear text-muted fs-16 align-middle me-1"></i>
-                  <span className="align-middle">Settings</span>
-                </Dropdown.Item>
                 <Dropdown.Item>
                   <ThemeSwitch />
                 </Dropdown.Item>
@@ -188,14 +183,16 @@ export const MobileFooter: FC<CollectionsSideBarProps> = ({
                 handleConnect();
               }}
               href="#profile"
-              className={`d-flex flex-column align-items-center ${selectedIcon === "connect" ? "selectedIcon" : ""}`}
+              className={`icon-container ${
+                selectedIcon === "connect" ? "selected-icon" : ""
+              }`}
             >
               <i className="fas fa-regular fa-user custom-icon m-0 heading"></i>
             </Navbar.Brand>
           )}
         </Container>
       </Navbar>
-      <CardModal show={isModalOpen} handleClose={handlecardClose} />
+      <CardModal show={isModalOpen} handleClose={handleCardClose} />
     </>
   );
 };
