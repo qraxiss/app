@@ -96,8 +96,6 @@ export const ModalAdd = ({
         (state: any) => values.state_name === state.name,
       )!;
 
-      console.log(country, state);
-
       delete values.state_code, values.country_code, values.address;
 
       values = {

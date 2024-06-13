@@ -19,14 +19,19 @@ import { AppDispatch } from "store";
 import { useAccount } from "wagmi";
 import { ConnectWallet } from "components/connect-wallet";
 import { useNavigate } from "react-router-dom";
+import { useWeb3Modal } from "@web3modal/wagmi/react";
 
 const Payment = () => {
   document.title = "Shopcek | Payment";
   const { status } = useAccount();
   const { loading, data } = useSelector((state: any) => state.order.purchase);
   const navigate = useNavigate();
-
   const dispatch: AppDispatch = useDispatch();
+  const { open } = useWeb3Modal();
+
+  const handleSelectChain = () => {
+    open({ view: "Networks" });
+  };
 
   const [isNewOrder, setIsNewOrder] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
@@ -147,24 +152,33 @@ const Payment = () => {
                               <ConnectWallet />
                             </>
                           ) : (
-                            <button
-                              type="button"
-                              className="btn btn-hover w-md btn-primary"
-                              onClick={() => {
-                                setIsNewOrder(true);
-                                dispatch(purchaseItemAsync());
-                              }}
-                              disabled={loading}
-                            >
-                              {loading ? (
-                                <Spinner />
-                              ) : (
-                                <>
-                                  Pay
-                                  <i className="ri-logout-box-r-line align-bottom ms-2"></i>
-                                </>
-                              )}
-                            </button>
+                            <>
+                              <button
+                                type="button"
+                                className="btn btn-hover w-md btn-primary"
+                                onClick={handleSelectChain}
+                              >
+                                Select Network
+                              </button>
+                              <button
+                                type="button"
+                                className="btn btn-hover w-md btn-primary"
+                                onClick={() => {
+                                  setIsNewOrder(true);
+                                  dispatch(purchaseItemAsync());
+                                }}
+                                disabled={loading}
+                              >
+                                {loading ? (
+                                  <Spinner />
+                                ) : (
+                                  <>
+                                    Pay
+                                    <i className="ri-logout-box-r-line align-bottom ms-2"></i>
+                                  </>
+                                )}
+                              </button>
+                            </>
                           )}
                         </div>
                       </Card.Body>
