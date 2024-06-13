@@ -5,6 +5,7 @@ import { Button } from "react-bootstrap";
 import { FC, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { connectWallet } from "wallet/siwe";
+import UserIcon from '../assets/icons/user.svg';
 interface ConnectWalletProps {
   buttonText?: string;
 }
@@ -36,7 +37,7 @@ export const ConnectWallet: FC<ConnectWalletProps> = ({ buttonText }) => {
           className="btn btn-icon btn-topbar coin btn-ghost-dark rounded-circle text-muted"
           onClick={handleConnect}
         >
-          <i className="fas fa-regular fa-user fs-20 m-0"></i>
+          <img src={UserIcon} alt="User" />
         </Button>
       )}
     </>

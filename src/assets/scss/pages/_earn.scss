@@ -43,7 +43,7 @@
       height: 100%;
       background-color: rgba(245, 86, 183, 0.3);
       border: solid;
-      border-radius: 10px !important;
+      border-radius: 5px !important;
     }
 
     button {
@@ -165,13 +165,7 @@
   pointer-events: none; /* Ensures that the overlay does not block interactions with content */
 }
 .domain-modal {
-  // display: flex;
   justify-content: center;
-
-  // height: 10rem;
-  // border-radius: 10px;
-
-  // background-color: #ff5bc0;
 
   img.length {
     width: 11rem;
@@ -189,7 +183,6 @@
 
   .method {
     padding-left: 3rem;
-    // align-items: center;
     display: flex;
     flex-direction: column;
     width: 45%;
@@ -307,11 +300,27 @@ h5 {
   width: 100%;
   margin: 20px 0px;
   position: relative;
-  height: 30px;
+  height: 40px;
+  border: 11px solid transparent;
+  border-image: url("../../images/earn/questsborder.png") 30 stretch;
 }
 
 .reward-progress-bar .progress-bar {
   background: linear-gradient(108deg, #f556b8, #14c5f0) !important;
+  border-radius: 5px;
+}
+
+.progress-claim-button{
+  margin-top: -22px;
+  border: 3px solid transparent;
+  border-image: url("../../images/earn/loginborder.png") 30 stretch;
+  width: 100px;
+  height: 60px;
+  background-color: rgb(21, 52, 83);
+  color: #fff;
+  font-size: 20px;
+  font-weight: 700;
+  text-transform: uppercase;
 }
 
 .quests-heading {
@@ -321,7 +330,7 @@ h5 {
   text-transform: uppercase;
 }
 
-p {
+.paragraph {
   margin: 0;
   font-size: 0.9em;
   text-transform: uppercase;
@@ -435,14 +444,10 @@ p {
   width: 2px;
   background-color: black;
 }
-@media (max-width: 991.98px) {
-  .line {
-    height: 70px !important;
-  }
-}
+
 @media (max-width: 800px) {
   .line {
-    height: 50px !important;
+    height: 70px !important;
   }
   .tier {
     font-size: 14px !important;
@@ -452,14 +457,14 @@ p {
   }
 }
 @media (max-width: 700px) {
-  ul li {
+  .tierul li {
     font-size: 8px !important;
   }
-  ul {
-    width: 100px !important;
+  .input-claim {
+    width: 90% !important;
   }
-  .line {
-    font-size: 76px !important;
+  .tierul {
+    width: 100px !important;
   }
   .tier-header img {
     height: 17vh;

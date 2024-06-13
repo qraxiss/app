@@ -120,7 +120,7 @@ const Trackorder = () => {
                     Payment Status
                   </p>
                   <span
-                    className="badge bg-success-subtle text-success fs-11"
+                    className="badge bg-primary fs-11"
                     id="payment-status"
                   >
                     Paid

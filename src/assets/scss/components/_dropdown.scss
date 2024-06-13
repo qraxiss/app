@@ -99,6 +99,18 @@
   width: 26rem;
 }
 
+.search-item {
+  white-space: nowrap; /* Prevent text from wrapping */
+  overflow: hidden; /* Hide overflow */
+  text-overflow: ellipsis; /* Show ellipsis for overflow text */
+}
+
+@media (max-width: 768px) {
+  .search-item {
+    max-width: 250px; /* Adjust for mobile */
+  }
+}
+
 [dir="ltr"] {
   .dropdown-menu-start {
     --bs-position: end;

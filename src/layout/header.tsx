@@ -22,6 +22,13 @@ import { logoutAsync } from "slices/thunk";
 import { AppDispatch } from "store";
 import { openModal, closeModal } from "slices/cart/slice";
 import { ConnectWallet } from "components/connect-wallet";
+import MenuIcon from '../assets/icons/MenuIcon.svg';
+import SearchIcon from '../assets/icons/SearchMobile.svg';
+import Search from '../assets/icons/search.svg';
+import EarnIcon from '../assets/icons/EARN.svg';
+import CollectionsIcon from '../assets/icons/mobile menu and collections.svg';
+import CartIcon from '../assets/icons/CartDesktop.svg';
+import UserIcon from '../assets/icons/user.svg';
 
 const Header = (props: any) => {
   const [isSwitchOn, setIsSwitchOn] = useState(false);
@@ -90,7 +97,7 @@ const Header = (props: any) => {
                 href=""
                 className="d-flex flex-column align-items-center"
               >
-                <i className="fas fa-regular fa-bars m-0 custom-icon "></i>
+              <img src={MenuIcon} alt="Menu" className="custom-icon" />              
               </Navbar.Brand>
               <Link to="/" className="hide-on-lg">
                 <Image
@@ -111,7 +118,7 @@ const Header = (props: any) => {
                   data-bs-target="#searchModal"
                   onClick={handleShow}
                 >
-                  <i className="fas fa-regular fa-magnifying-glass custom-icon"></i>
+                  <img src={SearchIcon} alt="Search" className="custom-icon" />
                 </Button>
                 <SearchModal show={show} handleClose={handleClose} />
               </div>
@@ -177,7 +184,7 @@ const Header = (props: any) => {
                     className="nav-link"
                     onClick={() => props.openSideBar()}
                   >
-                    {/* <i className="bi bi-list fs-20"></i> */}
+                   <img src={CollectionsIcon} alt="menu"/>
                     Collections
                   </span>
                 </li>
@@ -192,8 +199,8 @@ const Header = (props: any) => {
                       <img
                         src={`${process.env.REACT_APP_API_URL}${item.icon.url}`}
                         alt={item.name}
-                        width={16}
-                        height={16}
+                        width={18}
+                        height={18}
                       />{" "}
                       {item.name}
                     </Link>
@@ -201,7 +208,7 @@ const Header = (props: any) => {
                 ))}
                 <li className="nav-item">
                   <Link className="nav-link" to={`/earn`} data-key="t-slug">
-                    <i className="fas fa-light fa-sack-dollar fs-16"></i>
+                  <img src={EarnIcon} alt="Earn" />
                     EARN
                   </Link>
                 </li>
@@ -214,7 +221,7 @@ const Header = (props: any) => {
                   data-bs-target="#searchModal"
                   onClick={handleShow}
                 >
-                  <i className="fas fa-regular fa-magnifying-glass fs-20"></i>
+                  <img src={Search} alt="Search"/>
                 </Button>
                 <SearchModal show={show} handleClose={handleClose} />
                 <div className="topbar-head-dropdown ms-1 header-item">
@@ -226,7 +233,7 @@ const Header = (props: any) => {
                     aria-controls="ecommerceCart"
                     onClick={handleCardShow}
                   >
-                    <i className="fas fa-regular fa-cart-shopping fs-20"></i>
+                    <img src={CartIcon} alt="Cart" />
                     {cart?.count > 0 && (
                       <span className="position-absolute topbar-badge cartitem-badge fs-10 translate-middle badge rounded-pill count-bg">
                         {" "}
@@ -244,7 +251,7 @@ const Header = (props: any) => {
                       className="btn btn-icon btn-topbar btn-link rounded-circle coin text-muted"
                       as="a"
                     >
-                      <i className="fas fa-regular fa-user fs-20"></i>
+                      <img src={UserIcon} alt="User"/>
                     </Dropdown.Toggle>
 
                     <Dropdown.Menu style={{ left: "-80px" }}>
