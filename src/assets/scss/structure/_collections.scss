@@ -14,7 +14,8 @@
     justify-content: center;
 
     img {
-      width: 70%;
+      width: 60%;
+      margin-top: 5px;
     }
   }
 
@@ -23,10 +24,9 @@
     flex-direction: column;
     gap: 1.5em;
     align-items: center;
-
+    margin-top: 16px;
     img {
-      width: 60%;
-      margin-top: 16px;
+      width: 50%;
     }
   }
 }

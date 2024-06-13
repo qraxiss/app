@@ -56,8 +56,8 @@
 
   &.completed {
     .is-complete {
-      border-color: $success;
-      background-color: $success;
+      border-color: $primary;
+      background-color: $primary;
 
       &::after {
         border-color: $white;
@@ -69,7 +69,7 @@
     }
 
     &::before {
-      background-color: $success;
+      background-color: $primary;
     }
   }
 

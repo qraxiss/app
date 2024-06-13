@@ -4,6 +4,7 @@ import { DetailsModal } from "./details";
 import { Link, useNavigate } from "react-router-dom";
 import dropdown from "../../../assets/images/dropdown.png";
 import { useSelector } from "react-redux";
+import EarnIcon from '../../../assets/icons/EARN.svg';
 
 const useMediaQuery = (width: number) => {
   const [isMobile, setIsMobile] = useState(window.innerWidth < width);
@@ -240,7 +241,7 @@ export const CollectionModal: FC<CollectionModalProps> = ({
                               src={`${process.env.REACT_APP_API_URL}${item?.icon?.url}`}
                               alt={item.name}
                               width={18}
-                              height={20}
+                              height={18}
                               className="m-0"
                             />{" "}
                             <span className="px-2">{item.name}</span>
@@ -253,8 +254,8 @@ export const CollectionModal: FC<CollectionModalProps> = ({
                           to={`/earn`}
                           data-key="t-slug"
                         >
-                          <i className="fas fa-regular fa-sack-dollar fs-20 m-0 text-muted"></i>
-                          <p className="px-2 py-0 m-0">EARN</p>
+                          <img src={EarnIcon} />
+                          <p className="p-0 m-0">EARN</p>
                         </Link>
                       </div>
                     </div>

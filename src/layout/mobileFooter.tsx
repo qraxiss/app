@@ -7,6 +7,11 @@ import { closeModal, openModal } from "slices/cart/slice";
 import { setIcon } from "slices/selected-icon/slice";
 import { AppDispatch } from "store";
 import { logoutAsync } from "slices/thunk";
+import CartIcon from '../assets/icons/cart.svg';
+import EarnIcon from '../assets/icons/EarnFooter.svg';
+import HeartIcon from '../assets/icons/heart.svg';
+import ProfleIcon from '../assets/icons/ProfileFooter.svg';
+import MenuIcon from '../assets/icons/MenuIcon.svg';
 import {
   Container,
   Dropdown,
@@ -54,11 +59,8 @@ export const MobileFooter: FC<CollectionsSideBarProps> = ({
   const cart = useSelector((state: any) => state.cart.data);
   const selectedIcon = useSelector((state: any) => state.selectedIcon.icon);
   const isModalOpen = useSelector((state: any) => state.cart.data.isModalOpen);
-
   const handleConnect = () => open({ view: "Connect" });
-
   const handleIconClick = (icon: string) => dispatch(setIcon(icon));
-
   const handleCardShow = () => dispatch(openModal());
   const handleCardClose = () => dispatch(closeModal());
 
@@ -76,7 +78,7 @@ export const MobileFooter: FC<CollectionsSideBarProps> = ({
               selectedIcon === "sidebar" ? "selected-icon menu-icon " : ""
             }`}
           >
-            <i className="fas fa-regular fa-bars m-0 custom-icon"></i>
+            <img src={MenuIcon} alt="Menu" className="custom-icon" />
           </Navbar.Brand>
           <Button
             type="button"
@@ -91,7 +93,7 @@ export const MobileFooter: FC<CollectionsSideBarProps> = ({
               handleIconClick("cart");
             }}
           >
-            <i className="fas fa-regular fa-cart-shopping custom-icon"></i>
+            <img src={CartIcon} alt="Cart" className="custom-icon" />
             {cart?.count > 0 && (
               <span className="position-absolute topbar-badge cartitem-badge fs-10 translate-middle badge rounded-pill count-bg">
                 {cart?.count}
@@ -108,7 +110,7 @@ export const MobileFooter: FC<CollectionsSideBarProps> = ({
               selectedIcon === "earn" ? "selected-icon  " : ""
             }`}
           >
-            <i className="fas fa-regular fa-sack-dollar m-0 custom-icon"></i>
+            <img src={EarnIcon} alt="Earn" className="custom-icon" />
           </Navbar.Brand>
           <Navbar.Brand
             href="#"
@@ -120,7 +122,7 @@ export const MobileFooter: FC<CollectionsSideBarProps> = ({
               selectedIcon === "heart" ? "selected-icon  " : ""
             }`}
           >
-            <i className="fas fa-regular fa-heart m-0 custom-icon"></i>
+            <img src={HeartIcon} alt="Heart" className="custom-icon" />
           </Navbar.Brand>
           {logged ? (
             <Dropdown drop="up">
@@ -130,7 +132,7 @@ export const MobileFooter: FC<CollectionsSideBarProps> = ({
                 className="btn btn-icon btn-topbar btn-link rounded-circle profile-container"
                 as="a"
               >
-                <i className="fas fa-regular fa-user custom-icon m-0 heading"></i>
+                <img src={ProfleIcon} alt="Profile" className="custom-icon" />
               </Dropdown.Toggle>
               <Dropdown.Menu style={{ left: "-120px" }}>
                 <Dropdown.Item
@@ -187,7 +189,7 @@ export const MobileFooter: FC<CollectionsSideBarProps> = ({
                 selectedIcon === "connect" ? "selected-icon" : ""
               }`}
             >
-              <i className="fas fa-regular fa-user custom-icon m-0 heading"></i>
+             <img src={ProfleIcon} alt="Profile" className="custom-icon heading" />
             </Navbar.Brand>
           )}
         </Container>

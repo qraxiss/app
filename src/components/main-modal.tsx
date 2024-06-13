@@ -527,8 +527,9 @@ export const SearchModal = ({ show, handleClose }: any) => {
           <SimpleBar className="pe-2 ps-3 mt-3" style={{ maxHeight: "300px" }}>
             <div className="list-group list-group-flush border-dashed">
               <div className="notification-group-list">
-                <h5 className="text-overflow text-muted fs-13 mb-2 mt-3 text-uppercase notification-title">
-                  Products
+                <h5 className="text-overflow text-muted fs-13 mb-2 mt-3 mx-2 text-uppercase notification-title d-flex justify-content-between align-items-center">
+                  <span>Products</span>
+                  <span>Price</span>
                 </h5>
                 {searchGQL.data &&
                   searchGQL.data.length > 0 &&
@@ -537,9 +538,10 @@ export const SearchModal = ({ show, handleClose }: any) => {
                       to={`/product-details/${item.slug}`}
                       className="list-group-item dropdown-item notify-item"
                       key={inx}
+                      style={{paddingInline : '0px'}}
                     >
-                      <div className="d-flex justify-content-between align-items-center">
-                        <div>
+                      <div className="d-flex justify-content-between align-items-center mx-2">
+                        <div className='search-item'>
                           <Image
                             src={item.image}
                             alt=""

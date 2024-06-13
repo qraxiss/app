@@ -11,8 +11,8 @@ export const NameService = () => {
   return (
     <section className="section pb-0">
       <div className="name-services">
-        <div className="name-header d-flex justify-content-between mx-3">
-          <h2 className="cursor-pointer claim-text">{`${userData?.address?.substring(
+        <div className="d-flex justify-content-between align-items-center mx-3">
+          <h2 className="cursor-pointer claim-text m-0 p-0">{`${userData?.address?.substring(
             0,
             6,
           )}...${userData?.address?.substring(
@@ -32,7 +32,7 @@ export const NameService = () => {
           <div className=" tier d-flex justify-content-between">
             <div className="d-flex flex-column align-items-start px-3">
               <h5 className="claim-text">Tier 2</h5>
-              <ul className="text-muted px-3 text-start">
+              <ul className="text-muted px-3 text-start tierul">
                 <li>1.3x xp multiplier</li>
                 <li>Extra 10% Discount on purchases</li>
               </ul>

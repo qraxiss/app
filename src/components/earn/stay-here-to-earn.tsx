@@ -1,5 +1,5 @@
 import React from "react";
-import { Image, ProgressBar } from "react-bootstrap";
+import { Image, ProgressBar, Button } from "react-bootstrap";
 import smallReward from "assets/images/earn/icons1.png";
 import mediumReward from "assets/images/earn/icons2.png";
 
@@ -59,6 +59,9 @@ export const StayHereToEarn = () => {
         now={(currentProgress / totalRequiredTime) * 100}
         className="reward-progress-bar"
       />
+        <div className="text-center">
+        <button className="progress-claim-button">Claim</button>
+      </div>
     </section>
   );
 };

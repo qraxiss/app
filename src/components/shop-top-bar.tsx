@@ -63,7 +63,6 @@ export const Shoporder = ({ dic, subtotal, tax, total }: any) => {
               className="me-auto"
               type="text"
               placeholder="Enter coupon code"
-              defaultValue="Shopcek15"
               aria-label="Add Promo Code here..."
             />
             <button type="button" className="btn btn-primary w-xs">
