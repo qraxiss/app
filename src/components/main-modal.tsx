@@ -456,7 +456,6 @@ export const InvoiceModal = ({ modal, handleClose }: any) => {
 //search modal
 export const SearchModal = ({ show, handleClose }: any) => {
   const [value, setValue] = useState("");
-  // console.log(value);
   const handlesearch = (event: any) => {
     setValue(event.value);
   };
@@ -465,8 +464,6 @@ export const SearchModal = ({ show, handleClose }: any) => {
     nextFetchPolicy: "no-cache",
     fetchPolicy: "no-cache",
   });
-
-  // console.log(searchGQL.data);
 
   useEffect(() => {
     const searchOption = document.getElementById("search-close-options");

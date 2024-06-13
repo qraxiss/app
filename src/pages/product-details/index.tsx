@@ -63,7 +63,6 @@ const ProductDetails = () => {
 
   const uniqueColors: string[] = [];
   const uniqueColorVariants = data?.variants.filter(({ variant }: any) => {
-    console.log(variant);
     const isDuplicate = uniqueColors.includes(variant.color.hex);
     if (isDuplicate) {
       return false;
