@@ -187,7 +187,7 @@ export const CollectionModal: FC<CollectionModalProps> = ({
                                 <img
                                   src={`${process.env.REACT_APP_API_URL}${item.icon?.url}`}
                                   alt=""
-                                  className="mx-2"
+                                  className="mx-2 collectionsIcons"
                                 />
                                 {item.name}
                               </div>
@@ -195,7 +195,7 @@ export const CollectionModal: FC<CollectionModalProps> = ({
                                 <img
                                   src={dropdown}
                                   alt=""
-                                  className="dropdown ${animation}"
+                                  className="dropdown ${animation} collectionsIcons"
                                 />
                               )}
                             </div>
@@ -240,9 +240,9 @@ export const CollectionModal: FC<CollectionModalProps> = ({
                             <img
                               src={`${process.env.REACT_APP_API_URL}${item?.icon?.url}`}
                               alt={item.name}
-                              width={18}
-                              height={18}
-                              className="m-0"
+                              width={24}
+                              height={24}
+                              className="m-0 menuIcons"
                             />{" "}
                             <span className="px-2">{item.name}</span>
                           </Link>
@@ -275,7 +275,7 @@ export const CollectionModal: FC<CollectionModalProps> = ({
                 <>
                   {[...data]
                     .sort((a, b) => {
-                      if (a.name < b.name) return 1;
+                     if (a.name < b.name) return 1;
                       if (a.name > b.name) return -1;
                       return 0;
                     })
@@ -294,7 +294,7 @@ export const CollectionModal: FC<CollectionModalProps> = ({
                             <img
                               src={dropdown}
                               alt=""
-                              className="dropdown ${animation}"
+                              className="dropdown ${animation} collectionsIcons"
                             />
                           ) : undefined}
                         </div>

@@ -144,34 +144,32 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  font-size: 26px;
 }
 
 .icon-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 12px;
+  padding: 5px;
   margin: 0 5px;
 }
 
 .selected-icon {
   background-color: lightgrey;
-  border-radius: 15px;
-}
-.menu-icon {
-  padding-left: 12px !important;
-}
-.menu {
-  padding-left: 0px;
+  border-radius: 10px;
 }
 
 .custom-switch-pointer input {
   cursor: pointer;
 }
 
+
 //footer dark
 [data-footer="dark"] {
+  .mobile-footer {
+    background-color: var(--#{$prefix}secondary-bg);
+    box-shadow: 0 -2px 8px #626262 !important;
+  }
   .footer-landing {
     background-color: $gray-900;
     border-top-color: $gray-700;
@@ -228,15 +226,11 @@
     }
   }
 
-  .mobile-footer {
-    background-color: var(--#{$prefix}secondary-bg);
-  }
-
   @media (max-width: 800px) {
     .footer-landing {
       margin-left: 0px;
-      border-top-left-radius: 35px;
-      border-top-right-radius: 35px;
+      border-top-left-radius: 25px;
+      border-top-right-radius: 25px;
       .logo-light {
         margin-top: 0px;
       }

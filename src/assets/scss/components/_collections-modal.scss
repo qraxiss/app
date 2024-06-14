@@ -7,6 +7,12 @@
 .menu-border {
   border-bottom: 1px solid lightgray;
 }
+
+.menuIcons,
+.collectionsIcons{
+  filter: none;
+}
+
 .offcanvas-header {
   align-items: start;
   justify-content: center;
@@ -162,6 +168,25 @@ li.nav-item {
     }
   }
 }
+
+[data-bs-theme="dark"] {
+  .collectionsIcons{
+    filter: invert(0.5);
+  }
+  .menuIcons{
+    filter: invert(0.3);
+  }
+
+  .offcanvas-header {
+    .offcanvas-title {
+      &.active {
+        color: black;
+      }
+    }
+  
+  }
+}
+
 @media (max-width: 500px) {
   .collections-modal {
     width: 18em !important;

@@ -43,7 +43,7 @@
 .swiper-button-prev {
   &::after {
     content: "" !important;
-    background-image: url(../../images/chevron-compact-left.svg);
+    background-image: url(../../icons/left.svg);
     background-size: 100% 100%;
     background-position: center;
     background-repeat: no-repeat;
@@ -55,7 +55,7 @@
 .swiper-button-next {
   &::after {
     content: "" !important ;
-    background-image: url(../../images/chevron-compact-right.svg);
+    background-image: url(../../icons/right.svg);
     background-size: 100% 100%;
     background-position: center;
     background-repeat: no-repeat;
