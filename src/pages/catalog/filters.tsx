@@ -86,6 +86,7 @@ const Filters = ({ name, setFilterlist }: any) => {
   }, [mincost, maxcost]);
 
   const [value, setValue] = useState("");
+  // console.log(value);
   const handlesearch = (event: any) => {
     setValue(event.value);
   };
@@ -94,6 +95,8 @@ const Filters = ({ name, setFilterlist }: any) => {
     nextFetchPolicy: "no-cache",
     fetchPolicy: "no-cache",
   });
+
+  // console.log(searchGQL.data);
 
   useEffect(() => {
     const searchOption = document.getElementById("search-close-options");

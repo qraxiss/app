@@ -13,3 +13,15 @@ File: Icons Css File
 @import "plugins/icons/remixicon";
 @import "plugins/icons/bootstrap-icons";
 @import "plugins/icons/phosphor";
+
+
+.icon .themed-stroke {
+    stroke: #000000; /* Default color for light mode */
+  }
+  
+  [data-bs-theme="dark"] {
+    .icon .themed-stroke {
+      stroke: #d3d3d3; /* Light gray color for dark mode */
+    }
+  }
+  

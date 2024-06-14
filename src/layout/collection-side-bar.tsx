@@ -34,6 +34,7 @@ export const CollectionsSideBar: FC<CollectionsSideBarProps> = ({
                 src={`${process.env.REACT_APP_API_URL}${item.icon?.url}`}
                 alt=""
                 key={"collection-sidebar-" + idx}
+                className="collectionsIcons"
               />
             );
           })}

@@ -201,6 +201,7 @@ const Header = (props: any) => {
                         alt={item.name}
                         width={18}
                         height={18}
+                        style={{filter: "invert(0.3)"}}
                       />{" "}
                       {item.name}
                     </Link>

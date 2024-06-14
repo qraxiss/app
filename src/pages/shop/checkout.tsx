@@ -109,7 +109,7 @@ const Checkout = () => {
                   total="630.25"
                 />
                 <div className="hstack gap-2 justify-content-between justify-content-end">
-                  <Link to="/" className="btn btn-hover btn-soft-info w-100">
+                  <Link to="/" className="btn btn-hover btn-soft-info w-100 d-flex align-items-center" style={{padding: '10px'}}>
                     Back To Shopping{" "}
                     <i className="ri-arrow-right-line label-icon align-middle ms-1"></i>
                   </Link>

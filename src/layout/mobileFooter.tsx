@@ -74,11 +74,35 @@ export const MobileFooter: FC<CollectionsSideBarProps> = ({
               handleIconClick("sidebar");
             }}
             href="#"
-            className={`icon-container menu ${
-              selectedIcon === "sidebar" ? "selected-icon menu-icon " : ""
+            className={`icon-container ${
+              selectedIcon === "sidebar" ? "selected-icon" : ""
             }`}
           >
             <img src={MenuIcon} alt="Menu" className="custom-icon" />
+          </Navbar.Brand>
+          <Navbar.Brand
+            href="#"
+            onClick={() => {
+              handleIconClick("heart");
+              navigate("/account", { state: "list" });
+            }}
+            className={`icon-container ${
+              selectedIcon === "heart" ? "selected-icon  " : ""
+            }`}
+          >
+            <img src={HeartIcon} alt="Heart" className="custom-icon" />
+          </Navbar.Brand>
+          <Navbar.Brand
+            href="#"
+            onClick={() => {
+              handleIconClick("earn");
+              navigate("/earn");
+            }}
+            className={`icon-container ${
+              selectedIcon === "earn" ? "selected-icon  " : ""
+            }`}
+          >
+            <img src={EarnIcon} alt="Earn" className="custom-icon" />
           </Navbar.Brand>
           <Button
             type="button"
@@ -100,36 +124,12 @@ export const MobileFooter: FC<CollectionsSideBarProps> = ({
               </span>
             )}
           </Button>
-          <Navbar.Brand
-            href="#"
-            onClick={() => {
-              handleIconClick("earn");
-              navigate("/earn");
-            }}
-            className={`icon-container ${
-              selectedIcon === "earn" ? "selected-icon  " : ""
-            }`}
-          >
-            <img src={EarnIcon} alt="Earn" className="custom-icon" />
-          </Navbar.Brand>
-          <Navbar.Brand
-            href="#"
-            onClick={() => {
-              handleIconClick("heart");
-              navigate("/account", { state: "list" });
-            }}
-            className={`icon-container ${
-              selectedIcon === "heart" ? "selected-icon  " : ""
-            }`}
-          >
-            <img src={HeartIcon} alt="Heart" className="custom-icon" />
-          </Navbar.Brand>
           {logged ? (
             <Dropdown drop="up">
               <Dropdown.Toggle
                 id="page-header-user-dropdown"
                 bsPrefix="btn"
-                className="btn btn-icon btn-topbar btn-link rounded-circle profile-container"
+                className="icon-container"
                 as="a"
               >
                 <img src={ProfleIcon} alt="Profile" className="custom-icon" />

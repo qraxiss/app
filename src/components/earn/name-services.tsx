@@ -73,7 +73,7 @@ export const NameService = () => {
               >
                 <i
                   className="bi bi-search search-icon"
-                  style={{ fontSize: "32px" }}
+                  style={{ fontSize: "28px" }}
                 ></i>
               </span>
             </div>

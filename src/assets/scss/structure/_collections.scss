@@ -41,3 +41,10 @@
     display: none;
   }
 }
+
+
+[data-bs-theme="dark"] {
+  .collections-sidebar{
+    background: none;
+  }
+}

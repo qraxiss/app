@@ -134,7 +134,7 @@ const Footer: FC<FooterProps> = ({ handleMood }) => {
                           </Link>
                         </li>
                       ))}
-                      <li>
+                      <li className="py-2">
                         <ThemeSwitch />
                       </li>
                     </ul>

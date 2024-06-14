@@ -456,6 +456,7 @@ export const InvoiceModal = ({ modal, handleClose }: any) => {
 //search modal
 export const SearchModal = ({ show, handleClose }: any) => {
   const [value, setValue] = useState("");
+  // console.log(value);
   const handlesearch = (event: any) => {
     setValue(event.value);
   };
@@ -464,6 +465,8 @@ export const SearchModal = ({ show, handleClose }: any) => {
     nextFetchPolicy: "no-cache",
     fetchPolicy: "no-cache",
   });
+
+  // console.log(searchGQL.data);
 
   useEffect(() => {
     const searchOption = document.getElementById("search-close-options");
@@ -616,7 +619,7 @@ export const CardModal = ({ show, handleClose }: any) => {
   };
   return (
     <React.Fragment>
-      <Offcanvas show={show} onHide={handleClose} placement="end">
+      <Offcanvas show={show} onHide={handleClose} placement="end" style={{maxWidth: '85%'}}>
         <Offcanvas.Header className="border-bottom">
           <Offcanvas.Title id="ecommerceCartLabel" as="h5">
             My Cart{" "}
