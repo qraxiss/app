@@ -4,7 +4,7 @@ import { DetailsModal } from "./details";
 import { Link, useNavigate } from "react-router-dom";
 import dropdown from "../../../assets/images/dropdown.png";
 import { useSelector } from "react-redux";
-import EarnIcon from '../../../assets/icons/EARN.svg';
+import EarnIcon from "../../../assets/icons/EARN.svg";
 
 const useMediaQuery = (width: number) => {
   const [isMobile, setIsMobile] = useState(window.innerWidth < width);
@@ -50,6 +50,7 @@ export const CollectionModal: FC<CollectionModalProps> = ({
   const categories = useSelector((state: any) => state.categories.data);
   const [expandedCategory, setExpandedCategory] = useState<string | null>(null);
   const [card, setCard] = useState(false);
+  const [isClosing, setIsClosing] = useState(false);
   const [currentModule, setCurrentModule] = useState("collections");
   const handlecardClose = () => {
     setCard(false);
@@ -126,11 +127,19 @@ export const CollectionModal: FC<CollectionModalProps> = ({
     }
   };
 
+  const handleCloseWithAnimation = () => {
+    setIsClosing(true);
+    setTimeout(() => {
+      setIsClosing(false);
+      handleClose();
+    }, 300);
+  };
+
   return (
     <React.Fragment>
       <Offcanvas
-        show={show}
-        onHide={handleClose}
+        show={show && !isClosing}
+        onHide={handleCloseWithAnimation}
         placement="start"
         className={`collections-modal`}
       >
@@ -275,7 +284,7 @@ export const CollectionModal: FC<CollectionModalProps> = ({
                 <>
                   {[...data]
                     .sort((a, b) => {
-                     if (a.name < b.name) return 1;
+                      if (a.name < b.name) return 1;
                       if (a.name > b.name) return -1;
                       return 0;
                     })

@@ -5,7 +5,7 @@ import { Button } from "react-bootstrap";
 import { FC, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { connectWallet } from "wallet/siwe";
-import UserIcon from '../assets/icons/user.svg';
+import UserIcon from "../assets/icons/user.svg";
 interface ConnectWalletProps {
   buttonText?: string;
 }

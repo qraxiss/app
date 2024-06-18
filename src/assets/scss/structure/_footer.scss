@@ -163,12 +163,11 @@
   cursor: pointer;
 }
 
-
 //footer dark
 [data-footer="dark"] {
   .mobile-footer {
     background-color: var(--#{$prefix}secondary-bg);
-    box-shadow: 0 -2px 8px #626262 !important;
+    box-shadow: 0 -1px 4px #d6d2d2 !important;
   }
   .footer-landing {
     background-color: $gray-900;

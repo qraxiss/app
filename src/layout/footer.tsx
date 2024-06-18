@@ -1,4 +1,4 @@
-import React, { useState, FC } from "react";
+import React, { useState, useEffect, FC } from "react";
 import { Container, Row, Col, Image, Form, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import discordIcon from "assets/images/socials/dc.png";
@@ -6,9 +6,9 @@ import mediumIcon from "assets/images/socials/md.png";
 import telegramIcon from "assets/images/socials/tg.png";
 import twitterIcon from "assets/images/socials/x.png";
 //img
-import { useSelector } from "react-redux";
 import { MISC } from "constants/footer";
-
+import { useDispatch, useSelector } from "react-redux";
+import { toggleTheme } from "slices/theme/slice";
 import logo from "assets/images/svg/footer-logo-icon.svg";
 import Shopcek from "assets/images/logo-dark.png";
 import microsoft_banner from "assets/images/ms-purple.png";
@@ -37,15 +37,22 @@ type FooterProps = {
 };
 
 const Footer: FC<FooterProps> = ({ handleMood }) => {
-  const [isSwitchOn, setIsSwitchOn] = useState(false);
+  const categories = useSelector((state: any) => state.categories.data);
+  const isDarkMode = useSelector((state: any) => state.theme.isDarkMode);
+
+  const dispatch = useDispatch();
   const handleSwitch = () => {
-    setIsSwitchOn((prevState) => !prevState);
-    if (!isSwitchOn) {
+    dispatch(toggleTheme());
+  };
+
+  useEffect(() => {
+    if (isDarkMode) {
       handleMood("dark");
     } else {
       handleMood("light");
     }
-  };
+  }, [isDarkMode]);
+
   const ThemeSwitch = () => (
     <div className="d-flex align-items-center cursor-pointer">
       <i className="bi bi-sun text-muted fs-16 align-middle me-1"></i>{" "}
@@ -54,12 +61,11 @@ const Footer: FC<FooterProps> = ({ handleMood }) => {
         type="switch"
         id="custom-switch"
         className="custom-switch-pointer"
-        checked={isSwitchOn}
+        checked={isDarkMode}
         onChange={handleSwitch}
       />
     </div>
   );
-  const categories = useSelector((state: any) => state.categories.data);
 
   return (
     <React.Fragment>

@@ -26,7 +26,6 @@ import { AppDispatch } from "store";
 import { useDispatch, useSelector } from "react-redux";
 import { logoutAsync, removeFromWishlistAsync } from "slices/thunk";
 
-
 const MyAccount = () => {
   //dispatch
   const dispatch: AppDispatch = useDispatch();
@@ -287,7 +286,7 @@ const MyAccount = () => {
                                 <Link
                                   to="/product-list"
                                   className="btn button-add-cart btn-secondary d-flex align-items-center"
-                                  style={{padding: '10px'}}
+                                  style={{ padding: "10px" }}
                                 >
                                   Continue Shopping{" "}
                                   <i className="ri-arrow-right-line align-bottom"></i>
@@ -295,7 +294,7 @@ const MyAccount = () => {
                                 <Link
                                   to="/shop/checkout"
                                   className="btn btn-hover button-buy-now d-flex align-items-center"
-                                  style={{padding: '10px'}}
+                                  style={{ padding: "10px" }}
                                 >
                                   Check Out{" "}
                                   <i className="ri-arrow-right-line align-bottom"></i>
