@@ -1,17 +1,18 @@
 import { useWeb3Modal } from "@web3modal/wagmi/react";
-import React, { useState, FC } from "react";
+import React, { useState, useEffect, FC } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { CardModal } from "components/main-modal";
 import { useNavigate } from "react-router-dom";
 import { closeModal, openModal } from "slices/cart/slice";
 import { setIcon } from "slices/selected-icon/slice";
+import { toggleTheme } from "slices/theme/slice";
 import { AppDispatch } from "store";
 import { logoutAsync } from "slices/thunk";
-import CartIcon from '../assets/icons/cart.svg';
-import EarnIcon from '../assets/icons/EarnFooter.svg';
-import HeartIcon from '../assets/icons/heart.svg';
-import ProfleIcon from '../assets/icons/ProfileFooter.svg';
-import MenuIcon from '../assets/icons/MenuIcon.svg';
+import CartIcon from "../assets/icons/cart.svg";
+import EarnIcon from "../assets/icons/EarnFooter.svg";
+import HeartIcon from "../assets/icons/heart.svg";
+import ProfleIcon from "../assets/icons/ProfileFooter.svg";
+import MenuIcon from "../assets/icons/MenuIcon.svg";
 import {
   Container,
   Dropdown,
@@ -31,27 +32,6 @@ export const MobileFooter: FC<CollectionsSideBarProps> = ({
   openSideBar,
   handleMood,
 }) => {
-  const [isSwitchOn, setIsSwitchOn] = useState(false);
-
-  const handleSwitch = () => {
-    setIsSwitchOn((prevState) => !prevState);
-    handleMood(isSwitchOn ? "light" : "dark");
-  };
-
-  const ThemeSwitch = () => (
-    <div className="d-flex align-items-center cursor-pointer ">
-      <i className="bi bi-sun text-muted fs-16 align-middle me-1"></i>
-      <Form.Label className="mb-0 px-2 text-muted">Dark</Form.Label>
-      <Form.Check
-        type="switch"
-        id="custom-switch"
-        className="custom-switch-pointer"
-        checked={isSwitchOn}
-        onChange={handleSwitch}
-      />
-    </div>
-  );
-
   const { open } = useWeb3Modal();
   const navigate = useNavigate();
   const dispatch = useDispatch<AppDispatch>();
@@ -63,6 +43,33 @@ export const MobileFooter: FC<CollectionsSideBarProps> = ({
   const handleIconClick = (icon: string) => dispatch(setIcon(icon));
   const handleCardShow = () => dispatch(openModal());
   const handleCardClose = () => dispatch(closeModal());
+  const isDarkMode = useSelector((state: any) => state.theme.isDarkMode);
+
+  const handleSwitch = () => {
+    dispatch(toggleTheme());
+  };
+
+  useEffect(() => {
+    if (isDarkMode) {
+      handleMood("dark");
+    } else {
+      handleMood("light");
+    }
+  }, [isDarkMode]);
+
+  const ThemeSwitch = () => (
+    <div className="d-flex align-items-center cursor-pointer">
+      <i className="bi bi-sun text-muted fs-16 align-middle me-1"></i>{" "}
+      <Form.Label className="mb-0 px-2 text-muted">Dark</Form.Label>
+      <Form.Check
+        type="switch"
+        id="custom-switch"
+        className="custom-switch-pointer"
+        checked={isDarkMode}
+        onChange={handleSwitch}
+      />
+    </div>
+  );
 
   return (
     <>
@@ -189,7 +196,11 @@ export const MobileFooter: FC<CollectionsSideBarProps> = ({
                 selectedIcon === "connect" ? "selected-icon" : ""
               }`}
             >
-             <img src={ProfleIcon} alt="Profile" className="custom-icon heading" />
+              <img
+                src={ProfleIcon}
+                alt="Profile"
+                className="custom-icon heading"
+              />
             </Navbar.Brand>
           )}
         </Container>

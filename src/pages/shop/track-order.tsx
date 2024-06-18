@@ -119,10 +119,7 @@ const Trackorder = () => {
                   <p className="text-muted mb-2 text-uppercase fw-medium fs-12">
                     Payment Status
                   </p>
-                  <span
-                    className="badge bg-primary fs-11"
-                    id="payment-status"
-                  >
+                  <span className="badge bg-primary fs-11" id="payment-status">
                     Paid
                   </span>
                 </Col>

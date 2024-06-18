@@ -21,40 +21,17 @@ import { useSelector, useDispatch } from "react-redux";
 import { logoutAsync } from "slices/thunk";
 import { AppDispatch } from "store";
 import { openModal, closeModal } from "slices/cart/slice";
+import { toggleTheme } from "slices/theme/slice";
 import { ConnectWallet } from "components/connect-wallet";
-import MenuIcon from '../assets/icons/MenuIcon.svg';
-import SearchIcon from '../assets/icons/SearchMobile.svg';
-import Search from '../assets/icons/search.svg';
-import EarnIcon from '../assets/icons/EARN.svg';
-import CollectionsIcon from '../assets/icons/mobile menu and collections.svg';
-import CartIcon from '../assets/icons/CartDesktop.svg';
-import UserIcon from '../assets/icons/user.svg';
+import MenuIcon from "../assets/icons/MenuIcon.svg";
+import SearchIcon from "../assets/icons/SearchMobile.svg";
+import Search from "../assets/icons/search.svg";
+import EarnIcon from "../assets/icons/EARN.svg";
+import CollectionsIcon from "../assets/icons/mobile menu and collections.svg";
+import CartIcon from "../assets/icons/CartDesktop.svg";
+import UserIcon from "../assets/icons/user.svg";
 
 const Header = (props: any) => {
-  const [isSwitchOn, setIsSwitchOn] = useState(false);
-
-  const handleSwitch = () => {
-    setIsSwitchOn((prevState) => !prevState);
-    if (!isSwitchOn) {
-      props.handleMood("dark");
-    } else {
-      props.handleMood("light");
-    }
-  };
-
-  const ThemeSwitch = () => (
-    <div className="d-flex align-items-center cursor-pointer ">
-      <i className="bi bi-sun text-muted fs-16 align-middle me-1"></i>{" "}
-      <Form.Label className="mb-0 px-2 text-muted">Dark</Form.Label>
-      <Form.Check
-        type="switch"
-        id="custom-switch"
-        className="custom-switch-pointer"
-        checked={isSwitchOn}
-        onChange={handleSwitch}
-      />
-    </div>
-  );
   //dispatch
   const dispatch: AppDispatch = useDispatch();
   const navigate = useNavigate();
@@ -73,6 +50,32 @@ const Header = (props: any) => {
   const [isMobile, setIsMobile] = useState(false);
   const handlecardClose = () => dispatch(closeModal());
   const handleCardShow = () => dispatch(openModal());
+  const isDarkMode = useSelector((state: any) => state.theme.isDarkMode);
+  const handleSwitch = () => {
+    dispatch(toggleTheme());
+  };
+
+  useEffect(() => {
+    if (isDarkMode) {
+      props.handleMood("dark");
+    } else {
+      props.handleMood("light");
+    }
+  }, [isDarkMode]);
+
+  const ThemeSwitch = () => (
+    <div className="d-flex align-items-center cursor-pointer">
+      <i className="bi bi-sun text-muted fs-16 align-middle me-1"></i>{" "}
+      <Form.Label className="mb-0 px-2 text-muted">Dark</Form.Label>
+      <Form.Check
+        type="switch"
+        id="custom-switch"
+        className="custom-switch-pointer"
+        checked={isDarkMode}
+        onChange={handleSwitch}
+      />
+    </div>
+  );
 
   useEffect(() => {
     const handleResize = () => {
@@ -97,7 +100,7 @@ const Header = (props: any) => {
                 href=""
                 className="d-flex flex-column align-items-center"
               >
-              <img src={MenuIcon} alt="Menu" className="custom-icon" />              
+                <img src={MenuIcon} alt="Menu" className="custom-icon" />
               </Navbar.Brand>
               <Link to="/" className="hide-on-lg">
                 <Image
@@ -184,7 +187,7 @@ const Header = (props: any) => {
                     className="nav-link"
                     onClick={() => props.openSideBar()}
                   >
-                   <img src={CollectionsIcon} alt="menu"/>
+                    <img src={CollectionsIcon} alt="menu" />
                     Collections
                   </span>
                 </li>
@@ -201,7 +204,7 @@ const Header = (props: any) => {
                         alt={item.name}
                         width={18}
                         height={18}
-                        style={{filter: "invert(0.3)"}}
+                        style={{ filter: "invert(0.3)" }}
                       />{" "}
                       {item.name}
                     </Link>
@@ -209,7 +212,7 @@ const Header = (props: any) => {
                 ))}
                 <li className="nav-item">
                   <Link className="nav-link" to={`/earn`} data-key="t-slug">
-                  <img src={EarnIcon} alt="Earn" />
+                    <img src={EarnIcon} alt="Earn" />
                     EARN
                   </Link>
                 </li>
@@ -222,7 +225,7 @@ const Header = (props: any) => {
                   data-bs-target="#searchModal"
                   onClick={handleShow}
                 >
-                  <img src={Search} alt="Search"/>
+                  <img src={Search} alt="Search" />
                 </Button>
                 <SearchModal show={show} handleClose={handleClose} />
                 <div className="topbar-head-dropdown ms-1 header-item">
@@ -252,7 +255,7 @@ const Header = (props: any) => {
                       className="btn btn-icon btn-topbar btn-link rounded-circle coin text-muted"
                       as="a"
                     >
-                      <img src={UserIcon} alt="User"/>
+                      <img src={UserIcon} alt="User" />
                     </Dropdown.Toggle>
 
                     <Dropdown.Menu style={{ left: "-80px" }}>

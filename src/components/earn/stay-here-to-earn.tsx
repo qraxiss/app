@@ -59,7 +59,7 @@ export const StayHereToEarn = () => {
         now={(currentProgress / totalRequiredTime) * 100}
         className="reward-progress-bar"
       />
-        <div className="text-center">
+      <div className="text-center">
         <button className="progress-claim-button">Claim</button>
       </div>
     </section>

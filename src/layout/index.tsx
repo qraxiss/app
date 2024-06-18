@@ -21,7 +21,7 @@ import {
 import { AppDispatch } from "store";
 import { CollectionModal } from "common/modal/collections";
 import { CollectionsSideBar } from "layout/collection-side-bar";
-
+import OnPathChange from "routes/on-path-change";
 import { listenMarket, updatePrice } from "slices/crypto-market/slice";
 import MobileFooter from "layout/mobileFooter";
 
@@ -109,6 +109,7 @@ const Layout = (props: any) => {
 
   return (
     <React.Fragment>
+      <OnPathChange />
       {location.pathname && <MainModal location={location.pathname} />}
       <CollectionsSideBar openSideBar={openSideBar} isSideBar={sideBarOpen} />
       <div>

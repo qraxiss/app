@@ -538,10 +538,10 @@ export const SearchModal = ({ show, handleClose }: any) => {
                       to={`/product-details/${item.slug}`}
                       className="list-group-item dropdown-item notify-item"
                       key={inx}
-                      style={{paddingInline : '0px'}}
+                      style={{ paddingInline: "0px" }}
                     >
                       <div className="d-flex justify-content-between align-items-center mx-2">
-                        <div className='search-item'>
+                        <div className="search-item">
                           <Image
                             src={item.image}
                             alt=""
@@ -619,7 +619,12 @@ export const CardModal = ({ show, handleClose }: any) => {
   };
   return (
     <React.Fragment>
-      <Offcanvas show={show} onHide={handleClose} placement="end" style={{maxWidth: '85%'}}>
+      <Offcanvas
+        show={show}
+        onHide={handleClose}
+        placement="end"
+        style={{ maxWidth: "85%" }}
+      >
         <Offcanvas.Header className="border-bottom">
           <Offcanvas.Title id="ecommerceCartLabel" as="h5">
             My Cart{" "}

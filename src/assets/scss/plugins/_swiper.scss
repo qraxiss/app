@@ -202,15 +202,23 @@
   text-decoration: underline; /* Optional: Add underline on hover */
 }
 
+.product-details {
+  margin-left: 20px;
+}
+
 @media (max-width: 768px) {
   .breadcrumb-item {
     max-width: 180px; /* Adjust for mobile */
+  }
+
+  .product-details {
+    margin-left: 0px;
   }
 }
 
 @media (min-width: 1400px) {
   .col-xxl-8 {
-    margin-left: 100px !important;
+    margin-left: 50px !important;
   }
 }
 

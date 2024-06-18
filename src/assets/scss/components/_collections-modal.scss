@@ -9,7 +9,7 @@
 }
 
 .menuIcons,
-.collectionsIcons{
+.collectionsIcons {
   filter: none;
 }
 
@@ -47,7 +47,7 @@
   width: 19em !important;
   z-index: 9999;
   height: 100% !important;
-
+  transition: transform 0.4s ease-in-out;
   .header {
     img {
       position: relative;
@@ -170,10 +170,10 @@ li.nav-item {
 }
 
 [data-bs-theme="dark"] {
-  .collectionsIcons{
+  .collectionsIcons {
     filter: invert(0.5);
   }
-  .menuIcons{
+  .menuIcons {
     filter: invert(0.3);
   }
 
@@ -183,7 +183,6 @@ li.nav-item {
         color: black;
       }
     }
-  
   }
 }
 
@@ -217,7 +216,4 @@ li.nav-item {
   #ecommerceCartLabel {
     justify-content: center !important;
   }
-}
-.fade-in {
-  animation: fadeIn 0.5s ease-in-out;
 }
