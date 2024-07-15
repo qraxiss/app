@@ -210,12 +210,12 @@ const Header = (props: any) => {
                     </Link>
                   </li>
                 ))}
-                <li className="nav-item">
+                {/* <li className="nav-item">
                   <Link className="nav-link" to={`/earn`} data-key="t-slug">
                     <img src={EarnIcon} alt="Earn" />
                     EARN
                   </Link>
-                </li>
+                </li> */}
               </Nav>
               <div className="d-flex align-items-center">
                 <Button

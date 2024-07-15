@@ -103,7 +103,7 @@ export const CollectionModal: FC<CollectionModalProps> = ({
             );
           })}
         </div>
-      </div>,
+      </div>
     );
 
     setHeader([
@@ -187,7 +187,7 @@ export const CollectionModal: FC<CollectionModalProps> = ({
                                 } else {
                                   handleClose();
                                   navigate(
-                                    "/products/collection/blockchain-boutique",
+                                    "/products/collection/blockchain-boutique"
                                   );
                                 }
                               }}
@@ -257,7 +257,7 @@ export const CollectionModal: FC<CollectionModalProps> = ({
                           </Link>
                         </div>
                       ))}
-                      <div className="item d-flex">
+                      {/* <div className="item d-flex">
                         <Link
                           className="nav-link d-flex align-items-center"
                           to={`/earn`}
@@ -266,7 +266,7 @@ export const CollectionModal: FC<CollectionModalProps> = ({
                           <img src={EarnIcon} />
                           <p className="p-0 m-0">EARN</p>
                         </Link>
-                      </div>
+                      </div> */}
                     </div>
                   )}
                 </div>

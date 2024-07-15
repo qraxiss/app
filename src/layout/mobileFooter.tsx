@@ -99,7 +99,7 @@ export const MobileFooter: FC<CollectionsSideBarProps> = ({
           >
             <img src={HeartIcon} alt="Heart" className="custom-icon" />
           </Navbar.Brand>
-          <Navbar.Brand
+          {/* <Navbar.Brand
             href="#"
             onClick={() => {
               handleIconClick("earn");
@@ -110,7 +110,7 @@ export const MobileFooter: FC<CollectionsSideBarProps> = ({
             }`}
           >
             <img src={EarnIcon} alt="Earn" className="custom-icon" />
-          </Navbar.Brand>
+          </Navbar.Brand> */}
           <Button
             type="button"
             className={`btn btn-icon btn-topbar btn-ghost-dark icon-container ${
